@@ -31,10 +31,10 @@ function readJson(filePath, fallback) {
 }
 
 const CONFIG = readJson(path.join(AFFILIATE_DIR, "site.config.json"), {
-  siteName: "AIツールナビ",
+  siteName: "AIツールの透視図",
   baseUrl: "https://blitzendegen915-beep.github.io/petrichot",
   blogPath: "",
-  author: "AIツールナビ編集部",
+  author: "AIツールの透視図編集部",
   description: "AIツールの比較・レビュー・活用術を毎日更新",
 });
 
