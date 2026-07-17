@@ -115,3 +115,9 @@ Copy.aiは、シンプルなUIで初心者にも優しいAIライティングツ
 AIライティングツールは、文章作成の効率を大幅に向上させます。初心者には「ChatGPT」の無料版から始めることをおすすめします。その後、Notion AIなど特定の用途に特化したツールへの移行を検討するのが賢い選択です。
 
 2026年は、AIと人間が協働する「AIライティング時代」です。ぜひあなたに合ったツールを見つけて、執筆時間を短縮し、創造力に注力してください。
+
+## 参考リンク
+
+- [ChatGPT](https://openai.com/chatgpt/)
+- [Notion AI](https://www.notion.com/product/ai)
+- [Claude](https://claude.ai/)

@@ -158,3 +158,9 @@ GitHub Copilotは、**月額10ドルで15～30%の開発速度向上が期待で
 ただし複雑なビジネスロジック中心の人や、セキュリティが極めて重要な業務では、導入効果が限定的です。
 
 2ヶ月の無料トライアルがあるので、あなたの業務で実際に試してから判断するのが最良です。2026年のプログラミング効率化には、GitHub Copilotはほぼ必須ツールと言えます。
+
+## 参考リンク
+
+- [GitHub Copilot](https://github.com/features/copilot)
+- [Claude](https://claude.ai/)
+- [ChatGPT](https://openai.com/chatgpt/)

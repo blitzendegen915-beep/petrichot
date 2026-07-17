@@ -13,6 +13,7 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const AFFILIATE_DIR = __dirname;
 const CONTENT_DIR = path.join(AFFILIATE_DIR, "content");
+const STATIC_DIR = path.join(AFFILIATE_DIR, "static");
 const DIST_DIR = path.join(ROOT, "dist");
 
 // ---------------------------------------------------------------------------
@@ -46,6 +47,12 @@ const BLOG_OUT_DIR = path.join(DIST_DIR, ...CONFIG.blogPath.split("/").filter(Bo
 function articleUrl(slug) {
   return `${CONFIG.baseUrl}${CONFIG.blogPath}/${slug}/`;
 }
+
+// If affiliate/static/ogp.png exists it is copied to dist/static/ogp.png and
+// referenced as the default OGP image site-wide; otherwise pages fall back
+// to the previous (image-less) meta behavior.
+const HAS_OGP_IMAGE = fs.existsSync(path.join(STATIC_DIR, "ogp.png"));
+const OGP_IMAGE_URL = HAS_OGP_IMAGE ? `${CONFIG.baseUrl}/static/ogp.png` : null;
 
 const DISCLOSURE_TEXT =
   "※本記事にはプロモーション(アフィリエイト広告)が含まれています。";
@@ -297,6 +304,150 @@ function renderMarkdown(md) {
 }
 
 // ---------------------------------------------------------------------------
+// Sources / references section styling
+// ---------------------------------------------------------------------------
+// Detects an "## 参考リンク" heading in the rendered article HTML and wraps
+// that section (heading + everything after it) in <section class="sources">
+// so it can be styled distinctly (smaller type, top border, external-link
+// affordance). A small post-processing step on already-rendered HTML rather
+// than a markdown-parser change, since the section is just a normal h2 + list.
+
+function wrapSourcesSection(html) {
+  const headingRe = /<h2>[\s\S]*?<\/h2>/g;
+  let match;
+  let sourcesStart = -1;
+  while ((match = headingRe.exec(html))) {
+    if (match[0].includes("参考リンク")) {
+      sourcesStart = match.index;
+      break;
+    }
+  }
+  if (sourcesStart === -1) return html;
+  const before = html.slice(0, sourcesStart);
+  const after = html.slice(sourcesStart);
+  return `${before}<section class="sources">\n${after}\n</section>`;
+}
+
+// ---------------------------------------------------------------------------
+// Per-article generated eyecatch (inline SVG, deterministic, zero assets)
+// ---------------------------------------------------------------------------
+// Every article gets a decorative abstract SVG derived from its slug (seeds
+// the geometry so each article looks different) and category (drives the
+// color scheme, reusing the same hue families as categoryChipClass so it
+// stays on-brand). Colors are emitted as CSS custom properties so the same
+// markup adapts correctly to light/dark automatically. No runtime JS.
+
+function hashStr(str) {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) {
+    h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
+  }
+  return h >>> 0;
+}
+
+function mulberry32(seed) {
+  let t = seed >>> 0;
+  return function rand() {
+    t += 0x6d2b79f5;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r = (r + Math.imul(r ^ (r >>> 7), 61 | r)) ^ r;
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const EYECATCH_PALETTE = {
+  "chip-edu": { main: "var(--eye-edu)", soft: "var(--eye-edu-soft)" },
+  "chip-a": { main: "var(--eye-a)", soft: "var(--eye-a-soft)" },
+  "chip-b": { main: "var(--eye-b)", soft: "var(--eye-b-soft)" },
+  "chip-c": { main: "var(--eye-c)", soft: "var(--eye-c-soft)" },
+  "chip-d": { main: "var(--eye-d)", soft: "var(--eye-d-soft)" },
+  "chip-e": { main: "var(--eye-e)", soft: "var(--eye-e-soft)" },
+};
+
+function eyecatchPalette(category) {
+  const cls = categoryChipClass(category);
+  return EYECATCH_PALETTE[cls] || { main: "var(--accent)", soft: "var(--accent-soft)" };
+}
+
+function generateEyecatch(slug, category) {
+  const rand = mulberry32(hashStr(slug));
+  const { main, soft } = eyecatchPalette(category);
+  const W = 600;
+  const H = 200;
+  const shapes = [`<rect width="${W}" height="${H}" fill="${soft}"/>`];
+  const variant = Math.floor(rand() * 4);
+
+  if (variant === 0) {
+    // Layered translucent circles.
+    const n = 3 + Math.floor(rand() * 3);
+    for (let i = 0; i < n; i++) {
+      const cx = (rand() * W).toFixed(1);
+      const cy = (rand() * H).toFixed(1);
+      const r = (30 + rand() * 90).toFixed(1);
+      const op = (0.12 + rand() * 0.22).toFixed(2);
+      shapes.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${main}" fill-opacity="${op}"/>`);
+    }
+  } else if (variant === 1) {
+    // Diagonal stripes plus a faint ring accent.
+    const n = 5 + Math.floor(rand() * 5);
+    for (let i = 0; i < n; i++) {
+      const x = (-100 + (i * (W + 200)) / n + rand() * 30).toFixed(1);
+      const op = (0.08 + rand() * 0.18).toFixed(2);
+      const sw = (6 + rand() * 18).toFixed(1);
+      shapes.push(
+        `<line x1="${x}" y1="-20" x2="${(Number(x) + 160).toFixed(1)}" y2="${H + 20}" stroke="${main}" stroke-width="${sw}" stroke-opacity="${op}"/>`
+      );
+    }
+    const r = (70 + rand() * 60).toFixed(1);
+    const cx = (rand() * W).toFixed(1);
+    const cy = (rand() * H).toFixed(1);
+    shapes.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${main}" stroke-width="3" stroke-opacity="0.35"/>`);
+  } else if (variant === 2) {
+    // Scattered dot grid plus a large soft ring.
+    const cols = 8;
+    const rows = 4;
+    const gap = W / cols;
+    for (let cxi = 0; cxi < cols; cxi++) {
+      for (let ryi = 0; ryi < rows; ryi++) {
+        if (rand() > 0.55) continue;
+        const cx = (gap * cxi + gap / 2 + (rand() - 0.5) * 10).toFixed(1);
+        const cy = ((H / rows) * ryi + H / rows / 2 + (rand() - 0.5) * 10).toFixed(1);
+        const r = (3 + rand() * 5).toFixed(1);
+        shapes.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${main}" fill-opacity="0.4"/>`);
+      }
+    }
+    const r = (60 + rand() * 50).toFixed(1);
+    shapes.push(
+      `<circle cx="${(W * 0.78).toFixed(1)}" cy="${(H * 0.5).toFixed(1)}" r="${r}" fill="none" stroke="${main}" stroke-width="10" stroke-opacity="0.18"/>`
+    );
+  } else {
+    // Concentric arcs.
+    const cx = (rand() * W).toFixed(1);
+    const cy = (H / 2 + (rand() - 0.5) * 40).toFixed(1);
+    const n = 4 + Math.floor(rand() * 3);
+    for (let i = 0; i < n; i++) {
+      const r = (20 + i * (18 + rand() * 10)).toFixed(1);
+      const op = Math.max(0.08, 0.35 - i * 0.05).toFixed(2);
+      shapes.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${main}" stroke-width="2.5" stroke-opacity="${op}"/>`);
+    }
+  }
+
+  // Occasional large decorative "AI" glyph tucked in a corner.
+  if (rand() > 0.4) {
+    const rightAligned = rand() > 0.5;
+    const gx = rightAligned ? W - 34 : 34;
+    const anchor = rightAligned ? "end" : "start";
+    shapes.push(
+      `<text x="${gx}" y="${H - 26}" text-anchor="${anchor}" font-family="'Space Grotesk','Zen Kaku Gothic New',sans-serif" font-weight="700" font-size="86" fill="${main}" fill-opacity="0.10">AI</text>`
+    );
+  }
+
+  return `<svg class="eyecatch-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">${shapes.join(
+    ""
+  )}</svg>`;
+}
+
+// ---------------------------------------------------------------------------
 // Content loading
 // ---------------------------------------------------------------------------
 
@@ -338,14 +489,16 @@ function loadArticles() {
     }
     seenSlugs.add(data.slug);
 
+    const category = data.category || "AIツール";
     articles.push({
       title: data.title,
       description: data.description || "",
       slug: data.slug,
       date: data.date || "1970-01-01",
-      category: data.category || "AIツール",
+      category,
       tags: data.tags || [],
-      bodyHtml: renderMarkdown(body),
+      bodyHtml: wrapSourcesSection(renderMarkdown(body)),
+      eyecatchSvg: generateEyecatch(data.slug, category),
       sourceFile: file,
     });
   }
@@ -381,6 +534,18 @@ const SITE_CSS = `
   --shadow: 0 10px 30px -12px rgba(24, 20, 15, 0.28);
   --measure: 68ch;
   --wide: 960px;
+  --eye-edu: var(--edu);
+  --eye-edu-soft: var(--edu-soft);
+  --eye-a: #0b5e8c;
+  --eye-a-soft: #dff0ff;
+  --eye-b: #7a5400;
+  --eye-b-soft: #fff0cf;
+  --eye-c: #a3213f;
+  --eye-c-soft: #ffe1e6;
+  --eye-d: #4c6a1f;
+  --eye-d-soft: #e6efd2;
+  --eye-e: #7a4420;
+  --eye-e-soft: #f0ded0;
   --font-display: "Space Grotesk", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
   --font-body: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
 }
@@ -404,6 +569,16 @@ const SITE_CSS = `
     --banner-border: #4c3d10;
     --header-bg: rgba(12, 13, 11, 0.82);
     --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    --eye-a: #7ecbff;
+    --eye-a-soft: #10314a;
+    --eye-b: #ffd873;
+    --eye-b-soft: #3a2c05;
+    --eye-c: #ff9db3;
+    --eye-c-soft: #3a1420;
+    --eye-d: #b7d67f;
+    --eye-d-soft: #26310f;
+    --eye-e: #e3b98a;
+    --eye-e-soft: #3a2818;
   }
 }
 * { box-sizing: border-box; }
@@ -625,6 +800,45 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 }
 .article-meta time { font-family: var(--font-display); font-weight: 600; }
 
+.eyecatch-hero {
+  width: 100%;
+  height: clamp(120px, 26vw, 220px);
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 0 2.2rem;
+}
+
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.sources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.sources ul { padding-left: 1.3rem; }
+.sources li { margin-bottom: 0.5rem; }
+.sources a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+.sources a:hover, .sources a:focus-visible { color: var(--accent); }
+.sources a[target="_blank"]::after {
+  content: "\\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.65;
+}
+
 .aff-cta {
   margin: 2rem 0;
   text-align: center;
@@ -680,11 +894,32 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 .article-card .card-link {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
-  padding: 1.35rem 1.4rem 1.5rem;
   text-decoration: none;
   color: var(--fg);
   height: 100%;
+}
+.card-eyecatch {
+  width: 100%;
+  height: 132px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.card-eyecatch .eyecatch-svg,
+.eyecatch-hero .eyecatch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article-card:hover .card-eyecatch .eyecatch-svg { transform: scale(1.03); }
+.card-eyecatch .eyecatch-svg { transition: transform 0.3s ease; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.1rem 1.4rem 1.5rem;
+  flex: 1;
 }
 .article-card .card-top {
   display: flex;
@@ -761,10 +996,10 @@ function pageShell({ title, description, canonical, ogType = "article", bodyHtml
 <meta property="og:type" content="${ogType}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="${escapeHtml(CONFIG.siteName)}">
-<meta name="twitter:card" content="summary">
+${OGP_IMAGE_URL ? `<meta property="og:image" content="${OGP_IMAGE_URL}">\n` : ""}<meta name="twitter:card" content="${OGP_IMAGE_URL ? "summary_large_image" : "summary"}">
 <meta name="twitter:title" content="${escapeHtml(title)}">
 <meta name="twitter:description" content="${escapeHtml(description)}">
-<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+${OGP_IMAGE_URL ? `<meta name="twitter:image" content="${OGP_IMAGE_URL}">\n` : ""}<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -814,6 +1049,7 @@ function renderArticlePage(article) {
       <span class="chip chip-cat ${categoryChipClass(article.category)}">${escapeHtml(article.category)}</span>
       ${tagsHtml}
     </div>
+    <div class="eyecatch-hero">${article.eyecatchSvg}</div>
     ${article.bodyHtml}
   </article>
 </main>`;
@@ -846,12 +1082,15 @@ function renderBlogIndex(articles) {
         .map(
           (a) => `<li class="article-card">
         <a class="card-link" href="${articleUrl(a.slug)}">
-          <div class="card-top">
-            <span class="chip chip-cat ${categoryChipClass(a.category)}">${escapeHtml(a.category)}</span>
-            <time class="card-date" datetime="${escapeHtml(a.date)}">${escapeHtml(a.date)}</time>
+          <div class="card-eyecatch">${a.eyecatchSvg}</div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="chip chip-cat ${categoryChipClass(a.category)}">${escapeHtml(a.category)}</span>
+              <time class="card-date" datetime="${escapeHtml(a.date)}">${escapeHtml(a.date)}</time>
+            </div>
+            <h2>${escapeHtml(a.title)}</h2>
+            <p class="desc">${escapeHtml(a.description)}</p>
           </div>
-          <h2>${escapeHtml(a.title)}</h2>
-          <p class="desc">${escapeHtml(a.description)}</p>
         </a>
       </li>`
         )
@@ -949,6 +1188,13 @@ ${entries}
 `;
 }
 
+function copyStaticFiles() {
+  if (!fs.existsSync(STATIC_DIR)) return;
+  const dest = path.join(DIST_DIR, "static");
+  ensureDir(dest);
+  fs.cpSync(STATIC_DIR, dest, { recursive: true });
+}
+
 function renderRobots() {
   return `User-agent: *
 Allow: /
@@ -976,6 +1222,7 @@ function build() {
   writeFile(path.join(BLOG_OUT_DIR, "feed.xml"), renderFeed(articles));
   writeFile(path.join(DIST_DIR, "sitemap.xml"), renderSitemap(articles));
   writeFile(path.join(DIST_DIR, "robots.txt"), renderRobots());
+  copyStaticFiles();
 
   console.log(`[build] Done. ${articles.length} article(s) built. Output: ${DIST_DIR}`);
 }

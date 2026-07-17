@@ -213,3 +213,9 @@ AIで業務効率化を実現するには、「正しい導入プロセス」が
 2026年時点では、AIツール（ClaudeやNotion AIなど）も十分な成熟度に達しています。もはや「AI導入するか否か」ではなく、「いつ始めるか」が経営課題になっています。
 
 この記事で紹介した段階的アプローチを実践すれば、3～6ヶ月で確実な業務改善を実現できます。ぜひ今月からAI導入の検討を始めてください。
+
+## 参考リンク
+
+- [Claude（Anthropic）](https://claude.ai/)
+- [Notion AI](https://www.notion.com/product/ai)
+- [Canva](https://www.canva.com/)

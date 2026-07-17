@@ -87,3 +87,10 @@ Claudeは技術的な深さと信頼性が特徴です。
 ## まとめ
 
 ChatGPTとClaudeは異なる強みを持つ、補完関係にあるツールです。ChatGPTは知名度と使いやすさ、Claudeは技術的な深さと安全性が特徴。あなたの主な用途を考えて、最適な選択をしましょう。迷ったら、両方の無料版から試してみるのが確実です。
+
+## 参考リンク
+
+- [ChatGPT（OpenAI）](https://openai.com/chatgpt/)
+- [Claude（Anthropic）](https://claude.ai/)
+- [OpenAI公式サイト](https://openai.com/)
+- [Anthropic公式サイト](https://www.anthropic.com/)
