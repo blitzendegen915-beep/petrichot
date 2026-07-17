@@ -38,5 +38,40 @@
     "label": "Perplexity 公式サイトはこちら",
     "url": "",
     "official": "https://www.perplexity.ai/"
+  },
+  "notta-memo": {
+    "label": "Notta Memo 公式サイトはこちら",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4B82L2+D2XWAA+5988+BYLJL",
+    "official": ""
+  },
+  "notta-brain": {
+    "label": "Notta Brain 公式サイトはこちら",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4B82L2+D3JBW2+5988+HV7V6",
+    "official": ""
+  },
+  "irusiru": {
+    "label": "イルシル 公式サイトはこちら",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4B82L2+D5BMPE+5UMS+5YZ75",
+    "official": ""
+  },
+  "value-ai-writer": {
+    "label": "Value AI Writer 公式サイトはこちら",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4B82L2+D0K5V6+1JUK+1HL85U",
+    "official": ""
+  },
+  "doraverse": {
+    "label": "Doraverse 公式サイトはこちら",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4B82L2+D2CGOI+5UU0+5YJRM",
+    "official": ""
+  },
+  "conoha-ai-canvas": {
+    "label": "ConoHa AI Canvas 公式サイトはこちら",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4B82L2+CZYQ9E+50+7RZINL",
+    "official": ""
+  },
+  "plaud": {
+    "label": "Plaud 公式サイトはこちら",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4B82L2+7MGUNM+5J4W+5YRHE",
+    "official": ""
   }
 }
