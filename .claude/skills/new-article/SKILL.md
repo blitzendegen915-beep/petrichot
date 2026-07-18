@@ -1,44 +1,45 @@
 ---
 name: new-article
-description: 新しいアフィリエイト記事を1本生成してビルド確認する。トピックを引数で指定可能
+description: 「AIツールの透視図」に新規記事を1本追加してビルド・公開する。トピックを引数で指定可能
 ---
 
 # new-article
 
-このスキルは、`affiliate/content/` に新しいアフィリエイト記事を1本追加し、ビルドを確認するための手順です。引数でトピックが指定された場合はそれを使用し、指定がない場合は既存記事と重複しないトピックを自分で選んでください。
+`affiliate/content/` に記事を1本追加し、ビルド確認して公開する手順。引数でトピック指定があればそれを使い、なければ既存記事と重複しないトピックを選ぶ。
 
-## 手順
+## 記事タイプの決定
 
-1. **既存記事の確認**
-   - `affiliate/content/*.md` を一覧し、各ファイルの frontmatter (`title`, `slug`, `category`, `tags`) を読む。
-   - 既にカバーされているトピック・スラッグを把握し、重複しない新しいトピックを選ぶ(引数でトピックが指定されている場合はそれを優先)。
-   - `affiliate/links.json` を読み、利用可能なアフィリエイトID一覧を確認する。
+1. `affiliate/content/*.md` の frontmatter を確認し、category「AIをはじめて学ぶ」の記事数を数える。
+2. 教育記事が全体の1/3未満なら**教育記事**、以上なら**ツール紹介記事**を書く(引数指定があれば優先)。
 
-2. **記事の作成**
-   - `affiliate/content/<slug>.md` を新規作成する。`<slug>` は英小文字とハイフンのみ。
-   - frontmatter は以下のスキーマに厳密に従うこと:
-     ```
-     ---
-     title: 記事タイトル
-     description: SEOを意識した説明文(120文字程度)
-     slug: lowercase-ascii-hyphens
-     date: YYYY-MM-DD (今日の日付)
-     category: カテゴリ名
-     tags: ["タグ1", "タグ2"]
-     ---
-     ```
-   - 本文は1200〜2000文字程度の日本語。`#`/`##`/`###` 見出し、`**太字**`、リンク `[text](url)`、箇条書き `- `、番号リスト `1. `、`` `インラインコード` ``、フェンスコードブロック、`> 引用`、`---` 区切りに対応した簡易Markdownとして書く(build.mjs のレンダラーが対応する範囲のみ使用)。
-   - `affiliate/links.json` に登録されているIDを使い、本文中の自然な流れに `{{aff:ID}}` プレースホルダーを1〜2箇所挿入する。存在しないIDは使わないこと。
+- **ツール紹介記事**: AIツールの比較・使い方・活用術。`affiliate/links.json` の既存IDから1〜2個選び、`{{aff:ID}}` を紹介直後やまとめ前など自然な位置に**単独行**で挿入。category はツール比較/業務効率化/デザイン等。
+- **教育記事**: 中高生向けAIリテラシー・学習活用・社会とAI。やさしい言葉、上から目線にならない口調。category: `AIをはじめて学ぶ`。**{{aff:ID}}は一切入れない**(未成年読者向けに広告を出さない方針)。
 
-3. **ビルドで検証**
-   - `node affiliate/build.mjs` を実行し、警告なく記事が1件増えていることを確認する(出力の "N article(s) built" を確認)。
-   - `dist/<slug>/index.html` が生成されていることを確認する。
-   - 警告(`[build] Skipping ...` や `Unknown affiliate id` など)が出た場合は frontmatter やプレースホルダーを修正して再実行する。
+## frontmatter スキーマ(厳守)
 
-4. **コミット**
-   - `affiliate/content/<slug>.md` をステージしてコミットする(ユーザーから明示的に依頼された場合のみ)。`dist/` はコミットしない。
+```
+---
+title: 記事タイトル(30字前後)
+description: メタディスクリプション(80〜110字)
+slug: lowercase-ascii-hyphens
+date: YYYY-MM-DD(今日)
+category: カテゴリ名
+tags: [タグ1, タグ2, タグ3]
+---
+```
 
-## 注意事項
+## 本文ルール
 
-- `affiliate/content/` 以外のディレクトリ(root の index.html, app.js, review.js, styles.css, assets/)は変更しないこと。
-- 記事は日本語で、景品表示法に配慮した自然な紹介文にすること(誇大広告・断定的な効果表現は避ける)。
+- 1500〜2500字の自然な日本語。導入 → `##` 見出し数個 → 箇条書き活用 → `## まとめ`。
+- **本文に `#`(h1)を書かない**(タイトルはテンプレートが出す。書いてもビルドが降格/除去するが、最初から書かない)。
+- 比較にはGFM表(`| a | b |` + 区切り行)が使える(ビルドが変換)。
+- 誇大表現・断定的な収益/効果保証は禁止。料金・モデル名などは断定を避け「2026年時点」等でぼかす。
+- 記事末尾に必ず `## 参考リンク`(2〜4個)。**URLは承認済みリストのみ(捏造厳禁)**:
+  openai.com/chatgpt/, claude.ai, gemini.google.com, www.notion.com/product/ai, www.canva.com, www.midjourney.com, github.com/features/copilot, www.perplexity.ai, openai.com, www.anthropic.com, blog.google/technology/ai/, www.soumu.go.jp/johotsusintokei/whitepaper/, www.mext.go.jp, www.ipa.go.jp
+
+## ビルド・公開
+
+1. `node affiliate/build.mjs` — エラー・警告ゼロ、記事数+1を確認。
+2. **`git reset --hard` は使わない**(未pushの作業を破壊しうる)。`git add` は新規記事ファイルのみ。
+3. commit(`auto: 新規記事「<タイトル>」を追加`)→ `git push origin main`。
+4. push後1〜2分で `git ls-remote origin gh-pages` のハッシュが変わればデプロイ成功。
