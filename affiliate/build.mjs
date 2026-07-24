@@ -48,6 +48,14 @@ function articleUrl(slug) {
   return `${CONFIG.baseUrl}${CONFIG.blogPath}/${slug}/`;
 }
 
+function tagUrl(tag) {
+  return `${CONFIG.baseUrl}${CONFIG.blogPath}/tag/${encodeURIComponent(tag)}/`;
+}
+
+function categoryUrl(category) {
+  return `${CONFIG.baseUrl}${CONFIG.blogPath}/category/${encodeURIComponent(category)}/`;
+}
+
 // If affiliate/static/ogp.png exists it is copied to dist/static/ogp.png and
 // referenced as the default OGP image site-wide; otherwise pages fall back
 // to the previous (image-less) meta behavior.
@@ -772,6 +780,13 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   border-radius: 999px;
   line-height: 1.4;
   white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+a.chip { cursor: pointer; transition: filter 0.15s ease, transform 0.15s ease; }
+a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
+@media (prefers-color-scheme: dark) {
+  a.chip:hover { filter: brightness(1.2); }
 }
 .chip-tag { background: var(--surface-2); color: var(--muted); }
 .chip-cat { font-weight: 700; }
@@ -1039,7 +1054,9 @@ function formatDateJa(dateStr) {
 function renderArticlePage(article) {
   const url = articleUrl(article.slug);
   const tagsHtml = article.tags.length
-    ? article.tags.map((t) => `<span class="chip chip-tag">${escapeHtml(t)}</span>`).join("")
+    ? article.tags
+        .map((t) => `<a class="chip chip-tag" href="${tagUrl(t)}">${escapeHtml(t)}</a>`)
+        .join("")
     : "";
   const body = `
 <main>
@@ -1047,7 +1064,7 @@ function renderArticlePage(article) {
     <h1>${escapeHtml(article.title)}</h1>
     <div class="article-meta">
       <time datetime="${escapeHtml(article.date)}">${escapeHtml(formatDateJa(article.date))}</time>
-      <span class="chip chip-cat ${categoryChipClass(article.category)}">${escapeHtml(article.category)}</span>
+      <a class="chip chip-cat ${categoryChipClass(article.category)}" href="${categoryUrl(article.category)}">${escapeHtml(article.category)}</a>
       ${tagsHtml}
     </div>
     <div class="eyecatch-hero">${article.eyecatchSvg}</div>
@@ -1077,8 +1094,8 @@ function renderArticlePage(article) {
   });
 }
 
-function renderBlogIndex(articles) {
-  const items = articles.length
+function renderArticleGrid(articles, emptyText) {
+  return articles.length
     ? articles
         .map(
           (a) => `<li class="article-card">
@@ -1096,13 +1113,15 @@ function renderBlogIndex(articles) {
       </li>`
         )
         .join("\n")
-    : `<li class="empty-state">まだ記事がありません。近日公開予定です。</li>`;
+    : `<li class="empty-state">${escapeHtml(emptyText || "まだ記事がありません。近日公開予定です。")}</li>`;
+}
 
+function renderBlogIndex(articles) {
   const body = `
 <main class="wide">
   <h1>記事一覧</h1>
   <ul class="article-grid">
-    ${items}
+    ${renderArticleGrid(articles)}
   </ul>
 </main>`;
 
@@ -1118,6 +1137,32 @@ function renderBlogIndex(articles) {
     title: "記事一覧",
     description: CONFIG.description,
     canonical: BLOG_INDEX_URL,
+    ogType: "website",
+    bodyHtml: body,
+    jsonLd,
+  });
+}
+
+function renderTaxonomyPage({ heading, description, canonical, articles }) {
+  const body = `
+<main class="wide">
+  <h1>${escapeHtml(heading)}</h1>
+  <ul class="article-grid">
+    ${renderArticleGrid(articles, "該当する記事がまだありません。")}
+  </ul>
+</main>`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: heading,
+    url: canonical,
+  };
+
+  return pageShell({
+    title: heading,
+    description,
+    canonical,
     ogType: "website",
     bodyHtml: body,
     jsonLd,
@@ -1170,11 +1215,13 @@ ${items}
 `;
 }
 
-function renderSitemap(articles) {
+function renderSitemap(articles, tagNames, categoryNames) {
   const urls = [
     { loc: SITE_ROOT_URL },
     ...(BLOG_INDEX_URL !== SITE_ROOT_URL ? [{ loc: BLOG_INDEX_URL }] : []),
     ...articles.map((a) => ({ loc: articleUrl(a.slug), lastmod: a.date })),
+    ...(tagNames || []).map((t) => ({ loc: tagUrl(t) })),
+    ...(categoryNames || []).map((c) => ({ loc: categoryUrl(c) })),
   ];
   const entries = urls
     .map((u) => {
@@ -1219,13 +1266,53 @@ function build() {
     writeFile(outPath, renderArticlePage(article));
   }
 
+  const tagMap = new Map();
+  const categoryMap = new Map();
+  for (const a of articles) {
+    for (const t of a.tags) {
+      if (!tagMap.has(t)) tagMap.set(t, []);
+      tagMap.get(t).push(a);
+    }
+    if (!categoryMap.has(a.category)) categoryMap.set(a.category, []);
+    categoryMap.get(a.category).push(a);
+  }
+  for (const [tag, list] of tagMap) {
+    const outPath = path.join(BLOG_OUT_DIR, "tag", tag, "index.html");
+    writeFile(
+      outPath,
+      renderTaxonomyPage({
+        heading: `タグ: ${tag}`,
+        description: `「${tag}」に関する記事一覧`,
+        canonical: tagUrl(tag),
+        articles: list,
+      })
+    );
+  }
+  for (const [category, list] of categoryMap) {
+    const outPath = path.join(BLOG_OUT_DIR, "category", category, "index.html");
+    writeFile(
+      outPath,
+      renderTaxonomyPage({
+        heading: `カテゴリ: ${category}`,
+        description: `「${category}」カテゴリの記事一覧`,
+        canonical: categoryUrl(category),
+        articles: list,
+      })
+    );
+  }
+
   writeFile(path.join(BLOG_OUT_DIR, "index.html"), renderBlogIndex(articles));
   writeFile(path.join(BLOG_OUT_DIR, "feed.xml"), renderFeed(articles));
-  writeFile(path.join(DIST_DIR, "sitemap.xml"), renderSitemap(articles));
+  writeFile(
+    path.join(DIST_DIR, "sitemap.xml"),
+    renderSitemap(articles, [...tagMap.keys()], [...categoryMap.keys()])
+  );
   writeFile(path.join(DIST_DIR, "robots.txt"), renderRobots());
   copyStaticFiles();
 
-  console.log(`[build] Done. ${articles.length} article(s) built. Output: ${DIST_DIR}`);
+  console.log(
+    `[build] Done. ${articles.length} article(s) built, ${tagMap.size} tag page(s), ${categoryMap.size} category page(s). Output: ${DIST_DIR}`
+  );
 }
 
 build();
