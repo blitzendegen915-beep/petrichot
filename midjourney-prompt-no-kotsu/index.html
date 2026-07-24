@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midjourneyプロンプトのコツ10選 | AIツールの透視図</title>
+<meta name="description" content="Midjourneyで高品質な画像を生成するプロンプト作成のコツを10個紹介。初心者でも使える実践的なテクニックを詳しく解説します。">
+<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
+<link rel="canonical" href="https://blitzendegen915-beep.github.io/petrichot/midjourney-prompt-no-kotsu/">
+<meta property="og:title" content="Midjourneyプロンプトのコツ10選">
+<meta property="og:description" content="Midjourneyで高品質な画像を生成するプロンプト作成のコツを10個紹介。初心者でも使える実践的なテクニックを詳しく解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blitzendegen915-beep.github.io/petrichot/midjourney-prompt-no-kotsu/">
+<meta property="og:site_name" content="AIツールの透視図">
+<meta property="og:image" content="https://blitzendegen915-beep.github.io/petrichot/static/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Midjourneyプロンプトのコツ10選">
+<meta name="twitter:description" content="Midjourneyで高品質な画像を生成するプロンプト作成のコツを10個紹介。初心者でも使える実践的なテクニックを詳しく解説します。">
+<meta name="twitter:image" content="https://blitzendegen915-beep.github.io/petrichot/static/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Midjourneyプロンプトのコツ10選","description":"Midjourneyで高品質な画像を生成するプロンプト作成のコツを10個紹介。初心者でも使える実践的なテクニックを詳しく解説します。","datePublished":"2026-07-17","author":{"@type":"Organization","name":"AIツールの透視図編集部"},"publisher":{"@type":"Organization","name":"AIツールの透視図"},"mainEntityOfPage":"https://blitzendegen915-beep.github.io/petrichot/midjourney-prompt-no-kotsu/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f3ea;
+  --surface: #ffffff;
+  --surface-2: #efe8d8;
+  --fg: #18140f;
+  --muted: #6b6357;
+  --accent: #ff4d23;
+  --accent-fg: #17130d;
+  --accent-soft: #ffe1d2;
+  --edu: #0f8f72;
+  --edu-fg: #ffffff;
+  --edu-soft: #d7f2e9;
+  --border: #e6dfcf;
+  --code-bg: #efe7d6;
+  --banner-bg: #fff1cf;
+  --banner-fg: #6b4a00;
+  --banner-border: #ecd79a;
+  --header-bg: rgba(247, 243, 234, 0.86);
+  --shadow: 0 10px 30px -12px rgba(24, 20, 15, 0.28);
+  --measure: 68ch;
+  --wide: 960px;
+  --eye-edu: var(--edu);
+  --eye-edu-soft: var(--edu-soft);
+  --eye-a: #0b5e8c;
+  --eye-a-soft: #dff0ff;
+  --eye-b: #7a5400;
+  --eye-b-soft: #fff0cf;
+  --eye-c: #a3213f;
+  --eye-c-soft: #ffe1e6;
+  --eye-d: #4c6a1f;
+  --eye-d-soft: #e6efd2;
+  --eye-e: #7a4420;
+  --eye-e-soft: #f0ded0;
+  --font-display: "Space Grotesk", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0d0b;
+    --surface: #17191a;
+    --surface-2: #1f2221;
+    --fg: #f2ede2;
+    --muted: #a29a8b;
+    --accent: #ff7a4a;
+    --accent-fg: #0c0d0b;
+    --accent-soft: #3a2015;
+    --edu: #2fe3ac;
+    --edu-fg: #06231a;
+    --edu-soft: #123328;
+    --border: #2a2c2a;
+    --code-bg: #1c1e1d;
+    --banner-bg: #2c2308;
+    --banner-fg: #f2d886;
+    --banner-border: #4c3d10;
+    --header-bg: rgba(12, 13, 11, 0.82);
+    --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    --eye-a: #7ecbff;
+    --eye-a-soft: #10314a;
+    --eye-b: #ffd873;
+    --eye-b-soft: #3a2c05;
+    --eye-c: #ff9db3;
+    --eye-c-soft: #3a1420;
+    --eye-d: #b7d67f;
+    --eye-d-soft: #26310f;
+    --eye-e: #e3b98a;
+    --eye-e-soft: #3a2818;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: #fff; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header-bg);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.25rem;
+}
+.site-header .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  min-width: 0;
+}
+.brand-mark {
+  flex-shrink: 0;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--edu) 100%);
+  transform: rotate(-8deg);
+  box-shadow: var(--shadow);
+}
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.site-header nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.disclosure-banner {
+  max-width: var(--wide);
+  margin: 1rem auto 0;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border: 1px solid var(--banner-border);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.disclosure-badge {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--banner-fg);
+  color: var(--banner-bg);
+  margin-top: 0.1rem;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+main.wide { max-width: var(--wide); }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.15rem);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  margin: 0.6rem 0 1.1rem;
+}
+article { counter-reset: h2count; }
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 2.75rem 0 1.15rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+}
+article h2::before {
+  counter-increment: h2count;
+  content: counter(h2count, decimal-leading-zero) " / ";
+  color: var(--accent);
+  opacity: 0.6;
+  font-size: 0.75em;
+  letter-spacing: 0.03em;
+}
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+}
+p { margin: 0 0 1.15rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+ul > li::marker { color: var(--accent); }
+ol > li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 700; }
+blockquote {
+  position: relative;
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.4rem;
+  border-left: 4px solid var(--edu);
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+a.chip { cursor: pointer; transition: filter 0.15s ease, transform 0.15s ease; }
+a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
+@media (prefers-color-scheme: dark) {
+  a.chip:hover { filter: brightness(1.2); }
+}
+.chip-tag { background: var(--surface-2); color: var(--muted); }
+.chip-cat { font-weight: 700; }
+.chip-edu { background: var(--edu-soft); color: var(--edu); }
+.chip-a { background: #dff0ff; color: #0b5e8c; }
+.chip-b { background: #fff0cf; color: #7a5400; }
+.chip-c { background: #ffe1e6; color: #a3213f; }
+.chip-d { background: #e6efd2; color: #4c6a1f; }
+.chip-e { background: #f0ded0; color: #7a4420; }
+@media (prefers-color-scheme: dark) {
+  .chip-a { background: #10314a; color: #7ecbff; }
+  .chip-b { background: #3a2c05; color: #ffd873; }
+  .chip-c { background: #3a1420; color: #ff9db3; }
+  .chip-d { background: #26310f; color: #b7d67f; }
+  .chip-e { background: #3a2818; color: #e3b98a; }
+}
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.article-meta time { font-family: var(--font-display); font-weight: 600; }
+
+.eyecatch-hero {
+  width: 100%;
+  height: clamp(120px, 26vw, 220px);
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 0 2.2rem;
+}
+
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.sources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.sources ul { padding-left: 1.3rem; }
+.sources li { margin-bottom: 0.5rem; }
+.sources a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+.sources a:hover, .sources a:focus-visible { color: var(--accent); }
+.sources a[target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.65;
+}
+
+.aff-cta {
+  margin: 2rem 0;
+  text-align: center;
+}
+.aff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 1rem 2.25rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.aff-btn::after { content: "\2192"; transition: transform 0.18s ease; }
+.aff-btn:hover, .aff-btn:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 18px 34px -14px var(--accent);
+}
+.aff-btn:hover::after { transform: translateX(3px); }
+.aff-btn:active { transform: translateY(-1px); }
+
+.article-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 700px) {
+  .article-grid { grid-template-columns: 1fr 1fr; }
+}
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+}
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+.article-card .card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--fg);
+  height: 100%;
+}
+.card-eyecatch {
+  width: 100%;
+  height: 132px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.card-eyecatch .eyecatch-svg,
+.eyecatch-hero .eyecatch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article-card:hover .card-eyecatch .eyecatch-svg { transform: scale(1.03); }
+.card-eyecatch .eyecatch-svg { transition: transform 0.3s ease; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.1rem 1.4rem 1.5rem;
+  flex: 1;
+}
+.article-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.article-card .card-date {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.article-card h2 {
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+  margin: 0.2rem 0 0;
+  line-height: 1.55;
+}
+.article-card h2::before { content: none; }
+.article-card .desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding: 2rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.site-footer .inner { max-width: var(--wide); margin: 0 auto; }
+.site-footer p { margin: 0.35rem 0; }
+.site-footer .footer-disclosure {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="https://blitzendegen915-beep.github.io/petrichot/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">AIツールの透視図</span>
+    </a>
+    <nav>
+      <a href="https://blitzendegen915-beep.github.io/petrichot/">記事一覧</a>
+    </nav>
+  </div>
+</header>
+<div class="disclosure-banner"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></div>
+
+<main>
+  <article>
+    <h1>Midjourneyプロンプトのコツ10選</h1>
+    <div class="article-meta">
+      <time datetime="2026-07-17">2026-07-17</time>
+      <a class="chip chip-cat chip-a" href="https://blitzendegen915-beep.github.io/petrichot/category/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3/">デザイン</a>
+      <a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/Midjourney/">Midjourney</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/AI%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90/">AI画像生成</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88/">プロンプト</a>
+    </div>
+    <div class="eyecatch-hero"><svg class="eyecatch-svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="200" fill="var(--eye-a-soft)"/><circle cx="35.7" cy="28.0" r="6.8" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="35.5" cy="76.7" r="6.3" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="36.5" cy="129.1" r="3.5" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="40.9" cy="170.4" r="6.4" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="107.9" cy="27.7" r="3.3" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="109.8" cy="80.0" r="3.4" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="113.4" cy="129.6" r="5.1" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="108.5" cy="173.6" r="7.1" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="192.2" cy="26.5" r="7.3" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="186.1" cy="71.8" r="6.5" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="192.3" cy="120.3" r="6.1" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="184.0" cy="179.9" r="6.5" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="262.6" cy="173.3" r="4.3" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="342.4" cy="120.4" r="7.7" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="335.7" cy="179.3" r="6.6" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="412.3" cy="173.9" r="6.3" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="486.3" cy="122.9" r="6.3" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="491.6" cy="171.6" r="5.6" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="559.2" cy="120.3" r="6.7" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="557.9" cy="177.2" r="6.3" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="468.0" cy="100.0" r="102.7" fill="none" stroke="var(--eye-a)" stroke-width="10" stroke-opacity="0.18"/></svg></div>
+    <h2>はじめに</h2>
+<p>AI画像生成ツール「Midjourney」は、テキストの説明から驚くほどリアルで高品質な画像を生成できるツールとして、2026年時点で多くのデザイナーやクリエイターに使われています。しかし、単に「美しい風景画像を作って」と指示するだけでは、期待通りの画像は生成されません。</p>
+<p>Midjourneyで高品質な画像を生成するには、<strong>適切なプロンプト（指示文）の作成</strong>が極めて重要です。この記事では、Midjourneyのプロンプト作成のコツを10個紹介し、あなたのクリエイティブワークを次のレベルへ導きます。</p>
+<h2>プロンプト作成の基本原則</h2>
+<h3>より詳しく、より具体的に</h3>
+<p>「美しい女性の肖像画」というシンプルな指示より、「30代の日本人女性、黒いロングヘア、柔らかい微笑み、自然光、背景は京都の古い寺院」という具体的な指示の方が、期待に近い画像が生成されます。</p>
+<h3>視点と構図の指定</h3>
+<p>「俯瞰図」「ローアングル」「クローズアップ」など、カメラアングルを明記することで、画像の見栄えが大きく変わります。</p>
+<h3>スタイルと質感の明示</h3>
+<p>「油絵風」「アニメ風」「写真」「イラスト」など、出力されるべきアートスタイルを明確にすることが重要です。</p>
+<h2>Midjourneyプロンプトのコツ10選</h2>
+<h3>1. 被写体を明確に指定する</h3>
+<p>プロンプトの最初に、何を描きたいのかを最も重要な情報として配置します。</p>
+<pre><code>好い例：
+/imagine prompt: A majestic golden retriever with flowing coat, sitting proudly in a sunlit garden</code></pre>
+<p>漠然とした指示より、具体的な被写体を最初に明記することで、AIが正確に解釈します。</p>
+<h3>2. 修飾語を効果的に使用</h3>
+<p>被写体の周囲に、それを飾る言葉を配置します。色、質感、雰囲気、感情など、多角的な修飾が効果的です。</p>
+<pre><code>例：
+vibrant, cinematic, dramatic lighting, ultra-detailed, masterpiece, professional photography</code></pre>
+<p>これらの修飾語を組み合わせることで、出力の品質が大きく向上します。</p>
+<h3>3. アーティストやスタイルを参考に指定</h3>
+<p>特定のアーティストの名前や有名な映画、アニメなどを参考にすることで、Midjourneyはそのスタイルに沿った画像を生成します。</p>
+<pre><code>例：
+in the style of Studio Ghibli, inspired by Van Gogh, cinematic style of Blade Runner</code></pre>
+<p>2026年時点で、多くのアーティスト名やメディア名がMidjourneyのデータベースに含まれており、参考指定が効果的に機能します。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://www.midjourney.com/" rel="sponsored nofollow noopener" target="_blank">Midjourney 公式サイトはこちら</a></div>
+<h3>4. 照明条件を詳しく指定</h3>
+<p>画像の雰囲気は、照明で大きく変わります。照明条件を明記することで、より一貫性のある画像が生成されます。</p>
+<pre><code>例：
+golden hour lighting, backlighting, neon lights, candlelit, harsh shadows, soft diffused light</code></pre>
+<h3>5. 背景を明確に指定</h3>
+<p>被写体だけでなく、背景も詳しく記述することで、全体的な世界観が統一されます。</p>
+<pre><code>例：
+background: futuristic city skyline, misty forest, abstract gradient, historical architecture</code></pre>
+<h3>6. カメラ設定と構図を記述</h3>
+<p>写真的なリアリティを求める場合、カメラの設定を記述すると効果的です。</p>
+<pre><code>例：
+shot on Canon 5D, 85mm lens, shallow depth of field, bokeh, wide-angle perspective</code></pre>
+<h3>7. 色パレットを指定</h3>
+<p>生成する画像の色調を事前に指定することで、統一感のある出力が得られます。</p>
+<pre><code>例：
+color palette: cool blues and cyans, warm earth tones, vibrant neons, monochromatic black and white</code></pre>
+<h3>8. 解像度と品質指標を含める</h3>
+<p>Midjourneyに対して、出力の品質レベルを指示することで、より詳細で精密な画像を生成できます。</p>
+<pre><code>例：
+8k resolution, ultra HD, highly detailed, intricate details, professional quality, sharp focus</code></pre>
+<h3>9. 感情と雰囲気の言葉を活用</h3>
+<p>画像に込めたい感情や雰囲気を言語化することで、より深みのある画像が生成されます。</p>
+<pre><code>例：
+serene and peaceful, dark and mysterious, vibrant and joyful, dramatic and intense</code></pre>
+<h3>10. 否定的な指示（negative prompts）を活用</h3>
+<p>Midjourneyでは、「この要素は含めない」という指示も可能です。不要な要素を明示することで、より望ましい結果が得られます。</p>
+<pre><code>例：
+--no watermark, --no text, --no distorted features, --no low quality</code></pre>
+<h2>実践的なプロンプト例</h2>
+<h3>例1: ビジネスプロフィール写真</h3>
+<pre><code>/imagine prompt: Professional Asian businesswoman, age 35, wearing navy blazer and white blouse, confident smile, studio lighting with white background, shot with 85mm lens, ultra-detailed, 8k resolution, corporate portrait style, perfect skin, hair salon quality</code></pre>
+<h3>例2: ファンタジー風景</h3>
+<pre><code>/imagine prompt: Enchanted forest with ancient ruins, bioluminescent plants glowing in the darkness, misty atmosphere, magical floating crystals, fantasy landscape art style, inspired by concept art, rich color palette of purples and greens, cinematic composition, ultra-detailed, 8k</code></pre>
+<h3>例3: 製品デザイン</h3>
+<pre><code>/imagine prompt: Modern sleek smartwatch, minimalist design, rose gold and titanium materials, bright minimalist white studio background, product photography, professional lighting, sharp focus, 3D rendering quality, --no hands, --no person</code></pre>
+<h2>プロンプト作成時の注意点</h2>
+<h3>1. 曖昧さを避ける</h3>
+<p>「かっこいい」「きれい」など曖昧な言葉より、「minimalist and geometric」「classical and elegant」など、より具体的な表現を使用します。</p>
+<h3>2. 矛盾する指示を避ける</h3>
+<p>「リアリスティックなアニメ風」など、相反する指示は避けるべきです。複数のスタイルを組み合わせたい場合は、その順序と重要度を明確にします。</p>
+<h3>3. 過度に長いプロンプトを避ける</h3>
+<p>300語を超えるプロンプトは、かえってAIの理解を阻害することがあります。重要な要素に絞ったコンパクトなプロンプトが効果的です。</p>
+<h3>4. テストと改善</h3>
+<p>最初のプロンプトで完璧な結果は期待できません。生成結果を見ながら、プロンプトを段階的に改善する「反復的アプローチ」が効果的です。</p>
+<h2>Midjourneyの設定オプション</h2>
+<h3>アスペクト比の指定</h3>
+<pre><code>--ar 16:9  （横長）
+--ar 1:1   （正方形）
+--ar 9:16  （縦長）</code></pre>
+<h3>スタイル指定</h3>
+<pre><code>--style raw      （より自然なスタイル）
+--style niji     （アニメ風）</code></pre>
+<h3>品質設定</h3>
+<pre><code>--quality 2      （通常、デフォルト）
+--quality 1      （高速処理）
+--hd             （より詳細）</code></pre>
+<h2>初心者向けのコツ</h2>
+<h3>既存画像の参考利用</h3>
+<p>Midjourneyは、URLで指定した画像をスタイル参考として利用できます。自分が目指すスタイルの画像をまず探し、それをプロンプトに組み込むことで、初心者でも高品質な結果が得られます。</p>
+<h3>段階的な詳細化</h3>
+<p>最初はシンプルなプロンプトから始めて、必要に応じて要素を追加していくアプローチもおすすめです。</p>
+<h3>コミュニティの例を参考に</h3>
+<p>Midjourneyのコミュニティフォーラムでは、様々なプロンプト例が共有されています。成功例を参考にしながら自分のバリエーションを作成することで、学習が加速します。</p>
+<h2>2026年のトレンド</h2>
+<p>2026年時点で、Midjourneyは継続的にアップデートされており、より自然で高度な画像生成が可能になっています。新しいスタイル指定オプションも定期的に追加されており、プロンプト作成の自由度がさらに高まっています。</p>
+<p>リアルタイムの最新情報は、Midjourneyの公式ドキュメントやコミュニティチャネルで確認することをおすすめします。</p>
+<h2>まとめ</h2>
+<p>Midjourneyで高品質な画像を生成するには、適切で詳細なプロンプト作成が不可欠です。10個のコツを実践することで、あなたのビジョンに沿った画像を効率的に生成できるようになります。</p>
+<p>最初のうちは完璧なプロンプトを作成することは難しいかもしれません。しかし、試行錯誤を重ねることで、Midjourneyとの「対話スキル」は確実に向上します。ぜひこれらのコツを活用して、AIアート制作の世界を楽しんでください。</p>
+<section class="sources">
+<h2>参考リンク</h2>
+<ul><li><a href="https://www.midjourney.com/" target="_blank" rel="noopener noreferrer">Midjourney公式サイト</a></li><li><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Anthropic Claude</a></li><li><a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Canva - デザインツール</a></li><li><a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a></li></ul>
+</section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    <p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></p>
+    <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
+    <p>&copy; 2026 AIツールの透視図</p>
+  </div>
+</footer>
+</body>
+</html>

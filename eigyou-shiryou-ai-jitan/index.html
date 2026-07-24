@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>営業資料・提案書をAIで時短する方法 | AIツールの透視図</title>
+<meta name="description" content="営業資料や提案書の作成にかかる時間をAIで短縮する方法を紹介。スライド生成AI「イルシル」と画像生成AIの組み合わせ方、実践フローを解説します。">
+<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
+<link rel="canonical" href="https://blitzendegen915-beep.github.io/petrichot/eigyou-shiryou-ai-jitan/">
+<meta property="og:title" content="営業資料・提案書をAIで時短する方法">
+<meta property="og:description" content="営業資料や提案書の作成にかかる時間をAIで短縮する方法を紹介。スライド生成AI「イルシル」と画像生成AIの組み合わせ方、実践フローを解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blitzendegen915-beep.github.io/petrichot/eigyou-shiryou-ai-jitan/">
+<meta property="og:site_name" content="AIツールの透視図">
+<meta property="og:image" content="https://blitzendegen915-beep.github.io/petrichot/static/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="営業資料・提案書をAIで時短する方法">
+<meta name="twitter:description" content="営業資料や提案書の作成にかかる時間をAIで短縮する方法を紹介。スライド生成AI「イルシル」と画像生成AIの組み合わせ方、実践フローを解説します。">
+<meta name="twitter:image" content="https://blitzendegen915-beep.github.io/petrichot/static/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"営業資料・提案書をAIで時短する方法","description":"営業資料や提案書の作成にかかる時間をAIで短縮する方法を紹介。スライド生成AI「イルシル」と画像生成AIの組み合わせ方、実践フローを解説します。","datePublished":"2026-07-24","author":{"@type":"Organization","name":"AIツールの透視図編集部"},"publisher":{"@type":"Organization","name":"AIツールの透視図"},"mainEntityOfPage":"https://blitzendegen915-beep.github.io/petrichot/eigyou-shiryou-ai-jitan/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f3ea;
+  --surface: #ffffff;
+  --surface-2: #efe8d8;
+  --fg: #18140f;
+  --muted: #6b6357;
+  --accent: #ff4d23;
+  --accent-fg: #17130d;
+  --accent-soft: #ffe1d2;
+  --edu: #0f8f72;
+  --edu-fg: #ffffff;
+  --edu-soft: #d7f2e9;
+  --border: #e6dfcf;
+  --code-bg: #efe7d6;
+  --banner-bg: #fff1cf;
+  --banner-fg: #6b4a00;
+  --banner-border: #ecd79a;
+  --header-bg: rgba(247, 243, 234, 0.86);
+  --shadow: 0 10px 30px -12px rgba(24, 20, 15, 0.28);
+  --measure: 68ch;
+  --wide: 960px;
+  --eye-edu: var(--edu);
+  --eye-edu-soft: var(--edu-soft);
+  --eye-a: #0b5e8c;
+  --eye-a-soft: #dff0ff;
+  --eye-b: #7a5400;
+  --eye-b-soft: #fff0cf;
+  --eye-c: #a3213f;
+  --eye-c-soft: #ffe1e6;
+  --eye-d: #4c6a1f;
+  --eye-d-soft: #e6efd2;
+  --eye-e: #7a4420;
+  --eye-e-soft: #f0ded0;
+  --font-display: "Space Grotesk", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0d0b;
+    --surface: #17191a;
+    --surface-2: #1f2221;
+    --fg: #f2ede2;
+    --muted: #a29a8b;
+    --accent: #ff7a4a;
+    --accent-fg: #0c0d0b;
+    --accent-soft: #3a2015;
+    --edu: #2fe3ac;
+    --edu-fg: #06231a;
+    --edu-soft: #123328;
+    --border: #2a2c2a;
+    --code-bg: #1c1e1d;
+    --banner-bg: #2c2308;
+    --banner-fg: #f2d886;
+    --banner-border: #4c3d10;
+    --header-bg: rgba(12, 13, 11, 0.82);
+    --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    --eye-a: #7ecbff;
+    --eye-a-soft: #10314a;
+    --eye-b: #ffd873;
+    --eye-b-soft: #3a2c05;
+    --eye-c: #ff9db3;
+    --eye-c-soft: #3a1420;
+    --eye-d: #b7d67f;
+    --eye-d-soft: #26310f;
+    --eye-e: #e3b98a;
+    --eye-e-soft: #3a2818;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: #fff; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header-bg);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.25rem;
+}
+.site-header .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  min-width: 0;
+}
+.brand-mark {
+  flex-shrink: 0;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--edu) 100%);
+  transform: rotate(-8deg);
+  box-shadow: var(--shadow);
+}
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.site-header nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.disclosure-banner {
+  max-width: var(--wide);
+  margin: 1rem auto 0;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border: 1px solid var(--banner-border);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.disclosure-badge {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--banner-fg);
+  color: var(--banner-bg);
+  margin-top: 0.1rem;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+main.wide { max-width: var(--wide); }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.15rem);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  margin: 0.6rem 0 1.1rem;
+}
+article { counter-reset: h2count; }
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 2.75rem 0 1.15rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+}
+article h2::before {
+  counter-increment: h2count;
+  content: counter(h2count, decimal-leading-zero) " / ";
+  color: var(--accent);
+  opacity: 0.6;
+  font-size: 0.75em;
+  letter-spacing: 0.03em;
+}
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+}
+p { margin: 0 0 1.15rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+ul > li::marker { color: var(--accent); }
+ol > li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 700; }
+blockquote {
+  position: relative;
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.4rem;
+  border-left: 4px solid var(--edu);
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+a.chip { cursor: pointer; transition: filter 0.15s ease, transform 0.15s ease; }
+a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
+@media (prefers-color-scheme: dark) {
+  a.chip:hover { filter: brightness(1.2); }
+}
+.chip-tag { background: var(--surface-2); color: var(--muted); }
+.chip-cat { font-weight: 700; }
+.chip-edu { background: var(--edu-soft); color: var(--edu); }
+.chip-a { background: #dff0ff; color: #0b5e8c; }
+.chip-b { background: #fff0cf; color: #7a5400; }
+.chip-c { background: #ffe1e6; color: #a3213f; }
+.chip-d { background: #e6efd2; color: #4c6a1f; }
+.chip-e { background: #f0ded0; color: #7a4420; }
+@media (prefers-color-scheme: dark) {
+  .chip-a { background: #10314a; color: #7ecbff; }
+  .chip-b { background: #3a2c05; color: #ffd873; }
+  .chip-c { background: #3a1420; color: #ff9db3; }
+  .chip-d { background: #26310f; color: #b7d67f; }
+  .chip-e { background: #3a2818; color: #e3b98a; }
+}
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.article-meta time { font-family: var(--font-display); font-weight: 600; }
+
+.eyecatch-hero {
+  width: 100%;
+  height: clamp(120px, 26vw, 220px);
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 0 2.2rem;
+}
+
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.sources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.sources ul { padding-left: 1.3rem; }
+.sources li { margin-bottom: 0.5rem; }
+.sources a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+.sources a:hover, .sources a:focus-visible { color: var(--accent); }
+.sources a[target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.65;
+}
+
+.aff-cta {
+  margin: 2rem 0;
+  text-align: center;
+}
+.aff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 1rem 2.25rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.aff-btn::after { content: "\2192"; transition: transform 0.18s ease; }
+.aff-btn:hover, .aff-btn:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 18px 34px -14px var(--accent);
+}
+.aff-btn:hover::after { transform: translateX(3px); }
+.aff-btn:active { transform: translateY(-1px); }
+
+.article-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 700px) {
+  .article-grid { grid-template-columns: 1fr 1fr; }
+}
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+}
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+.article-card .card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--fg);
+  height: 100%;
+}
+.card-eyecatch {
+  width: 100%;
+  height: 132px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.card-eyecatch .eyecatch-svg,
+.eyecatch-hero .eyecatch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article-card:hover .card-eyecatch .eyecatch-svg { transform: scale(1.03); }
+.card-eyecatch .eyecatch-svg { transition: transform 0.3s ease; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.1rem 1.4rem 1.5rem;
+  flex: 1;
+}
+.article-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.article-card .card-date {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.article-card h2 {
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+  margin: 0.2rem 0 0;
+  line-height: 1.55;
+}
+.article-card h2::before { content: none; }
+.article-card .desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding: 2rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.site-footer .inner { max-width: var(--wide); margin: 0 auto; }
+.site-footer p { margin: 0.35rem 0; }
+.site-footer .footer-disclosure {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="https://blitzendegen915-beep.github.io/petrichot/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">AIツールの透視図</span>
+    </a>
+    <nav>
+      <a href="https://blitzendegen915-beep.github.io/petrichot/">記事一覧</a>
+    </nav>
+  </div>
+</header>
+<div class="disclosure-banner"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></div>
+
+<main>
+  <article>
+    <h1>営業資料・提案書をAIで時短する方法</h1>
+    <div class="article-meta">
+      <time datetime="2026-07-24">2026-07-24</time>
+      <a class="chip chip-cat chip-a" href="https://blitzendegen915-beep.github.io/petrichot/category/%E6%A5%AD%E5%8B%99%E5%8A%B9%E7%8E%87%E5%8C%96/">業務効率化</a>
+      <a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/%E5%96%B6%E6%A5%AD%E8%B3%87%E6%96%99/">営業資料</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/%E3%83%97%E3%83%AC%E3%82%BC%E3%83%B3%E8%B3%87%E6%96%99/">プレゼン資料</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/AI/">AI</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/%E6%A5%AD%E5%8B%99%E5%8A%B9%E7%8E%87%E5%8C%96/">業務効率化</a>
+    </div>
+    <div class="eyecatch-hero"><svg class="eyecatch-svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="200" fill="var(--eye-a-soft)"/><circle cx="580.4" cy="104.7" r="20.0" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.35"/><circle cx="580.4" cy="104.7" r="40.2" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.30"/><circle cx="580.4" cy="104.7" r="56.2" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.25"/><circle cx="580.4" cy="104.7" r="96.7" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.20"/><text x="34" y="174" text-anchor="start" font-family="'Space Grotesk','Zen Kaku Gothic New',sans-serif" font-weight="700" font-size="86" fill="var(--eye-a)" fill-opacity="0.10">AI</text></svg></div>
+    <p>「明日の商談までに提案書を仕上げなければならないのに、まだ真っ白なスライドしか開いていない」――営業や企画の仕事をしていると、こうした状況に何度も直面します。営業資料・提案書の作成は、内容を考えること以上に、スライドのレイアウトや装飾に時間を取られがちです。本記事では、AIを使って資料作成の「作業時間」を圧縮し、本来集中すべき「内容の質」に時間を使う方法を紹介します。</p>
+<h2>営業資料作成で時間がかかる工程はどこか</h2>
+<p>まず、営業資料・提案書を作る一連の流れを分解してみましょう。</p>
+<p>| 工程 | 内容 | 時間がかかりやすい理由 |<br>|---|---|---|<br>| 構成づくり | 目次・ストーリーラインの設計 | ゼロから考えるのは負荷が高い |<br>| スライド作成 | レイアウト・デザインへの落とし込み | 装飾やページ割りに時間を取られる |<br>| ビジュアル準備 | 図解・イメージ画像の用意 | 素材探しや作成に手間がかかる |<br>| 仕上げ・確認 | 誤字脱字、数字の整合性チェック | 提出前の見直しは省けない |</p>
+<p>この中で、AIによる時短効果が出やすいのが「スライド作成」と「ビジュアル準備」の2工程です。内容の骨子や最終チェックは人間が担うべき部分ですが、この2つはツールに任せやすい領域といえます。</p>
+<h2>スライドの土台を作る：イルシル</h2>
+<p>営業資料作成の中でも、特に負担が大きいのが「白紙のスライドに何をどう配置するか」を一から考える作業です。ここで活用したいのが、AIスライド作成ツール「イルシル」です。</p>
+<p>イルシルは、伝えたいテーマや内容の要点を入力すると、それをもとにスライドの構成案・デザインを自動で組み立ててくれるツールです。空白のキャンバスから作り始めるのではなく、まず「たたき台」をAIに作らせて、そこから内容を調整していく進め方ができます。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://px.a8.net/svt/ejp?a8mat=4B82L2+D5BMPE+5UMS+5YZ75" rel="sponsored nofollow noopener" target="_blank">イルシル 公式サイトはこちら</a></div>
+<p>営業資料に置き換えると、例えば次のような使い方が考えられます。</p>
+<ul><li>商談先の課題・提案内容の骨子をテキストで入力し、スライド構成の下書きを作らせる</li><li>自社の実績データや事例を箇条書きで渡し、図表への変換候補を提示してもらう</li><li>生成された構成をベースに、営業担当者が顧客固有の情報や交渉ポイントを加筆する</li></ul>
+<p>「アウトラインを考える時間」と「レイアウトを整える時間」をAIに肩代わりしてもらい、営業担当者は顧客理解や提案内容の精査に時間を使う、という役割分担が基本の考え方です。「たたき台作成が大幅に短くなった」という例もありますが、削減できる時間は資料の分量や慣れ次第で変わるため過度な期待は禁物です。最新の機能・料金は公式サイトでご確認ください。</p>
+<h2>ビジュアルを補う：ConoHa AI Canvas</h2>
+<p>構成とテキストが整っても、「イメージに合う図解やビジュアル素材が見当たらない」という壁にぶつかることがあります。フリー素材サイトを探し回った経験がある人も多いのではないでしょうか。</p>
+<p>そこで組み合わせたいのが、ブラウザで完結するAI画像生成ツール「ConoHa AI Canvas」です。デザイナーに依頼したり素材サイトを探し回ったりしなくても、作りたいイメージをテキストで指定するだけで画像を生成できるのが特徴です。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://px.a8.net/svt/ejp?a8mat=4B82L2+CZYQ9E+50+7RZINL" rel="sponsored nofollow noopener" target="_blank">ConoHa AI Canvas 公式サイトはこちら</a></div>
+<p>提案書づくりの場面では、次のような使い方が考えられます。</p>
+<ul><li>表紙やセクション区切りのイメージ画像を、資料のトーンに合わせて生成する</li><li>サービスや商品のイメージを視覚的に伝えるための補助的なビジュアルを用意する</li><li>既存の素材にない、コンセプトに合ったオリジナル画像を用意する</li></ul>
+<p>「イルシルで骨組みを作り、足りないビジュアルをConoHa AI Canvasで補う」組み合わせにより、資料作成における「探す・迷う」時間を減らせる可能性があります。生成画像のテイストや商用利用時の扱いはツールにより異なるため、こちらも最新の機能・料金は公式サイトでご確認ください。</p>
+<h2>AIを使った営業資料作成の進め方（実践フロー）</h2>
+<p>実際の業務に落とし込むと、次のような流れになります。</p>
+<ol><li><strong>骨子を決める</strong>：誰に、何を伝えたいか、結論は何かを自分の頭で整理する</li><li><strong>構成案をAIに作らせる</strong>：イルシルにテーマと要点を入力し、たたき台を生成する</li><li><strong>内容を肉付けする</strong>：顧客固有の情報、自社データ、交渉材料を加筆・修正する</li><li><strong>足りないビジュアルを補う</strong>：ConoHa AI Canvasで表紙やイメージ画像を生成し、挿入する</li><li><strong>人の目で最終確認する</strong>：数字の整合性、誤字脱字、事実関係を必ずチェックする</li></ol>
+<p>ここで重要なのは、AIが作った内容をそのまま提出しないことです。AIが生成する構成やビジュアルはあくまで「たたき台」であり、顧客への提案として成立させるには営業担当者自身の知見や事実確認が欠かせません。特に数字や実績データは、AIが誤った解釈をしていないか必ず確認しましょう。</p>
+<h2>こんなケースにおすすめ</h2>
+<ul><li>提案書のたたき台を短時間で用意したい営業担当者</li><li>デザインスキルに自信がなく、レイアウトに時間がかかってしまう人</li><li>資料の「見た目」よりも「中身」の検討に時間を使いたい人</li></ul>
+<p>一方、企業のブランドガイドラインを厳密に守る必要がある資料などは、AIが生成したものをそのまま使うのではなく、参考程度に留めるのが無難です。</p>
+<h2>まとめ</h2>
+<p>営業資料・提案書の作成は、内容の検討以上に「構成づくり」と「ビジュアル準備」に時間を取られがちな業務です。AIスライド作成ツール「イルシル」で構成・デザインのたたき台を作り、画像生成ツール「ConoHa AI Canvas」で足りないビジュアルを補う組み合わせは、この2つの負担を軽くする選択肢になります。</p>
+<p>もちろん、AIが作った資料をそのまま提出するのは避け、内容の正確性や顧客に合わせた調整は人間が行うべきです。圧縮できた作業時間を、提案内容の質を高めることに使う――これが基本の考え方といえるでしょう。</p>
+<section class="sources">
+<h2>参考リンク</h2>
+<ul><li><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude（Anthropic）</a></li><li><a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Canva</a></li><li><a href="https://openai.com/chatgpt/" target="_blank" rel="noopener noreferrer">ChatGPT</a></li></ul>
+</section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    <p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></p>
+    <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
+    <p>&copy; 2026 AIツールの透視図</p>
+  </div>
+</footer>
+</body>
+</html>

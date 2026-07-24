@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>AIツールの透視図</title>
+  <link>https://blitzendegen915-beep.github.io/petrichot/</link>
+  <description>AIツールの比較・レビュー・活用術を毎日更新</description>
+  <language>ja</language>
+  <item>
+    <title>AI文字起こしツール比較｜Notta Memo・Brain・Plaud</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-mojiokoshi-tool-hikaku/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-mojiokoshi-tool-hikaku/</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>会議録音を要約するNotta Memo、情報整理まで踏み込むNotta Brain、外出先でも使えるPlaud。3つのAI文字起こしツールを用途別に比較し、選び方のヒントを紹介します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>営業資料・提案書をAIで時短する方法</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/eigyou-shiryou-ai-jitan/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/eigyou-shiryou-ai-jitan/</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>営業資料や提案書の作成にかかる時間をAIで短縮する方法を紹介。スライド生成AI「イルシル」と画像生成AIの組み合わせ方、実践フローを解説します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>一人社長・フリーランスのためのAI業務効率化ツール3選</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/sohos-freelance-ai-tool-3sen/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/sohos-freelance-ai-tool-3sen/</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>個人事業主・SOHO向けのAI業務効率化ツール。バックオフィス自動化・AI画像生成・SEO記事作成で、ひとりビジネスの生産性を飛躍的に向上させる方法を紹介</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AI時代のフェイク情報の見分け方</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-fake-joho-mimawake/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-fake-joho-mimawake/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>ディープフェイクや生成画像、もっともらしい嘘テキストなど、AI時代だからこそ気をつけたいフェイク情報。見分け方と確認する習慣、SNSでの対応について、中高生向けにわかりやすく解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AI議事録・メモ術で会議を効率化</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-gijiroku-memo-jutsu/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-gijiroku-memo-jutsu/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AIを活用した議事録作成・メモ術で会議の効率を大幅改善。2026年のビジネスパーソン必見のテクニックと活用ツール紹介。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AI時代の進路と仕事はどうなる？</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-jidai-no-shinro/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-jidai-no-shinro/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AIが発展した社会で、自分たちの進路や仕事はどう変わるのか。不安よりも、AIを使いこなす視点を持つことの大切さ。中高生が今、身につけるべき力について、わかりやすく解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AI検索は従来の検索と何が違う?</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-kensaku-perplexity-hikaku/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-kensaku-perplexity-hikaku/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AI検索エンジンと従来の検索エンジンの違いを解説。Perplexity、ChatGPT、Geminiなど、2026年最新のAI検索ツールを比較します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>知っておきたいAIリテラシーの基本</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-riteracy-nyuumon/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-riteracy-nyuumon/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AIは間違った情報を話す。ハルシネーション、個人情報、著作権など、AIと付き合う上で必要な知識をわかりやすく解説。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIと著作権の基本|生成画像や文章は誰のもの?</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-to-chosakuken-kihon/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-to-chosakuken-kihon/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AIが生成した画像や文章の著作権はどう扱うのか、学校の課題・創作活動での注意点を、中高生向けにわかりやすく解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIと個人情報|入力していいこと・ダメなこと</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-to-privacy-kojinjouhou/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-to-privacy-kojinjouhou/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPTやClaudeなどのAIツールに個人情報を入力するリスク、学校や家庭での情報管理について、中高生向けにわかりやすく説明します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>SNSのおすすめもAI?アルゴリズムとの付き合い方</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-to-sns-algorithm/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-to-sns-algorithm/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>InstagramやTikTokのおすすめ機能がAIで動く仕組み、フィルターバブルの危険性、情報の見方について中高生向けに解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIってそもそも何？中高生向け入門</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-toha-nani/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-toha-nani/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>スマートフォンの予測変換からChatGPTまで、身近な例を使ってAI・生成AIの違いをわかりやすく解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIボイスレコーダー比較|議事録・メモを自動化</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-voice-recorder-hikaku/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-voice-recorder-hikaku/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>会議やインタビューの音声を自動文字起こし・要約するAIボイスレコーダーの紹介。Notta MemoとPlaudの特徴を比較し、あなたに合ったツールの選び方をご説明します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>勉強にAIをどう使う？正しい活用法</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/benkyou-ni-ai-wo-tsukau-houhou/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/benkyou-ni-ai-wo-tsukau-houhou/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AIは「答え丸写し」の道具ではなく、理解を深める相談相手。具体例と活用法を紹介します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>Canva AIでデザイン初心者でもプロ級に|Magic Studio機能解説</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/canva-ai-design-nyumon/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/canva-ai-design-nyumon/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Canva AIの「Magic Studio」機能を使ったデザイン作成術。テンプレートの活用から、生成AIの活用まで、初心者でもプロフェッショナルなデザインを作る方法を紹介します。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>ChatGPT無料版と有料版の違いを徹底解説</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/chatgpt-muryou-yuuryou-chigai/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/chatgpt-muryou-yuuryou-chigai/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPT無料版と有料版（Plus）の機能・速度・制限の違いをわかりやすく比較。2026年の最新情報を含め、どちらを選ぶべきかを解説します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>Claudeの使い方入門|特徴と得意なこと</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/claude-tsukaikata-nyumon/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/claude-tsukaikata-nyumon/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Anthropicが開発したAI「Claude」の使い方と特徴を初心者向けに解説。長文読解・文章力・丁寧な応答が強みのClaudeを使いこなすコツを紹介します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>ConoHa AI Canvasでブラウザから画像生成</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/conoha-ai-canvas-gazou-seisei/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/conoha-ai-canvas-gazou-seisei/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>ConoHa AI Canvasはブラウザだけで使えるAI画像生成ツール。インストール不要で始められる手軽さ、プロンプトの基本、著作権面での注意点を解説します。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>Doraverseでオフィス業務を効率化する</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/doraverse-office-koritsuka/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/doraverse-office-koritsuka/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Doraverseは中小企業やチーム向けのBtoB SaaS。定型業務と情報共有を自動化し、オフィス業務を効率化する方法を具体例とともに解説します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>英語学習にAIを活用する方法</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/eigo-gakushuu-ai-katsuyou/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/eigo-gakushuu-ai-katsuyou/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>英語学習を加速させるAIの活用方法を、中高生向けに解説。英作文添削、発音練習、会話練習の相手など、無料でできる範囲を中心に、効果的な使い方と注意点を紹介します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>レポート・課題でAIを使うときのルールとマナー</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/gakushuu-report-to-ai-no-tsukaikata/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/gakushuu-report-to-ai-no-tsukaikata/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>学校によってAIのルールは違う。先生に確認して、健全な方法でAIを活用しましょう。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>Google Geminiの活用術|Googleサービスとの連携で仕事効率化</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/gemini-katsuyou-jutsu/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/gemini-katsuyou-jutsu/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Google GeminiをGmail・ドキュメント・スプレッドシートと連携させる活用術を紹介。Googleサービスをすでに使っている方向けの効率化テクニックを実例付きで解説します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>GitHub Copilotの始め方|導入から使いこなしまで</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/github-copilot-hajimekata/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/github-copilot-hajimekata/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>GitHub Copilotの基本的な使い方から設定・実際の活用シーン・学習効果まで、プログラミング初心者向けに丁寧に解説します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>イルシルでAIスライド資料を作る方法</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/irusiru-ai-slide-tsukurikata/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/irusiru-ai-slide-tsukurikata/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AIスライド資料作成ツール「イルシル」の使い方と活用ポイント。AIに任せるべき部分と自分で仕上げるべき部分を解説。プレゼン資料作成を効率化しましょう。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>Midjourneyプロンプトのコツ10選</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/midjourney-prompt-no-kotsu/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/midjourney-prompt-no-kotsu/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Midjourneyで高品質な画像を生成するプロンプト作成のコツを10個紹介。初心者でも使える実践的なテクニックを詳しく解説します。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>Notion AIの使い方入門|メモ・議事録・タスク整理を効率化</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/notion-ai-tsukaikata/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/notion-ai-tsukaikata/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Notion AIの基本的な使い方を初心者向けに解説。メモ取り、会議議事録、タスク管理などの実践的な活用例と、Notion AIならではのメリットを紹介します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>Notta Brainとは?情報整理から資料作成まで</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/notta-brain-shoukai/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/notta-brain-shoukai/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Notta Brain AIエージェントの機能と活用方法を紹介。情報整理・分析から資料作成まで、ビジネスパーソンの業務効率化を実現するツールの詳細解説。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>プログラミング学習にAIを活用しよう</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/programming-gakushuu-to-ai/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/programming-gakushuu-to-ai/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>エラー解説やコード読解などプログラミング学習をAIでサポートする方法、注意点、無料ツール活用まで中高生向けに解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIへの指示文(プロンプト)の書き方基本ガイド</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/prompt-no-kakikata-kihon/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/prompt-no-kakikata-kihon/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPTやClaudeへの指示文(プロンプト)の書き方しだいで、回答の質は大きく変わります。目的・条件・形式を伝える基本の型と、すぐ使える改善テクニックを紹介します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>Value AI WriterでSEO記事を効率化する方法</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/value-ai-writer-seo-kiji/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/value-ai-writer-seo-kiji/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Value AI Writerを使ったSEO記事作成の効率化方法を解説。AIの下書き作成と人による編集・ファクトチェックの役割分担について、実践的なアプローチをご紹介します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIで業務効率化を始める完全ガイド|2026年最新版</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-gyomu-kouritsuka/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-gyomu-kouritsuka/</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AI導入で業務効率化。ツール選び・導入ステップ・ROI測定まで。経営者・管理職必読</description>
+    <category>ビジネス効率化</category>
+  </item>
+  <item>
+    <title>AIライティングツールおすすめ6選|2026年最新ランキング</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/ai-writing-tools-osusume/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/ai-writing-tools-osusume/</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+    <description>文章作成を効率化するAIツール徹底比較。ChatGPT・Notion AI等の機能と料金をランキング形式で紹介</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>ChatGPTとClaudeを徹底比較|AI選びの完全ガイド</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/chatgpt-vs-claude-hikaku/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/chatgpt-vs-claude-hikaku/</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPTとClaudeの機能・料金・精度を完全比較。2026年最新版、あなたに合ったAIツール選びのポイント</description>
+    <category>AI比較</category>
+  </item>
+  <item>
+    <title>GitHub Copilotは買いか？実力レビュー|2026年版</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/github-copilot-review/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/github-copilot-review/</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+    <description>GitHub Copilotの実力・料金・メリット・デメリットを徹底検証。プログラマー必見の最新レビュー</description>
+    <category>ツールレビュー</category>
+  </item>
+  <item>
+    <title>Midjourneyの始め方・使い方入門|初心者向け完全ガイド</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/midjourney-hajimekata/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/midjourney-hajimekata/</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AI画像生成Midjourneyの登録から実際の画像作成まで。初心者向けの使い方・料金・コツを完全解説</description>
+    <category>初心者ガイド</category>
+  </item>
+  <item>
+    <title>Perplexityで検索が変わる活用術|次世代AI検索エンジン</title>
+    <link>https://blitzendegen915-beep.github.io/petrichot/perplexity-kensaku-katsuyo/</link>
+    <guid isPermaLink="true">https://blitzendegen915-beep.github.io/petrichot/perplexity-kensaku-katsuyo/</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Perplexityの使い方・機能・料金を徹底解説。Google検索との違い、リアルタイム情報の精度を検証</description>
+    <category>検索ツール</category>
+  </item>
+</channel>
+</rss>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI文字起こしツール比較｜Notta Memo・Brain・Plaud | AIツールの透視図</title>
+<meta name="description" content="会議録音を要約するNotta Memo、情報整理まで踏み込むNotta Brain、外出先でも使えるPlaud。3つのAI文字起こしツールを用途別に比較し、選び方のヒントを紹介します。">
+<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
+<link rel="canonical" href="https://blitzendegen915-beep.github.io/petrichot/ai-mojiokoshi-tool-hikaku/">
+<meta property="og:title" content="AI文字起こしツール比較｜Notta Memo・Brain・Plaud">
+<meta property="og:description" content="会議録音を要約するNotta Memo、情報整理まで踏み込むNotta Brain、外出先でも使えるPlaud。3つのAI文字起こしツールを用途別に比較し、選び方のヒントを紹介します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blitzendegen915-beep.github.io/petrichot/ai-mojiokoshi-tool-hikaku/">
+<meta property="og:site_name" content="AIツールの透視図">
+<meta property="og:image" content="https://blitzendegen915-beep.github.io/petrichot/static/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI文字起こしツール比較｜Notta Memo・Brain・Plaud">
+<meta name="twitter:description" content="会議録音を要約するNotta Memo、情報整理まで踏み込むNotta Brain、外出先でも使えるPlaud。3つのAI文字起こしツールを用途別に比較し、選び方のヒントを紹介します。">
+<meta name="twitter:image" content="https://blitzendegen915-beep.github.io/petrichot/static/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI文字起こしツール比較｜Notta Memo・Brain・Plaud","description":"会議録音を要約するNotta Memo、情報整理まで踏み込むNotta Brain、外出先でも使えるPlaud。3つのAI文字起こしツールを用途別に比較し、選び方のヒントを紹介します。","datePublished":"2026-07-24","author":{"@type":"Organization","name":"AIツールの透視図編集部"},"publisher":{"@type":"Organization","name":"AIツールの透視図"},"mainEntityOfPage":"https://blitzendegen915-beep.github.io/petrichot/ai-mojiokoshi-tool-hikaku/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f3ea;
+  --surface: #ffffff;
+  --surface-2: #efe8d8;
+  --fg: #18140f;
+  --muted: #6b6357;
+  --accent: #ff4d23;
+  --accent-fg: #17130d;
+  --accent-soft: #ffe1d2;
+  --edu: #0f8f72;
+  --edu-fg: #ffffff;
+  --edu-soft: #d7f2e9;
+  --border: #e6dfcf;
+  --code-bg: #efe7d6;
+  --banner-bg: #fff1cf;
+  --banner-fg: #6b4a00;
+  --banner-border: #ecd79a;
+  --header-bg: rgba(247, 243, 234, 0.86);
+  --shadow: 0 10px 30px -12px rgba(24, 20, 15, 0.28);
+  --measure: 68ch;
+  --wide: 960px;
+  --eye-edu: var(--edu);
+  --eye-edu-soft: var(--edu-soft);
+  --eye-a: #0b5e8c;
+  --eye-a-soft: #dff0ff;
+  --eye-b: #7a5400;
+  --eye-b-soft: #fff0cf;
+  --eye-c: #a3213f;
+  --eye-c-soft: #ffe1e6;
+  --eye-d: #4c6a1f;
+  --eye-d-soft: #e6efd2;
+  --eye-e: #7a4420;
+  --eye-e-soft: #f0ded0;
+  --font-display: "Space Grotesk", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0d0b;
+    --surface: #17191a;
+    --surface-2: #1f2221;
+    --fg: #f2ede2;
+    --muted: #a29a8b;
+    --accent: #ff7a4a;
+    --accent-fg: #0c0d0b;
+    --accent-soft: #3a2015;
+    --edu: #2fe3ac;
+    --edu-fg: #06231a;
+    --edu-soft: #123328;
+    --border: #2a2c2a;
+    --code-bg: #1c1e1d;
+    --banner-bg: #2c2308;
+    --banner-fg: #f2d886;
+    --banner-border: #4c3d10;
+    --header-bg: rgba(12, 13, 11, 0.82);
+    --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    --eye-a: #7ecbff;
+    --eye-a-soft: #10314a;
+    --eye-b: #ffd873;
+    --eye-b-soft: #3a2c05;
+    --eye-c: #ff9db3;
+    --eye-c-soft: #3a1420;
+    --eye-d: #b7d67f;
+    --eye-d-soft: #26310f;
+    --eye-e: #e3b98a;
+    --eye-e-soft: #3a2818;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: #fff; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header-bg);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.25rem;
+}
+.site-header .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  min-width: 0;
+}
+.brand-mark {
+  flex-shrink: 0;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--edu) 100%);
+  transform: rotate(-8deg);
+  box-shadow: var(--shadow);
+}
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.site-header nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.disclosure-banner {
+  max-width: var(--wide);
+  margin: 1rem auto 0;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border: 1px solid var(--banner-border);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.disclosure-badge {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--banner-fg);
+  color: var(--banner-bg);
+  margin-top: 0.1rem;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+main.wide { max-width: var(--wide); }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.15rem);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  margin: 0.6rem 0 1.1rem;
+}
+article { counter-reset: h2count; }
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 2.75rem 0 1.15rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+}
+article h2::before {
+  counter-increment: h2count;
+  content: counter(h2count, decimal-leading-zero) " / ";
+  color: var(--accent);
+  opacity: 0.6;
+  font-size: 0.75em;
+  letter-spacing: 0.03em;
+}
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+}
+p { margin: 0 0 1.15rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+ul > li::marker { color: var(--accent); }
+ol > li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 700; }
+blockquote {
+  position: relative;
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.4rem;
+  border-left: 4px solid var(--edu);
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+a.chip { cursor: pointer; transition: filter 0.15s ease, transform 0.15s ease; }
+a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
+@media (prefers-color-scheme: dark) {
+  a.chip:hover { filter: brightness(1.2); }
+}
+.chip-tag { background: var(--surface-2); color: var(--muted); }
+.chip-cat { font-weight: 700; }
+.chip-edu { background: var(--edu-soft); color: var(--edu); }
+.chip-a { background: #dff0ff; color: #0b5e8c; }
+.chip-b { background: #fff0cf; color: #7a5400; }
+.chip-c { background: #ffe1e6; color: #a3213f; }
+.chip-d { background: #e6efd2; color: #4c6a1f; }
+.chip-e { background: #f0ded0; color: #7a4420; }
+@media (prefers-color-scheme: dark) {
+  .chip-a { background: #10314a; color: #7ecbff; }
+  .chip-b { background: #3a2c05; color: #ffd873; }
+  .chip-c { background: #3a1420; color: #ff9db3; }
+  .chip-d { background: #26310f; color: #b7d67f; }
+  .chip-e { background: #3a2818; color: #e3b98a; }
+}
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.article-meta time { font-family: var(--font-display); font-weight: 600; }
+
+.eyecatch-hero {
+  width: 100%;
+  height: clamp(120px, 26vw, 220px);
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 0 2.2rem;
+}
+
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.sources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.sources ul { padding-left: 1.3rem; }
+.sources li { margin-bottom: 0.5rem; }
+.sources a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+.sources a:hover, .sources a:focus-visible { color: var(--accent); }
+.sources a[target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.65;
+}
+
+.aff-cta {
+  margin: 2rem 0;
+  text-align: center;
+}
+.aff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 1rem 2.25rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.aff-btn::after { content: "\2192"; transition: transform 0.18s ease; }
+.aff-btn:hover, .aff-btn:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 18px 34px -14px var(--accent);
+}
+.aff-btn:hover::after { transform: translateX(3px); }
+.aff-btn:active { transform: translateY(-1px); }
+
+.article-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 700px) {
+  .article-grid { grid-template-columns: 1fr 1fr; }
+}
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+}
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+.article-card .card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--fg);
+  height: 100%;
+}
+.card-eyecatch {
+  width: 100%;
+  height: 132px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.card-eyecatch .eyecatch-svg,
+.eyecatch-hero .eyecatch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article-card:hover .card-eyecatch .eyecatch-svg { transform: scale(1.03); }
+.card-eyecatch .eyecatch-svg { transition: transform 0.3s ease; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.1rem 1.4rem 1.5rem;
+  flex: 1;
+}
+.article-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.article-card .card-date {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.article-card h2 {
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+  margin: 0.2rem 0 0;
+  line-height: 1.55;
+}
+.article-card h2::before { content: none; }
+.article-card .desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding: 2rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.site-footer .inner { max-width: var(--wide); margin: 0 auto; }
+.site-footer p { margin: 0.35rem 0; }
+.site-footer .footer-disclosure {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="https://blitzendegen915-beep.github.io/petrichot/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">AIツールの透視図</span>
+    </a>
+    <nav>
+      <a href="https://blitzendegen915-beep.github.io/petrichot/">記事一覧</a>
+    </nav>
+  </div>
+</header>
+<div class="disclosure-banner"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></div>
+
+<main>
+  <article>
+    <h1>AI文字起こしツール比較｜Notta Memo・Brain・Plaud</h1>
+    <div class="article-meta">
+      <time datetime="2026-07-24">2026-07-24</time>
+      <a class="chip chip-cat chip-a" href="https://blitzendegen915-beep.github.io/petrichot/category/%E3%83%84%E3%83%BC%E3%83%AB%E6%AF%94%E8%BC%83/">ツール比較</a>
+      <a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/%E6%96%87%E5%AD%97%E8%B5%B7%E3%81%93%E3%81%97/">文字起こし</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/%E8%AD%B0%E4%BA%8B%E9%8C%B2/">議事録</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/AI/">AI</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/%E3%83%84%E3%83%BC%E3%83%AB%E6%AF%94%E8%BC%83/">ツール比較</a>
+    </div>
+    <div class="eyecatch-hero"><svg class="eyecatch-svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="200" fill="var(--eye-a-soft)"/><circle cx="442.2" cy="101.3" r="20.0" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.35"/><circle cx="442.2" cy="101.3" r="44.3" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.30"/><circle cx="442.2" cy="101.3" r="62.4" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.25"/><circle cx="442.2" cy="101.3" r="100.5" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.20"/><circle cx="442.2" cy="101.3" r="128.7" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.15"/><circle cx="442.2" cy="101.3" r="159.6" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.10"/></svg></div>
+    <p>会議やヒアリングの内容を「あとで見返せる形」に残す作業は、地味ながら時間がかかるものです。最近はAIが音声を自動でテキスト化し、要点までまとめてくれるツールが増え、負担を軽くしやすくなってきました。</p>
+<p>一口に「AI文字起こしツール」といっても、得意な場面はツールごとに異なります。この記事では、関連プロダクトである<strong>Notta Memo</strong>と<strong>Notta Brain</strong>、そして携帯型デバイスの<strong>Plaud</strong>の3つを取り上げ、それぞれどんな場面に向いているのかを整理します。なお、各ツールの最新の機能・料金は変更される可能性があるため、必ず公式サイトでご確認ください。</p>
+<h2>Notta Memoとは</h2>
+<p>Notta Memoは、会議やオンライン通話の音声をリアルタイムに近い形で文字起こしし、内容を要約してくれるタイプのツールです。話した内容をそのまま記録に残しておきたい、議事録づくりの手間をできるだけ減らしたい、というシーンで使われることが多いようです。</p>
+<ul><li>会議の音声を文字起こし・要約する用途を中心に設計されている</li><li>「録音→テキスト化→要約」という一連の流れをカバーする位置づけ</li><li>オンライン会議・対面どちらの音声にも対応する製品として案内されている</li></ul>
+<p>「まずは会議の記録をラクにしたい」という段階なら、最初に検討しやすいツールです。詳しい機能範囲は公式サイトでご確認ください。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://px.a8.net/svt/ejp?a8mat=4B82L2+D2XWAA+5988+BYLJL" rel="sponsored nofollow noopener" target="_blank">Notta Memo 公式サイトはこちら</a></div>
+<h2>Notta Brainとは</h2>
+<p>Notta Brainは、Notta Memoよりも一歩進んだ位置づけのツールです。文字起こしされた情報を、整理・分析して資料や文書のような形にまとめていくことを目指したAIエージェントとして紹介されています。</p>
+<ul><li>文字起こし後の情報を「使える形」に整理・構造化する方向性</li><li>複数の会議・情報源をまたいで内容を分析することも意識された設計</li><li>議事録づくりの先にある「資料化」「まとめ」の工程を支援する立ち位置</li></ul>
+<p>「文字起こしはできているけれど、そこから資料にする作業がいつも大変」という悩みがあるなら、検討する価値があります。具体的にどこまでの整理・分析ができるかは、公式サイトで最新情報をご確認ください。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://px.a8.net/svt/ejp?a8mat=4B82L2+D3JBW2+5988+HV7V6" rel="sponsored nofollow noopener" target="_blank">Notta Brain 公式サイトはこちら</a></div>
+<h2>Plaudとは</h2>
+<p>PlaudはNotta系とは少し性格が異なり、携帯できる録音デバイスとアプリを組み合わせたプロダクトです。パソコンを開きにくい対面での打ち合わせや外出先での立ち話、移動中のメモ取りなどで力を発揮しやすいとされています。</p>
+<ul><li>小型のハードウェアで音声を録音し、アプリ側で文字起こし・整理を行う仕組み</li><li>ノートPCを開く必要がない、対面・外出先での利用を想定した設計</li><li>「思いついたことをすぐ記録する」用途にも向くとされる携帯性</li></ul>
+<p>オンライン会議はPCのマイクで音声を拾えますが、対面の打ち合わせや現場での会話はそうはいきません。「PCが使いにくい場面」を補う存在として位置づけると分かりやすいでしょう。詳細は公式サイトをご参照ください。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://px.a8.net/svt/ejp?a8mat=4B82L2+7MGUNM+5J4W+5YRHE" rel="sponsored nofollow noopener" target="_blank">Plaud 公式サイトはこちら</a></div>
+<h2>3つのツールをシーン別に比較</h2>
+<p>同じ「AIで音声を扱う」ツールでも、向いている場面は異なります。あくまで一般的な傾向としての比較です。</p>
+<p>| 観点 | Notta Memo | Notta Brain | Plaud |<br>|---|---|---|---|<br>| 主な役割 | 会議音声の文字起こし・要約 | 情報の整理・分析・資料化 | 携帯録音+文字起こし |<br>| 得意な場面 | オンライン会議、社内ミーティング | 複数の会議・情報を横断して整理したいとき | 対面の打ち合わせ、外出先、移動中 |<br>| 使うタイミング | 会議中〜直後の記録 | 記録した情報をまとめ直すとき | PCを開けない状況での記録 |<br>| イメージ | 「まず記録・要約」の入口 | 「記録の先」の整理役 | 「PCがない場面」の受け皿 |</p>
+<ul><li>社内会議が中心で、まずは議事録の手間を減らしたい → Notta Memoから試してみる</li><li>集めた情報を資料やレポートの形にまで整えたい → Notta Brainのような整理役を組み合わせる</li><li>対面や外出先での会話が多く、PCを開きにくい → Plaudのような携帯型デバイスが候補になる</li></ul>
+<p>「Plaudで対面の会話を録音し、Notta系で文字起こし・整理する」といった組み合わせ方を紹介しているケースもあるようです。自分の業務スタイルに合わせて、どこを補いたいのかから考えてみると選びやすくなります。</p>
+<h2>選ぶ前に確認しておきたいこと</h2>
+<ul><li><strong>どんな場面の音声を扱うことが多いか</strong>(オンライン中心か、対面・外出先が多いか)</li><li><strong>文字起こしだけで十分か、資料化まで求めるか</strong></li><li><strong>セキュリティ・データの取り扱い方針</strong>が自社の運用に合っているか</li></ul>
+<p>いずれも進化の速い分野です。料金プランや対応機能は公式サイトで随時更新されるため、導入前には必ず最新情報を確認してください。</p>
+<h2>まとめ</h2>
+<p>Notta Memoは会議音声の文字起こし・要約という「入口」を担い、Notta Brainはそこからさらに情報を整理・資料化する「一歩先」の役割を果たします。Plaudは携帯型デバイスとして、PCを開きにくい対面・外出先のシーンを補う存在です。</p>
+<p>どれか一つを選ぶというよりも、「自分がどんな場面で記録に困っているか」を洗い出したうえで、それぞれの強みが当てはまるかを見極めるのがよいでしょう。最新の機能・料金は各ツールの公式サイトでご確認のうえ、まずは気になったものから試してみてください。</p>
+<section class="sources">
+<h2>参考リンク</h2>
+<ul><li><a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/" target="_blank" rel="noopener noreferrer">総務省 情報通信白書</a></li><li><a href="https://www.ipa.go.jp/" target="_blank" rel="noopener noreferrer">IPA(情報処理推進機構)</a></li><li><a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Anthropic公式サイト</a></li></ul>
+</section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    <p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></p>
+    <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
+    <p>&copy; 2026 AIツールの透視図</p>
+  </div>
+</footer>
+</body>
+</html>

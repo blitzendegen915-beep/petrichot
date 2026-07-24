@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>知っておきたいAIリテラシーの基本 | AIツールの透視図</title>
+<meta name="description" content="AIは間違った情報を話す。ハルシネーション、個人情報、著作権など、AIと付き合う上で必要な知識をわかりやすく解説。">
+<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
+<link rel="canonical" href="https://blitzendegen915-beep.github.io/petrichot/ai-riteracy-nyuumon/">
+<meta property="og:title" content="知っておきたいAIリテラシーの基本">
+<meta property="og:description" content="AIは間違った情報を話す。ハルシネーション、個人情報、著作権など、AIと付き合う上で必要な知識をわかりやすく解説。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blitzendegen915-beep.github.io/petrichot/ai-riteracy-nyuumon/">
+<meta property="og:site_name" content="AIツールの透視図">
+<meta property="og:image" content="https://blitzendegen915-beep.github.io/petrichot/static/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="知っておきたいAIリテラシーの基本">
+<meta name="twitter:description" content="AIは間違った情報を話す。ハルシネーション、個人情報、著作権など、AIと付き合う上で必要な知識をわかりやすく解説。">
+<meta name="twitter:image" content="https://blitzendegen915-beep.github.io/petrichot/static/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"知っておきたいAIリテラシーの基本","description":"AIは間違った情報を話す。ハルシネーション、個人情報、著作権など、AIと付き合う上で必要な知識をわかりやすく解説。","datePublished":"2026-07-17","author":{"@type":"Organization","name":"AIツールの透視図編集部"},"publisher":{"@type":"Organization","name":"AIツールの透視図"},"mainEntityOfPage":"https://blitzendegen915-beep.github.io/petrichot/ai-riteracy-nyuumon/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f3ea;
+  --surface: #ffffff;
+  --surface-2: #efe8d8;
+  --fg: #18140f;
+  --muted: #6b6357;
+  --accent: #ff4d23;
+  --accent-fg: #17130d;
+  --accent-soft: #ffe1d2;
+  --edu: #0f8f72;
+  --edu-fg: #ffffff;
+  --edu-soft: #d7f2e9;
+  --border: #e6dfcf;
+  --code-bg: #efe7d6;
+  --banner-bg: #fff1cf;
+  --banner-fg: #6b4a00;
+  --banner-border: #ecd79a;
+  --header-bg: rgba(247, 243, 234, 0.86);
+  --shadow: 0 10px 30px -12px rgba(24, 20, 15, 0.28);
+  --measure: 68ch;
+  --wide: 960px;
+  --eye-edu: var(--edu);
+  --eye-edu-soft: var(--edu-soft);
+  --eye-a: #0b5e8c;
+  --eye-a-soft: #dff0ff;
+  --eye-b: #7a5400;
+  --eye-b-soft: #fff0cf;
+  --eye-c: #a3213f;
+  --eye-c-soft: #ffe1e6;
+  --eye-d: #4c6a1f;
+  --eye-d-soft: #e6efd2;
+  --eye-e: #7a4420;
+  --eye-e-soft: #f0ded0;
+  --font-display: "Space Grotesk", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0d0b;
+    --surface: #17191a;
+    --surface-2: #1f2221;
+    --fg: #f2ede2;
+    --muted: #a29a8b;
+    --accent: #ff7a4a;
+    --accent-fg: #0c0d0b;
+    --accent-soft: #3a2015;
+    --edu: #2fe3ac;
+    --edu-fg: #06231a;
+    --edu-soft: #123328;
+    --border: #2a2c2a;
+    --code-bg: #1c1e1d;
+    --banner-bg: #2c2308;
+    --banner-fg: #f2d886;
+    --banner-border: #4c3d10;
+    --header-bg: rgba(12, 13, 11, 0.82);
+    --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    --eye-a: #7ecbff;
+    --eye-a-soft: #10314a;
+    --eye-b: #ffd873;
+    --eye-b-soft: #3a2c05;
+    --eye-c: #ff9db3;
+    --eye-c-soft: #3a1420;
+    --eye-d: #b7d67f;
+    --eye-d-soft: #26310f;
+    --eye-e: #e3b98a;
+    --eye-e-soft: #3a2818;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: #fff; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header-bg);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.25rem;
+}
+.site-header .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  min-width: 0;
+}
+.brand-mark {
+  flex-shrink: 0;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--edu) 100%);
+  transform: rotate(-8deg);
+  box-shadow: var(--shadow);
+}
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.site-header nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.disclosure-banner {
+  max-width: var(--wide);
+  margin: 1rem auto 0;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border: 1px solid var(--banner-border);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.disclosure-badge {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--banner-fg);
+  color: var(--banner-bg);
+  margin-top: 0.1rem;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+main.wide { max-width: var(--wide); }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.15rem);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  margin: 0.6rem 0 1.1rem;
+}
+article { counter-reset: h2count; }
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 2.75rem 0 1.15rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+}
+article h2::before {
+  counter-increment: h2count;
+  content: counter(h2count, decimal-leading-zero) " / ";
+  color: var(--accent);
+  opacity: 0.6;
+  font-size: 0.75em;
+  letter-spacing: 0.03em;
+}
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+}
+p { margin: 0 0 1.15rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+ul > li::marker { color: var(--accent); }
+ol > li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 700; }
+blockquote {
+  position: relative;
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.4rem;
+  border-left: 4px solid var(--edu);
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+a.chip { cursor: pointer; transition: filter 0.15s ease, transform 0.15s ease; }
+a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
+@media (prefers-color-scheme: dark) {
+  a.chip:hover { filter: brightness(1.2); }
+}
+.chip-tag { background: var(--surface-2); color: var(--muted); }
+.chip-cat { font-weight: 700; }
+.chip-edu { background: var(--edu-soft); color: var(--edu); }
+.chip-a { background: #dff0ff; color: #0b5e8c; }
+.chip-b { background: #fff0cf; color: #7a5400; }
+.chip-c { background: #ffe1e6; color: #a3213f; }
+.chip-d { background: #e6efd2; color: #4c6a1f; }
+.chip-e { background: #f0ded0; color: #7a4420; }
+@media (prefers-color-scheme: dark) {
+  .chip-a { background: #10314a; color: #7ecbff; }
+  .chip-b { background: #3a2c05; color: #ffd873; }
+  .chip-c { background: #3a1420; color: #ff9db3; }
+  .chip-d { background: #26310f; color: #b7d67f; }
+  .chip-e { background: #3a2818; color: #e3b98a; }
+}
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.article-meta time { font-family: var(--font-display); font-weight: 600; }
+
+.eyecatch-hero {
+  width: 100%;
+  height: clamp(120px, 26vw, 220px);
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 0 2.2rem;
+}
+
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.sources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.sources ul { padding-left: 1.3rem; }
+.sources li { margin-bottom: 0.5rem; }
+.sources a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+.sources a:hover, .sources a:focus-visible { color: var(--accent); }
+.sources a[target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.65;
+}
+
+.aff-cta {
+  margin: 2rem 0;
+  text-align: center;
+}
+.aff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 1rem 2.25rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.aff-btn::after { content: "\2192"; transition: transform 0.18s ease; }
+.aff-btn:hover, .aff-btn:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 18px 34px -14px var(--accent);
+}
+.aff-btn:hover::after { transform: translateX(3px); }
+.aff-btn:active { transform: translateY(-1px); }
+
+.article-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 700px) {
+  .article-grid { grid-template-columns: 1fr 1fr; }
+}
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+}
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+.article-card .card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--fg);
+  height: 100%;
+}
+.card-eyecatch {
+  width: 100%;
+  height: 132px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.card-eyecatch .eyecatch-svg,
+.eyecatch-hero .eyecatch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article-card:hover .card-eyecatch .eyecatch-svg { transform: scale(1.03); }
+.card-eyecatch .eyecatch-svg { transition: transform 0.3s ease; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.1rem 1.4rem 1.5rem;
+  flex: 1;
+}
+.article-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.article-card .card-date {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.article-card h2 {
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+  margin: 0.2rem 0 0;
+  line-height: 1.55;
+}
+.article-card h2::before { content: none; }
+.article-card .desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding: 2rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.site-footer .inner { max-width: var(--wide); margin: 0 auto; }
+.site-footer p { margin: 0.35rem 0; }
+.site-footer .footer-disclosure {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="https://blitzendegen915-beep.github.io/petrichot/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">AIツールの透視図</span>
+    </a>
+    <nav>
+      <a href="https://blitzendegen915-beep.github.io/petrichot/">記事一覧</a>
+    </nav>
+  </div>
+</header>
+<div class="disclosure-banner"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></div>
+
+<main>
+  <article>
+    <h1>知っておきたいAIリテラシーの基本</h1>
+    <div class="article-meta">
+      <time datetime="2026-07-17">2026-07-17</time>
+      <a class="chip chip-cat chip-edu" href="https://blitzendegen915-beep.github.io/petrichot/category/AI%E3%82%92%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E5%AD%A6%E3%81%B6/">AIをはじめて学ぶ</a>
+      <a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/AI%E3%83%AA%E3%83%86%E3%83%A9%E3%82%B7%E3%83%BC/">AIリテラシー</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/%E6%83%85%E5%A0%B1%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3/">情報セキュリティ</a><a class="chip chip-tag" href="https://blitzendegen915-beep.github.io/petrichot/tag/%E8%91%97%E4%BD%9C%E6%A8%A9/">著作権</a>
+    </div>
+    <div class="eyecatch-hero"><svg class="eyecatch-svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="200" fill="var(--eye-edu-soft)"/><circle cx="259.4" cy="108.2" r="20.0" fill="none" stroke="var(--eye-edu)" stroke-width="2.5" stroke-opacity="0.35"/><circle cx="259.4" cy="108.2" r="43.7" fill="none" stroke="var(--eye-edu)" stroke-width="2.5" stroke-opacity="0.30"/><circle cx="259.4" cy="108.2" r="56.8" fill="none" stroke="var(--eye-edu)" stroke-width="2.5" stroke-opacity="0.25"/><circle cx="259.4" cy="108.2" r="99.7" fill="none" stroke="var(--eye-edu)" stroke-width="2.5" stroke-opacity="0.20"/><text x="34" y="174" text-anchor="start" font-family="'Space Grotesk','Zen Kaku Gothic New',sans-serif" font-weight="700" font-size="86" fill="var(--eye-edu)" fill-opacity="0.10">AI</text></svg></div>
+    <p>AIはすごく便利で、何でも知ってるように見えます。でも実は、AIには重大な弱点があるんです。それを知らないまま AIを使うと、トラブルに巻き込まれる可能性があります。今回は、AIと安全に付き合うために必要な知識について説明します。</p>
+<h2>AIが「嘘」をつくことがある</h2>
+<p>これが一番大事なポイントです。AIは、堂々とした顔で間違った情報を言うことがあります。</p>
+<h3>ハルシネーションって？</h3>
+<p>AI業界では、これを「ハルシネーション（幻覚）」と呼んでいます。AIが「ない情報を、さも本当のようにでっち上げてしまう」という現象です。</p>
+<p><strong>実際の例</strong></p>
+<ul><li>「有名な映画『○○』の監督は誰ですか？」と聞いて、実在しない人物の名前を答えることがあります</li><li>「このウイルス感染症について」と聞いて、医学的に根拠のない情報を話すことがあります</li><li>「この企業の売上高は？」と聞いて、まったく違う数字を答えることがあります</li></ul>
+<h3>なぜそんなことが起こる？</h3>
+<p>AIの仕組みを思い出してください。AIは「膨大なデータから学んだパターンをもとに、確率が高い答えを組み立てている」という話をしました。つまり、AIは<strong>「正確な情報」と「それっぽい情報」の違いを完全には判断できていない</strong>んです。</p>
+<p>だから、ものすごく自信満々に「それっぽい嘘」を言ってしまうわけです。</p>
+<h2>AIの回答は「鵜呑み」にしない</h2>
+<p>では、どうするか。ここが大事です。</p>
+<h3>必ず確認する習慣をつける</h3>
+<p>重要な情報をAIから得たときは、<strong>必ず他の情報源で確認する</strong>という習慣をつけましょう。</p>
+<p><strong>例：レポートで引用する情報の場合</strong></p>
+<ol><li>AIに「〜について説明して」と聞く</li><li>AIが答えてくれた情報をメモ</li><li>信頼できる本や公式ウェブサイトで、同じ情報を確認する</li><li>一致したら、その本やウェブサイトを引用元として使う</li></ol>
+<p><strong>例：社会科の課題で「江戸時代の人口」を調べる場合</strong></p>
+<ol><li>AIに「江戸時代の日本の人口は？」と聞く</li><li>AIが答える</li><li>教科書や図書館の本で、その数字を確認する</li><li>違っていたら、教科書の数字を信じる</li></ol>
+<p>このプロセスは面倒に感じるかもしれませんが、<strong>「AIは便利だが完璧ではない」という前提で使う</strong>のが、AIと付き合う最も重要なルールなんです。情報源を確認する習慣をつけたい人には、回答に出典を明示してくれるPerplexityのような検索特化型AIも参考になります。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://www.perplexity.ai/" rel="sponsored nofollow noopener" target="_blank">Perplexity 公式サイトはこちら</a></div>
+<h3>数字や事実には特に注意</h3>
+<p>特に気をつけるべき情報があります。</p>
+<ul><li><strong>年号や日付</strong>：歴史の年号や日付は間違える可能性が高い</li><li><strong>数字</strong>：人口、売上高、距離、温度など、具体的な数字は要確認</li><li><strong>人物情報</strong>：有名人の誕生日や経歴。特に最新情報は要注意</li><li><strong>科学的な事実</strong>：医学、化学、物理などの知識</li></ul>
+<p>これらの情報は、テストやレポートに書く前に、必ず信頼できる情報源で確認しましょう。</p>
+<h2>個人情報を入力してはいけない</h2>
+<p>ここからは「安全性」の話です。AIを使うときに、個人情報を入力するのは危険です。</p>
+<h3>何が「個人情報」？</h3>
+<ul><li>自分の本名や住所</li><li>学校の名前や学年</li><li>友だちの名前</li><li>メールアドレスやLINE ID</li><li>電話番号</li><li>誕生日</li><li>家族の情報</li></ul>
+<h3>なぜ危険？</h3>
+<ul><li><strong>AIサービスの企業に情報が保存される</strong>可能性があります</li><li>その後、その情報が他の目的で使われることがあります</li><li>ハッカーに盗まれる可能性もゼロではありません</li></ul>
+<p>AIサービスを使う前に「プライバシーポリシー」という利用規約を読むと「ユーザーが入力した情報を、改善のために保存・分析することがあります」と書いてあることが多いです。</p>
+<h3>安全な使い方</h3>
+<ul><li>具体的な名前は書かず「友だちA」「先生B」などと書く</li><li>学校名を書く代わりに「私の学校」と書く</li><li>正確な住所ではなく「東京都」程度の地域情報に留める</li></ul>
+<p>こういった工夫で、プライバシーを守りながらAIを使えます。</p>
+<h2>著作権と引用のルール</h2>
+<p>これもよく質問されることです。AIの答えを、自分の作品として使ってもいいのか？という問題です。</p>
+<h3>AIが生成した文章の著作権</h3>
+<p>これは、実はまだ法律ではっきり決まっていません。複雑なので、ここでは「学校のルール」で判断する方がいいでしょう。</p>
+<p>でも基本的には、こう考えるといいです。</p>
+<ul><li><strong>AIに作文を作らせて、そのままコピペで提出する</strong>：これはNG。あなたの学習にならないし、学校の信頼を失います</li><li><strong>AIに説明してもらったことを、自分の言葉で書く</strong>：これはOK。AIを「勉強の手助け」として使っています</li></ul>
+<h3>引用のルール</h3>
+<p>もし、レポートの中にAIの答えを含める場合は、<strong>必ず「AIに聞いた」と明記する</strong>のがいいでしょう。</p>
+<p><strong>例えば、こんな感じ</strong></p>
+<blockquote><p>「江戸時代の人口について、生成AIに聞いたところ、次のような説明が得られた。『江戸時代の日本の人口は、…』（AIサービス名：ChatGPT、2026年7月17日）」</p></blockquote>
+<p>こうすることで、「私がこの情報を『作った』のではなく『AI から得た』」ということが明確になります。</p>
+<h2>知らない情報源は信じない</h2>
+<p>もう一つ、気をつけるポイントがあります。</p>
+<h3>「でも、AIが言ってたから…」は理由にならない</h3>
+<p>友だちとの議論で「AIが言ってたから」という理由で主張するのはやめましょう。</p>
+<ul><li>「でもChatGPTは〇〇って言ってました」</li><li>「AIで調べたから間違ってません」</li></ul>
+<p>こういった理由は、学校の先生や親には説得力がありません。むしろ「自分で考えずにAIに頼ってるんだな」という印象を与えてしまいます。</p>
+<h3>正しい使い方</h3>
+<p>信頼できる情報ソース（教科書、公式ウェブサイト、新聞など）をもとに意見を言い、<strong>必要に応じてAIを補助的に使う</strong>という順序が大事です。</p>
+<h2>AIに騙されないために</h2>
+<p>最後に、AIとの付き合い方をまとめます。</p>
+<h3>チェックリスト</h3>
+<ul><li>[ ] AIの答えが100％正しいとは思わない</li><li>[ ] 重要な情報は必ず他の情報源で確認する</li><li>[ ] 個人情報は入力しない</li><li>[ ] AIが生成した文章をコピペしない</li><li>[ ] 数字や事実には特に注意する</li><li>[ ] AIの答えを「理由」として使わない</li></ul>
+<h2>まとめ</h2>
+<p>AIは便利で、すごく役立つツールです。でも、完璧ではありません。むしろ、AIの弱点を知ることが、AIとうまく付き合うための第一歩なんです。</p>
+<ul><li>ハルシネーションは必ず起こる</li><li>情報源として確認が必須</li><li>個人情報は守る</li><li>著作権と引用のルールを守る</li></ul>
+<p>こういった「AIリテラシー」を身につけることで、安全にAIを活用できるようになります。これからの時代、AIと付き合うスキルは本当に大事です。ぜひ、この記事で紹介したポイントを頭の片隅に置いて、AIを使ってみてください。</p>
+<section class="sources">
+<h2>参考リンク</h2>
+<ul><li><a href="https://openai.com/chatgpt/" target="_blank" rel="noopener noreferrer">ChatGPT</a></li><li><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a></li><li><a href="https://www.ipa.go.jp/" target="_blank" rel="noopener noreferrer">IPA（情報処理推進機構）</a></li></ul>
+</section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    <p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></p>
+    <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
+    <p>&copy; 2026 AIツールの透視図</p>
+  </div>
+</footer>
+</body>
+</html>
