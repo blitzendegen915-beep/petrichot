@@ -33,7 +33,7 @@ AIは、英語の「Artificial Intelligence」をみじかくした言葉です�
   <text x="75" y="150" text-anchor="middle" font-size="13" fill="var(--muted)">たくさん見せる</text>
   <line x1="150" y1="95" x2="222" y2="95" stroke="var(--muted)" stroke-width="2" marker-end="url(#dgA1)"/>
   <rect x="232" y="55" width="118" height="80" rx="11" fill="var(--accent)" stroke="var(--accent)" stroke-width="2"/>
-  <text x="291" y="103" text-anchor="middle" font-size="26" fill="#ffffff" class="dg-label">AI</text>
+  <text x="291" y="103" text-anchor="middle" font-size="26" fill="var(--accent-fg)" class="dg-label">AI</text>
   <line x1="364" y1="95" x2="436" y2="95" stroke="var(--muted)" stroke-width="2" marker-end="url(#dgA1)"/>
   <rect x="446" y="64" width="180" height="62" rx="9" fill="var(--edu-soft)" stroke="var(--edu)" stroke-width="2"/>
   <text x="536" y="102" text-anchor="middle" font-size="17" fill="var(--fg)">これは ネコ！</text>
