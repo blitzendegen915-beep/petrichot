@@ -3,7 +3,7 @@ title: ChatGPTの使い方入門|初心者向けの基本ガイド
 description: OpenAIのChatGPTの使い方を初心者向けに解説。アカウント作成から実際の使用方法まで、ChatGPTの基本的な活用法と上手に使うコツを紹介します。
 slug: chatgpt-tsukaikata-nyumon
 date: 2026-07-25
-category: 初心者ガイド
+category: AIをはじめて学ぶ
 tags: [ChatGPT, 使い方, 初心者, 入門]
 ---
 

@@ -3,7 +3,7 @@ title: Perplexityで検索が変わる活用術|次世代AI検索エンジン
 description: Perplexityの使い方・機能・料金を徹底解説。Google検索との違い、リアルタイム情報の精度を検証
 slug: perplexity-kensaku-katsuyo
 date: 2026-07-16
-category: 検索ツール
+category: ツール比較
 tags: [Perplexity, AI検索, リアルタイム情報, 効率化, 使い方]
 ---
 

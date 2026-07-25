@@ -176,16 +176,34 @@ const AFF_STANDALONE_RE = /^\{\{aff:([\w-]+)\}\}$/;
 // Minimal markdown renderer
 // ---------------------------------------------------------------------------
 
+// 記事内リンクは絶対URLで書かれているため、ホスト名で自サイトかどうかを判定する。
+// 自サイトなら target="_blank" を付けない（同じタブで回遊できるようにする）。
+const SITE_HOST = (() => {
+  try {
+    return new URL(CONFIG.baseUrl).host;
+  } catch {
+    return "";
+  }
+})();
+
+function isExternalUrl(url) {
+  if (!/^https?:\/\//i.test(url)) return false;
+  try {
+    return new URL(url).host !== SITE_HOST;
+  } catch {
+    return true;
+  }
+}
+
 function renderInline(escapedText) {
   let out = escapedText;
   // inline code
   out = out.replace(/`([^`]+)`/g, (_m, code) => `<code>${code}</code>`);
   // bold
   out = out.replace(/\*\*([^*]+)\*\*/g, (_m, txt) => `<strong>${txt}</strong>`);
-  // links
+  // links（自サイトへのリンクは同じタブで開く）
   out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, url) => {
-    const external = /^https?:\/\//i.test(url);
-    const rel = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+    const rel = isExternalUrl(url) ? ' target="_blank" rel="noopener noreferrer"' : "";
     return `<a href="${url}"${rel}>${text}</a>`;
   });
   // affiliate placeholders embedded mid-paragraph

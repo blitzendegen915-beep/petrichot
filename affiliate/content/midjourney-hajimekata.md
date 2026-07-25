@@ -3,7 +3,7 @@ title: Midjourneyの始め方・使い方入門|初心者向け完全ガイド
 description: AI画像生成Midjourneyの登録から実際の画像作成まで。初心者向けの使い方・料金・コツを完全解説
 slug: midjourney-hajimekata
 date: 2026-07-16
-category: 初心者ガイド
+category: デザイン
 tags: [Midjourney, AI画像生成, 使い方, 初心者, ガイド]
 ---
 

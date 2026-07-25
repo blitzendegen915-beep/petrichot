@@ -3,7 +3,7 @@ title: GitHub Copilotは買いか？実力レビュー|2026年版
 description: GitHub Copilotの実力・料金・メリット・デメリットを徹底検証。プログラマー必見の最新レビュー
 slug: github-copilot-review
 date: 2026-07-16
-category: ツールレビュー
+category: ツール比較
 tags: [GitHub Copilot, コード補完, 開発効率, AIプログラミング, レビュー]
 ---
 

@@ -3,7 +3,7 @@ title: AIで業務効率化を始める完全ガイド|2026年最新版
 description: AI導入で業務効率化。ツール選び・導入ステップ・ROI測定まで。経営者・管理職必読
 slug: ai-gyomu-kouritsuka
 date: 2026-07-16
-category: ビジネス効率化
+category: 業務効率化
 tags: [AI, 業務効率化, デジタル化, 導入ガイド, 生産性, 画像生成, バックオフィス]
 ---
 
