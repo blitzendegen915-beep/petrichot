@@ -764,20 +764,91 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--surface);
 }
 
-.disclosure-banner {
+.cat-nav {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.cat-nav .inner {
   max-width: var(--wide);
-  margin: 1rem auto 0;
-  padding: 0.65rem 1rem;
+  margin: 0 auto;
+  padding: 0.55rem 1.25rem;
   display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.cat-nav .inner::-webkit-scrollbar { display: none; }
+.nav-cat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.nav-cat:hover { background: var(--surface-2); color: var(--fg); }
+.nav-cat.is-active { background: var(--fg); color: var(--bg); }
+.nav-cat-n {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.disclosure-bar {
   background: var(--banner-bg);
   color: var(--banner-fg);
-  border: 1px solid var(--banner-border);
-  border-radius: 10px;
-  font-size: 0.82rem;
-  line-height: 1.7;
+  border-bottom: 1px solid var(--banner-border);
 }
+.disclosure-bar .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.45rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.hero {
+  padding: 2.4rem 0 1.6rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.hero h1 { margin: 0 0 0.6rem; }
+.hero-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.97rem;
+  line-height: 1.85;
+  max-width: 60ch;
+}
+.hero-count {
+  margin: 0.7rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+.hero-sub { padding-top: 1.8rem; }
+.section-head {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 1.1rem;
+  padding: 0;
+  border: none;
+}
+.section-head::before { content: none; }
 .disclosure-badge {
   flex-shrink: 0;
   font-family: var(--font-display);
@@ -815,14 +886,6 @@ h2 {
   margin: 2.75rem 0 1.15rem;
   padding-left: 0.85rem;
   border-left: 4px solid var(--accent);
-}
-article h2::before {
-  counter-increment: h2count;
-  content: counter(h2count, decimal-leading-zero) " / ";
-  color: var(--accent);
-  opacity: 0.6;
-  font-size: 0.75em;
-  letter-spacing: 0.03em;
 }
 h3 {
   font-family: var(--font-display);
@@ -1095,7 +1158,7 @@ a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
 }
 .card-eyecatch {
   width: 100%;
-  height: 132px;
+  height: 104px;
   overflow: hidden;
   background: var(--surface-2);
   border-bottom: 1px solid var(--border);
@@ -1112,8 +1175,8 @@ a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
 .card-body {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
-  padding: 1.1rem 1.4rem 1.5rem;
+  gap: 0.45rem;
+  padding: 0.95rem 1.15rem 1.15rem;
   flex: 1;
 }
 .article-card .card-top {
@@ -1138,9 +1201,13 @@ a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
 .article-card h2::before { content: none; }
 .article-card .desc {
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.75;
+  font-size: 0.87rem;
+  line-height: 1.72;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .empty-state {
   grid-column: 1 / -1;
@@ -1176,8 +1243,36 @@ function categoryChipClass(category) {
   return CATEGORY_CHIP_PALETTE[hash % CATEGORY_CHIP_PALETTE.length];
 }
 
-function pageShell({ title, description, canonical, ogType = "article", bodyHtml, jsonLd, showDisclosure = true }) {
+// ヘッダーのカテゴリナビは全ページ共通。記事を書き出す前に確定させる。
+let NAV_CATEGORIES = [];
+function setNavCategories(list) {
+  NAV_CATEGORIES = list.slice().sort((a, b) => b.count - a.count);
+}
+
+function renderCategoryNav(currentCategory) {
+  if (!NAV_CATEGORIES.length) return "";
+  const items = NAV_CATEGORIES.map(({ name, count }) => {
+    const active = name === currentCategory ? " is-active" : "";
+    return `<a class="nav-cat${active}" href="${categoryUrl(name)}">${escapeHtml(name)}<span class="nav-cat-n">${count}</span></a>`;
+  }).join("");
+  return `<nav class="cat-nav" aria-label="カテゴリ"><div class="inner">${items}</div></nav>`;
+}
+
+const DISCLOSURE_SITE_TEXT = "当サイトはアフィリエイト広告を利用しています。";
+
+function pageShell({
+  title,
+  description,
+  canonical,
+  ogType = "article",
+  bodyHtml,
+  jsonLd,
+  showDisclosure = true,
+  disclosureScope = "article",
+  currentCategory = null,
+}) {
   const fullTitle = `${title} | ${CONFIG.siteName}`;
+  const disclosureText = disclosureScope === "site" ? DISCLOSURE_SITE_TEXT : DISCLOSURE_TEXT;
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -1208,16 +1303,17 @@ ${OGP_IMAGE_URL ? `<meta name="twitter:image" content="${OGP_IMAGE_URL}">\n` : "
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-text">${escapeHtml(CONFIG.siteName)}</span>
     </a>
-    <nav>
+    <nav class="top-nav">
       <a href="${BLOG_INDEX_URL}">記事一覧</a>
     </nav>
   </div>
 </header>
-${showDisclosure ? `<div class="disclosure-banner"><span class="disclosure-badge">PR</span><span>${DISCLOSURE_TEXT}</span></div>` : ""}
+${renderCategoryNav(currentCategory)}
+${showDisclosure ? `<div class="disclosure-bar"><div class="inner"><span class="disclosure-badge">PR</span><span>${disclosureText}</span></div></div>` : ""}
 ${bodyHtml}
 <footer class="site-footer">
   <div class="inner">
-    ${showDisclosure ? `<p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>${DISCLOSURE_TEXT}</span></p>` : ""}
+    ${showDisclosure ? `<p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>${disclosureText}</span></p>` : ""}
     <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
     <p>&copy; ${new Date().getFullYear()} ${escapeHtml(CONFIG.siteName)}</p>
   </div>
@@ -1350,7 +1446,12 @@ function renderArticleGrid(articles, emptyText) {
 function renderBlogIndex(articles) {
   const body = `
 <main class="wide">
-  <h1>記事一覧</h1>
+  <section class="hero">
+    <h1>${escapeHtml(CONFIG.siteName)}</h1>
+    <p class="hero-lead">${escapeHtml(CONFIG.description)}</p>
+    <p class="hero-count">${articles.length}本の記事を公開中</p>
+  </section>
+  <h2 class="section-head">新着記事</h2>
   <ul class="article-grid">
     ${renderArticleGrid(articles)}
   </ul>
@@ -1371,13 +1472,18 @@ function renderBlogIndex(articles) {
     ogType: "website",
     bodyHtml: body,
     jsonLd,
+    disclosureScope: "site",
   });
 }
 
-function renderTaxonomyPage({ heading, description, canonical, articles }) {
+function renderTaxonomyPage({ heading, description, canonical, articles, currentCategory = null }) {
   const body = `
 <main class="wide">
-  <h1>${escapeHtml(heading)}</h1>
+  <section class="hero hero-sub">
+    <h1>${escapeHtml(heading)}</h1>
+    <p class="hero-lead">${escapeHtml(description)}</p>
+    <p class="hero-count">${articles.length}本</p>
+  </section>
   <ul class="article-grid">
     ${renderArticleGrid(articles, "該当する記事がまだありません。")}
   </ul>
@@ -1397,6 +1503,8 @@ function renderTaxonomyPage({ heading, description, canonical, articles }) {
     ogType: "website",
     bodyHtml: body,
     jsonLd,
+    disclosureScope: "site",
+    currentCategory,
   });
 }
 
@@ -1492,11 +1600,6 @@ function build() {
 
   const articles = loadArticles();
 
-  for (const article of articles) {
-    const outPath = path.join(BLOG_OUT_DIR, article.slug, "index.html");
-    writeFile(outPath, renderArticlePage(article, articles));
-  }
-
   const tagMap = new Map();
   const categoryMap = new Map();
   for (const a of articles) {
@@ -1506,6 +1609,14 @@ function build() {
     }
     if (!categoryMap.has(a.category)) categoryMap.set(a.category, []);
     categoryMap.get(a.category).push(a);
+  }
+
+  // ヘッダーのカテゴリナビは全ページに出すので、記事の書き出しより先に確定させる
+  setNavCategories([...categoryMap].map(([name, list]) => ({ name, count: list.length })));
+
+  for (const article of articles) {
+    const outPath = path.join(BLOG_OUT_DIR, article.slug, "index.html");
+    writeFile(outPath, renderArticlePage(article, articles));
   }
   for (const [tag, list] of tagMap) {
     const outPath = path.join(BLOG_OUT_DIR, "tag", tag, "index.html");
@@ -1524,10 +1635,11 @@ function build() {
     writeFile(
       outPath,
       renderTaxonomyPage({
-        heading: `カテゴリ: ${category}`,
-        description: `「${category}」カテゴリの記事一覧`,
+        heading: category,
+        description: `「${category}」の記事をまとめています。`,
         canonical: categoryUrl(category),
         articles: list,
+        currentCategory: category,
       })
     );
   }
