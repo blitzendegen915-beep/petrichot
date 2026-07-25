@@ -768,6 +768,42 @@ pre {
 pre code { background: none; padding: 0; }
 hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 
+.related {
+  margin: 3.5rem auto 0;
+  max-width: var(--measure);
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+.related h2 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+  padding-left: 0;
+  border-left: none;
+}
+.related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.related a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.related a:hover { border-color: var(--accent); transform: translateY(-1px); }
+.related .related-title { font-weight: 700; line-height: 1.5; }
+.related .related-cat {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
 .chip {
   display: inline-flex;
   align-items: center;
@@ -1051,7 +1087,57 @@ function formatDateJa(dateStr) {
   return dateStr;
 }
 
-function renderArticlePage(article) {
+// 同じカテゴリ(重み3)と共通タグ(1つにつき1)でスコアを付け、関連度の高い記事を返す。
+// 記事同士の内部リンクを増やすことでクローラーの巡回を助け、読者の回遊も促す。
+function findRelatedArticles(article, allArticles, limit = 3) {
+  const others = allArticles.filter((a) => a.slug !== article.slug);
+  const matched = others
+    .map((a) => {
+      let score = a.category === article.category ? 3 : 0;
+      score += a.tags.filter((t) => article.tags.includes(t)).length;
+      return { article: a, score };
+    })
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score || (a.article.date < b.article.date ? 1 : -1))
+    .map((x) => x.article);
+
+  // カテゴリもタグも重ならない記事を孤立させないため、足りない分は新着で埋める
+  if (matched.length < limit) {
+    const picked = new Set(matched.map((a) => a.slug));
+    for (const a of others) {
+      if (matched.length >= limit) break;
+      if (!picked.has(a.slug)) {
+        matched.push(a);
+        picked.add(a.slug);
+      }
+    }
+  }
+  return matched.slice(0, limit);
+}
+
+function renderRelatedHtml(article, allArticles) {
+  const related = findRelatedArticles(article, allArticles);
+  if (!related.length) return "";
+  const items = related
+    .map(
+      (a) => `<li>
+        <a href="${articleUrl(a.slug)}">
+          <span class="related-title">${escapeHtml(a.title)}</span>
+          <span class="related-cat">${escapeHtml(a.category)}</span>
+        </a>
+      </li>`
+    )
+    .join("\n");
+  return `
+  <nav class="related" aria-label="関連記事">
+    <h2>関連記事</h2>
+    <ul>
+      ${items}
+    </ul>
+  </nav>`;
+}
+
+function renderArticlePage(article, allArticles = []) {
   const url = articleUrl(article.slug);
   const tagsHtml = article.tags.length
     ? article.tags
@@ -1070,6 +1156,7 @@ function renderArticlePage(article) {
     <div class="eyecatch-hero">${article.eyecatchSvg}</div>
     ${article.bodyHtml}
   </article>
+${renderRelatedHtml(article, allArticles)}
 </main>`;
 
   const jsonLd = {
@@ -1263,7 +1350,7 @@ function build() {
 
   for (const article of articles) {
     const outPath = path.join(BLOG_OUT_DIR, article.slug, "index.html");
-    writeFile(outPath, renderArticlePage(article));
+    writeFile(outPath, renderArticlePage(article, articles));
   }
 
   const tagMap = new Map();
