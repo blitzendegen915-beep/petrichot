@@ -238,6 +238,37 @@ function renderMarkdown(md) {
       continue;
     }
 
+    // GFM table: header row + separator row
+    if (
+      trimmed.startsWith("|") &&
+      i + 1 < lines.length &&
+      /^\|?[\s:|-]+\|[\s:|-]*$/.test(lines[i + 1].trim()) &&
+      lines[i + 1].includes("-")
+    ) {
+      flush();
+      const splitRow = (row) => {
+        let cells = row.trim().split("|").map((c) => c.trim());
+        if (cells.length && cells[0] === "") cells = cells.slice(1);
+        if (cells.length && cells[cells.length - 1] === "") cells = cells.slice(0, -1);
+        return cells;
+      };
+      const headers = splitRow(lines[i]);
+      i += 2; // skip header + separator
+      const rows = [];
+      while (i < lines.length && lines[i].trim().startsWith("|")) {
+        rows.push(splitRow(lines[i]));
+        i++;
+      }
+      const th = headers.map((h) => `<th>${renderInline(escapeHtml(h))}</th>`).join("");
+      const trs = rows
+        .map((r) => `<tr>${r.map((c) => `<td>${renderInline(escapeHtml(c))}</td>`).join("")}</tr>`)
+        .join("");
+      htmlParts.push(
+        `<div class="table-wrap"><table><thead><tr>${th}</tr></thead><tbody>${trs}</tbody></table></div>`
+      );
+      continue;
+    }
+
     // horizontal rule
     if (/^-{3,}$/.test(trimmed)) {
       flush();
@@ -250,7 +281,7 @@ function renderMarkdown(md) {
     const headingMatch = trimmed.match(/^(#{1,3})\s+(.*)$/);
     if (headingMatch) {
       flush();
-      const level = headingMatch[1].length;
+      const level = Math.max(headingMatch[1].length, 2); // body h1 demoted: page h1 is the frontmatter title
       htmlParts.push(`<h${level}>${renderInline(escapeHtml(headingMatch[2]))}</h${level}>`);
       i++;
       continue;
@@ -485,7 +516,8 @@ function loadArticles() {
       console.warn(`[build] Skipping ${file}: could not read file (${err.message})`);
       continue;
     }
-    const { data, body } = parseFrontmatter(raw);
+    const { data, body: rawBody } = parseFrontmatter(raw);
+    const body = rawBody.replace(/^\s*# [^\n]*\r?\n/, "");
 
     if (!data.title || !data.slug) {
       console.warn(`[build] Skipping ${file}: missing required frontmatter (title/slug).`);
@@ -759,6 +791,32 @@ code {
   border-radius: 4px;
   font-size: 0.9em;
 }
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.4rem 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.table-wrap th, .table-wrap td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table-wrap td { white-space: normal; min-width: 8em; }
+.table-wrap thead th {
+  background: var(--card-bg);
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+}
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+
 pre {
   background: var(--code-bg);
   padding: 1rem;
