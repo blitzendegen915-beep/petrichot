@@ -37,12 +37,27 @@ tags: [タグ1, タグ2, タグ3]
 - 記事末尾に必ず `## 参考リンク`(2〜4個)。**URLは承認済みリストのみ(捏造厳禁)**:
   openai.com/chatgpt/, claude.ai, gemini.google.com, www.notion.com/product/ai, www.canva.com, www.midjourney.com, github.com/features/copilot, www.perplexity.ai, openai.com, www.anthropic.com, blog.google/technology/ai/, www.soumu.go.jp/johotsusintokei/whitepaper/, www.mext.go.jp, www.ipa.go.jp
 
+## 書いてはいけないこと(捏造対策・最重要)
+
+過去に実在する調査会社名を使った存在しない統計が混入した。以下は **`node affiliate/lint.mjs` がERRORで弾く**:
+
+- **「〇〇の調査によると」「〇〇のレポートでは」など、出典を第三者に帰属させる記述**
+- **調査会社・シンクタンク名の言及**(Gartner / IDC / McKinsey / 野村総研 など)
+- 成果を約束する表現(「確実に達成」「必ず実現」「保証します」)
+- 誇大表現(「最強」「圧倒的」「劇的に」「誰でも簡単」「完全無料」)
+- 参考リンクに文書名を書くこと(実在確認ができない。**サイト名のみ**書く)
+
+また lint が**警告**する数値は、書く前に「その数字の出どころを言えるか」を自問すること:
+効果のパーセンテージ、料金、所要時間、削減率は**原則書かない**。「公式サイトでご確認ください」に逃がす。
+指示役から具体的な数値を渡された場合のみ、その範囲で書いてよい。
+
 ## ビルド・公開
 
-1. `node affiliate/build.mjs` — エラー・警告ゼロ、記事数+1を確認。
-2. **`git reset --hard` は使わない**(未pushの作業を破壊しうる)。`git add` は新規記事ファイルのみ個別指定(`-A`/`.`禁止)。
-3. **`affiliate/build.mjs` は触らない**(レビュー待ちの未pushの変更がある)。
-4. commit(`auto: 新規記事「<タイトル>」を追加`)→ `git push origin main`。
-5. push後1〜2分で `git ls-remote origin gh-pages` のハッシュが変わればデプロイ成功。
+1. **`node affiliate/lint.mjs affiliate/content/<新記事>.md` — ERRORが0件になるまで直す。** 警告は内容を目視で確認。
+2. `node affiliate/build.mjs` — エラー・警告ゼロ、記事数+1を確認。
+3. **`git reset --hard` は使わない**(未pushの作業を破壊しうる)。`git add` は新規記事ファイルのみ個別指定(`-A`/`.`禁止)。
+4. **`affiliate/build.mjs` は触らない**(レビュー待ちの未pushの変更がある)。
+5. commit(`auto: 新規記事「<タイトル>」を追加`)→ `git push origin main`。
+6. push後1〜2分で `git ls-remote origin gh-pages` のハッシュが変わればデプロイ成功。
 
 **サブエージェントとして呼ばれた場合**: 上記2〜5は行わない。記事ファイル作成と`node affiliate/build.mjs`での検証までを行い、パスと結果を報告して終了する(commit/pushは指示役が行う)。
