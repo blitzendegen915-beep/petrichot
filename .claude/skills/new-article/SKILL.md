@@ -40,6 +40,9 @@ tags: [タグ1, タグ2, タグ3]
 ## ビルド・公開
 
 1. `node affiliate/build.mjs` — エラー・警告ゼロ、記事数+1を確認。
-2. **`git reset --hard` は使わない**(未pushの作業を破壊しうる)。`git add` は新規記事ファイルのみ。
-3. commit(`auto: 新規記事「<タイトル>」を追加`)→ `git push origin main`。
-4. push後1〜2分で `git ls-remote origin gh-pages` のハッシュが変わればデプロイ成功。
+2. **`git reset --hard` は使わない**(未pushの作業を破壊しうる)。`git add` は新規記事ファイルのみ個別指定(`-A`/`.`禁止)。
+3. **`affiliate/build.mjs` は触らない**(レビュー待ちの未pushの変更がある)。
+4. commit(`auto: 新規記事「<タイトル>」を追加`)→ `git push origin main`。
+5. push後1〜2分で `git ls-remote origin gh-pages` のハッシュが変わればデプロイ成功。
+
+**サブエージェントとして呼ばれた場合**: 上記2〜5は行わない。記事ファイル作成と`node affiliate/build.mjs`での検証までを行い、パスと結果を報告して終了する(commit/pushは指示役が行う)。

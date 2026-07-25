@@ -11,6 +11,18 @@
 - `affiliate/static/` — OGP画像などの静的ファイル(dist/static/へコピーされる)
 - `.github/workflows/deploy-pages.yml` — mainへのpushでビルド→gh-pagesブランチへデプロイ
 
+## オーケストレーション(必須)
+
+オーナー指示: **Opusは指示役、実行役はsonnetとhaiku。トークン節約を最優先。**
+
+- 記事執筆・一括修正・調査などの**実作業はサブエージェント(Agentツール)に投げる**。オーケストレーター自身が本文を書かない
+- モデル選択: 記事執筆・比較記事=`sonnet` / 定型作業・単純調査・一括置換=`haiku`
+- **規約はサブエージェントに読ませる**。プロンプトに規約全文を貼らず「`.claude/skills/<名前>/SKILL.md` を読んで従え」と指示する(オーケストレーターの文脈を節約する要点)
+- 独立した作業は**1メッセージで並列に**複数spawnする
+- 大きいファイル(`build.mjs`等)をオーケストレーターが通読しない。必要な箇所だけgrepするか、サブエージェントに調べさせる
+- サブエージェントには**commit/pushさせない**。ファイル作成までやらせ、検証(`node affiliate/build.mjs`)とcommit/pushはオーケストレーターが行う
+- 詳細は `orchestrate` スキルを参照
+
 ## 鉄則
 
 1. **`git reset --hard` 禁止** — 未pushの作業(レビュー待ち修正など)が存在しうる。origin/mainへの追従はfetch+merge/rebaseで
@@ -31,3 +43,4 @@
 - `visual-check` — スクリーンショット表示検証
 - `seo-check` — sitemap/OGP/メタ情報の整合性点検
 - `fix-deploy` — デプロイ失敗時の復旧手順
+- `orchestrate` — サブエージェントへの委任手順(Opusが最初に読む)
