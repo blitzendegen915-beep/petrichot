@@ -59,6 +59,8 @@ ChatGPTもClaudeも、こうした基本の型は共通して有効です。ま�
 
 {{aff:claude}}
 
+なお、AIツールを活用する際はプライバシー面への配慮も大切です。[AIと個人情報｜入力していいこと・ダメなこと](https://petrichot.com/ai-to-privacy-kojinjouhou/)で、安全な使い方について詳しく解説しています。
+
 ## 参考リンク
 
 - [ChatGPT 公式サイト](https://openai.com/chatgpt/)

@@ -60,7 +60,7 @@ vibrant, cinematic, dramatic lighting, ultra-detailed, masterpiece, professional
 in the style of Studio Ghibli, inspired by Van Gogh, cinematic style of Blade Runner
 ```
 
-2026年時点で、多くのアーティスト名やメディア名がMidjourneyのデータベースに含まれており、参考指定が効果的に機能します。
+2026年時点で、多くのアーティスト名やメディア名がMidjourneyのデータベースに含まれており、参考指定が効果的に機能します。一般的な[AIへの指示文の書き方](https://petrichot.com/prompt-no-kakikata-kihon/)も参考にしながら、独自のスタイルを磨いてください。
 
 {{aff:midjourney}}
 
@@ -206,7 +206,7 @@ Midjourneyのコミュニティフォーラムでは、様々なプロンプト�
 
 ## 2026年のトレンド
 
-2026年時点で、Midjourneyは継続的にアップデートされており、より自然で高度な画像生成が可能になっています。新しいスタイル指定オプションも定期的に追加されており、プロンプト作成の自由度がさらに高まっています。
+2026年時点で、Midjourneyは継続的にアップデートされており、より自然で高度な画像生成が可能になっています。新しいスタイル指定オプションも定期的に追加されており、プロンプト作成の自由度がさらに高まっています。[Canvaなどのデザインツール](https://petrichot.com/canva-ai-design-nyumon/)と組み合わせることで、生成した画像をさらに洗練させることも可能です。
 
 リアルタイムの最新情報は、Midjourneyの公式ドキュメントやコミュニティチャネルで確認することをおすすめします。
 

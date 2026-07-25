@@ -100,11 +100,11 @@ ChatGPT Plusという有料プランが用意されており、加入すると�
 
 ChatGPT以外にも、同等以上の性能を持つAIツールが登場しています。
 
-- **Claude**: Anthropicが開発したAIで、長文読解や文章力で定評があります
-- **Google Gemini**: Googleの最新AI技術を活用したツール
-- **その他のAI**: Perplexity AIなど、検索に特化したAIも登場
+- **Claude**: Anthropicが開発したAIで、[長文読解や文章力で定評](https://petrichot.com/claude-tsukaikata-nyumon/)があります
+- **Google Gemini**: [Googleの最新AI技術を活用したツール](https://petrichot.com/gemini-katsuyou-jutsu/)
+- **その他のAI**: [Perplexity AIなど、検索に特化したAI](https://petrichot.com/perplexity-kensaku-katsuyo/)も登場
 
-自分の用途に応じて、複数のツールを試し比較することをおすすめします。
+[ChatGPTとClaudeの詳細な比較](https://petrichot.com/chatgpt-vs-claude-hikaku/)も参考に、自分の用途に応じて複数のツールを試し比較することをおすすめします。
 
 ## まとめ
 

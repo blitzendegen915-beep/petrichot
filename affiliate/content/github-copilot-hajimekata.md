@@ -70,6 +70,10 @@ GitHub Copilotは便利ですが、ただ提案されたコードをコピーす
 
 こうすることで、Copilotとの協働がスキル向上につながります。
 
+GitHub Copilotの提案がうまく出ないときは、[プロンプトの書き方基本](https://petrichot.com/prompt-no-kakikata-kihon/)を参考にして、コメントや関数名をもっと詳しく書いてみることをお勧めします。
+
+また、[プログラミング学習にAIを活用しよう](https://petrichot.com/programming-gakushuu-to-ai/)では、Copilotを含めた学習支援ツールについて詳しく解説しています。
+
 ## 参考リンク
 
 - https://github.com/features/copilot

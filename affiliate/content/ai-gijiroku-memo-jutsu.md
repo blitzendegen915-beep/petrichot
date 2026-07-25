@@ -127,6 +127,8 @@ ClaudeはNotionとの連携を通じて、さらに高度な議事録処理が�
 | Google Gemini | Google Workspace統合 | Google Workspace内 | Google環境のチーム |
 | Zoom（自動字幕） | 会議中リアルタイム | Zoom Pro以上 | オンライン会議 |
 
+このほか、[AI文字起こしツール比較](https://petrichot.com/ai-mojiokoshi-tool-hikaku/)や[AIボイスレコーダー比較](https://petrichot.com/ai-voice-recorder-hikaku/)で、より詳しいツール比較を掲載しています。
+
 ## 議事録・メモ作成の実践的なテクニック
 
 ### 1. 事前準備が重要

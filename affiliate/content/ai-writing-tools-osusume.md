@@ -25,7 +25,7 @@ OpenAIの「ChatGPT」は、日本語ライティングで最も使いやすいA
 
 {{aff:chatgpt}}
 
-初めてのAIライティング体験なら、ChatGPTから始めるのが最適です。
+初めてのAIライティング体験なら、ChatGPTから始めるのが最適です。[ChatGPTの無料版と有料版の違い](https://petrichot.com/chatgpt-muryou-yuuryou-chigai/)を確認して、自分の用途に合わせて選択しましょう。
 
 ## 2位：Notion AI（統合型の最高峰）
 
@@ -122,6 +122,7 @@ Copy.aiは、シンプルなUIで初心者にも優しいAIライティングツ
 - [ ] 無料版で試した
 - [ ] 日本語対応を確認した
 - [ ] チームで使う場合は複数ユーザー対応を確認した
+- [ ] [プロンプトの書き方](https://petrichot.com/prompt-no-kakikata-kihon/)について基本を理解した
 
 ## まとめ
 

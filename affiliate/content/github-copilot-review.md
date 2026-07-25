@@ -13,7 +13,7 @@ GitHub Copilotは、GitHubとOpenAIが共同開発したAIコード補完ツー�
 
 ## GitHub Copilotとは
 
-GitHub Copilotは、あなたの書くコードを分析して、次の行や関数を提案するAIアシスタントです。VScodeやJetBrains IDEなど、主要なエディタに対応しています。
+GitHub Copilotは、あなたの書くコードを分析して、次の行や関数を提案するAIアシスタントです。VScodeやJetBrains IDEなど、主要なエディタに対応しています。[プログラミング学習にAIを活用する](https://petrichot.com/programming-gakushuu-to-ai/)という観点からも注目されています。
 
 **基本機能：**
 - コード補完（IntelliSenseより高度）
@@ -142,7 +142,7 @@ GitHub Copilotは月単位で精度向上します。新バージョンでの変
 | Tabnine | 15ドル | 22+言語 | 標準的 |
 | Amazon CodeWhisperer | 無料/企業向け | 複数 | 標準的 |
 
-2026年時点では、総合的にGitHub Copilotが最も優れています。
+2026年時点では、総合的にGitHub Copilotが最も優れています。複雑なロジックや特殊なドメイン知識が必要な場合は、[Claude](https://petrichot.com/claude-toha-nani/)などのAIと組み合わせるのも有効です。
 
 ## まとめ
 

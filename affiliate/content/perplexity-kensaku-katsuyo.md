@@ -110,7 +110,7 @@ Perplexity：「2026年のMidjourneyとDALL-E 3の料金比較」と質問→整
 「2026年のAI画像生成ツール（Midjourney、Canva、DALL-E）の比較。料金・品質・用途別の選び方」
 ```
 
-通常の検索では複数のサイトを開いて回る必要がある調べ物でも、要点と出典がまとめて返ってくるため、手数を減らせます。
+通常の検索では複数のサイトを開いて回る必要がある調べ物でも、要点と出典がまとめて返ってくるため、手数を減らせます。[AI画像生成ツールの詳細な比較](https://petrichot.com/muryou-ai-gazou-seisei/)も参考にしてください。
 
 ### 活用術2：学習支援
 
@@ -138,15 +138,16 @@ Perplexityは複数の信頼できるソースを統合し、非常にわかり�
 
 整理された比較表が即座に得られます。
 
-## Perplexityと{{aff:gemini}}の連携活用
+## Perplexityと他のAIの連携活用
 
-GeminiはGoogleの最新LLMで、Perplexityと異なる検索方式を持ちます。
+GeminiはGoogleの最新LLMで、Perplexityと異なる検索方式を持ちます。また、[Claude](https://petrichot.com/claude-toha-nani/)も長文分析に優れています。
 
 **使い分けの工夫：**
 - **Perplexity**：リアルタイム情報・比較が必要な時
-- **Gemini**：深い思考・創意的な回答が必要な時
+- **Gemini**：Googleサービスとの連携、深い思考が必要な時
+- **Claude**：長い文章の分析や複雑な論理的思考が必要な時
 
-両方を活用することで、検索・AI活用の効率は最大化します。
+複数のツールを活用することで、検索・AI活用の効率は最大化します。
 
 ## Perplexityの限界と注意点
 

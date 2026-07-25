@@ -11,7 +11,7 @@ tags: [Midjourney, AI画像生成, 使い方, 初心者, ガイド]
 
 Midjourneyは、テキストの説明だけで高品質な画像を生成するAIツールです。ブログのアイキャッチ、デザイン案出し、イラスト作成など、様々な用途で活躍しています。
 
-この記事では、Midjourneyの登録から実際の画像生成まで、ステップバイステップで解説します。
+この記事では、Midjourneyの登録から実際の画像生成まで、ステップバイステップで解説します。[プロンプト作成のコツ](https://petrichot.com/midjourney-prompt-no-kotsu/)を理解することで、さらに高品質な画像が生成できます。
 
 ## Midjourneyとは
 
@@ -129,6 +129,8 @@ Discordの#general-1などのチャンネルで、以下のコマンドを入力
 - SNS投稿用のビジュアル
 - 商品デザインの初期案
 - 小説のキャラクターデザイン参考
+
+[Canvaでのデザイン制作](https://petrichot.com/canva-ai-design-nyumon/)と組み合わせることで、さらに完成度の高い成果物を実現できます。
 
 {{aff:canva}}
 

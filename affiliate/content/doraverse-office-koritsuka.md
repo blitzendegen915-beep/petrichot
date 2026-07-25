@@ -69,6 +69,8 @@ Doraverseでは：
 
 「あのファイルどこだっけ？」という無駄なやり取りが激減します。
 
+Doraverseのような定型業務の自動化は、[AIで業務効率化を始める](https://petrichot.com/ai-gyomu-kouritsuka/)ときの最初の一歩になります。
+
 {{aff:doraverse}}
 
 ## 導入による具体的な効果
