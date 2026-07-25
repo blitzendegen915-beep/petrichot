@@ -156,7 +156,9 @@ function lintFile(file, links) {
   if (!/^##\s*参考リンク\s*$/m.test(body)) {
     errors.push([1, "「## 参考リンク」セクションがない"]);
   }
-  const bodyChars = body.replace(/\s/g, "").length;
+  // 図(```svg)やコードブロックの中身は読み物としての分量ではないので数えない
+  const prose = body.replace(/^```[\s\S]*?^```/gm, "");
+  const bodyChars = prose.replace(/\s/g, "").length;
   if (bodyChars < 1200) warns.push([1, `本文が${bodyChars}字と短い(目安1500〜2500字)`]);
   if (bodyChars > 3500) warns.push([1, `本文が${bodyChars}字と長い(目安1500〜2500字)`]);
 

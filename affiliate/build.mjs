@@ -193,6 +193,42 @@ function renderInline(escapedText) {
   return out;
 }
 
+// ```svg ブロックは図としてそのまま出力する。エスケープを外す唯一の経路なので、
+// 使えるタグを図形要素だけに絞り、スクリプト実行につながる書き方はビルドを止める。
+const SVG_ALLOWED_TAGS = new Set([
+  "svg", "g", "defs", "title", "desc", "path", "rect", "circle", "ellipse",
+  "line", "polyline", "polygon", "text", "tspan", "marker", "linearGradient",
+  "radialGradient", "stop", "use", "symbol", "clipPath", "mask",
+]);
+
+function assertSafeSvg(svg) {
+  if (!/^\s*<svg[\s>]/.test(svg)) {
+    throw new Error("svgブロックは <svg> で始める必要があります");
+  }
+  if (/<\s*script/i.test(svg)) {
+    throw new Error("svgブロックに <script> は書けません");
+  }
+  if (/\son[a-zA-Z]+\s*=/.test(svg)) {
+    throw new Error("svgブロックにイベントハンドラ属性(onclick等)は書けません");
+  }
+  if (/javascript\s*:/i.test(svg)) {
+    throw new Error("svgブロックに javascript: URL は書けません");
+  }
+  for (const m of svg.matchAll(/<\s*\/?\s*([a-zA-Z][a-zA-Z0-9:_-]*)/g)) {
+    if (!SVG_ALLOWED_TAGS.has(m[1])) {
+      throw new Error(`svgブロックで使えないタグです: <${m[1]}>`);
+    }
+  }
+}
+
+function renderFigure(svg, caption) {
+  assertSafeSvg(svg);
+  const cap = caption
+    ? `<figcaption>${renderInline(escapeHtml(caption))}</figcaption>`
+    : "";
+  return `<figure class="diagram">${svg}${cap}</figure>`;
+}
+
 function renderMarkdown(md) {
   const lines = md.replace(/\r\n/g, "\n").split("\n");
   const htmlParts = [];
@@ -215,9 +251,11 @@ function renderMarkdown(md) {
     const line = lines[i];
     const trimmed = line.trim();
 
-    // fenced code block
+    // fenced code block（```svg は図として出力）
     if (trimmed.startsWith("```")) {
       flush();
+      const info = trimmed.slice(3).trim();
+      const lang = info.split(/\s+/)[0].toLowerCase();
       const codeLines = [];
       i++;
       while (i < lines.length && !lines[i].trim().startsWith("```")) {
@@ -225,7 +263,12 @@ function renderMarkdown(md) {
         i++;
       }
       i++; // skip closing fence
-      htmlParts.push(`<pre><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`);
+      const rawBlock = codeLines.join("\n");
+      if (lang === "svg") {
+        htmlParts.push(renderFigure(rawBlock, info.slice(3).trim()));
+        continue;
+      }
+      htmlParts.push(`<pre><code>${escapeHtml(rawBlock)}</code></pre>`);
       continue;
     }
 
@@ -816,6 +859,31 @@ code {
   border-bottom: 2px solid var(--accent);
 }
 .table-wrap tbody tr:last-child td { border-bottom: none; }
+
+figure.diagram {
+  margin: 1.8rem 0;
+  padding: 1.1rem 1rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow-x: auto;
+}
+figure.diagram svg {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0 auto;
+}
+figure.diagram figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
+}
+figure.diagram .dg-label { font-weight: 700; }
+figure.diagram text { font-family: inherit; }
 
 pre {
   background: var(--code-bg);
