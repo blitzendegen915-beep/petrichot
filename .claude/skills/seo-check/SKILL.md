@@ -7,7 +7,7 @@ description: sitemap・robots・canonical・OGP・メタ情報の整合性を点
 
 ## 点検項目(すべて dist/ をビルドしてから)
 
-1. **sitemap.xml**: 記事数+1(トップ)のURL数があるか、全URLが `https://blitzendegen915-beep.github.io/petrichot/` 配下か、lastmodが妥当か
+1. **sitemap.xml**: 記事数+1(トップ)のURL数があるか、全URLが `https://petrichot.com/` 配下か、lastmodが妥当か
 2. **robots.txt**: `Allow: /` と `Sitemap:` 行があるか
 3. **各ページのメタ**(サンプル3ページで確認):
    - `<title>` が「記事タイトル | AIツールの透視図」形式

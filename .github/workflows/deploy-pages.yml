@@ -32,6 +32,9 @@ jobs:
         run: |
           cd dist
           touch .nojekyll
+          # カスタムドメイン設定を保持する。gh-pagesブランチは毎回作り直しているため、
+          # GitHubのUIが生成するCNAMEファイルはforce pushで消えてしまう。ここで必ず作る。
+          echo "petrichot.com" > CNAME
           git init -b gh-pages
           git config user.name "affiliate-bot"
           git config user.email "bot@users.noreply.github.com"

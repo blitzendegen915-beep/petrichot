@@ -2,7 +2,7 @@
 
 ## アーキテクチャ概要
 
-このシステムは、`affiliate/content/` に置かれたMarkdown記事(フロントマター付き)を `affiliate/build.mjs`(依存ライブラリ0のNode.jsスクリプト)が読み込み、`dist/` 配下に静的HTMLサイト(記事詳細ページ・記事一覧・RSSフィード・サイトマップ)を生成し、既存のルートアプリ(index.html等)と合わせて GitHub Pages(`https://blitzendegen915-beep.github.io/petrichot/`、ブログは `/blog` 以下)へデプロイする、という構成です。記事は `.github/workflows/auto-article.yml` が毎日UTC 21:00(日本時間 朝6:00)に `affiliate/generate-article.mjs` を実行し、Anthropic API(Claude Haiku)で自動生成・コミットします。デプロイは `.github/workflows/deploy-pages.yml` が `main` ブランチへのプッシュをトリガーに `affiliate/build.mjs` を実行し、GitHub Pages に公開します。
+このシステムは、`affiliate/content/` に置かれたMarkdown記事(フロントマター付き)を `affiliate/build.mjs`(依存ライブラリ0のNode.jsスクリプト)が読み込み、`dist/` 配下に静的HTMLサイト(記事詳細ページ・記事一覧・RSSフィード・サイトマップ)を生成し、既存のルートアプリ(index.html等)と合わせて GitHub Pages(`https://petrichot.com/`、ブログは `/blog` 以下)へデプロイする、という構成です。記事は `.github/workflows/auto-article.yml` が毎日UTC 21:00(日本時間 朝6:00)に `affiliate/generate-article.mjs` を実行し、Anthropic API(Claude Haiku)で自動生成・コミットします。デプロイは `.github/workflows/deploy-pages.yml` が `main` ブランチへのプッシュをトリガーに `affiliate/build.mjs` を実行し、GitHub Pages に公開します。
 
 ## 自動化の仕組み
 
@@ -43,10 +43,10 @@
 
 ### (c) Google Search Console でプロパティ登録し、sitemap.xml を送信する
 
-1. Google Search Console (https://search.google.com/search-console) にアクセスし、`https://blitzendegen915-beep.github.io/petrichot/` をプロパティとして登録する(所有権の確認が必要です)。
+1. Google Search Console (https://search.google.com/search-console) にアクセスし、`https://petrichot.com/` をプロパティとして登録する(所有権の確認が必要です)。
 2. 登録後、左メニューの「サイトマップ」から以下のURLを送信する:
    ```
-   https://blitzendegen915-beep.github.io/petrichot/sitemap.xml
+   https://petrichot.com/sitemap.xml
    ```
 3. これにより検索エンジンのクロール・インデックス登録が促進されます。
 

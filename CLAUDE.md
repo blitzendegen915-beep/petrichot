@@ -1,7 +1,7 @@
 # AIツールの透視図 — 運営ルール
 
 日本語のAIツール紹介+学生向けAIリテラシーのブログ。GitHub Pagesで公開。
-公開URL: https://blitzendegen915-beep.github.io/petrichot/
+公開URL: https://petrichot.com/
 
 ## 構成
 
