@@ -38,6 +38,10 @@ const ALLOWED_URL_PREFIXES = [
   "https://www.soumu.go.jp/johotsusintokei/whitepaper/",
   "https://www.mext.go.jp/",
   "https://www.ipa.go.jp/",
+  // 提携済みサービスの公式サイト・公式ヘルプ
+  "https://www.miricanvas.com/",
+  "https://help.miricanvas.com/",
+  "https://lolipop.jp/",
 ];
 
 // 断定的・誇大な表現。文脈を問わず不適切なものだけを入れる。
