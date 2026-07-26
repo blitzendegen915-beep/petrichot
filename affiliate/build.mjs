@@ -838,6 +838,22 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: 0.03em;
 }
 .hero-sub { padding-top: 1.8rem; }
+.hero-actions { margin: 1.3rem 0 0; }
+.hero-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.hero-btn:hover, .hero-btn:focus-visible {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
 .section-head {
   font-family: var(--font-display);
   font-size: 0.85rem;
@@ -940,6 +956,137 @@ code {
   border-bottom: 2px solid var(--accent);
 }
 .table-wrap tbody tr:last-child td { border-bottom: none; }
+
+.nav-cta {
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  border-color: var(--accent) !important;
+}
+.nav-cta:hover, .nav-cta:focus-visible {
+  filter: brightness(1.06);
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+}
+
+.sd, .sd-result { scroll-margin-top: 7rem; }
+.sd { max-width: var(--measure); margin: 0 auto; }
+.sd-bar {
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.sd-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+.sd-progress {
+  margin: 0.6rem 0 1.6rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.sd-step { border: none; margin: 0; padding: 0; }
+.sd-q {
+  display: block;
+  padding: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+.sd-num {
+  display: inline-block;
+  margin-right: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.sd-opts { display: grid; gap: 0.6rem; }
+.sd-opt {
+  appearance: none;
+  text-align: left;
+  font: inherit;
+  font-weight: 600;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+}
+.sd-opt:hover, .sd-opt:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.sd-nav { margin-top: 1.6rem; }
+.sd-back, .sd-again {
+  appearance: none;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+.sd-back:hover, .sd-again:hover { color: var(--accent); }
+
+.sd-result { max-width: var(--measure); margin: 0 auto; }
+.sd-result-head {
+  font-size: 1.3rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+  margin: 0 0 1.4rem;
+}
+.sd-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.3rem 1.4rem;
+  margin-bottom: 1.1rem;
+}
+.sd-card.is-top { border-color: var(--accent); box-shadow: var(--shadow); }
+.sd-card h3 { margin: 0.2rem 0 0.6rem; font-size: 1.25rem; }
+.sd-card p { margin: 0 0 0.7rem; }
+.sd-rank {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 !important;
+}
+.sd-card.is-top .sd-rank { color: var(--accent); }
+/* 候補が3つ並ぶので、強いボタンは1件目だけにする */
+.sd-card:not(.is-top) .aff-cta { margin: 1rem 0 0; text-align: left; }
+.sd-card:not(.is-top) .aff-btn {
+  background: none;
+  color: var(--accent) !important;
+  border: 1px solid var(--border);
+  box-shadow: none;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+}
+.sd-card:not(.is-top) .aff-btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+.sd-more { font-size: 0.9rem; }
+.sd-note {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 1.6rem 0;
+}
+.sd-again { margin-top: 0.4rem; }
 
 figure.diagram {
   margin: 1.8rem 0;
@@ -1305,6 +1452,7 @@ ${OGP_IMAGE_URL ? `<meta name="twitter:image" content="${OGP_IMAGE_URL}">\n` : "
     </a>
     <nav class="top-nav">
       <a href="${BLOG_INDEX_URL}">記事一覧</a>
+      <a class="nav-cta" href="${SHINDAN_URL}">ツール診断</a>
     </nav>
   </div>
 </header>
@@ -1450,6 +1598,7 @@ function renderBlogIndex(articles) {
     <h1>${escapeHtml(CONFIG.siteName)}</h1>
     <p class="hero-lead">${escapeHtml(CONFIG.description)}</p>
     <p class="hero-count">${articles.length}本の記事を公開中</p>
+    <p class="hero-actions"><a class="hero-btn" href="${SHINDAN_URL}">どれを使うか迷ったら → AIツール診断</a></p>
   </section>
   <h2 class="section-head">新着記事</h2>
   <ul class="article-grid">
@@ -1472,6 +1621,145 @@ function renderBlogIndex(articles) {
     ogType: "website",
     bodyHtml: body,
     jsonLd,
+    disclosureScope: "site",
+  });
+}
+
+const SHINDAN_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/shindan/`;
+
+// 診断ページ。結果に出す広告ボタンはビルド時に組み立てておき、
+// ブラウザ側では組み立て済みのHTMLを差し込むだけにする。
+function renderShindanPage() {
+  const data = readJson(path.join(AFFILIATE_DIR, "shindan.json"), null);
+  if (!data) return null;
+
+  const tools = {};
+  for (const [id, t] of Object.entries(data.tools)) {
+    tools[id] = {
+      name: t.name,
+      blurb: t.blurb,
+      url: articleUrl(t.slug),
+      cta: t.aff ? renderCta(t.aff, true) : "",
+    };
+  }
+
+  const payload = JSON.stringify({ questions: data.questions, tools }).replace(/</g, "\\u003c");
+
+  const steps = data.questions
+    .map(
+      (q, i) => `<fieldset class="sd-step" data-step="${i}"${i ? " hidden" : ""}>
+      <legend class="sd-q"><span class="sd-num">Q${i + 1}</span>${escapeHtml(q.q)}</legend>
+      <div class="sd-opts">
+        ${q.options
+          .map(
+            (o, j) =>
+              `<button type="button" class="sd-opt" data-q="${i}" data-o="${j}">${escapeHtml(o.label)}</button>`
+          )
+          .join("\n        ")}
+      </div>
+    </fieldset>`
+    )
+    .join("\n    ");
+
+  const body = `
+<main>
+  <section class="hero hero-sub">
+    <h1>${escapeHtml(data.title)}</h1>
+    <p class="hero-lead">${escapeHtml(data.lead)}</p>
+  </section>
+
+  <div class="sd" id="sd">
+    <div class="sd-bar"><div class="sd-bar-fill" id="sd-bar"></div></div>
+    <p class="sd-progress" id="sd-progress">1 / ${data.questions.length}</p>
+    ${steps}
+    <div class="sd-nav">
+      <button type="button" class="sd-back" id="sd-back" hidden>← 前の質問へ</button>
+    </div>
+  </div>
+
+  <div class="sd-result" id="sd-result" hidden>
+    <h2 class="sd-result-head">診断結果</h2>
+    <div id="sd-out"></div>
+    <p class="sd-note">この結果は、選んだ回答に近い用途のツールを並べたものです。実際に合うかどうかは使い方によって変わります。料金や機能は変更されることがあるため、必ず公式サイトで確認してください。</p>
+    <button type="button" class="sd-again" id="sd-again">もう一度診断する</button>
+  </div>
+
+  <noscript><p class="sd-note">この診断はJavaScriptを有効にすると利用できます。<a href="${BLOG_INDEX_URL}">記事一覧</a>からお探しください。</p></noscript>
+</main>
+<script>
+(function () {
+  var D = ${payload};
+  var total = D.questions.length, cur = 0, picks = [];
+  var root = document.getElementById("sd"),
+      out = document.getElementById("sd-out"),
+      result = document.getElementById("sd-result"),
+      bar = document.getElementById("sd-bar"),
+      prog = document.getElementById("sd-progress"),
+      back = document.getElementById("sd-back");
+
+  function show(i) {
+    cur = i;
+    var steps = root.querySelectorAll(".sd-step");
+    for (var k = 0; k < steps.length; k++) steps[k].hidden = k !== i;
+    bar.style.width = ((i / total) * 100) + "%";
+    prog.textContent = (i + 1) + " / " + total;
+    back.hidden = i === 0;
+  }
+
+  function finish() {
+    var score = {};
+    for (var i = 0; i < picks.length; i++) {
+      var s = D.questions[i].options[picks[i]].scores;
+      for (var id in s) score[id] = (score[id] || 0) + s[id];
+    }
+    var ranked = Object.keys(score).sort(function (a, b) { return score[b] - score[a]; }).slice(0, 3);
+    var html = "";
+    for (var r = 0; r < ranked.length; r++) {
+      var t = D.tools[ranked[r]];
+      if (!t) continue;
+      html +=
+        '<div class="sd-card' + (r === 0 ? " is-top" : "") + '">' +
+        '<p class="sd-rank">' + (r === 0 ? "もっとも近い" : "こちらも候補") + "</p>" +
+        "<h3>" + t.name + "</h3>" +
+        "<p>" + t.blurb + "</p>" +
+        '<p class="sd-more"><a href="' + t.url + '">' + t.name + "の解説を読む</a></p>" +
+        t.cta +
+        "</div>";
+    }
+    out.innerHTML = html;
+    root.hidden = true;
+    result.hidden = false;
+    result.scrollIntoView({ block: "start" });
+  }
+
+  root.addEventListener("click", function (e) {
+    var b = e.target.closest(".sd-opt");
+    if (!b) return;
+    picks[+b.dataset.q] = +b.dataset.o;
+    if (cur + 1 < total) show(cur + 1); else finish();
+  });
+  back.addEventListener("click", function () { if (cur > 0) show(cur - 1); });
+  document.getElementById("sd-again").addEventListener("click", function () {
+    picks = []; result.hidden = true; root.hidden = false; show(0);
+    root.scrollIntoView({ block: "start" });
+  });
+  show(0);
+})();
+</script>`;
+
+  return pageShell({
+    title: data.title,
+    description:
+      "4つの質問に答えるだけで、用途に合ったAIツールを絞り込めます。文章作成・議事録・資料作り・画像生成・調べものなど、目的別に候補を提示します。",
+    canonical: SHINDAN_URL,
+    ogType: "website",
+    bodyHtml: body,
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: data.title,
+      url: SHINDAN_URL,
+    },
     disclosureScope: "site",
   });
 }
@@ -1558,6 +1846,7 @@ function renderSitemap(articles, tagNames, categoryNames) {
   const urls = [
     { loc: SITE_ROOT_URL },
     ...(BLOG_INDEX_URL !== SITE_ROOT_URL ? [{ loc: BLOG_INDEX_URL }] : []),
+    { loc: SHINDAN_URL },
     ...articles.map((a) => ({ loc: articleUrl(a.slug), lastmod: a.date })),
     ...(tagNames || []).map((t) => ({ loc: tagUrl(t) })),
     ...(categoryNames || []).map((c) => ({ loc: categoryUrl(c) })),
@@ -1645,6 +1934,9 @@ function build() {
   }
 
   writeFile(path.join(BLOG_OUT_DIR, "index.html"), renderBlogIndex(articles));
+
+  const shindanHtml = renderShindanPage();
+  if (shindanHtml) writeFile(path.join(BLOG_OUT_DIR, "shindan", "index.html"), shindanHtml);
   writeFile(path.join(BLOG_OUT_DIR, "feed.xml"), renderFeed(articles));
   writeFile(
     path.join(DIST_DIR, "sitemap.xml"),
