@@ -1754,7 +1754,7 @@ function renderShindanPage() {
   <section class="hero hero-sub">
     <h1>${escapeHtml(data.title)}</h1>
     <p class="hero-en">Find Your Tool</p>
-    <p class="hero-lead">${escapeHtml(data.lead)}</p>
+    <p class="hero-lead">${escapeHtml(data.lead.replace("{n}", String(data.questions.length)))}</p>
   </section>
 
   <div class="sd" id="sd">

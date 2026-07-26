@@ -1,39 +1,168 @@
 {
   "title": "AIツール診断",
-  "lead": "4つの質問に答えると、いまのあなたに向いていそうなAIツールを絞り込みます。相性の目安を示すものなので、最終的な判断は無料プランや試用期間で実際に触ってから決めてください。",
+  "lead": "{n}つの質問に答えると、いまのあなたに向いていそうなAIツールを絞り込みます。相性の目安を示すものなので、最終的な判断は無料プランや試用期間で実際に触ってから決めてください。",
   "questions": [
     {
       "q": "いま、いちばん時間を取られている作業は？",
       "options": [
-        { "label": "文章を書く・整える", "scores": { "chatgpt": 2, "claude": 2, "value-ai-writer": 3 } },
-        { "label": "会議や打ち合わせの記録", "scores": { "notta-memo": 3, "notta-brain": 2, "plaud": 2 } },
-        { "label": "資料・スライドを作る", "scores": { "irusiru": 3, "canva": 2 } },
-        { "label": "画像やデザインを用意する", "scores": { "conoha-ai-canvas": 3, "canva": 2, "midjourney": 2 } },
-        { "label": "調べものをする", "scores": { "perplexity": 3, "gemini": 1 } },
-        { "label": "見積書・請求書などの事務", "scores": { "doraverse": 3 } },
-        { "label": "プログラムを書く", "scores": { "github-copilot": 3, "claude": 1 } }
+        {
+          "label": "文章を書く・整える",
+          "scores": {
+            "chatgpt": 2,
+            "claude": 2,
+            "value-ai-writer": 3
+          }
+        },
+        {
+          "label": "会議や打ち合わせの記録",
+          "scores": {
+            "notta-memo": 3,
+            "notta-brain": 2,
+            "plaud": 2
+          }
+        },
+        {
+          "label": "資料・スライドを作る",
+          "scores": {
+            "irusiru": 3,
+            "canva": 2,
+            "miricanvas": 3
+          }
+        },
+        {
+          "label": "画像やデザインを用意する",
+          "scores": {
+            "conoha-ai-canvas": 3,
+            "canva": 2,
+            "midjourney": 2
+          }
+        },
+        {
+          "label": "調べものをする",
+          "scores": {
+            "perplexity": 3,
+            "gemini": 1
+          }
+        },
+        {
+          "label": "見積書・請求書などの事務",
+          "scores": {
+            "doraverse": 3
+          }
+        },
+        {
+          "label": "プログラムを書く",
+          "scores": {
+            "github-copilot": 3,
+            "claude": 1
+          }
+        }
       ]
     },
     {
       "q": "どんな場面で使いますか？",
       "options": [
-        { "label": "仕事・事業で使う", "scores": { "notta-memo": 1, "notta-brain": 1, "irusiru": 1, "doraverse": 1, "value-ai-writer": 1, "conoha-ai-canvas": 1, "plaud": 1 } },
-        { "label": "学校・勉強で使う", "scores": { "chatgpt": 2, "claude": 2, "perplexity": 1 } },
-        { "label": "個人の趣味で使う", "scores": { "chatgpt": 1, "midjourney": 1, "canva": 1 } }
+        {
+          "label": "仕事・事業で使う",
+          "scores": {
+            "notta-memo": 1,
+            "notta-brain": 1,
+            "irusiru": 1,
+            "doraverse": 1,
+            "value-ai-writer": 1,
+            "conoha-ai-canvas": 1,
+            "plaud": 1,
+            "miricanvas": 1
+          }
+        },
+        {
+          "label": "学校・勉強で使う",
+          "scores": {
+            "chatgpt": 2,
+            "claude": 2,
+            "perplexity": 1
+          }
+        },
+        {
+          "label": "個人の趣味で使う",
+          "scores": {
+            "chatgpt": 1,
+            "midjourney": 1,
+            "canva": 1
+          }
+        }
       ]
     },
     {
       "q": "費用についてはどう考えていますか？",
       "options": [
-        { "label": "まず無料で試したい", "scores": { "chatgpt": 3, "claude": 3, "gemini": 3, "canva": 1, "perplexity": 1 } },
-        { "label": "効果があるなら有料でもいい", "scores": { "notta-memo": 1, "notta-brain": 1, "irusiru": 1, "doraverse": 1, "value-ai-writer": 1, "conoha-ai-canvas": 1, "plaud": 1, "midjourney": 1 } }
+        {
+          "label": "まず無料で試したい",
+          "scores": {
+            "chatgpt": 3,
+            "claude": 3,
+            "gemini": 3,
+            "canva": 1,
+            "perplexity": 1
+          }
+        },
+        {
+          "label": "効果があるなら有料でもいい",
+          "scores": {
+            "notta-memo": 1,
+            "notta-brain": 1,
+            "irusiru": 1,
+            "doraverse": 1,
+            "value-ai-writer": 1,
+            "conoha-ai-canvas": 1,
+            "plaud": 1,
+            "midjourney": 1,
+            "miricanvas": 1
+          }
+        }
       ]
     },
     {
       "q": "日本語での使いやすさは重要ですか？",
       "options": [
-        { "label": "重要。日本語中心で使う", "scores": { "value-ai-writer": 2, "notta-memo": 1, "irusiru": 1, "doraverse": 1, "claude": 1 } },
-        { "label": "英語でも問題ない", "scores": { "midjourney": 1, "github-copilot": 1, "perplexity": 1 } }
+        {
+          "label": "重要。日本語中心で使う",
+          "scores": {
+            "value-ai-writer": 2,
+            "notta-memo": 1,
+            "irusiru": 1,
+            "doraverse": 1,
+            "claude": 1,
+            "miricanvas": 1
+          }
+        },
+        {
+          "label": "英語でも問題ない",
+          "scores": {
+            "midjourney": 1,
+            "github-copilot": 1,
+            "perplexity": 1
+          }
+        }
+      ]
+    },
+    {
+      "q": "AIを動かす環境について、近いのはどちらですか？",
+      "options": [
+        {
+          "label": "ブラウザで完結させたい。準備に手間をかけたくない",
+          "scores": {
+            "lolipop-ai": 2,
+            "conoha-ai-canvas": 2,
+            "miricanvas": 1,
+            "canva": 1,
+            "chatgpt": 1
+          }
+        },
+        {
+          "label": "特にこだわらない",
+          "scores": {}
+        }
       ]
     }
   ],
@@ -121,6 +250,18 @@
       "blurb": "コードの続きを提案する開発者向けのツール。エディタ上で使います。",
       "slug": "github-copilot-hajimekata",
       "aff": "github-copilot"
+    },
+    "miricanvas": {
+      "name": "MiriCanvas",
+      "blurb": "テンプレートを土台にプレゼン資料を作るデザインツール。スライドの体裁を整える工程を短くしたい場合の選択肢です。",
+      "slug": "irusiru-ai-slide-tsukurikata",
+      "aff": "miricanvas"
+    },
+    "lolipop-ai": {
+      "name": "ロリポップ！AIエージェントクラウド",
+      "blurb": "AIエージェントをブラウザ上で動かせるサービス。自分でサーバーを用意したり環境を構築したりせずに始められます。",
+      "slug": "ai-gyomu-kouritsuka",
+      "aff": "lolipop-ai"
     }
   }
 }
