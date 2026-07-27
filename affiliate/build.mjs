@@ -62,6 +62,12 @@ function categoryUrl(category) {
 const HAS_OGP_IMAGE = fs.existsSync(path.join(STATIC_DIR, "ogp.png"));
 const OGP_IMAGE_URL = HAS_OGP_IMAGE ? `${CONFIG.baseUrl}/static/ogp.png` : null;
 const HAS_FAVICON = fs.existsSync(path.join(STATIC_DIR, "favicon.svg"));
+const PUBLISHER_JSONLD = {
+  "@type": "Organization",
+  name: CONFIG.siteName,
+  url: CONFIG.baseUrl,
+  ...(HAS_FAVICON ? { logo: { "@type": "ImageObject", url: `${CONFIG.baseUrl}/static/favicon-512.png` } } : {}),
+};
 
 const DISCLOSURE_TEXT =
   "※本記事にはプロモーション(アフィリエイト広告)が含まれています。";
@@ -1659,7 +1665,7 @@ ${renderRelatedHtml(article, allArticles)}
     datePublished: article.date,
     dateModified: article.updated || article.date,
     author: { "@type": "Organization", name: CONFIG.author },
-    publisher: { "@type": "Organization", name: CONFIG.siteName },
+    publisher: PUBLISHER_JSONLD,
     mainEntityOfPage: url,
   };
 
