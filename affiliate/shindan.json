@@ -260,7 +260,7 @@
     "lolipop-ai": {
       "name": "ロリポップ！AIエージェントクラウド",
       "blurb": "AIエージェントをブラウザ上で動かせるサービス。自分でサーバーを用意したり環境を構築したりせずに始められます。",
-      "slug": "ai-gyomu-kouritsuka",
+      "slug": "ai-agent-toha-hajimekata",
       "aff": "lolipop-ai"
     }
   }

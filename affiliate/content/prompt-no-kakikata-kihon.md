@@ -83,6 +83,8 @@ ChatGPTもClaudeも、こうした基本の型は共通して有効です。ま�
 
 長文の資料を扱う作業や丁寧な文章の調整には、長い文脈の読解を得意とするClaudeを使い分けるのもおすすめです。
 
+ここで身につけた「目的・条件・形式」の考え方は、目標を渡して自律的に動かす[AIエージェント](https://petrichot.com/ai-agent-toha-hajimekata/)にもそのまま応用できます。
+
 {{aff:claude}}
 
 なお、AIツールを活用する際はプライバシー面への配慮も大切です。[AIと個人情報｜入力していいこと・ダメなこと](https://petrichot.com/ai-to-privacy-kojinjouhou/)で、安全な使い方について詳しく解説しています。
