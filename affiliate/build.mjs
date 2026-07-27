@@ -1560,7 +1560,7 @@ ${bodyHtml}
   <div class="inner">
     ${showDisclosure ? `<p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>${disclosureText}</span></p>` : ""}
     <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
-    <p><a href="${PRIVACY_URL}">プライバシーポリシー</a></p>
+    <p><a href="${ABOUT_URL}">運営者情報</a> ・ <a href="${CONTACT_URL}">お問い合わせ</a> ・ <a href="${PRIVACY_URL}">プライバシーポリシー</a></p>
     <p>&copy; ${new Date().getFullYear()} ${escapeHtml(CONFIG.siteName)}</p>
   </div>
 </footer>
@@ -1751,6 +1751,9 @@ const CATEGORY_EN = {
 
 const SHINDAN_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/shindan/`;
 const PRIVACY_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/privacy/`;
+const ABOUT_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/about/`;
+const CONTACT_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/contact/`;
+const CONTACT_EMAIL = "dar42508@gmail.com";
 
 function renderPrivacyPage() {
   const body = `
@@ -1782,8 +1785,7 @@ function renderPrivacyPage() {
     <p>当サイトは、法令の変更や運営方針の変更等にともない、本ポリシーの内容を予告なく変更することがあります。変更後の内容は、当ページに掲載した時点から効力を持つものとします。</p>
 
     <h2>お問い合わせ</h2>
-    <p>当サイトの内容に関するお問い合わせは、以下のメールアドレスまでご連絡ください。</p>
-    <p><a href="mailto:dar42508@gmail.com">dar42508@gmail.com</a></p>
+    <p>当サイトの内容に関するお問い合わせは、<a href="${CONTACT_URL}">お問い合わせページ</a>をご確認ください。</p>
   </article>
 </main>`;
 
@@ -1798,6 +1800,78 @@ function renderPrivacyPage() {
     title: "プライバシーポリシー",
     description: `${CONFIG.siteName}のプライバシーポリシーです。Cookieの利用、アフィリエイトプログラム、外部サービスの利用について説明しています。`,
     canonical: PRIVACY_URL,
+    ogType: "website",
+    bodyHtml: body,
+    jsonLd,
+    showDisclosure: false,
+    disclosureScope: "site",
+  });
+}
+
+function renderAboutPage() {
+  const body = `
+<main>
+  <article class="policy-page">
+    <h1>運営者情報</h1>
+
+    <h2>サイトについて</h2>
+    <p>${escapeHtml(CONFIG.siteName)}は、ChatGPTやClaudeをはじめとするAIツールの比較・使い方・活用術を扱う情報サイトです。はじめてAIツールに触れる方向けの基礎的な内容から、仕事での使い分けを検討している方向けの実践的な内容まで、幅広く取り上げています。</p>
+
+    <h2>運営体制</h2>
+    <p>当サイトは個人運営です。専属のライターや大規模な編集部を持つメディアではなく、運営者自身が調査・執筆・確認を行っています。</p>
+
+    <h2>編集方針</h2>
+    <p>各記事の公開前に、断定的な効果保証や誇張表現を含んでいないか、参考リンクが実在するURLかどうかを確認する工程を設けています。ただし、AIツールの仕様・料金・機能は各社の判断で随時変更されるため、記事内で紹介している情報が常に最新であるとは限りません。重要な判断をする際は、必ず公式サイトで最新の情報をご確認ください。</p>
+
+    <h2>収益について</h2>
+    <p>当サイトは、A8.net等のアフィリエイトサービスプロバイダを通じた成果報酬型広告により運営されています。紹介している商品・サービスは、実際に情報を調査したうえで掲載していますが、アフィリエイト提携の有無が記事の評価内容を左右することはありません。詳細は<a href="${PRIVACY_URL}">プライバシーポリシー</a>をご覧ください。</p>
+
+    <h2>お問い合わせ</h2>
+    <p>サイトの内容に関するご意見・ご指摘は<a href="${CONTACT_URL}">お問い合わせページ</a>からお願いします。</p>
+  </article>
+</main>`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "運営者情報",
+    url: ABOUT_URL,
+  };
+
+  return pageShell({
+    title: "運営者情報",
+    description: `${CONFIG.siteName}の運営体制と編集方針について説明しています。`,
+    canonical: ABOUT_URL,
+    ogType: "website",
+    bodyHtml: body,
+    jsonLd,
+    showDisclosure: false,
+    disclosureScope: "site",
+  });
+}
+
+function renderContactPage() {
+  const body = `
+<main>
+  <article class="policy-page">
+    <h1>お問い合わせ</h1>
+    <p>記事の内容に関するご指摘、掲載しているサービスに関するお問い合わせ、その他ご意見がありましたら、以下のメールアドレスまでご連絡ください。</p>
+    <p><a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></p>
+    <p>内容を確認のうえ、必要に応じて対応いたします。すべてのお問い合わせに返信をお約束するものではない点、あらかじめご了承ください。</p>
+  </article>
+</main>`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "お問い合わせ",
+    url: CONTACT_URL,
+  };
+
+  return pageShell({
+    title: "お問い合わせ",
+    description: `${CONFIG.siteName}へのお問い合わせ方法をご案内します。`,
+    canonical: CONTACT_URL,
     ogType: "website",
     bodyHtml: body,
     jsonLd,
@@ -2030,6 +2104,8 @@ function renderSitemap(articles, tagNames, categoryNames) {
     ...(BLOG_INDEX_URL !== SITE_ROOT_URL ? [{ loc: BLOG_INDEX_URL }] : []),
     { loc: SHINDAN_URL },
     { loc: PRIVACY_URL },
+    { loc: ABOUT_URL },
+    { loc: CONTACT_URL },
     ...articles.map((a) => ({ loc: articleUrl(a.slug), lastmod: a.updated || a.date })),
     ...(tagNames || []).map((t) => ({ loc: tagUrl(t) })),
     ...(categoryNames || []).map((c) => ({ loc: categoryUrl(c) })),
@@ -2122,6 +2198,8 @@ function build() {
   const shindanHtml = renderShindanPage();
   if (shindanHtml) writeFile(path.join(BLOG_OUT_DIR, "shindan", "index.html"), shindanHtml);
   writeFile(path.join(BLOG_OUT_DIR, "privacy", "index.html"), renderPrivacyPage());
+  writeFile(path.join(BLOG_OUT_DIR, "about", "index.html"), renderAboutPage());
+  writeFile(path.join(BLOG_OUT_DIR, "contact", "index.html"), renderContactPage());
   writeFile(path.join(BLOG_OUT_DIR, "feed.xml"), renderFeed(articles));
   writeFile(
     path.join(DIST_DIR, "sitemap.xml"),
