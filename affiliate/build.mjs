@@ -61,6 +61,7 @@ function categoryUrl(category) {
 // to the previous (image-less) meta behavior.
 const HAS_OGP_IMAGE = fs.existsSync(path.join(STATIC_DIR, "ogp.png"));
 const OGP_IMAGE_URL = HAS_OGP_IMAGE ? `${CONFIG.baseUrl}/static/ogp.png` : null;
+const HAS_FAVICON = fs.existsSync(path.join(STATIC_DIR, "favicon.svg"));
 
 const DISCLOSURE_TEXT =
   "※本記事にはプロモーション(アフィリエイト広告)が含まれています。";
@@ -1525,7 +1526,10 @@ function pageShell({
 <title>${escapeHtml(fullTitle)}</title>
 <meta name="description" content="${escapeHtml(description)}">
 <meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
-<link rel="canonical" href="${canonical}">
+${HAS_FAVICON ? `<link rel="icon" href="${CONFIG.baseUrl}/static/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="${CONFIG.baseUrl}/static/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="${CONFIG.baseUrl}/static/apple-touch-icon.png">
+` : ""}<link rel="canonical" href="${canonical}">
 <meta property="og:title" content="${escapeHtml(title)}">
 <meta property="og:description" content="${escapeHtml(description)}">
 <meta property="og:type" content="${ogType}">
@@ -1880,6 +1884,31 @@ function renderContactPage() {
   });
 }
 
+function render404Page() {
+  const body = `
+<main>
+  <article class="policy-page" style="text-align:center; padding-top: 3rem;">
+    <h1>ページが見つかりませんでした</h1>
+    <p>お探しのページは移動したか、削除された可能性があります。URLが正しいかご確認いただくか、以下からお探しください。</p>
+    <p style="margin-top:2rem;">
+      <a class="aff-btn" href="${SITE_ROOT_URL}">トップページへ戻る</a>
+    </p>
+    <p style="margin-top:1rem;"><a href="${BLOG_INDEX_URL}">記事一覧</a> ・ <a href="${SHINDAN_URL}">ツール診断</a></p>
+  </article>
+</main>`;
+
+  return pageShell({
+    title: "ページが見つかりません",
+    description: "お探しのページは見つかりませんでした。",
+    canonical: `${CONFIG.baseUrl}/404.html`,
+    ogType: "website",
+    bodyHtml: body,
+    jsonLd: { "@context": "https://schema.org", "@type": "WebPage", name: "ページが見つかりません" },
+    showDisclosure: false,
+    disclosureScope: "site",
+  });
+}
+
 // 診断ページ。結果に出す広告ボタンはビルド時に組み立てておき、
 // ブラウザ側では組み立て済みのHTMLを差し込むだけにする。
 function renderShindanPage() {
@@ -2200,6 +2229,7 @@ function build() {
   writeFile(path.join(BLOG_OUT_DIR, "privacy", "index.html"), renderPrivacyPage());
   writeFile(path.join(BLOG_OUT_DIR, "about", "index.html"), renderAboutPage());
   writeFile(path.join(BLOG_OUT_DIR, "contact", "index.html"), renderContactPage());
+  writeFile(path.join(DIST_DIR, "404.html"), render404Page());
   writeFile(path.join(BLOG_OUT_DIR, "feed.xml"), renderFeed(articles));
   writeFile(
     path.join(DIST_DIR, "sitemap.xml"),
