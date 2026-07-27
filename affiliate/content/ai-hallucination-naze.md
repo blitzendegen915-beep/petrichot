@@ -19,6 +19,53 @@ AIが文章を作る仕組みはこうです。質問をもらった時、AIは�
 
 つまり、AIは本当のデータベースを参照していません。訓練時に見た文章パターンから「この状況のあとは、このような言葉が来やすい」という確率を学んでいるだけなのです。
 
+図にすると、こういう違いです。
+
+```svg 検索は「探して返す」。生成AIは「次に来そうな語を1つずつ選ぶ」
+<svg viewBox="0 0 640 306" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>検索のしくみと生成AIのしくみの違い</title>
+  <defs>
+    <marker id="hlA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="6" y="6" width="300" height="228" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="156" y="34" text-anchor="middle" font-size="15" fill="var(--fg)" class="dg-label">探して返すしくみ（検索）</text>
+  <rect x="84" y="52" width="144" height="36" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="156" y="75" text-anchor="middle" font-size="14" fill="var(--fg)">質問する</text>
+  <line x1="156" y1="90" x2="156" y2="110" stroke="var(--muted)" stroke-width="2" marker-end="url(#hlA)"/>
+  <rect x="54" y="114" width="204" height="36" rx="4" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="156" y="137" text-anchor="middle" font-size="14" fill="var(--fg)">保存された中から探す</text>
+  <line x1="156" y1="152" x2="156" y2="172" stroke="var(--muted)" stroke-width="2" marker-end="url(#hlA)"/>
+  <rect x="54" y="176" width="204" height="36" rx="4" fill="var(--accent)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="156" y="199" text-anchor="middle" font-size="14" fill="var(--accent-fg)">見つかったものを返す</text>
+
+  <rect x="334" y="6" width="300" height="228" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="484" y="34" text-anchor="middle" font-size="15" fill="var(--fg)" class="dg-label">次の1語を選ぶしくみ（生成AI）</text>
+  <rect x="412" y="52" width="144" height="36" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="484" y="75" text-anchor="middle" font-size="14" fill="var(--fg)">質問する</text>
+  <line x1="484" y1="90" x2="484" y2="110" stroke="var(--muted)" stroke-width="2" marker-end="url(#hlA)"/>
+
+  <rect x="352" y="114" width="62" height="36" rx="4" fill="var(--edu-soft)" stroke="var(--edu)" stroke-width="2"/>
+  <text x="383" y="137" text-anchor="middle" font-size="13" fill="var(--fg)">次の語</text>
+  <line x1="418" y1="132" x2="440" y2="132" stroke="var(--muted)" stroke-width="2" marker-end="url(#hlA)"/>
+  <rect x="446" y="114" width="62" height="36" rx="4" fill="var(--edu-soft)" stroke="var(--edu)" stroke-width="2"/>
+  <text x="477" y="137" text-anchor="middle" font-size="13" fill="var(--fg)">次の語</text>
+  <line x1="512" y1="132" x2="534" y2="132" stroke="var(--muted)" stroke-width="2" marker-end="url(#hlA)"/>
+  <rect x="540" y="114" width="62" height="36" rx="4" fill="var(--edu-soft)" stroke="var(--edu)" stroke-width="2"/>
+  <text x="571" y="137" text-anchor="middle" font-size="13" fill="var(--fg)">次の語</text>
+  <text x="484" y="168" text-anchor="middle" font-size="12" fill="var(--muted)">確率で次の語を選び続ける</text>
+
+  <line x1="484" y1="176" x2="484" y2="192" stroke="var(--muted)" stroke-width="2" marker-end="url(#hlA)"/>
+  <rect x="404" y="196" width="160" height="30" rx="4" fill="var(--accent)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="484" y="216" text-anchor="middle" font-size="14" fill="var(--accent-fg)">文章ができる</text>
+
+  <text x="320" y="266" text-anchor="middle" font-size="14" fill="var(--fg)">生成AIは、正しい答えも事実でない答えも、まったく同じ手順で作る。</text>
+  <text x="320" y="290" text-anchor="middle" font-size="14" fill="var(--fg)">だから、見た目では区別がつかない。</text>
+</svg>
+```
+
 ## 「正しい情報」と「もっともらしい情報」は同じ滑らかさで作られる
 
 ここが重要な落とし穴です。

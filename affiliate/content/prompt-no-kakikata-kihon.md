@@ -25,6 +25,42 @@ AIは、与えられた文章から「何を求められているか」を推測
 - **条件**: 前提や制約(例: 敬語で、300字以内で、金曜開催)
 - **形式**: 出力してほしい形(例: 件名と本文を分けて、箇条書きで)
 
+この3つが入っているかどうかで、AIがやることが変わります。
+
+```svg 目的・条件・形式を入れると、AIが推測する部分が減る
+<svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>あいまいな指示と、目的・条件・形式を入れた指示の違い</title>
+  <defs>
+    <marker id="ppA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="6" y="6" width="300" height="236" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="156" y="32" text-anchor="middle" font-size="14" fill="var(--fg)" class="dg-label">あいまいな指示</text>
+  <rect x="66" y="48" width="180" height="36" rx="4" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="156" y="71" text-anchor="middle" font-size="14" fill="var(--fg)">「メールを書いて」</text>
+  <line x1="156" y1="86" x2="156" y2="108" stroke="var(--muted)" stroke-width="2" marker-end="url(#ppA)"/>
+  <rect x="42" y="112" width="228" height="36" rx="4" fill="var(--edu-soft)" stroke="var(--edu)" stroke-width="2"/>
+  <text x="156" y="135" text-anchor="middle" font-size="13" fill="var(--fg)">AIが目的も形も推測する</text>
+  <line x1="156" y1="150" x2="156" y2="172" stroke="var(--muted)" stroke-width="2" marker-end="url(#ppA)"/>
+  <rect x="42" y="176" width="228" height="40" rx="4" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="156" y="201" text-anchor="middle" font-size="14" fill="var(--fg)">無難で一般的な答え</text>
+
+  <rect x="334" y="6" width="300" height="236" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="484" y="32" text-anchor="middle" font-size="14" fill="var(--fg)" class="dg-label">目的・条件・形式を入れた指示</text>
+  <rect x="364" y="44" width="240" height="32" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="484" y="65" text-anchor="middle" font-size="13" fill="var(--fg)">目的：何のために使うか</text>
+  <rect x="364" y="82" width="240" height="32" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="484" y="103" text-anchor="middle" font-size="13" fill="var(--fg)">条件：守ってほしいこと</text>
+  <rect x="364" y="120" width="240" height="32" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="484" y="141" text-anchor="middle" font-size="13" fill="var(--fg)">形式：どんな形で出すか</text>
+  <line x1="484" y1="154" x2="484" y2="172" stroke="var(--muted)" stroke-width="2" marker-end="url(#ppA)"/>
+  <rect x="364" y="176" width="240" height="40" rx="4" fill="var(--accent)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="484" y="201" text-anchor="middle" font-size="14" fill="var(--accent-fg)">狙いに近い答え</text>
+</svg>
+```
+
 悪い例と良い例を比べてみましょう。
 
 - 悪い例: 「メールを書いて」
