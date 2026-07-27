@@ -596,6 +596,9 @@ function loadArticles() {
       description: data.description || "",
       slug: data.slug,
       date: data.date || "1970-01-01",
+      // 記事を書き直したときだけ frontmatter に updated: を足す。
+      // sitemap の lastmod と JSON-LD の dateModified に使う。
+      updated: /^\d{4}-\d{2}-\d{2}$/.test(data.updated || "") ? data.updated : "",
       category,
       tags: data.tags || [],
       bodyHtml: wrapSourcesSection(renderMarkdown(body)),
@@ -1255,6 +1258,7 @@ a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
   flex-wrap: wrap;
 }
 .article-meta time { font-family: var(--font-display); font-weight: 600; }
+.article-meta .meta-updated { color: var(--accent); }
 
 .eyecatch-hero {
   width: 100%;
@@ -1481,6 +1485,18 @@ function renderCategoryNav(currentCategory) {
 
 const DISCLOSURE_SITE_TEXT = "当サイトはアフィリエイト広告を利用しています。";
 
+// jsonLd は単体でも配列でも受け取る。</script> による早期終了を避けるため
+// スラッシュをエスケープしてから埋め込む。
+function renderJsonLd(jsonLd) {
+  const list = (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).filter(Boolean);
+  return list
+    .map(
+      (o) =>
+        `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, "\\u003c")}</script>`,
+    )
+    .join("\n");
+}
+
 function pageShell({
   title,
   description,
@@ -1511,7 +1527,7 @@ function pageShell({
 ${OGP_IMAGE_URL ? `<meta property="og:image" content="${OGP_IMAGE_URL}">\n` : ""}<meta name="twitter:card" content="${OGP_IMAGE_URL ? "summary_large_image" : "summary"}">
 <meta name="twitter:title" content="${escapeHtml(title)}">
 <meta name="twitter:description" content="${escapeHtml(description)}">
-${OGP_IMAGE_URL ? `<meta name="twitter:image" content="${OGP_IMAGE_URL}">\n` : ""}<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+${OGP_IMAGE_URL ? `<meta name="twitter:image" content="${OGP_IMAGE_URL}">\n` : ""}${renderJsonLd(jsonLd)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -1613,6 +1629,7 @@ function renderArticlePage(article, allArticles = []) {
     <h1>${escapeHtml(article.title)}</h1>
     <div class="article-meta">
       <time datetime="${escapeHtml(article.date)}">${escapeHtml(formatDateJa(article.date))}</time>
+      ${article.updated ? `<time class="meta-updated" datetime="${escapeHtml(article.updated)}">${escapeHtml(formatDateJa(article.updated))}更新</time>` : ""}
       <a class="chip chip-cat ${categoryChipClass(article.category)}" href="${categoryUrl(article.category)}">${escapeHtml(article.category)}</a>
       ${tagsHtml}
     </div>
@@ -1622,15 +1639,26 @@ function renderArticlePage(article, allArticles = []) {
 ${renderRelatedHtml(article, allArticles)}
 </main>`;
 
-  const jsonLd = {
+  const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.description,
     datePublished: article.date,
+    dateModified: article.updated || article.date,
     author: { "@type": "Organization", name: CONFIG.author },
     publisher: { "@type": "Organization", name: CONFIG.siteName },
     mainEntityOfPage: url,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: CONFIG.siteName, item: `${CONFIG.baseUrl}/` },
+      { "@type": "ListItem", position: 2, name: article.category, item: categoryUrl(article.category) },
+      { "@type": "ListItem", position: 3, name: article.title, item: url },
+    ],
   };
 
   return pageShell({
@@ -1639,7 +1667,7 @@ ${renderRelatedHtml(article, allArticles)}
     canonical: url,
     ogType: "article",
     bodyHtml: body,
-    jsonLd,
+    jsonLd: [articleJsonLd, breadcrumbJsonLd],
     showDisclosure: article.bodyHtml.includes("aff-btn"),
   });
 }
@@ -1938,7 +1966,7 @@ function renderSitemap(articles, tagNames, categoryNames) {
     { loc: SITE_ROOT_URL },
     ...(BLOG_INDEX_URL !== SITE_ROOT_URL ? [{ loc: BLOG_INDEX_URL }] : []),
     { loc: SHINDAN_URL },
-    ...articles.map((a) => ({ loc: articleUrl(a.slug), lastmod: a.date })),
+    ...articles.map((a) => ({ loc: articleUrl(a.slug), lastmod: a.updated || a.date })),
     ...(tagNames || []).map((t) => ({ loc: tagUrl(t) })),
     ...(categoryNames || []).map((c) => ({ loc: categoryUrl(c) })),
   ];

@@ -3,6 +3,7 @@ title: GitHub Copilotの始め方|導入から使いこなしまで
 description: GitHub Copilotの基本的な使い方から設定・実際の活用シーン・学習効果まで、プログラミング初心者向けに丁寧に解説します。
 slug: github-copilot-hajimekata
 date: 2026-07-17
+updated: 2026-07-27
 category: 業務効率化
 tags: [GitHub, Copilot, プログラミング, 効率化, 初心者]
 ---

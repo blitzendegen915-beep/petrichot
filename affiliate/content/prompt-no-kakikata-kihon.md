@@ -3,6 +3,7 @@ title: AIへの指示文(プロンプト)の書き方基本ガイド
 description: ChatGPTやClaudeへの指示文(プロンプト)の書き方しだいで、回答の質は大きく変わります。目的・条件・形式を伝える基本の型と、すぐ使える改善テクニックを紹介します。
 slug: prompt-no-kakikata-kihon
 date: 2026-07-17
+updated: 2026-07-27
 category: 業務効率化
 tags: [プロンプト, ChatGPT, Claude, 活用術]
 ---

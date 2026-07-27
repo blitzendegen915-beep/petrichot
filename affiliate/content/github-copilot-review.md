@@ -3,6 +3,7 @@ title: GitHub Copilotは買うべきか｜導入前に確かめる判断基準
 description: GitHub Copilotに課金するかどうかを、他人の感想ではなく自分の作業で判断するための記事です。効果が出る条件と出ない条件、無料期間中に測っておく項目、契約前に社内で確認すべきこと、解約の判断基準までを整理しました。
 slug: github-copilot-review
 date: 2026-07-16
+updated: 2026-07-27
 category: ツール比較
 tags: [GitHub Copilot, コード補完, 開発効率, AIプログラミング, 選び方]
 ---

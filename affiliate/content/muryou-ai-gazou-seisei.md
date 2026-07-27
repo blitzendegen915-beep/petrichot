@@ -3,6 +3,7 @@ title: 無料で試せるAI画像生成ツールと始め方
 description: AI画像生成を試したい初心者向けに、無料で試せるツール選びと始め方を解説。ConoHa AI CanvasやCanvaの使い方、プロンプトのコツ、注意点をカバー。
 slug: muryou-ai-gazou-seisei
 date: 2026-07-25
+updated: 2026-07-27
 category: デザイン
 tags: [AI画像生成, 無料, 初心者, ツール比較]
 ---

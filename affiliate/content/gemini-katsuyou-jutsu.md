@@ -3,6 +3,7 @@ title: Google Geminiの活用術|Googleサービスとの連携で仕事効率�
 description: Google GeminiをGmail・ドキュメント・スプレッドシートと連携させる活用術を紹介。Googleサービスをすでに使っている方向けの効率化テクニックを実例付きで解説します。
 slug: gemini-katsuyou-jutsu
 date: 2026-07-17
+updated: 2026-07-27
 category: ツール比較
 tags: [Gemini, Google, AI, 業務効率化, 生産性向上]
 ---

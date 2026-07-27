@@ -3,6 +3,7 @@ title: AIボイスレコーダー比較|議事録・メモを自動化
 description: 会議やインタビューの音声を自動文字起こし・要約するAIボイスレコーダーの紹介。Notta MemoとPlaudの特徴を比較し、あなたに合ったツールの選び方をご説明します。
 slug: ai-voice-recorder-hikaku
 date: 2026-07-17
+updated: 2026-07-27
 category: ツール比較
 tags: [音声認識, 文字起こし, 業務効率化, AIツール]
 ---
