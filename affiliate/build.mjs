@@ -62,6 +62,11 @@ function categoryUrl(category) {
 const HAS_OGP_IMAGE = fs.existsSync(path.join(STATIC_DIR, "ogp.png"));
 const OGP_IMAGE_URL = HAS_OGP_IMAGE ? `${CONFIG.baseUrl}/static/ogp.png` : null;
 const HAS_FAVICON = fs.existsSync(path.join(STATIC_DIR, "favicon.svg"));
+
+// 記事がこの本数未満のタグページは中身が薄く、記事カード1枚と大差ない。
+// noindexにしてsitemapからも外し、クローラーを記事本体に集中させる。
+// (リンク自体は残るので読者は今までどおり辿れる)
+const TAG_INDEX_MIN = 3;
 const PUBLISHER_JSONLD = {
   "@type": "Organization",
   name: CONFIG.siteName,
@@ -1521,6 +1526,7 @@ function pageShell({
   showDisclosure = true,
   disclosureScope = "article",
   currentCategory = null,
+  noindex = false,
 }) {
   const fullTitle = `${title} | ${CONFIG.siteName}`;
   const disclosureText = disclosureScope === "site" ? DISCLOSURE_SITE_TEXT : DISCLOSURE_TEXT;
@@ -1531,7 +1537,7 @@ function pageShell({
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(fullTitle)}</title>
 <meta name="description" content="${escapeHtml(description)}">
-<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
+${noindex ? `<meta name="robots" content="noindex,follow">\n` : ""}<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
 ${HAS_FAVICON ? `<link rel="icon" href="${CONFIG.baseUrl}/static/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="${CONFIG.baseUrl}/static/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="${CONFIG.baseUrl}/static/apple-touch-icon.png">
@@ -2054,7 +2060,7 @@ function renderShindanPage() {
   });
 }
 
-function renderTaxonomyPage({ heading, description, canonical, articles, currentCategory = null, enLabel = null }) {
+function renderTaxonomyPage({ heading, description, canonical, articles, currentCategory = null, enLabel = null, noindex = false }) {
   const body = `
 <main class="wide">
   <section class="hero hero-sub">
@@ -2084,6 +2090,7 @@ function renderTaxonomyPage({ heading, description, canonical, articles, current
     jsonLd,
     disclosureScope: "site",
     currentCategory,
+    noindex,
   });
 }
 
@@ -2210,6 +2217,7 @@ function build() {
         description: `「${tag}」に関する記事一覧`,
         canonical: tagUrl(tag),
         articles: list,
+        noindex: list.length < TAG_INDEX_MIN,
       })
     );
   }
@@ -2239,7 +2247,11 @@ function build() {
   writeFile(path.join(BLOG_OUT_DIR, "feed.xml"), renderFeed(articles));
   writeFile(
     path.join(DIST_DIR, "sitemap.xml"),
-    renderSitemap(articles, [...tagMap.keys()], [...categoryMap.keys()])
+    renderSitemap(
+      articles,
+      [...tagMap.entries()].filter(([, list]) => list.length >= TAG_INDEX_MIN).map(([t]) => t),
+      [...categoryMap.keys()]
+    )
   );
   writeFile(path.join(DIST_DIR, "robots.txt"), renderRobots());
   copyStaticFiles();
