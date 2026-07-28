@@ -139,10 +139,13 @@ async function main() {
     return;
   }
 
-  const consumerKey = process.env.X_API_KEY;
-  const consumerSecret = process.env.X_API_SECRET;
-  const token = process.env.X_ACCESS_TOKEN;
-  const tokenSecret = process.env.X_ACCESS_TOKEN_SECRET;
+  // Secretsに貼り付けるとき、末尾に改行や空白が混入しやすい。
+  // 署名に使う値がずれると原因の分かりにくい401になるので、ここで落とす。
+  const cred = (name) => (process.env[name] || "").trim();
+  const consumerKey = cred("X_API_KEY");
+  const consumerSecret = cred("X_API_SECRET");
+  const token = cred("X_ACCESS_TOKEN");
+  const tokenSecret = cred("X_ACCESS_TOKEN_SECRET");
   if (!consumerKey || !consumerSecret || !token || !tokenSecret) {
     throw new Error("X APIの認証情報(環境変数)が設定されていません。");
   }
