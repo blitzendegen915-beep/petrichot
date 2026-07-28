@@ -1,0 +1,228 @@
+{
+  "posts": [
+    {
+      "text": "チャットAIとエージェント。名前は似ていますが、実はできることが全く異なります。その違いを図を使わかりやすく解説しました。",
+      "slug": "ai-agent-toha-hajimekata"
+    },
+    {
+      "text": "AIがひとりで行動する？エージェントの登場で、AIの使い方が新しいステージに入りました。それって何ができるのか見てみましょう。",
+      "slug": "ai-agent-toha-hajimekata"
+    },
+    {
+      "text": "AIで作られた情報、増えていますね。本物と偽物を見分けるコツをご存じですか？実は簡単なチェック方法が存在するんです。",
+      "slug": "ai-fake-joho-mimawake"
+    },
+    {
+      "text": "フェイク情報は、AI時代に危機感が高まっています。その見分け方に『パターン』があるって知ってましたか。詳しく解説します。",
+      "slug": "ai-fake-joho-mimawake"
+    },
+    {
+      "text": "会議の議事録って手間がかかりますよね。AIで自動化する術を身につけると、その時間を創造的な仕事に使えるようになります。",
+      "slug": "ai-gijiroku-memo-jutsu"
+    },
+    {
+      "text": "議事録AIを入れても、固有名詞と数字は結局こちらで直すことになります。どこを人が見るべきかを整理しました。",
+      "slug": "ai-gijiroku-memo-jutsu"
+    },
+    {
+      "text": "業務効率化って言葉はよく聞きますが、何から始めるか困っていませんか。AIの導入ステップを整理しました。",
+      "slug": "ai-gyomu-kouritsuka"
+    },
+    {
+      "text": "AIで業務効率化を進めたい。ただし『どこに導入するか』を間違えると、逆に混乱が増すんです。成功のコツを解説します。",
+      "slug": "ai-gyomu-kouritsuka"
+    },
+    {
+      "text": "AIが『もっともらしい嘘』をつく。それは欠陥じゃなく、AIの仕組みの必然的な結果なんです。その理由を理解しましょう。",
+      "slug": "ai-hallucination-naze"
+    },
+    {
+      "text": "AIの回答が完全に間違っていた経験、ありますか。それはなぜ起きるのか。そのメカニズムを図を使って解説していきます。",
+      "slug": "ai-hallucination-naze"
+    },
+    {
+      "text": "AI翻訳、便利ですね。でも、そのまま人に提出するのは要注意です。正しい使い分けのポイントをお伝えします。",
+      "slug": "ai-honyaku-katsuyou"
+    },
+    {
+      "text": "翻訳精度はぐんぐん上がっていますが、AIに任せて大丈夫な場面と要注意な場面があります。その見分け方をお話しします。",
+      "slug": "ai-honyaku-katsuyou"
+    },
+    {
+      "text": "AI時代、職業選択はどう考えるべきか。親世代と異なる視点で、未来の仕事を捉え直してみませんか。図解も交えました。",
+      "slug": "ai-jidai-no-shinro"
+    },
+    {
+      "text": "これからの進路と仕事。AIの登場で、必要とされるスキルが大きく変わってきています。その変化を一緒に考えましょう。",
+      "slug": "ai-jidai-no-shinro"
+    },
+    {
+      "text": "Google検索とAI検索、何が違うのか答えられますか。その違いを知ると、情報の調べ方がぐんと変わってきます。",
+      "slug": "ai-kensaku-perplexity-hikaku"
+    },
+    {
+      "text": "AI検索エンジンが話題ですが、従来の検索と比べて何が新しいのか。その本質に深く迫っていきます。",
+      "slug": "ai-kensaku-perplexity-hikaku"
+    },
+    {
+      "text": "メール返信、面倒に感じませんか。AIで短く済ませるコツがあります。でも任せてはいけない部分も知っておきましょう。",
+      "slug": "ai-mail-taiou-jitan"
+    },
+    {
+      "text": "メール対応にAIを活用する人が増えています。ただし、完全に丸投げするとトラブルが。その判断基準を整理しました。",
+      "slug": "ai-mail-taiou-jitan"
+    },
+    {
+      "text": "文字起こしツール、どれを選びますか。音声をテキスト化するAIたちの得意分野と不得意な部分を比較しました。",
+      "slug": "ai-mojiokoshi-tool-hikaku"
+    },
+    {
+      "text": "AIの文字起こし精度は驚くほど上がっています。でも、選び方で成果が大きく変わる。その選択基準をご紹介していきます。",
+      "slug": "ai-mojiokoshi-tool-hikaku"
+    },
+    {
+      "text": "AIに入力した情報、学習に使われると思ってませんか。実は確認方法があります。知らないままはリスクですよ。",
+      "slug": "ai-nyuryoku-gakushuu-riyou"
+    },
+    {
+      "text": "AIサービス、どこまで個人情報を入力していいのか不安ですよね。その仕組みと確認方法をわかりやすくお伝えします。",
+      "slug": "ai-nyuryoku-gakushuu-riyou"
+    },
+    {
+      "text": "プレゼン資料づくりで消えていくのは、話の中身を考える時間より体裁を整える時間かもしれません。分担の考え方をまとめました。",
+      "slug": "ai-presentation-shiryou-tsukurikata"
+    },
+    {
+      "text": "資料作りをAIに任せるのはいいけど、『センスの良い』資料になるとは限りません。コツがあります。詳しく説明します。",
+      "slug": "ai-presentation-shiryou-tsukurikata"
+    },
+    {
+      "text": "AIリテラシーって聞きますが、具体的に何を知ればいいのか。その基本的なポイントを整理してお伝えします。",
+      "slug": "ai-riteracy-nyuumon"
+    },
+    {
+      "text": "AI時代を生きるために『知っておくべき基礎知識』ってご存じですか。それがAIリテラシーの正体です。詳しく説明します。",
+      "slug": "ai-riteracy-nyuumon"
+    },
+    {
+      "text": "SNS投稿の文章と画像、毎回ゼロから作ってますか。AIを活用すると、その手間が大きく減らせるんです。",
+      "slug": "ai-sns-toukou-sakusei"
+    },
+    {
+      "text": "SNS運用の負担、感じてませんか。AIで文章と画像の両方を用意する効率的な手順をお伝えしていきます。",
+      "slug": "ai-sns-toukou-sakusei"
+    },
+    {
+      "text": "AI生成画像や文章。それって誰のもの。著作権は保護されるのか。その基本的な事柄をお答えしていきます。",
+      "slug": "ai-to-chosakuken-kihon"
+    },
+    {
+      "text": "AIで作った画像や文章の著作権はどうなる。ビジネスでも個人でも、知っておくべき基本をまとめました。",
+      "slug": "ai-to-chosakuken-kihon"
+    },
+    {
+      "text": "AIに個人情報を入力するのって大丈夫。実は『いいこと』と『ダメなこと』の境界線が決まってるんです。",
+      "slug": "ai-to-privacy-kojinjouhou"
+    },
+    {
+      "text": "ChatGPTやAIツール、どの情報まで入力して大丈夫か悩みますよね。その判断基準を図を使って解説します。",
+      "slug": "ai-to-privacy-kojinjouhou"
+    },
+    {
+      "text": "SNSのおすすめ投稿って、実はAIが選んでるんです。そのアルゴリズムの仕組みを理解すると、SNS活用が変わります。",
+      "slug": "ai-to-sns-algorithm"
+    },
+    {
+      "text": "SNSのフィードに何が表示されるか、決めるのはAIなんです。その仕組みを知ると、賢い情報取得ができるようになります。",
+      "slug": "ai-to-sns-algorithm"
+    },
+    {
+      "text": "お子さんに『AIって何？』と聞かれて、図を使って説明できますか。小学生にもわかる解説を用意しました。",
+      "slug": "ai-toha-nani-shougakusei"
+    },
+    {
+      "text": "『AIってなに？』子どもから聞かれたとき、どう説明しますか。図を使ったわかりやすい説明をご紹介しています。",
+      "slug": "ai-toha-nani-shougakusei"
+    },
+    {
+      "text": "AIってそもそも何ですか。中高生に正しく説明できる自信、ありますか。丁寧に図解しました。",
+      "slug": "ai-toha-nani"
+    },
+    {
+      "text": "『AIとは？』という問いに、正確に答えられますか。中高生向けの入門編として解説しています。",
+      "slug": "ai-toha-nani"
+    },
+    {
+      "text": "音声記録からの議事録作成。AIで自動化できるって知ってますか。その方法と各ツールの違いを比較しました。",
+      "slug": "ai-voice-recorder-hikaku"
+    },
+    {
+      "text": "会議の音声をAIが自動で議事録に。その技術、想像以上に進化してるんです。各ツールの実力を比較していきます。",
+      "slug": "ai-voice-recorder-hikaku"
+    },
+    {
+      "text": "文章作成を手助けするAIツール。どれを選べばいいか迷っていませんか。おすすめの6つをご紹介しています。",
+      "slug": "ai-writing-tools-osusume"
+    },
+    {
+      "text": "AIライティングツール、気になるけど『どれが自分に合ってるか』わかりませんよね。その比較をお伝えします。",
+      "slug": "ai-writing-tools-osusume"
+    },
+    {
+      "text": "Claudeというアイを聞いたことありますか。その開発元『Anthropic』について、くわしくご紹介していきます。",
+      "slug": "anthropic-toha-donna-kaisha"
+    },
+    {
+      "text": "ChatGPTは知ってるけど、Claudeって何。その開発元Anthropicの素顔に迫っていきます。",
+      "slug": "anthropic-toha-donna-kaisha"
+    },
+    {
+      "text": "勉強にAI使ってますか。ただし『正しい使い方』と『やってはいけない使い方』があります。その整理をしました。",
+      "slug": "benkyou-ni-ai-wo-tsukau-houhou"
+    },
+    {
+      "text": "AIは勉強の頼もしい味方になります。でも『丸投げ』したら逆効果。正しい活用法をお伝えしていきます。",
+      "slug": "benkyou-ni-ai-wo-tsukau-houhou"
+    },
+    {
+      "text": "文化祭のポスター、手作りする時間がない。AIで作ってみるって選択肢、試してみませんか。",
+      "slug": "bunkasai-ai-poster-tsukurikata"
+    },
+    {
+      "text": "部活のポスターやチラシ、センス良く作りたい。AIはそこまでできるのか。その活用法を解説しました。",
+      "slug": "bunkasai-ai-poster-tsukurikata"
+    },
+    {
+      "text": "デザイン初心者でも『それっぽい』ものが作れるCanvaのAI機能。その使い方をわかりやすくお伝えします。",
+      "slug": "canva-ai-design-nyumon"
+    },
+    {
+      "text": "デザインの知識がなくても、Canvaなら大丈夫。そのAI機能の使い方を初心者向けにご紹介しています。",
+      "slug": "canva-ai-design-nyumon"
+    },
+    {
+      "text": "ChatGPT、無料版と有料版でこんなに違うんです。その差を徹底的に比較してまとめました。",
+      "slug": "chatgpt-muryou-yuuryou-chigai"
+    },
+    {
+      "text": "ChatGPT有料版、值打ちはある。無料版と比べて何が変わるのか、細かく詳しく解説しています。",
+      "slug": "chatgpt-muryou-yuuryou-chigai"
+    },
+    {
+      "text": "ChatGPT、触ったことありますか。まだなら、この入門から始めるのがおすすめです。",
+      "slug": "chatgpt-tsukaikata-nyumon"
+    },
+    {
+      "text": "ChatGPT始めてみたいけど『何をしたらいいのか』わかりませんよね。その使い方を丁寧に説明していきます。",
+      "slug": "chatgpt-tsukaikata-nyumon"
+    },
+    {
+      "text": "ChatGPTとClaude。どちらが『賢い』か、単純には比較できません。その違いを明らかにしていきます。",
+      "slug": "chatgpt-vs-claude-hikaku"
+    },
+    {
+      "text": "ChatGPTしか使ってない。Claudeとの比較を見ると『AIの選択肢』が広がります。その差を解説しました。",
+      "slug": "chatgpt-vs-claude-hikaku"
+    }
+  ]
+}

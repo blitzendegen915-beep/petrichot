@@ -1,0 +1,444 @@
+{
+  "posts": [
+    {
+      "text": "議事録AIを入れても、固有名詞と数字は結局こちらで直すことになります。どこを人が見るべきかを整理しました。",
+      "url": "https://petrichot.com/ai-gijiroku-memo-jutsu/"
+    },
+    {
+      "text": "AI時代を生きるために『知っておくべき基礎知識』ってご存じですか。それがAIリテラシーの正体です。詳しく説明します。",
+      "url": "https://petrichot.com/ai-riteracy-nyuumon/"
+    },
+    {
+      "text": "最新のClaudeモデルOpus 5が登場しました。複雑な推論が必要な業務こそ、このモデルが力を発揮する場面が多いんですよ。",
+      "url": "https://petrichot.com/claude-opus-5-toha/"
+    },
+    {
+      "text": "Copilot導入前に、本当に自分たちに必要か判断するポイントをしっかり確認しておくことが大切です。",
+      "url": "https://petrichot.com/github-copilot-review/"
+    },
+    {
+      "text": "ChatGPTとClaude。どちらが『賢い』か、単純には比較できません。その違いを明らかにしていきます。",
+      "url": "https://petrichot.com/chatgpt-vs-claude-hikaku/"
+    },
+    {
+      "text": "プログラミング初心者こそAIを相棒にすべきなんです。学習効率が大きく変わる活用法があります。",
+      "url": "https://petrichot.com/programming-gakushuu-to-ai/"
+    },
+    {
+      "text": "Midjourneyで理想の画像を引き出すために。プロンプト作成の工夫10選をご紹介しますね。",
+      "url": "https://petrichot.com/midjourney-prompt-no-kotsu/"
+    },
+    {
+      "text": "営業資料作成に費やす時間、実は半減できる可能性があるんです。その方法が気になりませんか。知って損なし。",
+      "url": "https://petrichot.com/eigyou-shiryou-ai-jitan/"
+    },
+    {
+      "text": "文章作成を手助けするAIツール。どれを選べばいいか迷っていませんか。おすすめの6つをご紹介しています。",
+      "url": "https://petrichot.com/ai-writing-tools-osusume/"
+    },
+    {
+      "text": "AIで作られた情報、増えていますね。本物と偽物を見分けるコツをご存じですか？実は簡単なチェック方法が存在するんです。",
+      "url": "https://petrichot.com/ai-fake-joho-mimawake/"
+    },
+    {
+      "text": "AIの文字起こし精度は驚くほど上がっています。でも、選び方で成果が大きく変わる。その選択基準をご紹介していきます。",
+      "url": "https://petrichot.com/ai-mojiokoshi-tool-hikaku/"
+    },
+    {
+      "text": "複雑な設定や専門的な知識がなくても大丈夫。ConoHa AI Canvasなら、思いついたらすぐに画像が実現できるんですよ。",
+      "url": "https://petrichot.com/conoha-ai-canvas-gazou-seisei/"
+    },
+    {
+      "text": "ChatGPTは知ってるけど、Claudeって何。その開発元Anthropicの素顔に迫っていきます。",
+      "url": "https://petrichot.com/anthropic-toha-donna-kaisha/"
+    },
+    {
+      "text": "ChatGPT、無料版と有料版でこんなに違うんです。その差を徹底的に比較してまとめました。",
+      "url": "https://petrichot.com/chatgpt-muryou-yuuryou-chigai/"
+    },
+    {
+      "text": "AI画像生成を試したい気持ちはあるけれど、有料ツールは敷居が高い。そんなあなたの気持ち、よくわかります。",
+      "url": "https://petrichot.com/muryou-ai-gazou-seisei/"
+    },
+    {
+      "text": "デザイン初心者でも『それっぽい』ものが作れるCanvaのAI機能。その使い方をわかりやすくお伝えします。",
+      "url": "https://petrichot.com/canva-ai-design-nyumon/"
+    },
+    {
+      "text": "月の業務時間がどのように変わるか。Doraverseを導入した場合の実際の効果を一度見てみませんか。試す価値ありますよ。",
+      "url": "https://petrichot.com/doraverse-office-koritsuka/"
+    },
+    {
+      "text": "勉強にAI使ってますか。ただし『正しい使い方』と『やってはいけない使い方』があります。その整理をしました。",
+      "url": "https://petrichot.com/benkyou-ni-ai-wo-tsukau-houhou/"
+    },
+    {
+      "text": "Claudeを使い始めたいけれど、何から始めるべきか迷っている方へ。初心者向けのステップをわかりやすくまとめました。参考に。",
+      "url": "https://petrichot.com/claude-tsukaikata-nyumon/"
+    },
+    {
+      "text": "Geminiの正体を深く理解することで、本当に必要なAIツールが見えてきます。選択肢が変わるかもしれませんよ。",
+      "url": "https://petrichot.com/gemini-toha-nani/"
+    },
+    {
+      "text": "資料作りをAIに任せるのはいいけど、『センスの良い』資料になるとは限りません。コツがあります。詳しく説明します。",
+      "url": "https://petrichot.com/ai-presentation-shiryou-tsukurikata/"
+    },
+    {
+      "text": "音声記録からの議事録作成。AIで自動化できるって知ってますか。その方法と各ツールの違いを比較しました。",
+      "url": "https://petrichot.com/ai-voice-recorder-hikaku/"
+    },
+    {
+      "text": "GmailやGoogleドライブとの連携で、Geminiの能力が一気に広がるんです。このエコシステムの力を知ることが大事。",
+      "url": "https://petrichot.com/gemini-katsuyou-jutsu/"
+    },
+    {
+      "text": "AI検索エンジンが話題ですが、従来の検索と比べて何が新しいのか。その本質に深く迫っていきます。",
+      "url": "https://petrichot.com/ai-kensaku-perplexity-hikaku/"
+    },
+    {
+      "text": "SNS投稿の文章と画像、毎回ゼロから作ってますか。AIを活用すると、その手間が大きく減らせるんです。",
+      "url": "https://petrichot.com/ai-sns-toukou-sakusei/"
+    },
+    {
+      "text": "生成AIといっても種類はいろいろあります。文章・画像・音声の各分野での違いを理解していますか。",
+      "url": "https://petrichot.com/seiseiai-no-shurui/"
+    },
+    {
+      "text": "膨大な資料をAIで要約する際、プロンプトの書き方ひとつで精度が大きく左右されることをご存知ですか。工夫のポイントを学びましょう。",
+      "url": "https://petrichot.com/chobun-pdf-youyaku-ai/"
+    },
+    {
+      "text": "従来の検索とAI検索は何が根本的に違うのか。Perplexityが変える情報収集の新しい世界へようこそ。",
+      "url": "https://petrichot.com/perplexity-kensaku-katsuyo/"
+    },
+    {
+      "text": "AIへの指示文ひとつで、出力の質が大きく変わるんです。プロンプト技法の基本をしっかり学びましょう。",
+      "url": "https://petrichot.com/prompt-no-kakikata-kihon/"
+    },
+    {
+      "text": "AI翻訳、便利ですね。でも、そのまま人に提出するのは要注意です。正しい使い分けのポイントをお伝えします。",
+      "url": "https://petrichot.com/ai-honyaku-katsuyou/"
+    },
+    {
+      "text": "Notionに統合されたAI機能。ドキュメント作成の効率がさらに上がる活用方法があるんですよ。",
+      "url": "https://petrichot.com/notion-ai-tsukaikata/"
+    },
+    {
+      "text": "高品質なAI画像生成ツールMidjourney。最初の一歩から実践的なサポートをご提供しています。",
+      "url": "https://petrichot.com/midjourney-hajimekata/"
+    },
+    {
+      "text": "大学生こそAIを上手に活用すべき理由があります。レポート作成から情報整理まで、学生生活が効率化するんですよ。知って損なし。",
+      "url": "https://petrichot.com/daigakusei-seiseiai-tsukaikata/"
+    },
+    {
+      "text": "会議内容を自動で整理して、そのまま資料に変えるんです。業務効率が大きく変わるツールですよ。",
+      "url": "https://petrichot.com/notta-brain-shoukai/"
+    },
+    {
+      "text": "SNSのおすすめ投稿って、実はAIが選んでるんです。そのアルゴリズムの仕組みを理解すると、SNS活用が変わります。",
+      "url": "https://petrichot.com/ai-to-sns-algorithm/"
+    },
+    {
+      "text": "『AIとは？』という問いに、正確に答えられますか。中高生向けの入門編として解説しています。",
+      "url": "https://petrichot.com/ai-toha-nani/"
+    },
+    {
+      "text": "会話練習も添削もAIで対応可能なんです。英語学習の効率が大きく変わる具体的な活用法を知っていますか。詳しく解説。",
+      "url": "https://petrichot.com/eigo-gakushuu-ai-katsuyou/"
+    },
+    {
+      "text": "業務効率化って言葉はよく聞きますが、何から始めるか困っていませんか。AIの導入ステップを整理しました。",
+      "url": "https://petrichot.com/ai-gyomu-kouritsuka/"
+    },
+    {
+      "text": "AIサービス、どこまで個人情報を入力していいのか不安ですよね。その仕組みと確認方法をわかりやすくお伝えします。",
+      "url": "https://petrichot.com/ai-nyuryoku-gakushuu-riyou/"
+    },
+    {
+      "text": "AIの回答が完全に間違っていた経験、ありますか。それはなぜ起きるのか。そのメカニズムを図を使って解説していきます。",
+      "url": "https://petrichot.com/ai-hallucination-naze/"
+    },
+    {
+      "text": "ChatGPTの開発元OpenAI。実は、どんな会社で、何をしているのか知っていますか。詳しく解説。",
+      "url": "https://petrichot.com/openai-toha-donna-kaisha/"
+    },
+    {
+      "text": "AIに個人情報を入力するのって大丈夫。実は『いいこと』と『ダメなこと』の境界線が決まってるんです。",
+      "url": "https://petrichot.com/ai-to-privacy-kojinjouhou/"
+    },
+    {
+      "text": "ChatGPT始めてみたいけど『何をしたらいいのか』わかりませんよね。その使い方を丁寧に説明していきます。",
+      "url": "https://petrichot.com/chatgpt-tsukaikata-nyumon/"
+    },
+    {
+      "text": "部活のポスターやチラシ、センス良く作りたい。AIはそこまでできるのか。その活用法を解説しました。",
+      "url": "https://petrichot.com/bunkasai-ai-poster-tsukurikata/"
+    },
+    {
+      "text": "AIを使ってレポートを作成するのはいいんです。ただし、明確なルール・マナーを守ることが非常に大切なんですよ。",
+      "url": "https://petrichot.com/gakushuu-report-to-ai-no-tsukaikata/"
+    },
+    {
+      "text": "メール対応にAIを活用する人が増えています。ただし、完全に丸投げするとトラブルが。その判断基準を整理しました。",
+      "url": "https://petrichot.com/ai-mail-taiou-jitan/"
+    },
+    {
+      "text": "チャットAIとエージェント。名前は似ていますが、実はできることが全く異なります。その違いを図を使わかりやすく解説しました。",
+      "url": "https://petrichot.com/ai-agent-toha-hajimekata/"
+    },
+    {
+      "text": "一人で多くの業務をこなさなければいけない。AIが味方なら、生産性は数倍になる可能性があるんですよ。",
+      "url": "https://petrichot.com/sohos-freelance-ai-tool-3sen/"
+    },
+    {
+      "text": "プレゼン資料作成、デザインセンスがなくても大丈夫なんです。AIが素敵な資料制作を力強くサポートしますよ。",
+      "url": "https://petrichot.com/irusiru-ai-slide-tsukurikata/"
+    },
+    {
+      "text": "AI時代、職業選択はどう考えるべきか。親世代と異なる視点で、未来の仕事を捉え直してみませんか。図解も交えました。",
+      "url": "https://petrichot.com/ai-jidai-no-shinro/"
+    },
+    {
+      "text": "ブロガー必携のツール。Value AI WriterでSEO記事作成の効率が大きく変わってきます。",
+      "url": "https://petrichot.com/value-ai-writer-seo-kiji/"
+    },
+    {
+      "text": "『AIってなに？』子どもから聞かれたとき、どう説明しますか。図を使ったわかりやすい説明をご紹介しています。",
+      "url": "https://petrichot.com/ai-toha-nani-shougakusei/"
+    },
+    {
+      "text": "AI生成画像や文章。それって誰のもの。著作権は保護されるのか。その基本的な事柄をお答えしていきます。",
+      "url": "https://petrichot.com/ai-to-chosakuken-kihon/"
+    },
+    {
+      "text": "ClaudeはChatGPTと何が違うのか。あなたのAI選びに迷いがあるなら、まずはその正体を知ることが非常に重要です。",
+      "url": "https://petrichot.com/claude-toha-nani/"
+    },
+    {
+      "text": "コード補完AIのCopilot。導入ってどうするの。この素朴な疑問に対して、丁寧にお答えしていきます。",
+      "url": "https://petrichot.com/github-copilot-hajimekata/"
+    },
+    {
+      "text": "会議の議事録って手間がかかりますよね。AIで自動化する術を身につけると、その時間を創造的な仕事に使えるようになります。",
+      "url": "https://petrichot.com/ai-gijiroku-memo-jutsu/"
+    },
+    {
+      "text": "AIリテラシーって聞きますが、具体的に何を知ればいいのか。その基本的なポイントを整理してお伝えします。",
+      "url": "https://petrichot.com/ai-riteracy-nyuumon/"
+    },
+    {
+      "text": "Claude Opus 5の特徴と得意分野を理解することで、他のAIモデルとの違いが明確になり、選択肢がぐっと広がりますよ。",
+      "url": "https://petrichot.com/claude-opus-5-toha/"
+    },
+    {
+      "text": "有料ツール選び。効果を実感してから投資判断をしたい開発者向けの判断基準をご紹介しますね。参考に。",
+      "url": "https://petrichot.com/github-copilot-review/"
+    },
+    {
+      "text": "ChatGPTしか使ってない。Claudeとの比較を見ると『AIの選択肢』が広がります。その差を解説しました。",
+      "url": "https://petrichot.com/chatgpt-vs-claude-hikaku/"
+    },
+    {
+      "text": "コードが書けない時、AIは神のような存在になるんです。その活用法を知れば、学習スピードが大きく変わります。",
+      "url": "https://petrichot.com/programming-gakushuu-to-ai/"
+    },
+    {
+      "text": "同じツールでも、プロンプト次第で結果が180度変わるんです。その秘訣となるコツを10個集めました。",
+      "url": "https://petrichot.com/midjourney-prompt-no-kotsu/"
+    },
+    {
+      "text": "提案書をゼロから作る時代は終わりました。AIは構成から校正まで、営業資料制作全体をしっかりサポートするんですよ。",
+      "url": "https://petrichot.com/eigyou-shiryou-ai-jitan/"
+    },
+    {
+      "text": "AIライティングツール、気になるけど『どれが自分に合ってるか』わかりませんよね。その比較をお伝えします。",
+      "url": "https://petrichot.com/ai-writing-tools-osusume/"
+    },
+    {
+      "text": "フェイク情報は、AI時代に危機感が高まっています。その見分け方に『パターン』があるって知ってましたか。詳しく解説します。",
+      "url": "https://petrichot.com/ai-fake-joho-mimawake/"
+    },
+    {
+      "text": "文字起こしツール、どれを選びますか。音声をテキスト化するAIたちの得意分野と不得意な部分を比較しました。",
+      "url": "https://petrichot.com/ai-mojiokoshi-tool-hikaku/"
+    },
+    {
+      "text": "ソフトのインストール不要です。ブラウザだけでAI画像が生成できる時代がもう来ています。ConoHa AI Canvas。検索してみて。",
+      "url": "https://petrichot.com/conoha-ai-canvas-gazou-seisei/"
+    },
+    {
+      "text": "Claudeというアイを聞いたことありますか。その開発元『Anthropic』について、くわしくご紹介していきます。",
+      "url": "https://petrichot.com/anthropic-toha-donna-kaisha/"
+    },
+    {
+      "text": "ChatGPT有料版、值打ちはある。無料版と比べて何が変わるのか、細かく詳しく解説しています。",
+      "url": "https://petrichot.com/chatgpt-muryou-yuuryou-chigai/"
+    },
+    {
+      "text": "無料で使えるAI画像生成ツール。まずは試してみて、自分に合ったツールを見つけてみてください。",
+      "url": "https://petrichot.com/muryou-ai-gazou-seisei/"
+    },
+    {
+      "text": "デザインの知識がなくても、Canvaなら大丈夫。そのAI機能の使い方を初心者向けにご紹介しています。",
+      "url": "https://petrichot.com/canva-ai-design-nyumon/"
+    },
+    {
+      "text": "事務作業に費やす時間、AIの力を使うことで一気に減らせる可能性があります。Doraverseなら実現可能ですよ。",
+      "url": "https://petrichot.com/doraverse-office-koritsuka/"
+    },
+    {
+      "text": "AIは勉強の頼もしい味方になります。でも『丸投げ』したら逆効果。正しい活用法をお伝えしていきます。",
+      "url": "https://petrichot.com/benkyou-ni-ai-wo-tsukau-houhou/"
+    },
+    {
+      "text": "Claudeのアカウント作成から実際の操作方法まで、丁寧に解説しています。迷わずに今日からスタートできるようになっています。",
+      "url": "https://petrichot.com/claude-tsukaikata-nyumon/"
+    },
+    {
+      "text": "GoogleのAI GeminiはChatGPTとどのように違うのか。その全体像を知ると、ツール選択が明確になってきます。",
+      "url": "https://petrichot.com/gemini-toha-nani/"
+    },
+    {
+      "text": "プレゼン資料づくりで消えていくのは、話の中身を考える時間より体裁を整える時間かもしれません。分担の考え方をまとめました。",
+      "url": "https://petrichot.com/ai-presentation-shiryou-tsukurikata/"
+    },
+    {
+      "text": "会議の音声をAIが自動で議事録に。その技術、想像以上に進化してるんです。各ツールの実力を比較していきます。",
+      "url": "https://petrichot.com/ai-voice-recorder-hikaku/"
+    },
+    {
+      "text": "Googleのサービスとの連携により、Geminiの活躍の場は無限に広がります。その活用術を詳しくご紹介しますね。",
+      "url": "https://petrichot.com/gemini-katsuyou-jutsu/"
+    },
+    {
+      "text": "Google検索とAI検索、何が違うのか答えられますか。その違いを知ると、情報の調べ方がぐんと変わってきます。",
+      "url": "https://petrichot.com/ai-kensaku-perplexity-hikaku/"
+    },
+    {
+      "text": "SNS運用の負担、感じてませんか。AIで文章と画像の両方を用意する効率的な手順をお伝えしていきます。",
+      "url": "https://petrichot.com/ai-sns-toukou-sakusei/"
+    },
+    {
+      "text": "AI時代、文章・画像・音声の各分野でツール選びが大切なんです。その違いをおさえておきましょう。",
+      "url": "https://petrichot.com/seiseiai-no-shurui/"
+    },
+    {
+      "text": "長文やPDFを毎回すべて読みきるのは時間がかかりすぎますよね。AIに要約させるコツを知ると、情報収集の効率が一気に変わってしまうんです。",
+      "url": "https://petrichot.com/chobun-pdf-youyaku-ai/"
+    },
+    {
+      "text": "深掘り検索をしたいなら、AI検索エンジンPerplexityの出番です。その活用術をご紹介しますね。",
+      "url": "https://petrichot.com/perplexity-kensaku-katsuyo/"
+    },
+    {
+      "text": "プロンプト設計は、AIを本気で使うなら避けられないスキルなんです。今から基礎をおさらいしましょう。",
+      "url": "https://petrichot.com/prompt-no-kakikata-kihon/"
+    },
+    {
+      "text": "翻訳精度はぐんぐん上がっていますが、AIに任せて大丈夫な場面と要注意な場面があります。その見分け方をお話しします。",
+      "url": "https://petrichot.com/ai-honyaku-katsuyou/"
+    },
+    {
+      "text": "ナレッジ管理ツール Notionが、AIの力を取り入れることでどう変わったのか。その活用法を学びましょう。",
+      "url": "https://petrichot.com/notion-ai-tsukaikata/"
+    },
+    {
+      "text": "Midjourneyで作る画像のクオリティの高さに驚く人も本当に多いんです。使い始めてみませんか。今が始めどき。",
+      "url": "https://petrichot.com/midjourney-hajimekata/"
+    },
+    {
+      "text": "生成AIを使いこなせる大学生と、まだ使っていない大学生。その差は実は知識にあるんです。今から差をつけませんか。",
+      "url": "https://petrichot.com/daigakusei-seiseiai-tsukaikata/"
+    },
+    {
+      "text": "音声記録から資料化まで、Notta Brain一つで実現できるんです。その可能性について詳しく解説します。",
+      "url": "https://petrichot.com/notta-brain-shoukai/"
+    },
+    {
+      "text": "SNSのフィードに何が表示されるか、決めるのはAIなんです。その仕組みを知ると、賢い情報取得ができるようになります。",
+      "url": "https://petrichot.com/ai-to-sns-algorithm/"
+    },
+    {
+      "text": "AIってそもそも何ですか。中高生に正しく説明できる自信、ありますか。丁寧に図解しました。",
+      "url": "https://petrichot.com/ai-toha-nani/"
+    },
+    {
+      "text": "英語学習において、独学の強い味方がAIなんです。ネイティブ講師のような指導を自分のペースで受けられるんですよ。",
+      "url": "https://petrichot.com/eigo-gakushuu-ai-katsuyou/"
+    },
+    {
+      "text": "AIで業務効率化を進めたい。ただし『どこに導入するか』を間違えると、逆に混乱が増すんです。成功のコツを解説します。",
+      "url": "https://petrichot.com/ai-gyomu-kouritsuka/"
+    },
+    {
+      "text": "AIに入力した情報、学習に使われると思ってませんか。実は確認方法があります。知らないままはリスクですよ。",
+      "url": "https://petrichot.com/ai-nyuryoku-gakushuu-riyou/"
+    },
+    {
+      "text": "AIが『もっともらしい嘘』をつく。それは欠陥じゃなく、AIの仕組みの必然的な結果なんです。その理由を理解しましょう。",
+      "url": "https://petrichot.com/ai-hallucination-naze/"
+    },
+    {
+      "text": "AI時代を作った企業OpenAI。その歴史と現在の役割を理解することは、とても大切なんですよ。",
+      "url": "https://petrichot.com/openai-toha-donna-kaisha/"
+    },
+    {
+      "text": "ChatGPTやAIツール、どの情報まで入力して大丈夫か悩みますよね。その判断基準を図を使って解説します。",
+      "url": "https://petrichot.com/ai-to-privacy-kojinjouhou/"
+    },
+    {
+      "text": "ChatGPT、触ったことありますか。まだなら、この入門から始めるのがおすすめです。",
+      "url": "https://petrichot.com/chatgpt-tsukaikata-nyumon/"
+    },
+    {
+      "text": "文化祭のポスター、手作りする時間がない。AIで作ってみるって選択肢、試してみませんか。",
+      "url": "https://petrichot.com/bunkasai-ai-poster-tsukurikata/"
+    },
+    {
+      "text": "AIと正直に付き合う姿勢が大切です。大学のレポート作成で気をつけるべきマナーについて、詳しく解説します。",
+      "url": "https://petrichot.com/gakushuu-report-to-ai-no-tsukaikata/"
+    },
+    {
+      "text": "メール返信、面倒に感じませんか。AIで短く済ませるコツがあります。でも任せてはいけない部分も知っておきましょう。",
+      "url": "https://petrichot.com/ai-mail-taiou-jitan/"
+    },
+    {
+      "text": "AIがひとりで行動する？エージェントの登場で、AIの使い方が新しいステージに入りました。それって何ができるのか見てみましょう。",
+      "url": "https://petrichot.com/ai-agent-toha-hajimekata/"
+    },
+    {
+      "text": "フリーランスの強い味方。本当に必須なAIツール3つ、あなたは押さえていますか。参考にしてください。",
+      "url": "https://petrichot.com/sohos-freelance-ai-tool-3sen/"
+    },
+    {
+      "text": "スライド資料がAIで自動生成される時代が来ました。イルシルの可能性に驚く人が本当に多いんですよ。",
+      "url": "https://petrichot.com/irusiru-ai-slide-tsukurikata/"
+    },
+    {
+      "text": "これからの進路と仕事。AIの登場で、必要とされるスキルが大きく変わってきています。その変化を一緒に考えましょう。",
+      "url": "https://petrichot.com/ai-jidai-no-shinro/"
+    },
+    {
+      "text": "SEO記事作成に時間がかかりすぎている。その悩み、AIツールを活用することで解決できるんですよ。",
+      "url": "https://petrichot.com/value-ai-writer-seo-kiji/"
+    },
+    {
+      "text": "お子さんに『AIって何？』と聞かれて、図を使って説明できますか。小学生にもわかる解説を用意しました。",
+      "url": "https://petrichot.com/ai-toha-nani-shougakusei/"
+    },
+    {
+      "text": "AIで作った画像や文章の著作権はどうなる。ビジネスでも個人でも、知っておくべき基本をまとめました。",
+      "url": "https://petrichot.com/ai-to-chosakuken-kihon/"
+    },
+    {
+      "text": "Anthropic開発のClaudeについて、基本となる特徴から得意分野まで理解できれば、AIツール選びの判断軸が大きく変わります。",
+      "url": "https://petrichot.com/claude-toha-nani/"
+    },
+    {
+      "text": "GitHub Copilotで開発体験が大きく変わります。まずは使い始めるまでの流れを、やさしく解説しましたよ。",
+      "url": "https://petrichot.com/github-copilot-hajimekata/"
+    }
+  ]
+}

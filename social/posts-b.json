@@ -1,0 +1,220 @@
+{
+  "posts": [
+    {
+      "text": "長文やPDFを毎回すべて読みきるのは時間がかかりすぎますよね。AIに要約させるコツを知ると、情報収集の効率が一気に変わってしまうんです。",
+      "slug": "chobun-pdf-youyaku-ai"
+    },
+    {
+      "text": "膨大な資料をAIで要約する際、プロンプトの書き方ひとつで精度が大きく左右されることをご存知ですか。工夫のポイントを学びましょう。",
+      "slug": "chobun-pdf-youyaku-ai"
+    },
+    {
+      "text": "最新のClaudeモデルOpus 5が登場しました。複雑な推論が必要な業務こそ、このモデルが力を発揮する場面が多いんですよ。",
+      "slug": "claude-opus-5-toha"
+    },
+    {
+      "text": "Claude Opus 5の特徴と得意分野を理解することで、他のAIモデルとの違いが明確になり、選択肢がぐっと広がりますよ。",
+      "slug": "claude-opus-5-toha"
+    },
+    {
+      "text": "ClaudeはChatGPTと何が違うのか。あなたのAI選びに迷いがあるなら、まずはその正体を知ることが非常に重要です。",
+      "slug": "claude-toha-nani"
+    },
+    {
+      "text": "Anthropic開発のClaudeについて、基本となる特徴から得意分野まで理解できれば、AIツール選びの判断軸が大きく変わります。",
+      "slug": "claude-toha-nani"
+    },
+    {
+      "text": "Claudeを使い始めたいけれど、何から始めるべきか迷っている方へ。初心者向けのステップをわかりやすくまとめました。参考に。",
+      "slug": "claude-tsukaikata-nyumon"
+    },
+    {
+      "text": "Claudeのアカウント作成から実際の操作方法まで、丁寧に解説しています。迷わずに今日からスタートできるようになっています。",
+      "slug": "claude-tsukaikata-nyumon"
+    },
+    {
+      "text": "ソフトのインストール不要です。ブラウザだけでAI画像が生成できる時代がもう来ています。ConoHa AI Canvas。検索してみて。",
+      "slug": "conoha-ai-canvas-gazou-seisei"
+    },
+    {
+      "text": "複雑な設定や専門的な知識がなくても大丈夫。ConoHa AI Canvasなら、思いついたらすぐに画像が実現できるんですよ。",
+      "slug": "conoha-ai-canvas-gazou-seisei"
+    },
+    {
+      "text": "大学生こそAIを上手に活用すべき理由があります。レポート作成から情報整理まで、学生生活が効率化するんですよ。知って損なし。",
+      "slug": "daigakusei-seiseiai-tsukaikata"
+    },
+    {
+      "text": "生成AIを使いこなせる大学生と、まだ使っていない大学生。その差は実は知識にあるんです。今から差をつけませんか。",
+      "slug": "daigakusei-seiseiai-tsukaikata"
+    },
+    {
+      "text": "事務作業に費やす時間、AIの力を使うことで一気に減らせる可能性があります。Doraverseなら実現可能ですよ。",
+      "slug": "doraverse-office-koritsuka"
+    },
+    {
+      "text": "月の業務時間がどのように変わるか。Doraverseを導入した場合の実際の効果を一度見てみませんか。試す価値ありますよ。",
+      "slug": "doraverse-office-koritsuka"
+    },
+    {
+      "text": "英語学習において、独学の強い味方がAIなんです。ネイティブ講師のような指導を自分のペースで受けられるんですよ。",
+      "slug": "eigo-gakushuu-ai-katsuyou"
+    },
+    {
+      "text": "会話練習も添削もAIで対応可能なんです。英語学習の効率が大きく変わる具体的な活用法を知っていますか。詳しく解説。",
+      "slug": "eigo-gakushuu-ai-katsuyou"
+    },
+    {
+      "text": "営業資料作成に費やす時間、実は半減できる可能性があるんです。その方法が気になりませんか。知って損なし。",
+      "slug": "eigyou-shiryou-ai-jitan"
+    },
+    {
+      "text": "提案書をゼロから作る時代は終わりました。AIは構成から校正まで、営業資料制作全体をしっかりサポートするんですよ。",
+      "slug": "eigyou-shiryou-ai-jitan"
+    },
+    {
+      "text": "AIを使ってレポートを作成するのはいいんです。ただし、明確なルール・マナーを守ることが非常に大切なんですよ。",
+      "slug": "gakushuu-report-to-ai-no-tsukaikata"
+    },
+    {
+      "text": "AIと正直に付き合う姿勢が大切です。大学のレポート作成で気をつけるべきマナーについて、詳しく解説します。",
+      "slug": "gakushuu-report-to-ai-no-tsukaikata"
+    },
+    {
+      "text": "GmailやGoogleドライブとの連携で、Geminiの能力が一気に広がるんです。このエコシステムの力を知ることが大事。",
+      "slug": "gemini-katsuyou-jutsu"
+    },
+    {
+      "text": "Googleのサービスとの連携により、Geminiの活躍の場は無限に広がります。その活用術を詳しくご紹介しますね。",
+      "slug": "gemini-katsuyou-jutsu"
+    },
+    {
+      "text": "GoogleのAI GeminiはChatGPTとどのように違うのか。その全体像を知ると、ツール選択が明確になってきます。",
+      "slug": "gemini-toha-nani"
+    },
+    {
+      "text": "Geminiの正体を深く理解することで、本当に必要なAIツールが見えてきます。選択肢が変わるかもしれませんよ。",
+      "slug": "gemini-toha-nani"
+    },
+    {
+      "text": "コード補完AIのCopilot。導入ってどうするの。この素朴な疑問に対して、丁寧にお答えしていきます。",
+      "slug": "github-copilot-hajimekata"
+    },
+    {
+      "text": "GitHub Copilotで開発体験が大きく変わります。まずは使い始めるまでの流れを、やさしく解説しましたよ。",
+      "slug": "github-copilot-hajimekata"
+    },
+    {
+      "text": "Copilot導入前に、本当に自分たちに必要か判断するポイントをしっかり確認しておくことが大切です。",
+      "slug": "github-copilot-review"
+    },
+    {
+      "text": "有料ツール選び。効果を実感してから投資判断をしたい開発者向けの判断基準をご紹介しますね。参考に。",
+      "slug": "github-copilot-review"
+    },
+    {
+      "text": "スライド資料がAIで自動生成される時代が来ました。イルシルの可能性に驚く人が本当に多いんですよ。",
+      "slug": "irusiru-ai-slide-tsukurikata"
+    },
+    {
+      "text": "プレゼン資料作成、デザインセンスがなくても大丈夫なんです。AIが素敵な資料制作を力強くサポートしますよ。",
+      "slug": "irusiru-ai-slide-tsukurikata"
+    },
+    {
+      "text": "高品質なAI画像生成ツールMidjourney。最初の一歩から実践的なサポートをご提供しています。",
+      "slug": "midjourney-hajimekata"
+    },
+    {
+      "text": "Midjourneyで作る画像のクオリティの高さに驚く人も本当に多いんです。使い始めてみませんか。今が始めどき。",
+      "slug": "midjourney-hajimekata"
+    },
+    {
+      "text": "同じツールでも、プロンプト次第で結果が180度変わるんです。その秘訣となるコツを10個集めました。",
+      "slug": "midjourney-prompt-no-kotsu"
+    },
+    {
+      "text": "Midjourneyで理想の画像を引き出すために。プロンプト作成の工夫10選をご紹介しますね。",
+      "slug": "midjourney-prompt-no-kotsu"
+    },
+    {
+      "text": "AI画像生成を試したい気持ちはあるけれど、有料ツールは敷居が高い。そんなあなたの気持ち、よくわかります。",
+      "slug": "muryou-ai-gazou-seisei"
+    },
+    {
+      "text": "無料で使えるAI画像生成ツール。まずは試してみて、自分に合ったツールを見つけてみてください。",
+      "slug": "muryou-ai-gazou-seisei"
+    },
+    {
+      "text": "Notionに統合されたAI機能。ドキュメント作成の効率がさらに上がる活用方法があるんですよ。",
+      "slug": "notion-ai-tsukaikata"
+    },
+    {
+      "text": "ナレッジ管理ツール Notionが、AIの力を取り入れることでどう変わったのか。その活用法を学びましょう。",
+      "slug": "notion-ai-tsukaikata"
+    },
+    {
+      "text": "音声記録から資料化まで、Notta Brain一つで実現できるんです。その可能性について詳しく解説します。",
+      "slug": "notta-brain-shoukai"
+    },
+    {
+      "text": "会議内容を自動で整理して、そのまま資料に変えるんです。業務効率が大きく変わるツールですよ。",
+      "slug": "notta-brain-shoukai"
+    },
+    {
+      "text": "ChatGPTの開発元OpenAI。実は、どんな会社で、何をしているのか知っていますか。詳しく解説。",
+      "slug": "openai-toha-donna-kaisha"
+    },
+    {
+      "text": "AI時代を作った企業OpenAI。その歴史と現在の役割を理解することは、とても大切なんですよ。",
+      "slug": "openai-toha-donna-kaisha"
+    },
+    {
+      "text": "従来の検索とAI検索は何が根本的に違うのか。Perplexityが変える情報収集の新しい世界へようこそ。",
+      "slug": "perplexity-kensaku-katsuyo"
+    },
+    {
+      "text": "深掘り検索をしたいなら、AI検索エンジンPerplexityの出番です。その活用術をご紹介しますね。",
+      "slug": "perplexity-kensaku-katsuyo"
+    },
+    {
+      "text": "プログラミング初心者こそAIを相棒にすべきなんです。学習効率が大きく変わる活用法があります。",
+      "slug": "programming-gakushuu-to-ai"
+    },
+    {
+      "text": "コードが書けない時、AIは神のような存在になるんです。その活用法を知れば、学習スピードが大きく変わります。",
+      "slug": "programming-gakushuu-to-ai"
+    },
+    {
+      "text": "AIへの指示文ひとつで、出力の質が大きく変わるんです。プロンプト技法の基本をしっかり学びましょう。",
+      "slug": "prompt-no-kakikata-kihon"
+    },
+    {
+      "text": "プロンプト設計は、AIを本気で使うなら避けられないスキルなんです。今から基礎をおさらいしましょう。",
+      "slug": "prompt-no-kakikata-kihon"
+    },
+    {
+      "text": "生成AIといっても種類はいろいろあります。文章・画像・音声の各分野での違いを理解していますか。",
+      "slug": "seiseiai-no-shurui"
+    },
+    {
+      "text": "AI時代、文章・画像・音声の各分野でツール選びが大切なんです。その違いをおさえておきましょう。",
+      "slug": "seiseiai-no-shurui"
+    },
+    {
+      "text": "一人で多くの業務をこなさなければいけない。AIが味方なら、生産性は数倍になる可能性があるんですよ。",
+      "slug": "sohos-freelance-ai-tool-3sen"
+    },
+    {
+      "text": "フリーランスの強い味方。本当に必須なAIツール3つ、あなたは押さえていますか。参考にしてください。",
+      "slug": "sohos-freelance-ai-tool-3sen"
+    },
+    {
+      "text": "SEO記事作成に時間がかかりすぎている。その悩み、AIツールを活用することで解決できるんですよ。",
+      "slug": "value-ai-writer-seo-kiji"
+    },
+    {
+      "text": "ブロガー必携のツール。Value AI WriterでSEO記事作成の効率が大きく変わってきます。",
+      "slug": "value-ai-writer-seo-kiji"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+name: Post to X
+
+on:
+  # 毎日 09:10 UTC (日本時間 18:10) を起点に、ジョブ側でランダムに遅らせる。
+  # 毎日きっかり同じ時刻に投稿するとbot判定されやすいため。
+  schedule:
+    - cron: "10 9 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "送信せず内容だけ確認する"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: x-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 投稿時刻をばらつかせる。手動実行のときは待たない。
+      - name: Random delay
+        if: github.event_name == 'schedule'
+        run: sleep $(( RANDOM % 3000 ))
+
+      - name: Post
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            node social/post-to-x.mjs --dry-run
+          else
+            node social/post-to-x.mjs
+          fi
