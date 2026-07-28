@@ -19,11 +19,21 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const QUEUE_PATH = path.join(HERE, "queue.json");
-
-// キューの1件目を投稿する日。ここを起点に1日1件ずつ進む。
-const START_DATE = "2026-07-28";
+const CONFIG_PATH = path.join(HERE, "config.json");
 
 const ENDPOINT = "https://api.x.com/2/tweets";
+
+// 運用開始日。config.json の startDate が null のあいだは何も投稿しない。
+// 開始日を起点に、1日1件ずつキューを進める。
+function loadStartDate() {
+  const cfg = JSON.parse(fs.readFileSync(CONFIG_PATH, "utf8"));
+  const d = cfg.startDate;
+  if (d === null || d === undefined || d === "") return null;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) {
+    throw new Error(`config.json の startDate の形式が不正です: ${d}`);
+  }
+  return d;
+}
 
 function daysSince(startISO) {
   const start = Date.UTC(...startISO.split("-").map((n, i) => (i === 1 ? Number(n) - 1 : Number(n))));
@@ -92,11 +102,19 @@ function weightedLength(text) {
 
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
-  const posts = loadQueue();
 
-  const idx = daysSince(START_DATE);
+  const startDate = loadStartDate();
+  if (!startDate) {
+    console.log(
+      "[x-post] 未開始です。運用を始めるときに social/config.json の startDate に開始日を入れてください。",
+    );
+    return;
+  }
+
+  const posts = loadQueue();
+  const idx = daysSince(startDate);
   if (idx < 0) {
-    console.log(`[x-post] 開始日(${START_DATE})前のため何もしません。`);
+    console.log(`[x-post] 開始日(${startDate})前のため何もしません。`);
     return;
   }
   if (idx >= posts.length) {

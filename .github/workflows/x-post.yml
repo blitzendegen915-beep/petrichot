@@ -1,10 +1,14 @@
 name: Post to X
 
 on:
-  # 毎日 09:10 UTC (日本時間 18:10) を起点に、ジョブ側でランダムに遅らせる。
+  # 運用開始までスケジュールは止めておく。
+  # 開始するときに下2行のコメントを外し、social/config.json の
+  # startDate に開始日を入れる(両方やらないと投稿されない)。
+  # 09:10 UTC = 日本時間 18:10 を起点に、ジョブ側でランダムに遅らせる。
   # 毎日きっかり同じ時刻に投稿するとbot判定されやすいため。
-  schedule:
-    - cron: "10 9 * * *"
+  #
+  # schedule:
+  #   - cron: "10 9 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
