@@ -78,6 +78,40 @@ function buildAuthHeader({ method, url, consumerKey, consumerSecret, token, toke
   );
 }
 
+// 残りがこの件数になったら補充を促す。
+const REFILL_WARN_AT = 7;
+
+// 通知はGitHubのIssueで行う。SMTPの認証情報を増やさずに済み、
+// Issueの作成はリポジトリの購読者(オーナー)にメールで届く。
+// ローカル実行時やトークンが無いときは、黙って何もしない。
+async function notify(title, body) {
+  const token = (process.env.GITHUB_TOKEN || "").trim();
+  const repo = (process.env.GITHUB_REPOSITORY || "").trim();
+  if (!token || !repo) {
+    console.log("[x-post] (通知はGitHub Actions上でのみ送られます)");
+    return;
+  }
+  try {
+    const res = await fetch(`https://api.github.com/repos/${repo}/issues`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title: `[x-post] ${title}`, body }),
+    });
+    if (!res.ok) {
+      console.warn(`[x-post] 通知の作成に失敗しました (HTTP ${res.status})`);
+      return;
+    }
+    console.log("[x-post] 通知用のIssueを作成しました。");
+  } catch (err) {
+    // 通知の失敗で投稿処理まで巻き添えにしない。
+    console.warn(`[x-post] 通知に失敗しました: ${err.message}`);
+  }
+}
+
 function loadQueue() {
   if (!fs.existsSync(QUEUE_PATH)) {
     throw new Error(`キューが見つかりません: ${QUEUE_PATH}`);
@@ -117,11 +151,22 @@ async function main() {
     console.log(`[x-post] 開始日(${startDate})前のため何もしません。`);
     return;
   }
+  const remaining = posts.length - idx;
+
   if (idx >= posts.length) {
-    console.warn(
-      `[x-post] キューを使い切りました(${posts.length}件)。social/queue.json に投稿を追加してください。`,
-    );
-    return;
+    const msg = `キューを使い切りました(全${posts.length}件)。social/posts-*.json に投稿を追加し、node social/build-queue.mjs を実行してください。`;
+    console.error(`[x-post] ${msg}`);
+    await notify("Xの投稿キューが尽きました", msg);
+    // 失敗として終わらせる。GitHubがワークフロー失敗をメール通知するため、
+    // 気づかないまま投稿が止まり続けるのを防げる。
+    process.exit(1);
+  }
+
+  // 補充の猶予を作るため、尽きる前に一度だけ知らせる。
+  if (remaining === REFILL_WARN_AT) {
+    const msg = `残り${remaining}件です。social/posts-*.json に追記し、node social/build-queue.mjs を実行してください。`;
+    console.warn(`[x-post] ${msg}`);
+    await notify("Xの投稿キューが残りわずかです", msg);
   }
 
   const post = posts[idx];
