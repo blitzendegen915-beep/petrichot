@@ -103,9 +103,19 @@ const NUMERIC_PATTERNS = [
   { re: /\d+\s*(日|週|ヶ月|か月|年)(で|以内)(完了|回収|実現|達成)/g, label: "期間の約束" },
   { re: /\d+\s*ページ(以上|以下|程度|ほど)/g, label: "分量(ページ)" },
   { re: /\d+\s*(人|社|件|万人)(以上|の企業|が利用)/g, label: "規模・実績" },
+  { re: /\d+\s*割(以上|以下|程度|ほど|近く|強|弱)?/g, label: "割合" },
   { re: /約\s*\d/g, label: "概数" },
   { re: /数(十|百|千)\s*(時間|分|万円|円|%|パーセント)/g, label: "漠然とした規模" },
 ];
+// 全角の数字と記号は \d や % にマッチせず、検出を素通りしてしまう。
+// 1文字を1文字に置き換えるだけなので、文字位置(=行番号の算出)はずれない。
+function normalizeForNumericScan(text) {
+  return text
+    .replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0))
+    .replace(/％/g, "%")
+    .replace(/＄/g, "$")
+    .replace(/，/g, ",");
+}
 
 function parseFrontmatter(raw) {
   const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
@@ -270,9 +280,10 @@ function lintFile(file, links) {
 
   // --- 数値(捏造多発地帯) ---
   const hits = [];
+  const scanBody = normalizeForNumericScan(body);
   for (const { re, label } of NUMERIC_PATTERNS) {
-    for (const m of body.matchAll(re)) {
-      hits.push({ line: fmLines + body.slice(0, m.index).split("\n").length, label, text: m[0].trim() });
+    for (const m of scanBody.matchAll(re)) {
+      hits.push({ line: fmLines + scanBody.slice(0, m.index).split("\n").length, label, text: m[0].trim() });
     }
   }
   if (hits.length) {
