@@ -1,4 +1,4 @@
 {
   "_comment": "startDate が null のあいだは投稿しない。運用を始めるときに開始日(YYYY-MM-DD)を入れ、.github/workflows/x-post.yml の schedule のコメントアウトを外す。",
-  "startDate": null
+  "startDate": "2026-07-28"
 }
