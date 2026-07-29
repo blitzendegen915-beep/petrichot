@@ -45,8 +45,11 @@ jobs:
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          # 入力値も ${{ }} でrun内に直接書かず、env経由で受け取る。
+          # 直接書くと入力文字列がそのままシェルの一部になってしまう。
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          if [ "$DRY_RUN" = "true" ]; then
             node social/post-to-x.mjs --dry-run
           else
             node social/post-to-x.mjs

@@ -63,6 +63,18 @@ const HAS_OGP_IMAGE = fs.existsSync(path.join(STATIC_DIR, "ogp.png"));
 const OGP_IMAGE_URL = HAS_OGP_IMAGE ? `${CONFIG.baseUrl}/static/ogp.png` : null;
 const HAS_FAVICON = fs.existsSync(path.join(STATIC_DIR, "favicon.svg"));
 
+// 万一ページにHTMLが紛れ込んだ場合の被害を、実害の大きい3つに絞って抑える。
+//   base-uri   … <base>を差し込んで相対URLの行き先を丸ごと乗っ取る手口を防ぐ
+//   object-src … <object>/<embed>による埋め込み実行を止める
+//   form-action… 差し込まれたフォームが外部へ送信するのを防ぐ(同一オリジンのみ許可)
+// script-src/style-src はあえて縛っていない。ページ内にインラインの
+// <script>と<style>があり、'unsafe-inline'を付けざるを得ないため実質的な
+// 防御にならず、将来AdSenseを入れるときに配信ドメインを追い続ける保守も増える。
+// img-srcも縛らない(A8の計測画像を落とすと成果が計上されなくなる)。
+// なお frame-ancestors は meta では効かないので、ここには含めていない。
+const CSP_META =
+  `<meta http-equiv="Content-Security-Policy" content="base-uri 'none'; object-src 'none'; form-action 'self'">`;
+
 // 記事がこの本数未満のタグページは中身が薄く、記事カード1枚と大差ない。
 // noindexにしてsitemapからも外し、クローラーを記事本体に集中させる。
 // (リンク自体は残るので読者は今までどおり辿れる)
@@ -1734,6 +1746,7 @@ function pageShell({
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+${CSP_META}
 <title>${escapeHtml(fullTitle)}</title>
 <meta name="description" content="${escapeHtml(description)}">
 ${noindex ? `<meta name="robots" content="noindex,follow">\n` : ""}<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
