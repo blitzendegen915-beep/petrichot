@@ -1,0 +1,19 @@
+{
+  "_note": "このファイルは書式の見本です。実際は manifest.json を作ってください。",
+  "assets": [
+    {
+      "file": "hero-prompt-guide.png",
+      "purpose": "prompt-no-kakikata-kihon 記事のアイキャッチ",
+      "source": "generated",
+      "license": "Codexで生成(素材の取り込みなし)",
+      "alt": "プロンプトの4要素を並べた図"
+    },
+    {
+      "file": "cost-compare.svg",
+      "purpose": "料金比較の図",
+      "source": "generated",
+      "license": "Codexで生成(素材の取り込みなし)",
+      "alt": "定額プランと従量課金の費用が交差する折れ線グラフ"
+    }
+  ]
+}
