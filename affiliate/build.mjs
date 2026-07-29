@@ -7,6 +7,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { TOOLS } from "./tools.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -1777,6 +1778,7 @@ ${OGP_IMAGE_URL ? `<meta name="twitter:image" content="${OGP_IMAGE_URL}">\n` : "
     </a>
     <nav class="top-nav">
       <a href="${BLOG_INDEX_URL}">記事一覧</a>
+      <a class="nav-link" href="${TOOLS_URL}">ツール</a>
       <a class="nav-cta" href="${SHINDAN_URL}">ツール診断</a>
     </nav>
   </div>
@@ -1978,6 +1980,8 @@ const CATEGORY_EN = {
 };
 
 const SHINDAN_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/shindan/`;
+const TOOLS_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/tools/`;
+const toolUrl = (slug) => `${TOOLS_URL}${slug}/`;
 const PRIVACY_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/privacy/`;
 const ABOUT_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/about/`;
 const CONTACT_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/contact/`;
@@ -2272,6 +2276,87 @@ function renderShindanPage() {
   });
 }
 
+// 単独ページの実用ツール。中身は affiliate/tools.mjs 側で組み立てる。
+function renderToolPage(tool) {
+  const others = TOOLS.filter((t) => t.slug !== tool.slug);
+  const body = `
+<main class="wide">
+  <section class="hero hero-sub">
+    <h1>${escapeHtml(tool.title)}</h1>
+    <p class="hero-lead">${escapeHtml(tool.lead)}</p>
+  </section>
+  ${tool.render()}
+  <section style="margin-top:3rem;">
+    <h2>ほかのツール</h2>
+    <ul>
+      ${others.map((t) => `<li><a href="${toolUrl(t.slug)}">${escapeHtml(t.title)}</a></li>`).join("\n      ")}
+      <li><a href="${SHINDAN_URL}">AIツール診断</a></li>
+    </ul>
+  </section>
+</main>`;
+
+  return pageShell({
+    title: tool.title,
+    description: tool.description,
+    canonical: toolUrl(tool.slug),
+    ogType: "website",
+    bodyHtml: body,
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: tool.title,
+      url: toolUrl(tool.slug),
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      description: tool.description,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
+    },
+    disclosureScope: "site",
+  });
+}
+
+function renderToolsIndex() {
+  const body = `
+<main class="wide">
+  <section class="hero hero-sub">
+    <h1>ツール</h1>
+    <p class="hero-lead">読むだけで終わらせず、その場で判断できるように作った道具です。入力はすべてブラウザ内で処理され、送信されません。</p>
+    <p class="hero-count">${TOOLS.length + 1}件</p>
+  </section>
+  <ul class="article-grid">
+    ${TOOLS.map((t) => `
+    <li class="article-card">
+      <a href="${toolUrl(t.slug)}">
+        <h2>${escapeHtml(t.title)}</h2>
+        <p>${escapeHtml(t.description)}</p>
+      </a>
+    </li>`).join("")}
+    <li class="article-card">
+      <a href="${SHINDAN_URL}">
+        <h2>AIツール診断</h2>
+        <p>4つの質問に答えるだけで、用途に合ったAIツールを絞り込めます。</p>
+      </a>
+    </li>
+  </ul>
+</main>`;
+
+  return pageShell({
+    title: "ツール",
+    description:
+      "AIサブスクの棚卸し、プロンプトの添削、料金の損益分岐、社内ルールのたたき台。判断に使える道具をまとめています。すべてブラウザ内で完結します。",
+    canonical: TOOLS_URL,
+    ogType: "website",
+    bodyHtml: body,
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "ツール",
+      url: TOOLS_URL,
+    },
+    disclosureScope: "site",
+  });
+}
+
 function renderTaxonomyPage({ heading, description, canonical, articles, currentCategory = null, enLabel = null, noindex = false }) {
   const body = `
 <main class="wide">
@@ -2357,6 +2442,8 @@ function renderSitemap(articles, tagNames, categoryNames) {
     { loc: SITE_ROOT_URL },
     ...(BLOG_INDEX_URL !== SITE_ROOT_URL ? [{ loc: BLOG_INDEX_URL }] : []),
     { loc: SHINDAN_URL },
+    { loc: TOOLS_URL },
+    ...TOOLS.map((t) => ({ loc: toolUrl(t.slug) })),
     { loc: PRIVACY_URL },
     { loc: ABOUT_URL },
     { loc: CONTACT_URL },
@@ -2452,6 +2539,10 @@ function build() {
 
   const shindanHtml = renderShindanPage();
   if (shindanHtml) writeFile(path.join(BLOG_OUT_DIR, "shindan", "index.html"), shindanHtml);
+  writeFile(path.join(BLOG_OUT_DIR, "tools", "index.html"), renderToolsIndex());
+  for (const tool of TOOLS) {
+    writeFile(path.join(BLOG_OUT_DIR, "tools", tool.slug, "index.html"), renderToolPage(tool));
+  }
   writeFile(path.join(BLOG_OUT_DIR, "privacy", "index.html"), renderPrivacyPage());
   writeFile(path.join(BLOG_OUT_DIR, "about", "index.html"), renderAboutPage());
   writeFile(path.join(BLOG_OUT_DIR, "contact", "index.html"), renderContactPage());
