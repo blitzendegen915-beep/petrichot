@@ -1,0 +1,29 @@
+{
+  "_note": [
+    "モードB(post-news.mjs)が読むフィード一覧。",
+    "ここに載せるのは『発信元そのものが配信している公式フィード』だけにすること。",
+    "第三者が作った非公式ミラーは、相手が壊れた/乗っ取られたときに、",
+    "こちらのアカウントがそのまま代弁してしまうので使わない。",
+    "",
+    "allowHosts は、そのフィードが指してよいリンク先ホスト。",
+    "フィードの中身が想定外のURLを指していたらその項目を捨てる。",
+    "",
+    "match(任意) は、総合フィードからAI関連だけを拾うための正規表現。",
+    "省略するとフィード内の全記事が対象になる。",
+    "",
+    "追加したら `node social/post-news.mjs --dry-run` を実行して、",
+    "そのフィードが実際に読めるか(件数が0でないか)を必ず確認すること。"
+  ],
+  "feeds": [
+    {
+      "name": "ITmedia AI＋",
+      "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
+      "allowHosts": ["itmedia.co.jp", "www.itmedia.co.jp"]
+    },
+    {
+      "name": "OpenAI",
+      "url": "https://openai.com/news/rss.xml",
+      "allowHosts": ["openai.com", "www.openai.com"]
+    }
+  ]
+}

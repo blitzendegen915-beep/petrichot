@@ -1,0 +1,56 @@
+name: Post AI news to X
+
+on:
+  # 22:40 UTC = 日本時間 翌 07:40 を起点に、ジョブ側でランダムに遅らせる。
+  # モードA(18:10起点)とは時間帯を離してある。
+  # 対象は「前日(UTC)公開の記事」なので、UTCの日付が変わってから動かす。
+  schedule:
+    - cron: "40 22 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "送信せず内容だけ確認する"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  # フィードが全滅したときに通知用のIssueを作るため。
+  issues: write
+
+concurrency:
+  group: x-news
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 投稿時刻をばらつかせる。手動実行のときは待たない。
+      - name: Random delay
+        if: github.event_name == 'schedule'
+        run: sleep $(( RANDOM % 2400 ))
+
+      - name: Post
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          # 入力値は ${{ }} でrun内に直接書かず、env経由で受け取る。
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            node social/post-news.mjs --dry-run
+          else
+            node social/post-news.mjs
+          fi
