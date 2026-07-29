@@ -1,266 +1,349 @@
 {
   "title": "AIツール診断",
-  "lead": "{n}つの質問に答えると、いまのあなたに向いていそうなAIツールを絞り込みます。相性の目安を示すものなので、最終的な判断は無料プランや試用期間で実際に触ってから決めてください。",
+  "lead": "最初の質問で用途を選ぶと、その用途に合わせた質問に進みます。最後に候補と、そう判断した理由を示します。相性の目安なので、最終的には無料プランや試用期間で実際に触ってから決めてください。",
+  "_note": [
+    "questions[].showIf は「前の回答がこの値のときだけ出す」という条件。",
+    "scores はツールの候補順位に効く。用途の対応づけなので、記事で扱っている位置づけの範囲に留めること。",
+    "advice は順位に効かせず、結果画面の注意書きにだけ使う。",
+    "料金・機能・データの扱いを順位の条件に使わないこと。改定されるうえ、",
+    "こちらが確かめずに書けばそれは推測になる。"
+  ],
   "questions": [
     {
-      "q": "いま、いちばん時間を取られている作業は？",
+      "id": "use",
+      "q": "いま、いちばん解決したいことはどれですか。",
+      "options": [
+        { "label": "文章を書く・整える", "value": "text" },
+        { "label": "会議や打ち合わせの記録", "value": "meeting" },
+        { "label": "資料・スライドを作る", "value": "slide" },
+        { "label": "画像やデザインを用意する", "value": "image" },
+        { "label": "調べもの・情報収集", "value": "research" },
+        { "label": "プログラムを書く", "value": "code" },
+        { "label": "見積書・請求書などの事務", "value": "office" }
+      ]
+    },
+
+    {
+      "id": "text-kind",
+      "showIf": { "use": ["text"] },
+      "q": "書く文章として、いちばん多いのはどれですか。",
       "options": [
         {
-          "label": "文章を書く・整える",
-          "scores": {
-            "chatgpt": 2,
-            "claude": 2,
-            "value-ai-writer": 3
-          }
+          "label": "Web記事・ブログ（検索から読まれたい）",
+          "scores": { "value-ai-writer": 4, "chatgpt": 1 },
+          "why": "検索を意識した記事作成に向いた道具を優先しました"
         },
         {
-          "label": "会議や打ち合わせの記録",
-          "scores": {
-            "notta-memo": 3,
-            "notta-brain": 2,
-            "plaud": 2
-          }
+          "label": "仕事のメール・報告書",
+          "scores": { "chatgpt": 3, "claude": 3, "gemini": 1 },
+          "why": "下書きと推敲を任せる、汎用の対話型が中心になります"
         },
         {
-          "label": "資料・スライドを作る",
-          "scores": {
-            "irusiru": 3,
-            "canva": 2,
-            "miricanvas": 3
-          }
+          "label": "長い資料を読ませて、要約・整理させたい",
+          "scores": { "claude": 4, "gemini": 2 },
+          "why": "長い文章をまとめて渡す使い方を想定しました"
         },
         {
-          "label": "画像やデザインを用意する",
-          "scores": {
-            "conoha-ai-canvas": 3,
-            "canva": 2,
-            "midjourney": 2
-          }
-        },
-        {
-          "label": "調べものをする",
-          "scores": {
-            "perplexity": 3,
-            "gemini": 1
-          }
-        },
-        {
-          "label": "見積書・請求書などの事務",
-          "scores": {
-            "doraverse": 3
-          }
-        },
-        {
-          "label": "プログラムを書く",
-          "scores": {
-            "github-copilot": 3,
-            "claude": 1
-          }
+          "label": "SNSの短い投稿",
+          "scores": { "chatgpt": 3, "canva": 2 },
+          "why": "短文の案出しと、画像を添える工程まで含めて考えました"
         }
       ]
     },
+
     {
-      "q": "どんな場面で使いますか？",
+      "id": "meeting-where",
+      "showIf": { "use": ["meeting"] },
+      "q": "記録したいのは、どんな場面ですか。",
       "options": [
         {
-          "label": "仕事・事業で使う",
-          "scores": {
-            "notta-memo": 1,
-            "notta-brain": 1,
-            "irusiru": 1,
-            "doraverse": 1,
-            "value-ai-writer": 1,
-            "conoha-ai-canvas": 1,
-            "plaud": 1,
-            "miricanvas": 1
-          }
+          "label": "オンライン会議が中心",
+          "scores": { "notta-memo": 4, "notta-brain": 2 },
+          "why": "オンラインの音声をそのまま文字に起こす使い方を想定しました"
         },
         {
-          "label": "学校・勉強で使う",
-          "scores": {
-            "chatgpt": 2,
-            "claude": 2,
-            "perplexity": 1
-          }
+          "label": "対面の打ち合わせ・外出先が中心",
+          "scores": { "plaud": 4, "notta-memo": 1 },
+          "why": "手元の機器で録るところから必要になると判断しました"
         },
         {
-          "label": "個人の趣味で使う",
-          "scores": {
-            "chatgpt": 1,
-            "midjourney": 1,
-            "canva": 1
-          }
+          "label": "両方ある",
+          "scores": { "notta-memo": 3, "plaud": 3, "notta-brain": 1 },
+          "why": "オンラインと対面のどちらも起こりうる前提で並べました"
+        },
+        {
+          "label": "録音より、溜まった記録の要約や検索をしたい",
+          "scores": { "notta-brain": 4, "notta-memo": 2 },
+          "why": "録ることより、記録を扱うことが目的だと判断しました"
         }
       ]
     },
+
     {
-      "q": "費用についてはどう考えていますか？",
+      "id": "slide-need",
+      "showIf": { "use": ["slide"] },
+      "q": "スライド作りで、いちばん手が止まるのはどこですか。",
       "options": [
         {
-          "label": "まず無料で試したい",
-          "scores": {
-            "chatgpt": 3,
-            "claude": 3,
-            "gemini": 3,
-            "canva": 1,
-            "perplexity": 1
-          }
+          "label": "構成が思いつかない",
+          "scores": { "irusiru": 4, "miricanvas": 1 },
+          "why": "内容の骨組みから作らせる用途を優先しました"
         },
         {
-          "label": "効果があるなら有料でもいい",
-          "scores": {
-            "notta-memo": 1,
-            "notta-brain": 1,
-            "irusiru": 1,
-            "doraverse": 1,
-            "value-ai-writer": 1,
-            "conoha-ai-canvas": 1,
-            "plaud": 1,
-            "midjourney": 1,
-            "miricanvas": 1
-          }
+          "label": "内容はある。見た目を整えたい",
+          "scores": { "canva": 4, "miricanvas": 3 },
+          "why": "デザインを整える工程が主だと判断しました"
+        },
+        {
+          "label": "とにかく早く形にしたい",
+          "scores": { "miricanvas": 4, "canva": 2, "irusiru": 1 },
+          "why": "テンプレートから短時間で仕上げる進め方を想定しました"
         }
       ]
     },
+
     {
-      "q": "日本語での使いやすさは重要ですか？",
+      "id": "image-need",
+      "showIf": { "use": ["image"] },
+      "q": "作りたい画像は、どれに近いですか。",
       "options": [
         {
-          "label": "重要。日本語中心で使う",
-          "scores": {
-            "value-ai-writer": 2,
-            "notta-memo": 1,
-            "irusiru": 1,
-            "doraverse": 1,
-            "claude": 1,
-            "miricanvas": 1
-          }
+          "label": "日本語で指示して、手軽に生成したい",
+          "scores": { "conoha-ai-canvas": 4, "canva": 2 },
+          "why": "日本語で操作でき、準備の少ない環境を優先しました"
         },
         {
-          "label": "英語でも問題ない",
-          "scores": {
-            "midjourney": 1,
-            "github-copilot": 1,
-            "perplexity": 1
-          }
+          "label": "作風にこだわりたい",
+          "scores": { "midjourney": 4 },
+          "why": "絵作りの細かい指定が中心になると判断しました"
+        },
+        {
+          "label": "資料やSNSに使う図・バナー",
+          "scores": { "canva": 4, "miricanvas": 2 },
+          "why": "素材とレイアウトを組み合わせる作業が主だと判断しました"
         }
       ]
     },
+
     {
-      "q": "AIを動かす環境について、近いのはどちらですか？",
+      "id": "research-depth",
+      "showIf": { "use": ["research"] },
+      "q": "調べたことを、そのあとどう使いますか。",
       "options": [
         {
-          "label": "ブラウザで完結させたい。準備に手間をかけたくない",
-          "scores": {
-            "lolipop-ai": 2,
-            "conoha-ai-canvas": 2,
-            "miricanvas": 1,
-            "canva": 1,
-            "chatgpt": 1
-          }
+          "label": "資料や記事に書く。出典が要る",
+          "scores": { "perplexity": 4 },
+          "why": "出典をたどれることを最優先にしました"
         },
         {
-          "label": "特にこだわらない",
-          "scores": {}
+          "label": "まず全体像を掴みたい",
+          "scores": { "gemini": 3, "chatgpt": 2, "perplexity": 1 },
+          "why": "当たりをつける段階だと判断しました"
+        },
+        {
+          "label": "社内で共有する。誤りは困る",
+          "scores": { "perplexity": 4, "claude": 1 },
+          "why": "裏取りの手間を減らせることを優先しました"
+        }
+      ]
+    },
+
+    {
+      "id": "code-style",
+      "showIf": { "use": ["code"] },
+      "q": "プログラムで、いちばん助けがほしいのはどこですか。",
+      "options": [
+        {
+          "label": "書いている最中の補完",
+          "scores": { "github-copilot": 4 },
+          "why": "エディタの中で動くものを優先しました"
+        },
+        {
+          "label": "設計の相談・コードの読解",
+          "scores": { "claude": 4, "chatgpt": 2 },
+          "why": "対話しながら考える使い方を想定しました"
+        },
+        {
+          "label": "エラーの原因調べ",
+          "scores": { "claude": 3, "chatgpt": 2, "perplexity": 2 },
+          "why": "原因の切り分けと、事例を探す作業の両方を見込みました"
+        }
+      ]
+    },
+
+    {
+      "id": "office-need",
+      "showIf": { "use": ["office"] },
+      "q": "事務作業では、どれが近いですか。",
+      "options": [
+        {
+          "label": "見積書・請求書などの書類作成",
+          "scores": { "doraverse": 4 },
+          "why": "帳票を作る業務に向いたものを選びました"
+        },
+        {
+          "label": "社内の問い合わせ対応を減らしたい",
+          "scores": { "lolipop-ai": 4, "doraverse": 1 },
+          "why": "受け答えを任せる仕組みを作る方向で考えました"
+        },
+        {
+          "label": "文章仕事全般を軽くしたい",
+          "scores": { "chatgpt": 3, "claude": 2, "doraverse": 1 },
+          "why": "特定の帳票より、汎用の道具が合うと判断しました"
+        }
+      ]
+    },
+
+    {
+      "id": "freq",
+      "q": "どのくらいの頻度で使いそうですか。",
+      "options": [
+        {
+          "label": "ほぼ毎日",
+          "advice": "毎日使うなら、無料枠の上限に当たる場面が出てきます。ただし先回りして有料に移らず、まず2週間ほど無料で使い、実際に上限へ当たった回数を数えてから決めてください。当たらないなら払う必要はありません。"
+        },
+        {
+          "label": "週に数回",
+          "advice": "この頻度なら、まず無料プランで足りることが多いはずです。どこで手が止まるかがはっきりしてから有料を検討するほうが、無駄がありません。"
+        },
+        {
+          "label": "月に数回",
+          "advice": "月に数回であれば、定額の契約は割高になりやすい頻度です。無料プランか、使った分だけ払う形が向いています。"
+        }
+      ]
+    },
+
+    {
+      "id": "confidential",
+      "q": "扱う情報に、社外に出せないものは含まれますか。",
+      "options": [
+        {
+          "label": "含まれる",
+          "advice": "入力した内容が学習に使われるかどうかは、サービスと契約プランによって異なります。使い始める前に、そのサービスの規約と設定を必ず確認してください。判断がつかないものは入力しないのが安全です。"
+        },
+        {
+          "label": "含まれない",
+          "advice": "公開情報が中心なら、入力の心配は小さくなります。ただし取引先から預かった情報が混じっていないかだけは、その都度たしかめてください。"
+        },
+        {
+          "label": "分からない",
+          "advice": "分からないうちは入力しないでください。社外に出してよいかの判断は、入力する前に済ませておく必要があります。所属先に規程があれば、まずそちらを確認してください。"
+        }
+      ]
+    },
+
+    {
+      "id": "existing",
+      "q": "すでに契約しているAIサービスはありますか。",
+      "options": [
+        {
+          "label": "ある",
+          "advice": "新しく契約する前に、いま払っているものと機能が重なっていないかを確かめてください。同じことができる契約が2つあると、その分はそのまま無駄になります。",
+          "link": "subscription-check"
+        },
+        {
+          "label": "ない",
+          "advice": "最初の1つは、無料で試せるものから始めてください。合わないと分かるのも収穫です。"
         }
       ]
     }
   ],
+
   "tools": {
     "chatgpt": {
       "name": "ChatGPT",
-      "blurb": "対話型AIの入口として広く使われているサービス。文章の作成や相談、アイデア出しなど用途を選ばず使えます。",
       "slug": "chatgpt-tsukaikata-nyumon",
+      "blurb": "対話型の代表格。用途を選ばず、まず1つ触るならここからになります。",
       "aff": "chatgpt"
     },
     "claude": {
       "name": "Claude",
-      "blurb": "長い文章の読み込みに強く、文章の読解・要約・作成が得意分野として挙げられます。資料をまとめて読ませたい場合に向いています。",
       "slug": "claude-toha-nani",
+      "blurb": "長い文章を渡して、読ませたり整理させたりする使い方に向きます。",
       "aff": "claude"
     },
     "gemini": {
       "name": "Gemini",
-      "blurb": "Googleのサービスと組み合わせて使いたい場合の選択肢です。",
       "slug": "gemini-katsuyou-jutsu",
+      "blurb": "Googleのサービスと組み合わせて使う場面で選択肢に入ります。",
       "aff": "gemini"
     },
     "perplexity": {
       "name": "Perplexity",
-      "blurb": "調べものに向いたAI検索ツール。回答とあわせて参照元が示されるため、裏取りがしやすいのが特徴です。",
       "slug": "perplexity-kensaku-katsuyo",
+      "blurb": "回答に出典が示されるため、裏取りの手間を減らせます。",
       "aff": "perplexity"
     },
     "notta-memo": {
       "name": "Notta Memo",
-      "blurb": "会議の音声を文字起こしし、要約まで作るツール。オンライン会議の記録を残したい場合に向いています。",
       "slug": "ai-gijiroku-memo-jutsu",
+      "blurb": "会議の音声を文字に起こすところを任せる道具です。",
       "aff": "notta-memo"
     },
     "notta-brain": {
       "name": "Notta Brain",
-      "blurb": "文字起こしした内容を、整理や資料化まで進めたい場合の選択肢です。",
       "slug": "notta-brain-shoukai",
+      "blurb": "溜まった記録を横断して扱いたいときの選択肢です。",
       "aff": "notta-brain"
     },
     "plaud": {
       "name": "Plaud",
-      "blurb": "対面の打ち合わせや外出先など、PCを開きにくい場面での録音・音声メモに向いています。",
       "slug": "ai-voice-recorder-hikaku",
+      "blurb": "手元の機器で録るところから必要な場面に向きます。",
       "aff": "plaud"
     },
     "irusiru": {
       "name": "イルシル",
-      "blurb": "テキストを入力するとスライドの構成案からデザインまで作るツール。資料をゼロから組み立てる手間を減らしたい場合に。",
       "slug": "irusiru-ai-slide-tsukurikata",
+      "blurb": "スライドの構成から作らせたいときの選択肢です。",
       "aff": "irusiru"
     },
     "value-ai-writer": {
       "name": "Value AI Writer",
-      "blurb": "日本語のSEO記事作成に特化したツール。ブログやオウンドメディアの下書きを用意する工程に向いています。",
       "slug": "value-ai-writer-seo-kiji",
+      "blurb": "検索から読まれることを前提にした記事作成向けです。",
       "aff": "value-ai-writer"
     },
     "conoha-ai-canvas": {
       "name": "ConoHa AI Canvas",
-      "blurb": "ブラウザだけで使えるAI画像生成ツール。ソフトの導入や高性能なPCを用意せずに始められます。",
       "slug": "conoha-ai-canvas-gazou-seisei",
+      "blurb": "ブラウザから画像生成を始められる環境です。",
       "aff": "conoha-ai-canvas"
     },
     "doraverse": {
       "name": "Doraverse",
-      "blurb": "見積書・請求書といった定型的な事務書類の作成を任せたい場合の選択肢です。",
       "slug": "doraverse-office-koritsuka",
+      "blurb": "見積書や請求書といった帳票まわりの事務向けです。",
       "aff": "doraverse"
     },
     "canva": {
       "name": "Canva",
-      "blurb": "テンプレートを土台にデザインを作るツール。資料・SNS投稿・チラシまで幅広く扱えます。",
       "slug": "canva-ai-design-nyumon",
+      "blurb": "図・バナー・資料まで、見た目を整える作業の受け皿になります。",
       "aff": "canva"
     },
     "midjourney": {
       "name": "Midjourney",
-      "blurb": "画像生成に特化したサービス。指示の書き方で仕上がりが変わるため、作り込みたい人向けです。",
       "slug": "midjourney-hajimekata",
+      "blurb": "絵作りを細かく指定したい人向けの画像生成です。",
       "aff": "midjourney"
     },
     "github-copilot": {
       "name": "GitHub Copilot",
-      "blurb": "コードの続きを提案する開発者向けのツール。エディタ上で使います。",
       "slug": "github-copilot-hajimekata",
+      "blurb": "エディタの中で補完として動くタイプです。",
       "aff": "github-copilot"
     },
     "miricanvas": {
       "name": "MiriCanvas",
-      "blurb": "テンプレートを土台にプレゼン資料を作るデザインツール。スライドの体裁を整える工程を短くしたい場合の選択肢です。",
       "slug": "irusiru-ai-slide-tsukurikata",
+      "blurb": "テンプレートから短時間で資料を仕上げたいときに。",
       "aff": "miricanvas"
     },
     "lolipop-ai": {
       "name": "ロリポップ！AIエージェントクラウド",
-      "blurb": "AIエージェントをブラウザ上で動かせるサービス。自分でサーバーを用意したり環境を構築したりせずに始められます。",
       "slug": "ai-agent-toha-hajimekata",
+      "blurb": "受け答えを任せる仕組みを、自分で用意したいときの選択肢です。",
       "aff": "lolipop-ai"
     }
   }

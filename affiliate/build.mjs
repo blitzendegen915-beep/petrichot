@@ -1686,6 +1686,103 @@ a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
 .policy-page h1 { margin-bottom: 1.5rem; }
 .policy-page h2 { margin-top: 2.2rem; font-size: 1.15rem; }
 .policy-page p { color: var(--muted); line-height: 1.9; }
+/* 診断結果の理由・注意書き */
+.sd-why, .sd-advice {
+  border: 1px solid var(--border); border-radius: var(--r);
+  padding: 1.1rem 1.25rem; margin-bottom: 1.5rem; background: var(--code-bg);
+}
+.sd-why-head { font-weight: 700; margin: 0 0 0.7rem; font-size: 0.95rem; }
+.sd-why-line { margin: 0.35rem 0; font-size: 0.9rem; line-height: 1.85; color: var(--muted); }
+.sd-why-pick { color: var(--fg); font-weight: 600; }
+.sd-advice { background: var(--accent-soft); border-color: rgba(26, 92, 229, 0.25); }
+.sd-advice-item { margin: 0.9rem 0; font-size: 0.9rem; line-height: 1.9; }
+.sd-advice-item:first-of-type { margin-top: 0; }
+.sd-opt.is-picked { border-color: var(--accent); background: var(--accent-soft); }
+
+
+/* --- トップの実用ツール帯 -------------------------------------------------
+   濃紺に電光色を差し、斜めに切った面を重ねる。記事本文は白地のままにして、
+   ここだけ質感を変えることで「読むところ」と「使うところ」を見分けさせる。 */
+.tools-band {
+  --tb-ink: #eaf1ff;
+  --tb-line: rgba(120, 170, 255, 0.28);
+  position: relative;
+  background:
+    radial-gradient(120% 100% at 15% 0%, #14307e 0%, rgba(20, 48, 126, 0) 60%),
+    radial-gradient(90% 90% at 95% 100%, #1d47b8 0%, rgba(29, 71, 184, 0) 55%),
+    linear-gradient(160deg, #050f36 0%, #081a4d 55%, #06123c 100%);
+  color: var(--tb-ink);
+  padding: 4.5rem 0 5rem;
+  margin: 0 0 3.5rem;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5rem), 0 100%);
+}
+/* 斜めの走査線。主張しすぎない程度に */
+.tools-band::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(115deg, rgba(125, 175, 255, 0.07) 0 1px, transparent 1px 26px);
+  pointer-events: none;
+}
+.tools-band-inner { position: relative; max-width: var(--wide); margin: 0 auto; padding: 0 1.25rem; }
+
+.tools-band-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+.tools-band h2 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); letter-spacing: -0.02em; margin: 0; color: #fff; }
+.tools-band-en {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
+  font-size: 0.72rem; color: #7fb0ff;
+}
+.tools-band-lead { color: rgba(234, 241, 255, 0.72); line-height: 1.9; max-width: 46rem; margin: 0 0 2.5rem; }
+
+.tools-deck { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.tools-deck > li { display: flex; }
+@media (min-width: 640px) { .tools-deck { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .tools-deck { grid-template-columns: repeat(3, 1fr); } }
+
+.tool-card-link {
+  position: relative; display: flex; flex-direction: column; width: 100%;
+  padding: 1.5rem 1.35rem 1.65rem;
+  color: inherit; text-decoration: none;
+  background: linear-gradient(150deg, rgba(24, 56, 140, 0.62), rgba(9, 22, 64, 0.72));
+  border: 1px solid var(--tb-line);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.1rem), calc(100% - 1.1rem) 100%, 0 100%);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+/* 左端の光る縦棒。ホバーで伸びる */
+.tool-card-link::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 40%;
+  width: 3px; background: linear-gradient(180deg, #6fd3ff, #2f6bff);
+  transition: bottom 0.28s ease;
+}
+.tool-card-link:hover, .tool-card-link:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(140, 195, 255, 0.72);
+  background: linear-gradient(150deg, rgba(35, 78, 178, 0.75), rgba(12, 29, 82, 0.8));
+  box-shadow: 0 18px 40px -20px rgba(60, 130, 255, 0.85);
+  outline: none;
+}
+.tool-card-link:hover::before, .tool-card-link:focus-visible::before { bottom: 0; }
+.tool-card-link:focus-visible { outline: 2px solid #8cc3ff; outline-offset: 3px; }
+
+.tool-card-no {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em;
+  color: #6fa8ff; font-variant-numeric: tabular-nums; display: block; margin-bottom: 0.7rem;
+}
+.tool-card-link h3 { font-size: 1.08rem; line-height: 1.5; margin: 0 0 0.55rem; color: #fff; }
+.tool-card-link p { font-size: 0.87rem; line-height: 1.85; color: rgba(234, 241, 255, 0.7); margin: 0; }
+.tool-card-go {
+  display: inline-block; margin-top: auto; padding-top: 1rem;
+  font-size: 0.8rem; letter-spacing: 0.06em; color: #8cc3ff;
+}
+.tools-band-note { margin: 2.25rem 0 0; font-size: 0.82rem; color: rgba(234, 241, 255, 0.55); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card-link, .tool-card-link::before { transition: none; }
+  .tool-card-link:hover, .tool-card-link:focus-visible { transform: none; }
+}
 `;
 
 const CATEGORY_CHIP_PALETTE = ["chip-a", "chip-b", "chip-c", "chip-d", "chip-e"];
@@ -1933,6 +2030,41 @@ function renderArticleGrid(articles, emptyText) {
     : `<li class="empty-state">${escapeHtml(emptyText || "まだ記事がありません。近日公開予定です。")}</li>`;
 }
 
+
+// トップに置くツール帯。記事より先に、使えるものがあることを見せる。
+function renderToolsBand() {
+  const cards = [
+    { url: SHINDAN_URL, title: "AIツール診断", desc: "用途と条件を答えると、候補を絞り込みます。" },
+    ...TOOLS.map((t) => ({ url: toolUrl(t.slug), title: t.title, desc: t.description })),
+  ];
+  return `
+<section class="tools-band">
+  <div class="tools-band-inner">
+    <div class="tools-band-head">
+      <h2>使えるツール</h2>
+      <span class="tools-band-en">Tools</span>
+    </div>
+    <p class="tools-band-lead">読んで終わりにしないための道具です。入力はすべてブラウザの中で処理され、こちらに送信されません。登録も料金も不要です。</p>
+    <ul class="tools-deck">
+      ${cards
+        .map(
+          (c, i) => `
+      <li>
+        <a class="tool-card-link" href="${c.url}">
+          <span class="tool-card-no">${String(i + 1).padStart(2, "0")}</span>
+          <h3>${escapeHtml(c.title)}</h3>
+          <p>${escapeHtml(c.desc)}</p>
+          <span class="tool-card-go">使ってみる →</span>
+        </a>
+      </li>`
+        )
+        .join("")}
+    </ul>
+    <p class="tools-band-note">すべて無料・登録不要。入力内容が保存されるのはお使いのブラウザの中だけです。</p>
+  </div>
+</section>`;
+}
+
 function renderBlogIndex(articles) {
   const body = `
 <div class="hero-band">
@@ -1944,6 +2076,7 @@ function renderBlogIndex(articles) {
     <p class="hero-actions"><a class="hero-btn" href="${SHINDAN_URL}">どれを使うか迷ったら → AIツール診断</a></p>
   </section>
 </div>
+${renderToolsBand()}
 <main class="wide">
   <h2 class="section-head">新着記事</h2>
   <p class="section-en">Latest</p>
@@ -2139,6 +2272,10 @@ function render404Page() {
 
 // 診断ページ。結果に出す広告ボタンはビルド時に組み立てておき、
 // ブラウザ側では組み立て済みのHTMLを差し込むだけにする。
+//
+// 質問は分岐する。最初に選んだ用途によって、次に出す質問が変わる。
+// 以前は全員に同じ5問を出していたが、それだと最初の1問でほぼ結果が決まり、
+// 残りの質問が体裁だけのものになっていた。
 function renderShindanPage() {
   const data = readJson(path.join(AFFILIATE_DIR, "shindan.json"), null);
   if (!data) return null;
@@ -2153,36 +2290,26 @@ function renderShindanPage() {
     };
   }
 
-  const payload = JSON.stringify({ questions: data.questions, tools }).replace(/</g, "\\u003c");
+  const links = {};
+  for (const t of TOOLS) links[t.slug] = { url: toolUrl(t.slug), title: t.title };
 
-  const steps = data.questions
-    .map(
-      (q, i) => `<fieldset class="sd-step" data-step="${i}"${i ? " hidden" : ""}>
-      <legend class="sd-q"><span class="sd-num">Q${i + 1}</span>${escapeHtml(q.q)}</legend>
-      <div class="sd-opts">
-        ${q.options
-          .map(
-            (o, j) =>
-              `<button type="button" class="sd-opt" data-q="${i}" data-o="${j}">${escapeHtml(o.label)}</button>`
-          )
-          .join("\n        ")}
-      </div>
-    </fieldset>`
-    )
-    .join("\n    ");
+  const payload = JSON.stringify({ questions: data.questions, tools, links }).replace(/</g, "\\u003c");
 
   const body = `
 <main>
   <section class="hero hero-sub">
     <h1>${escapeHtml(data.title)}</h1>
     <p class="hero-en">Find Your Tool</p>
-    <p class="hero-lead">${escapeHtml(data.lead.replace("{n}", String(data.questions.length)))}</p>
+    <p class="hero-lead">${escapeHtml(data.lead)}</p>
   </section>
 
   <div class="sd" id="sd">
     <div class="sd-bar"><div class="sd-bar-fill" id="sd-bar"></div></div>
-    <p class="sd-progress" id="sd-progress">1 / ${data.questions.length}</p>
-    ${steps}
+    <p class="sd-progress" id="sd-progress"></p>
+    <fieldset class="sd-step" id="sd-step">
+      <legend class="sd-q"><span class="sd-num" id="sd-num"></span><span id="sd-qtext"></span></legend>
+      <div class="sd-opts" id="sd-opts"></div>
+    </fieldset>
     <div class="sd-nav">
       <button type="button" class="sd-back" id="sd-back" hidden>← 前の質問へ</button>
     </div>
@@ -2191,70 +2318,198 @@ function renderShindanPage() {
   <div class="sd-result" id="sd-result" hidden>
     <h2 class="section-head">診断結果</h2>
     <p class="section-en">Result</p>
+    <div id="sd-why"></div>
     <div id="sd-out"></div>
-    <p class="sd-note">この結果は、選んだ回答に近い用途のツールを並べたものです。実際に合うかどうかは使い方によって変わります。料金や機能は変更されることがあるため、必ず公式サイトで確認してください。</p>
+    <div id="sd-advice"></div>
+    <p class="sd-note">この結果は、選んだ回答に近い用途のツールを並べたものです。実際の使い勝手、料金、機能は変更されることがあるため、契約前に必ず公式サイトで確認してください。ここでは使い心地までは判断できません。</p>
     <button type="button" class="sd-again" id="sd-again">もう一度診断する</button>
   </div>
 
   <noscript><p class="sd-note">この診断はJavaScriptを有効にすると利用できます。<a href="${BLOG_INDEX_URL}">記事一覧</a>からお探しください。</p></noscript>
 </main>
+
 <script>
 (function () {
   var D = ${payload};
-  var total = D.questions.length, cur = 0, picks = [];
-  var root = document.getElementById("sd"),
-      out = document.getElementById("sd-out"),
-      result = document.getElementById("sd-result"),
-      bar = document.getElementById("sd-bar"),
-      prog = document.getElementById("sd-progress"),
-      back = document.getElementById("sd-back");
+  var answers = {};   // questionId -> option
+  var path = [];      // 実際に出した質問の並び。戻るときに使う
+  var cur = 0;
+
+  var elStep = document.getElementById("sd-step");
+  var elNum = document.getElementById("sd-num");
+  var elQ = document.getElementById("sd-qtext");
+  var elOpts = document.getElementById("sd-opts");
+  var elBar = document.getElementById("sd-bar");
+  var elProg = document.getElementById("sd-progress");
+  var elBack = document.getElementById("sd-back");
+  var root = document.getElementById("sd");
+  var result = document.getElementById("sd-result");
+
+  // showIf は「この質問の回答が、この値のいずれかであること」。
+  // 条件のない質問は全員に出す。
+  function visible(q) {
+    if (!q.showIf) return true;
+    for (var key in q.showIf) {
+      var a = answers[key];
+      if (!a || q.showIf[key].indexOf(a.value) < 0) return false;
+    }
+    return true;
+  }
+
+  // いま時点の回答で、これから出る質問を並べる。
+  // 用途を選び直すと分岐先が変わるので、毎回組み直す。
+  function plan() {
+    var list = [];
+    for (var i = 0; i < D.questions.length; i++) {
+      if (visible(D.questions[i])) list.push(D.questions[i]);
+    }
+    return list;
+  }
 
   function show(i) {
+    var list = plan();
+    if (i >= list.length) { finish(); return; }
     cur = i;
-    var steps = root.querySelectorAll(".sd-step");
-    for (var k = 0; k < steps.length; k++) steps[k].hidden = k !== i;
-    bar.style.width = ((i / total) * 100) + "%";
-    prog.textContent = (i + 1) + " / " + total;
-    back.hidden = i === 0;
+    var q = list[i];
+    path = list;
+
+    elNum.textContent = "Q" + (i + 1);
+    elQ.textContent = q.q;
+    elOpts.innerHTML = "";
+
+    q.options.forEach(function (o, j) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "sd-opt";
+      b.textContent = o.label;
+      if (answers[q.id] === o) b.classList.add("is-picked");
+      b.addEventListener("click", function () {
+        answers[q.id] = o;
+        // 用途を選び直したときは、その先の回答を捨てる。
+        // 別の分岐の答えが残っていると、出していない質問の点が入る。
+        var after = plan().slice(i + 1).map(function (x) { return x.id; });
+        for (var k in answers) {
+          if (k !== q.id && after.indexOf(k) < 0 && !isBefore(k, i)) delete answers[k];
+        }
+        show(i + 1);
+      });
+      elOpts.appendChild(b);
+    });
+
+    elBack.hidden = i === 0;
+    elProg.textContent = (i + 1) + " / " + list.length;
+    elBar.style.width = ((i / list.length) * 100) + "%";
+  }
+
+  function isBefore(id, i) {
+    for (var k = 0; k <= i; k++) if (path[k] && path[k].id === id) return true;
+    return false;
+  }
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
   }
 
   function finish() {
     var score = {};
-    for (var i = 0; i < picks.length; i++) {
-      var s = D.questions[i].options[picks[i]].scores;
-      for (var id in s) score[id] = (score[id] || 0) + s[id];
+    var reasons = [];
+    var advice = [];
+
+    plan().forEach(function (q) {
+      var a = answers[q.id];
+      if (!a) return;
+      if (a.scores) {
+        for (var id in a.scores) score[id] = (score[id] || 0) + a.scores[id];
+      }
+      if (a.why) reasons.push({ q: q.q, pick: a.label, why: a.why });
+      if (a.advice) advice.push({ text: a.advice, link: a.link });
+    });
+
+    var ranked = Object.keys(score).sort(function (a, b) { return score[b] - score[a]; });
+    var out = document.getElementById("sd-out");
+    var why = document.getElementById("sd-why");
+    var adv = document.getElementById("sd-advice");
+    out.innerHTML = ""; why.innerHTML = ""; adv.innerHTML = "";
+
+    // なぜこの結果になったかを先に出す。順位だけ出しても判断材料にならない。
+    if (reasons.length) {
+      var box = el("div", "sd-why");
+      box.appendChild(el("p", "sd-why-head", "この結果になった理由"));
+      reasons.forEach(function (r) {
+        var line = el("p", "sd-why-line");
+        line.appendChild(el("span", "sd-why-pick", "「" + r.pick + "」"));
+        line.appendChild(document.createTextNode(" — " + r.why));
+        box.appendChild(line);
+      });
+      why.appendChild(box);
     }
-    var ranked = Object.keys(score).sort(function (a, b) { return score[b] - score[a]; }).slice(0, 3);
-    var html = "";
-    for (var r = 0; r < ranked.length; r++) {
-      var t = D.tools[ranked[r]];
-      if (!t) continue;
-      html +=
-        '<div class="sd-card' + (r === 0 ? " is-top" : "") + '">' +
-        '<p class="sd-rank">' + (r === 0 ? "もっとも近い" : "こちらも候補") + "</p>" +
-        "<h3>" + t.name + "</h3>" +
-        "<p>" + t.blurb + "</p>" +
-        '<p class="sd-more"><a href="' + t.url + '">' + t.name + "の解説を読む</a></p>" +
-        t.cta +
-        "</div>";
+
+    if (!ranked.length) {
+      out.appendChild(el("p", "sd-note", "選んだ条件に当てはまるツールが、当サイトの掲載分にはありませんでした。記事一覧からお探しください。"));
     }
-    out.innerHTML = html;
+
+    var top = ranked.slice(0, 3);
+    var maxScore = score[top[0]] || 0;
+    top.forEach(function (id, r) {
+      var t = D.tools[id];
+      if (!t) return;
+      var card = el("div", "sd-card" + (r === 0 ? " is-top" : ""));
+      card.appendChild(el("p", "sd-rank", r === 0 ? "もっとも近い" : "こちらも候補"));
+      card.appendChild(el("h3", null, t.name));
+      card.appendChild(el("p", null, t.blurb));
+      var more = el("p", "sd-more");
+      var a = document.createElement("a");
+      a.href = t.url;
+      a.textContent = t.name + "の解説を読む";
+      more.appendChild(a);
+      card.appendChild(more);
+      if (t.cta) {
+        var holder = document.createElement("div");
+        holder.innerHTML = t.cta;   // ビルド時に組み立てた広告ボタン
+        card.appendChild(holder);
+      }
+      out.appendChild(card);
+    });
+
+    // 2位以下と点差がないときは、優劣がついていないことを言う。
+    if (top.length >= 2 && score[top[1]] === maxScore) {
+      out.appendChild(el("p", "sd-note", "上位が同点です。この条件では優劣がついていないので、無料で試せるほうから触ってみてください。"));
+    }
+
+    if (advice.length) {
+      var box2 = el("div", "sd-advice");
+      box2.appendChild(el("p", "sd-why-head", "選ぶ前に確かめること"));
+      advice.forEach(function (a2) {
+        var d = el("div", "sd-advice-item");
+        d.appendChild(el("p", null, a2.text));
+        var link = a2.link && D.links[a2.link];
+        if (link) {
+          var p = el("p", "sd-more");
+          var la = document.createElement("a");
+          la.href = link.url;
+          la.textContent = link.title + "で確かめる";
+          p.appendChild(la);
+          d.appendChild(p);
+        }
+        box2.appendChild(d);
+      });
+      adv.appendChild(box2);
+    }
+
     root.hidden = true;
     result.hidden = false;
     result.scrollIntoView({ block: "start" });
   }
 
-  root.addEventListener("click", function (e) {
-    var b = e.target.closest(".sd-opt");
-    if (!b) return;
-    picks[+b.dataset.q] = +b.dataset.o;
-    if (cur + 1 < total) show(cur + 1); else finish();
-  });
-  back.addEventListener("click", function () { if (cur > 0) show(cur - 1); });
+  elBack.addEventListener("click", function () { if (cur > 0) show(cur - 1); });
   document.getElementById("sd-again").addEventListener("click", function () {
-    picks = []; result.hidden = true; root.hidden = false; show(0);
+    answers = {}; result.hidden = true; root.hidden = false; show(0);
     root.scrollIntoView({ block: "start" });
   });
+
   show(0);
 })();
 </script>`;
@@ -2262,7 +2517,7 @@ function renderShindanPage() {
   return pageShell({
     title: data.title,
     description:
-      "4つの質問に答えるだけで、用途に合ったAIツールを絞り込めます。文章作成・議事録・資料作り・画像生成・調べものなど、目的別に候補を提示します。",
+      "用途を選ぶと、その用途に合わせた質問に進みます。文章作成・議事録・資料作り・画像生成・調べもの・プログラム・事務から、条件に合う候補と、そう判断した理由を示します。",
     canonical: SHINDAN_URL,
     ogType: "website",
     bodyHtml: body,
