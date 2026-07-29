@@ -11,14 +11,31 @@ import { fileURLToPath } from "node:url";
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const BASE_URL = "https://petrichot.com";
 
+const PINNED_FILE = "posts-pinned.json";
+
 function loadParts() {
   const posts = [];
   for (const file of fs.readdirSync(HERE).sort()) {
     if (!/^posts-.*\.json$/.test(file)) continue;
+    if (file === PINNED_FILE) continue; // 位置指定なので通常の並びには混ぜない
     const data = JSON.parse(fs.readFileSync(path.join(HERE, file), "utf8"));
     for (const p of data.posts) posts.push({ ...p, source: file });
   }
   return posts;
+}
+
+// 告知など、特定の日に出したい投稿。at で指定した位置に割り込ませる。
+function loadPinned() {
+  const file = path.join(HERE, PINNED_FILE);
+  if (!fs.existsSync(file)) return [];
+  const data = JSON.parse(fs.readFileSync(file, "utf8"));
+  return (data.posts || []).map((p) => {
+    if (!Number.isInteger(p.at) || p.at < 0) {
+      throw new Error(`posts-pinned.json の at が不正です: ${JSON.stringify(p.at)}`);
+    }
+    if (!p.text) throw new Error("posts-pinned.json に text のない投稿があります");
+    return p;
+  });
 }
 
 // 決定的な擬似乱数(mulberry32)。並びを再現可能にするため。
@@ -70,6 +87,17 @@ function main() {
     if (!p.slug || !p.text) throw new Error(`slug または text が空です (index ${i})`);
     return { text: p.text, url: `${BASE_URL}/${p.slug}/` };
   });
+
+  // 位置指定の投稿を割り込ませる。atの小さい順に入れることで、
+  // 複数あっても指定した位置がずれない。
+  const pinned = loadPinned().sort((a, b) => a.at - b.at);
+  for (const p of pinned) {
+    if (p.at > queue.length) {
+      throw new Error(`posts-pinned.json の at=${p.at} がキューの範囲外です(全${queue.length}件)`);
+    }
+    queue.splice(p.at, 0, { text: p.text, url: p.url || "" });
+    console.log(`[build-queue] 位置${p.at}に告知を差し込みました`);
+  }
 
   const out = path.join(HERE, "queue.json");
   fs.writeFileSync(out, JSON.stringify({ posts: queue }, null, 2) + "\n");
