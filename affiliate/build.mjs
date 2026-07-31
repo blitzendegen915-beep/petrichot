@@ -57,6 +57,25 @@ function categoryUrl(category) {
   return `${CONFIG.baseUrl}${CONFIG.blogPath}/category/${encodeURIComponent(category)}/`;
 }
 
+// 一覧系ページ(トップ/カテゴリ/タグ)のページ送り。1ページ目は既存URLのまま
+// (`/`, `/category/x/`, `/tag/x/`)を維持し、2ページ目以降だけ `page/N/` を足す。
+const PER_PAGE = 20;
+
+function paginate(items, perPage) {
+  const totalPages = Math.max(1, Math.ceil(items.length / perPage));
+  return Array.from({ length: totalPages }, (_, i) => items.slice(i * perPage, (i + 1) * perPage));
+}
+
+function pagedUrl(baseUrl, page) {
+  return page <= 1 ? baseUrl : `${baseUrl}page/${page}/`;
+}
+
+function pagedOutPath(baseDir, page) {
+  return page <= 1
+    ? path.join(baseDir, "index.html")
+    : path.join(baseDir, "page", String(page), "index.html");
+}
+
 // If affiliate/static/ogp.png exists it is copied to dist/static/ogp.png and
 // referenced as the default OGP image site-wide; otherwise pages fall back
 // to the previous (image-less) meta behavior.
@@ -1036,7 +1055,7 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: 0.04em;
 }
 .hero-sub { padding-top: 2rem; }
-.hero-actions { margin: 1.3rem 0 0; }
+.hero-actions { margin: 1.3rem 0 0; display: flex; flex-wrap: wrap; gap: 0.7rem; }
 .hero-btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -1500,6 +1519,9 @@ a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
 @media (min-width: 700px) {
   .article-grid { grid-template-columns: 1fr 1fr; }
 }
+/* .article-grid の display:grid が UA既定の [hidden]{display:none} と同じ詳細度で
+   打ち消し合わないよう、hidden属性が確実に効くようここで明示的に上書きする */
+.article-grid[hidden] { display: none; }
 .article-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1599,6 +1621,109 @@ a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
   grid-column: 1 / -1;
   color: var(--muted);
   padding: 2rem 0;
+}
+
+/* 記事検索ボックス(一覧の直上)。JS無効時は何も起きず、通常の一覧がそのまま見える */
+.search-box {
+  margin: 0 0 1.5rem;
+}
+.search-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 0.45rem;
+}
+.search-input {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.search-input::placeholder { color: var(--muted); }
+.search-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+.search-status {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2.75rem 0 0;
+}
+.pager-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.pager-btn:hover, .pager-btn:focus-visible {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.pager-btn.is-disabled {
+  border-color: var(--border);
+  color: var(--muted);
+  opacity: 0.5;
+}
+.pager-nums {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.pager-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 0.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--r);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a.pager-num:hover, a.pager-num:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.pager-num.is-current {
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-weight: 700;
 }
 
 .site-footer {
@@ -1778,6 +1903,13 @@ a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
   font-size: 0.8rem; letter-spacing: 0.06em; color: #8cc3ff;
 }
 .tools-band-note { margin: 2.25rem 0 0; font-size: 0.82rem; color: rgba(234, 241, 255, 0.55); }
+.tools-band-actions { margin: 1.6rem 0 0; }
+.tools-band-list {
+  list-style: none; margin: 1.4rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
+  color: rgba(234, 241, 255, 0.8); font-size: 0.9rem;
+}
+.tools-band-list li::before { content: "・"; opacity: 0.6; }
 
 @media (prefers-reduced-motion: reduce) {
   .tool-card-link, .tool-card-link::before { transition: none; }
@@ -1887,7 +2019,7 @@ ${bodyHtml}
   <div class="inner">
     ${showDisclosure ? `<p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>${disclosureText}</span></p>` : ""}
     <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
-    <p><a href="${ABOUT_URL}">運営者情報</a> ・ <a href="${CONTACT_URL}">お問い合わせ</a> ・ <a href="${PRIVACY_URL}">プライバシーポリシー</a></p>
+    <p><a href="${ABOUT_URL}">運営者情報</a> ・ <a href="${CONTACT_URL}">お問い合わせ</a> ・ <a href="${PRIVACY_URL}">プライバシーポリシー</a> ・ <a href="${X_URL}" target="_blank" rel="noopener">X（${X_HANDLE}）</a></p>
     <p>&copy; ${new Date().getFullYear()} ${escapeHtml(CONFIG.siteName)}</p>
   </div>
 </footer>
@@ -2030,13 +2162,146 @@ function renderArticleGrid(articles, emptyText) {
     : `<li class="empty-state">${escapeHtml(emptyText || "まだ記事がありません。近日公開予定です。")}</li>`;
 }
 
+// 前へ/次へ + ページ番号。1ページに収まる一覧(totalPages<=1)では何も出さない。
+function renderPager(baseUrl, page, totalPages) {
+  if (totalPages <= 1) return "";
+  const prevHtml =
+    page > 1
+      ? `<a class="pager-btn pager-prev" href="${pagedUrl(baseUrl, page - 1)}" rel="prev">← 前へ</a>`
+      : `<span class="pager-btn pager-prev is-disabled" aria-disabled="true">← 前へ</span>`;
+  const nextHtml =
+    page < totalPages
+      ? `<a class="pager-btn pager-next" href="${pagedUrl(baseUrl, page + 1)}" rel="next">次へ →</a>`
+      : `<span class="pager-btn pager-next is-disabled" aria-disabled="true">次へ →</span>`;
+  const numbers = Array.from({ length: totalPages }, (_, i) => i + 1)
+    .map((p) =>
+      p === page
+        ? `<span class="pager-num is-current" aria-current="page">${p}</span>`
+        : `<a class="pager-num" href="${pagedUrl(baseUrl, p)}">${p}</a>`
+    )
+    .join("");
+  return `
+  <nav class="pager" aria-label="ページ送り">
+    ${prevHtml}
+    <div class="pager-nums">${numbers}</div>
+    ${nextHtml}
+  </nav>`;
+}
+
+// 記事一覧の直上に置く検索ボックス。JS無効時は入力欄が出るだけで、
+// サーバー生成の一覧(article-grid-static)とページャはそのまま見える。
+// 検索対象は /search-index.json (全記事の軽量インデックス、ビルド時に生成)。
+function renderSearchBoxHtml() {
+  return `
+  <div class="search-box">
+    <label class="search-label" for="article-search-input">記事を検索</label>
+    <input type="search" id="article-search-input" class="search-input" autocomplete="off" placeholder="キーワードで検索(タイトル・タグ・カテゴリ)">
+    <p id="article-search-status" class="search-status" role="status" aria-live="polite" hidden></p>
+  </div>`;
+}
+
+// カテゴリ名からチップの配色クラスを決める(サーバー側 categoryChipClass と同じハッシュ)。
+// 検索結果カードをJSだけで組み立てるため、同じロジックをクライアント側にも複製している。
+const ARTICLE_SEARCH_SCRIPT = `
+<script>
+(function () {
+  var input = document.getElementById("article-search-input");
+  if (!input) return;
+  var staticGrid = document.getElementById("article-grid-static");
+  var searchGrid = document.getElementById("article-grid-search");
+  var statusEl = document.getElementById("article-search-status");
+  var pagerWrap = document.getElementById("pager-wrap");
+  var indexPromise = null;
+
+  function escHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function chipClass(category) {
+    if (category === "AIをはじめて学ぶ") return "chip-edu";
+    var hash = 0;
+    for (var i = 0; i < category.length; i++) {
+      hash = (hash * 31 + category.charCodeAt(i)) >>> 0;
+    }
+    var palette = ["chip-a", "chip-b", "chip-c", "chip-d", "chip-e"];
+    return palette[hash % palette.length];
+  }
+
+  function loadIndex() {
+    if (!indexPromise) {
+      indexPromise = fetch("/search-index.json")
+        .then(function (res) { return res.json(); })
+        .catch(function () { return []; });
+    }
+    return indexPromise;
+  }
+
+  function renderCard(a) {
+    return '<li class="article-card"><a class="card-link" href="' + a.url + '">' +
+      '<div class="card-body"><div class="card-top">' +
+      '<span class="chip chip-cat ' + chipClass(a.category) + '">' + escHtml(a.category) + "</span>" +
+      '<time class="card-date">' + escHtml(a.date) + "</time></div>" +
+      "<h2>" + escHtml(a.title) + "</h2>" +
+      '<p class="desc">' + escHtml(a.description) + "</p>" +
+      '<span class="card-arrow" aria-hidden="true">→</span>' +
+      "</div></a></li>";
+  }
+
+  function showStatic() {
+    staticGrid.hidden = false;
+    searchGrid.hidden = true;
+    searchGrid.innerHTML = "";
+    if (pagerWrap) pagerWrap.hidden = false;
+    statusEl.hidden = true;
+  }
+
+  function runSearch(rawQuery) {
+    var query = rawQuery.trim();
+    if (!query) {
+      showStatic();
+      return;
+    }
+    var q = query.toLowerCase();
+    // 検索インデックスの取得が終わるまでは既存の一覧を消さない。
+    // 先に隠すと、回線が遅いときに中身が空の状態が見えてしまうため。
+    loadIndex().then(function (data) {
+      // 取得を待つ間に入力が変わっていたら、この結果は捨てる
+      if (input.value.trim().toLowerCase() !== q) return;
+      var results = data.filter(function (a) {
+        return (
+          (a.title && a.title.toLowerCase().indexOf(q) !== -1) ||
+          (a.description && a.description.toLowerCase().indexOf(q) !== -1) ||
+          (a.category && a.category.toLowerCase().indexOf(q) !== -1) ||
+          (a.tags && a.tags.join(" ").toLowerCase().indexOf(q) !== -1)
+        );
+      });
+      staticGrid.hidden = true;
+      if (pagerWrap) pagerWrap.hidden = true;
+      searchGrid.hidden = false;
+      searchGrid.innerHTML = results.length
+        ? results.map(renderCard).join("")
+        : '<li class="empty-state">「' + escHtml(query) + '」に一致する記事は見つかりませんでした。別のキーワードをお試しください。</li>';
+      statusEl.hidden = false;
+      statusEl.textContent = results.length ? results.length + "件見つかりました" : "見つかりませんでした";
+    });
+  }
+
+  var debounceTimer = null;
+  input.addEventListener("input", function () {
+    clearTimeout(debounceTimer);
+    var value = input.value;
+    debounceTimer = setTimeout(function () { runSearch(value); }, 120);
+  });
+})();
+</script>`;
 
 // トップに置くツール帯。記事より先に、使えるものがあることを見せる。
+// トップは記事一覧が主役なので、ツールは名前だけ並べて専用ページ(/tools/)へ送る。
+// カード全展開は /tools/ 側にあり、トップに置くと重複するため。
 function renderToolsBand() {
-  const cards = [
-    { url: SHINDAN_URL, title: "AIツール診断", desc: "用途と条件を答えると、候補を絞り込みます。" },
-    ...TOOLS.map((t) => ({ url: toolUrl(t.slug), title: t.title, desc: t.description })),
-  ];
+  const names = ["AIツール診断", ...TOOLS.map((t) => t.title)];
   return `
 <section class="tools-band">
   <div class="tools-band-inner">
@@ -2045,45 +2310,38 @@ function renderToolsBand() {
       <span class="tools-band-en">Tools</span>
     </div>
     <p class="tools-band-lead">読んで終わりにしないための道具です。入力はすべてブラウザの中で処理され、こちらに送信されません。登録も料金も不要です。</p>
-    <ul class="tools-deck">
-      ${cards
-        .map(
-          (c, i) => `
-      <li>
-        <a class="tool-card-link" href="${c.url}">
-          <span class="tool-card-no">${String(i + 1).padStart(2, "0")}</span>
-          <h3>${escapeHtml(c.title)}</h3>
-          <p>${escapeHtml(c.desc)}</p>
-          <span class="tool-card-go">使ってみる →</span>
-        </a>
-      </li>`
-        )
-        .join("")}
+    <ul class="tools-band-list">
+      ${names.map((n) => `<li>${escapeHtml(n)}</li>`).join("")}
     </ul>
-    <p class="tools-band-note">すべて無料・登録不要。入力内容が保存されるのはお使いのブラウザの中だけです。</p>
+    <p class="tools-band-actions"><a class="hero-btn" href="${TOOLS_URL}">ツール一覧を見る →</a></p>
   </div>
 </section>`;
 }
 
-function renderBlogIndex(articles) {
+function renderBlogIndex(pageArticles, { totalCount, page = 1, totalPages = 1 } = {}) {
+  const canonical = pagedUrl(BLOG_INDEX_URL, page);
   const body = `
 <div class="hero-band">
   <section class="hero">
     <h1>${escapeHtml(CONFIG.siteName)}</h1>
     <p class="hero-en">AI Tools, Explained</p>
     <p class="hero-lead">${escapeHtml(CONFIG.description)}</p>
-    <p class="hero-count">${articles.length}本の記事を公開中</p>
-    <p class="hero-actions"><a class="hero-btn" href="${SHINDAN_URL}">どれを使うか迷ったら → AIツール診断</a></p>
+    <p class="hero-count">${totalCount}本の記事を公開中</p>
+    <p class="hero-actions"><a class="hero-btn" href="${SHINDAN_URL}">どれを使うか迷ったら → AIツール診断</a><a class="hero-btn" href="${X_URL}" target="_blank" rel="noopener">Xやってます → ${X_HANDLE}</a></p>
   </section>
 </div>
-${renderToolsBand()}
+${page === 1 ? renderToolsBand() : ""}
 <main class="wide">
   <h2 class="section-head">新着記事</h2>
   <p class="section-en">Latest</p>
-  <ul class="article-grid">
-    ${renderArticleGrid(articles)}
+  ${renderSearchBoxHtml()}
+  <ul class="article-grid" id="article-grid-static">
+    ${renderArticleGrid(pageArticles)}
   </ul>
-</main>`;
+  <ul class="article-grid" id="article-grid-search" hidden></ul>
+  <div id="pager-wrap">${renderPager(BLOG_INDEX_URL, page, totalPages)}</div>
+</main>
+${ARTICLE_SEARCH_SCRIPT}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -2094,9 +2352,9 @@ ${renderToolsBand()}
   };
 
   return pageShell({
-    title: "記事一覧",
+    title: page > 1 ? `記事一覧 ${page}ページ目` : "記事一覧",
     description: CONFIG.description,
-    canonical: BLOG_INDEX_URL,
+    canonical,
     ogType: "website",
     bodyHtml: body,
     jsonLd,
@@ -2119,6 +2377,8 @@ const PRIVACY_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/privacy/`;
 const ABOUT_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/about/`;
 const CONTACT_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/contact/`;
 const CONTACT_EMAIL = "dar42508@gmail.com";
+const X_HANDLE = "@petrichot_ai";
+const X_URL = "https://x.com/petrichot_ai";
 
 function renderPrivacyPage() {
   const body = `
@@ -2612,18 +2872,32 @@ function renderToolsIndex() {
   });
 }
 
-function renderTaxonomyPage({ heading, description, canonical, articles, currentCategory = null, enLabel = null, noindex = false }) {
+function renderTaxonomyPage({
+  heading,
+  description,
+  canonical,
+  baseUrl = null,
+  articles,
+  totalCount,
+  currentCategory = null,
+  enLabel = null,
+  noindex = false,
+  page = 1,
+  totalPages = 1,
+}) {
+  const pagerBase = baseUrl || canonical;
   const body = `
 <main class="wide">
   <section class="hero hero-sub">
     <h1>${escapeHtml(heading)}</h1>
     ${enLabel ? `<p class="hero-en">${escapeHtml(enLabel)}</p>` : ""}
     <p class="hero-lead">${escapeHtml(description)}</p>
-    <p class="hero-count">${articles.length}本</p>
+    <p class="hero-count">${totalCount ?? articles.length}本</p>
   </section>
   <ul class="article-grid">
     ${renderArticleGrid(articles, "該当する記事がまだありません。")}
   </ul>
+  ${renderPager(pagerBase, page, totalPages)}
 </main>`;
 
   const jsonLd = {
@@ -2634,7 +2908,7 @@ function renderTaxonomyPage({ heading, description, canonical, articles, current
   };
 
   return pageShell({
-    title: heading,
+    title: page > 1 ? `${heading} ${page}ページ目` : heading,
     description,
     canonical,
     ogType: "website",
@@ -2692,7 +2966,7 @@ ${items}
 `;
 }
 
-function renderSitemap(articles, tagNames, categoryNames) {
+function renderSitemap(articles, tagNames, categoryNames, pagedUrls = []) {
   const urls = [
     { loc: SITE_ROOT_URL },
     ...(BLOG_INDEX_URL !== SITE_ROOT_URL ? [{ loc: BLOG_INDEX_URL }] : []),
@@ -2705,6 +2979,7 @@ function renderSitemap(articles, tagNames, categoryNames) {
     ...articles.map((a) => ({ loc: articleUrl(a.slug), lastmod: a.updated || a.date })),
     ...(tagNames || []).map((t) => ({ loc: tagUrl(t) })),
     ...(categoryNames || []).map((c) => ({ loc: categoryUrl(c) })),
+    ...pagedUrls,
   ];
   const entries = urls
     .map((u) => {
@@ -2732,6 +3007,21 @@ Allow: /
 
 Sitemap: ${CONFIG.baseUrl}/sitemap.xml
 `;
+}
+
+// トップページの検索ボックス用インデックス。57件程度なので全件をそのまま
+// クライアントに渡し、部分一致でJSだけで絞り込む(サーバー往復なし)。
+function renderSearchIndex(articles) {
+  return JSON.stringify(
+    articles.map((a) => ({
+      title: a.title,
+      description: a.description,
+      category: a.category,
+      tags: a.tags,
+      date: a.date,
+      url: articleUrl(a.slug),
+    }))
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -2762,35 +3052,72 @@ function build() {
     const outPath = path.join(BLOG_OUT_DIR, article.slug, "index.html");
     writeFile(outPath, renderArticlePage(article, articles));
   }
+  // ページ送りURL(2ページ目以降のみ)をここに集めて、後でsitemapに反映する。
+  // noindexのタグ(TAG_INDEX_MIN未満)のページ送りはsitemapに入れない既存方針を踏襲。
+  const sitemapPagedUrls = [];
+
   for (const [tag, list] of tagMap) {
-    const outPath = path.join(BLOG_OUT_DIR, "tag", tag, "index.html");
-    writeFile(
-      outPath,
-      renderTaxonomyPage({
-        heading: `タグ: ${tag}`,
-        description: `「${tag}」に関する記事一覧`,
-        canonical: tagUrl(tag),
-        articles: list,
-        noindex: list.length < TAG_INDEX_MIN,
-      })
-    );
+    const base = tagUrl(tag);
+    const outDir = path.join(BLOG_OUT_DIR, "tag", tag);
+    const pages = paginate(list, PER_PAGE);
+    const isNoindex = list.length < TAG_INDEX_MIN;
+    pages.forEach((pageArticles, i) => {
+      const page = i + 1;
+      writeFile(
+        pagedOutPath(outDir, page),
+        renderTaxonomyPage({
+          heading: `タグ: ${tag}`,
+          description: `「${tag}」に関する記事一覧`,
+          canonical: pagedUrl(base, page),
+          baseUrl: base,
+          articles: pageArticles,
+          totalCount: list.length,
+          noindex: isNoindex,
+          page,
+          totalPages: pages.length,
+        })
+      );
+      if (page > 1 && !isNoindex) sitemapPagedUrls.push({ loc: pagedUrl(base, page) });
+    });
   }
   for (const [category, list] of categoryMap) {
-    const outPath = path.join(BLOG_OUT_DIR, "category", category, "index.html");
-    writeFile(
-      outPath,
-      renderTaxonomyPage({
-        heading: category,
-        description: `「${category}」の記事をまとめています。`,
-        canonical: categoryUrl(category),
-        articles: list,
-        currentCategory: category,
-        enLabel: CATEGORY_EN[category] || null,
-      })
-    );
+    const base = categoryUrl(category);
+    const outDir = path.join(BLOG_OUT_DIR, "category", category);
+    const pages = paginate(list, PER_PAGE);
+    pages.forEach((pageArticles, i) => {
+      const page = i + 1;
+      writeFile(
+        pagedOutPath(outDir, page),
+        renderTaxonomyPage({
+          heading: category,
+          description: `「${category}」の記事をまとめています。`,
+          canonical: pagedUrl(base, page),
+          baseUrl: base,
+          articles: pageArticles,
+          totalCount: list.length,
+          currentCategory: category,
+          enLabel: CATEGORY_EN[category] || null,
+          page,
+          totalPages: pages.length,
+        })
+      );
+      if (page > 1) sitemapPagedUrls.push({ loc: pagedUrl(base, page) });
+    });
   }
 
-  writeFile(path.join(BLOG_OUT_DIR, "index.html"), renderBlogIndex(articles));
+  const indexPages = paginate(articles, PER_PAGE);
+  indexPages.forEach((pageArticles, i) => {
+    const page = i + 1;
+    writeFile(
+      pagedOutPath(BLOG_OUT_DIR, page),
+      renderBlogIndex(pageArticles, {
+        totalCount: articles.length,
+        page,
+        totalPages: indexPages.length,
+      })
+    );
+    if (page > 1) sitemapPagedUrls.push({ loc: pagedUrl(BLOG_INDEX_URL, page) });
+  });
 
   const shindanHtml = renderShindanPage();
   if (shindanHtml) writeFile(path.join(BLOG_OUT_DIR, "shindan", "index.html"), shindanHtml);
@@ -2808,10 +3135,12 @@ function build() {
     renderSitemap(
       articles,
       [...tagMap.entries()].filter(([, list]) => list.length >= TAG_INDEX_MIN).map(([t]) => t),
-      [...categoryMap.keys()]
+      [...categoryMap.keys()],
+      sitemapPagedUrls
     )
   );
   writeFile(path.join(DIST_DIR, "robots.txt"), renderRobots());
+  writeFile(path.join(DIST_DIR, "search-index.json"), renderSearchIndex(articles));
   copyStaticFiles();
 
   console.log(
