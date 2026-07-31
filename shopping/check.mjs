@@ -11,7 +11,8 @@ const files = [
       'rel="canonical" href="https://petrichot.com/shopping/"',
       'href="/"',
       'href="/learning/"',
-      "広告方針"
+      "広告方針",
+      "shopping-compare-hero-1600.webp"
     ]
   },
   {
@@ -21,7 +22,8 @@ const files = [
       "航空会社、路線、機材、運賃種別",
       "楽天市場で候補を確認",
       "本人が実際に使った条件と製品を確認できた段階",
-      "現在は広告リンクではなく、楽天市場の通常検索へ移動します"
+      "現在は広告リンクではなく、楽天市場の通常検索へ移動します",
+      "carry-on-measurement-guide-1200.webp"
     ]
   }
 ];
@@ -41,6 +43,26 @@ for (const file of files) {
   for (const forbidden of ["【ここに", "追記待ち"]) {
     if (html.includes(forbidden)) {
       throw new Error(`${file.path}: 公開不可の内部プレースホルダーがあります: ${forbidden}`);
+    }
+  }
+
+  const editorialImages = [...html.matchAll(/<img\b[^>]*class=["'][^"']*editorial-image[^"']*["'][^>]*>/g)]
+    .map((match) => match[0]);
+  for (const image of editorialImages) {
+    for (const attribute of ["alt", "width", "height", "loading", "decoding"]) {
+      if (!new RegExp("\\b" + attribute + "=[\\\"'][^\\\"']+[\\\"']").test(image)) {
+        throw new Error(file.path + ": 編集画像に " + attribute + " がありません: " + image);
+      }
+    }
+  }
+
+  const shoppingAssets = new Set(html.match(/\/static\/shopping\/[a-z0-9.-]+/g) || []);
+  for (const asset of shoppingAssets) {
+    const assetFile = path.resolve(outputRoot, "..", asset.slice(1));
+    try {
+      await readFile(assetFile);
+    } catch {
+      throw new Error(file.path + ": 参照画像がありません: " + asset);
     }
   }
 
