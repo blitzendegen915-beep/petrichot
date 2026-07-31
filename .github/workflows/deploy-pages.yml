@@ -28,10 +28,20 @@ jobs:
       # 誇大表現・捏造URL・成果の保証などを検出する。ERRORが1件でもあれば
       # 公開せずにここで止める(WARNは人の目視確認用なので落とさない)。
       - name: Lint content
-        run: node affiliate/lint.mjs
+        run: |
+          node affiliate/lint.mjs
+          node learning/lint.mjs
 
       - name: Build site
-        run: node affiliate/build.mjs
+        run: |
+          # ルート側がdistを初期化するため、必ず AI → Learning → Shopping の順で生成する。
+          node affiliate/build.mjs
+          node learning/build.mjs
+          node shopping/build.mjs
+          node shopping/check.mjs
+          test -f dist/index.html
+          test -f dist/learning/index.html
+          test -f dist/shopping/index.html
 
       - name: Deploy to gh-pages branch
         run: |

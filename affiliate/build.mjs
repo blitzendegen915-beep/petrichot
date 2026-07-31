@@ -890,6 +890,20 @@ a:focus-visible, button:focus-visible {
   border-radius: 2px;
 }
 img { max-width: 100%; height: auto; display: block; }
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--r);
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { transform: translateY(0); }
 
 .site-header {
   position: sticky;
@@ -922,9 +936,8 @@ img { max-width: 100%; height: auto; display: block; }
   width: 1.55rem;
   height: 1.55rem;
   border-radius: var(--r);
-  background: linear-gradient(135deg, var(--accent) 0%, var(--edu) 100%);
-  transform: rotate(-8deg);
   box-shadow: var(--shadow);
+  object-fit: contain;
 }
 .brand-text {
   font-family: var(--font-display);
@@ -1071,6 +1084,149 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--accent);
   color: var(--accent-fg);
 }
+.network-link.is-current {
+  color: var(--fg);
+  border-color: var(--border);
+  background: var(--surface);
+}
+.network-link-shopping:hover,
+.network-link-shopping:focus-visible { color: #c94f32 !important; }
+.network-link-learning:hover,
+.network-link-learning:focus-visible { color: var(--edu) !important; }
+
+.journey-band {
+  padding: 0 1.25rem 3.4rem;
+  background: var(--bg);
+}
+.journey-inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.65fr);
+  gap: 2rem;
+  align-items: end;
+}
+.journey-head h2 {
+  margin: 0.2rem 0 0.7rem;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.55rem, 1.3rem + 1vw, 2.15rem);
+}
+.journey-head > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  max-width: 36ch;
+}
+.journey-kicker,
+.path-cta-kicker {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.journey-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.journey-steps li { margin: 0; min-width: 0; }
+.journey-steps li + li { border-left: 1px solid var(--border); }
+.journey-steps a {
+  min-height: 11.5rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--fg);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.journey-steps a:hover,
+.journey-steps a:focus-visible { background: var(--surface-2); }
+.journey-steps .is-current a {
+  background: var(--deep);
+  color: #fff;
+}
+.journey-no {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.is-current .journey-no { color: rgba(255,255,255,0.58); }
+.journey-label {
+  margin-top: auto;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.is-current .journey-label { color: rgba(255,255,255,0.68); }
+.journey-steps strong {
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  line-height: 1.45;
+}
+.journey-steps small {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.is-current small { color: rgba(255,255,255,0.68); }
+
+.path-cta {
+  margin: 3rem 0 0;
+  padding: 1.35rem;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--edu);
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem 1.25rem;
+  align-items: center;
+}
+.path-cta-kicker {
+  writing-mode: vertical-rl;
+  color: var(--edu);
+}
+.path-cta h2 {
+  margin: 0 0 0.25rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.15rem;
+}
+.path-cta p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.path-cta > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--edu);
+  color: var(--edu);
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.path-cta > a:hover,
+.path-cta > a:focus-visible { background: var(--edu); color: #fff; }
+.footer-network span { color: var(--fg); font-weight: 700; }
+
+@media (max-width: 820px) {
+  .journey-inner { grid-template-columns: 1fr; align-items: start; }
+  .journey-head > p:last-child { max-width: 60ch; }
+  .path-cta { grid-template-columns: minmax(0, 1fr); }
+  .path-cta-kicker { writing-mode: initial; }
+  .path-cta > a { justify-self: start; }
+}
+@media (max-width: 620px) {
+  .journey-steps { grid-template-columns: 1fr; }
+  .journey-steps li + li { border-left: 0; border-top: 1px solid var(--border); }
+  .journey-steps a { min-height: 8.5rem; }
+}
 /* 日本語見出し + 小さい青の英字ラベル + 細い罫線(参照サイトの型) */
 .section-head {
   font-size: 1.5rem;
@@ -1192,13 +1348,27 @@ code {
   border-color: var(--accent) !important;
   white-space: nowrap;
 }
-/* 狭い画面ではロゴが記事一覧への導線を兼ねるので、文字リンクは隠す */
+/* 狭い画面でも3サービス間を移動できるよう、共有リンクを2段目に残す。 */
 @media (max-width: 540px) {
   .site-header { padding: 0.7rem 1rem; }
-  .site-header .inner { gap: 0.5rem; }
-  .top-nav a:not(.nav-cta) { display: none; }
+  .site-header .inner { flex-wrap: wrap; gap: 0.5rem; }
+  .site-header .top-nav {
+    order: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.25rem;
+  }
+  .top-nav .nav-link,
+  .top-nav .nav-cta { display: none; }
+  .top-nav .network-link {
+    display: block;
+    padding: 0.38rem 0.3rem;
+    font-size: 0.76rem;
+    text-align: center;
+    white-space: nowrap;
+  }
   .brand-text { font-size: 1rem; }
-  .nav-cta { font-size: 0.8rem; padding: 0.42rem 0.8rem; }
 }
 .nav-cta:hover, .nav-cta:focus-visible {
   filter: brightness(1.06);
@@ -1519,9 +1689,6 @@ a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
 @media (min-width: 700px) {
   .article-grid { grid-template-columns: 1fr 1fr; }
 }
-/* .article-grid の display:grid が UA既定の [hidden]{display:none} と同じ詳細度で
-   打ち消し合わないよう、hidden属性が確実に効くようここで明示的に上書きする */
-.article-grid[hidden] { display: none; }
 .article-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1938,7 +2105,8 @@ function renderCategoryNav(currentCategory) {
   if (!NAV_CATEGORIES.length) return "";
   const items = NAV_CATEGORIES.map(({ name, count }) => {
     const active = name === currentCategory ? " is-active" : "";
-    return `<a class="nav-cat${active}" href="${categoryUrl(name)}">${escapeHtml(name)}<span class="nav-cat-n">${count}</span></a>`;
+    const current = name === currentCategory ? ' aria-current="page"' : "";
+    return `<a class="nav-cat${active}" href="${categoryUrl(name)}"${current}>${escapeHtml(name)}<span class="nav-cat-n">${count}</span></a>`;
   }).join("");
   return `<nav class="cat-nav" aria-label="カテゴリ"><div class="inner">${items}</div></nav>`;
 }
@@ -1999,14 +2167,17 @@ ${OGP_IMAGE_URL ? `<meta name="twitter:image" content="${OGP_IMAGE_URL}">\n` : "
 <style>${SITE_CSS}</style>
 </head>
 <body>
+<a class="skip-link" href="#main">本文へ移動</a>
 <header class="site-header">
   <div class="inner">
-    <a class="brand" href="${BLOG_INDEX_URL}">
-      <span class="brand-mark" aria-hidden="true"></span>
+    <a class="brand" href="${AI_GUIDE_PATH}">
+      <img class="brand-mark" src="/static/favicon.svg" alt="" width="25" height="25">
       <span class="brand-text">${escapeHtml(CONFIG.siteName)}</span>
     </a>
-    <nav class="top-nav">
-      <a href="${BLOG_INDEX_URL}">記事一覧</a>
+    <nav class="top-nav" aria-label="PetrichorサービスとAI機能">
+      <a class="network-link network-link-shopping" href="${SHOPPING_PATH}">Shopping</a>
+      <a class="network-link is-current" href="${AI_GUIDE_PATH}" aria-current="page">AI解説</a>
+      <a class="network-link network-link-learning" href="${LEARNING_PATH}">Learning</a>
       <a class="nav-link" href="${TOOLS_URL}">ツール</a>
       <a class="nav-cta" href="${SHINDAN_URL}">ツール診断</a>
     </nav>
@@ -2019,6 +2190,7 @@ ${bodyHtml}
   <div class="inner">
     ${showDisclosure ? `<p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>${disclosureText}</span></p>` : ""}
     <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
+    <p class="footer-network"><span>Petrichor：</span><a href="${SHOPPING_PATH}">Shopping</a> ・ <a href="${AI_GUIDE_PATH}">AI解説</a> ・ <a href="${LEARNING_PATH}">Learning</a></p>
     <p><a href="${ABOUT_URL}">運営者情報</a> ・ <a href="${CONTACT_URL}">お問い合わせ</a> ・ <a href="${PRIVACY_URL}">プライバシーポリシー</a> ・ <a href="${X_URL}" target="_blank" rel="noopener">X（${X_HANDLE}）</a></p>
     <p>&copy; ${new Date().getFullYear()} ${escapeHtml(CONFIG.siteName)}</p>
   </div>
@@ -2083,6 +2255,18 @@ function renderRelatedHtml(article, allArticles) {
   </nav>`;
 }
 
+function renderLearningBridge() {
+  return `
+  <aside class="path-cta" aria-label="次の学び">
+    <span class="path-cta-kicker">Next step</span>
+    <div>
+      <h2>知ったことを、使える力に変える</h2>
+      <p>AIの仕組みや使い分けを理解したら、Petrichor Learningの「生成AI 実践コース」で手を動かして学べます。</p>
+    </div>
+    <a href="${LEARNING_COURSE_PATH}">生成AI 実践コースへ <span aria-hidden="true">→</span></a>
+  </aside>`;
+}
+
 function renderArticlePage(article, allArticles = []) {
   const url = articleUrl(article.slug);
   const tagsHtml = article.tags.length
@@ -2091,7 +2275,7 @@ function renderArticlePage(article, allArticles = []) {
         .join("")
     : "";
   const body = `
-<main>
+<main id="main">
   <article>
     <h1>${escapeHtml(article.title)}</h1>
     <div class="article-meta">
@@ -2103,6 +2287,7 @@ function renderArticlePage(article, allArticles = []) {
     <div class="eyecatch-hero">${article.eyecatchSvg}</div>
     ${article.bodyHtml}
   </article>
+${renderLearningBridge()}
 ${renderRelatedHtml(article, allArticles)}
 </main>`;
 
@@ -2297,6 +2482,45 @@ const ARTICLE_SEARCH_SCRIPT = `
 })();
 </script>`;
 
+function renderPetrichorJourney() {
+  return `
+<section class="journey-band" aria-labelledby="journey-title">
+  <div class="journey-inner">
+    <div class="journey-head">
+      <p class="journey-kicker">Petrichor Path</p>
+      <h2 id="journey-title">選ぶ。理解する。身につける。</h2>
+      <p>暮らしの選択からAIの理解、実践学習までを、ひとつのドメインでつなぎます。</p>
+    </div>
+    <ol class="journey-steps">
+      <li>
+        <a href="${SHOPPING_PATH}">
+          <span class="journey-no">01</span>
+          <span class="journey-label">選ぶ</span>
+          <strong>Shopping</strong>
+          <small>条件と違いを整理する</small>
+        </a>
+      </li>
+      <li class="is-current">
+        <a href="${AI_GUIDE_PATH}" aria-current="page">
+          <span class="journey-no">02</span>
+          <span class="journey-label">理解する</span>
+          <strong>AI解説</strong>
+          <small>仕組みと使い分けを知る</small>
+        </a>
+      </li>
+      <li>
+        <a href="${LEARNING_PATH}">
+          <span class="journey-no">03</span>
+          <span class="journey-label">身につける</span>
+          <strong>Learning</strong>
+          <small>講座で手を動かして学ぶ</small>
+        </a>
+      </li>
+    </ol>
+  </div>
+</section>`;
+}
+
 // トップに置くツール帯。記事より先に、使えるものがあることを見せる。
 // トップは記事一覧が主役なので、ツールは名前だけ並べて専用ページ(/tools/)へ送る。
 // カード全展開は /tools/ 側にあり、トップに置くと重複するため。
@@ -2330,8 +2554,8 @@ function renderBlogIndex(pageArticles, { totalCount, page = 1, totalPages = 1 } 
     <p class="hero-actions"><a class="hero-btn" href="${SHINDAN_URL}">どれを使うか迷ったら → AIツール診断</a><a class="hero-btn" href="${X_URL}" target="_blank" rel="noopener">Xやってます → ${X_HANDLE}</a></p>
   </section>
 </div>
-${page === 1 ? renderToolsBand() : ""}
-<main class="wide">
+${page === 1 ? `${renderPetrichorJourney()}${renderToolsBand()}` : ""}
+<main id="main" class="wide">
   <h2 class="section-head">新着記事</h2>
   <p class="section-en">Latest</p>
   ${renderSearchBoxHtml()}
@@ -2372,6 +2596,12 @@ const CATEGORY_EN = {
 
 const SHINDAN_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/shindan/`;
 const TOOLS_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/tools/`;
+const SHOPPING_URL = `${CONFIG.baseUrl}/shopping/`;
+const LEARNING_URL = `${CONFIG.baseUrl}/learning/`;
+const AI_GUIDE_PATH = "/";
+const SHOPPING_PATH = "/shopping/";
+const LEARNING_PATH = "/learning/";
+const LEARNING_COURSE_PATH = "/learning/course/";
 const toolUrl = (slug) => `${TOOLS_URL}${slug}/`;
 const PRIVACY_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/privacy/`;
 const ABOUT_URL = `${CONFIG.baseUrl}${CONFIG.blogPath}/about/`;
@@ -2382,7 +2612,7 @@ const X_URL = "https://x.com/petrichot_ai";
 
 function renderPrivacyPage() {
   const body = `
-<main>
+<main id="main">
   <article class="policy-page">
     <h1>プライバシーポリシー</h1>
     <p>${escapeHtml(CONFIG.siteName)}（以下「当サイト」）における、個人情報および利用者情報の取り扱いについて説明します。</p>
@@ -2435,7 +2665,7 @@ function renderPrivacyPage() {
 
 function renderAboutPage() {
   const body = `
-<main>
+<main id="main">
   <article class="policy-page">
     <h1>運営者情報</h1>
 
@@ -2477,7 +2707,7 @@ function renderAboutPage() {
 
 function renderContactPage() {
   const body = `
-<main>
+<main id="main">
   <article class="policy-page">
     <h1>お問い合わせ</h1>
     <p>記事の内容に関するご指摘、掲載しているサービスに関するお問い合わせ、その他ご意見がありましたら、以下のメールアドレスまでご連絡ください。</p>
@@ -2507,7 +2737,7 @@ function renderContactPage() {
 
 function render404Page() {
   const body = `
-<main>
+<main id="main">
   <article class="policy-page" style="text-align:center; padding-top: 3rem;">
     <h1>ページが見つかりませんでした</h1>
     <p>お探しのページは移動したか、削除された可能性があります。URLが正しいかご確認いただくか、以下からお探しください。</p>
@@ -2556,7 +2786,7 @@ function renderShindanPage() {
   const payload = JSON.stringify({ questions: data.questions, tools, links }).replace(/</g, "\\u003c");
 
   const body = `
-<main>
+<main id="main">
   <section class="hero hero-sub">
     <h1>${escapeHtml(data.title)}</h1>
     <p class="hero-en">Find Your Tool</p>
@@ -2795,7 +3025,7 @@ function renderShindanPage() {
 function renderToolPage(tool) {
   const others = TOOLS.filter((t) => t.slug !== tool.slug);
   const body = `
-<main class="wide">
+<main id="main" class="wide">
   <section class="hero hero-sub">
     <h1>${escapeHtml(tool.title)}</h1>
     <p class="hero-lead">${escapeHtml(tool.lead)}</p>
@@ -2832,7 +3062,7 @@ function renderToolPage(tool) {
 
 function renderToolsIndex() {
   const body = `
-<main class="wide">
+<main id="main" class="wide">
   <section class="hero hero-sub">
     <h1>ツール</h1>
     <p class="hero-lead">読むだけで終わらせず、その場で判断できるように作った道具です。入力はすべてブラウザ内で処理され、送信されません。</p>
@@ -2887,7 +3117,7 @@ function renderTaxonomyPage({
 }) {
   const pagerBase = baseUrl || canonical;
   const body = `
-<main class="wide">
+<main id="main" class="wide">
   <section class="hero hero-sub">
     <h1>${escapeHtml(heading)}</h1>
     ${enLabel ? `<p class="hero-en">${escapeHtml(enLabel)}</p>` : ""}
@@ -2972,6 +3202,8 @@ function renderSitemap(articles, tagNames, categoryNames, pagedUrls = []) {
     ...(BLOG_INDEX_URL !== SITE_ROOT_URL ? [{ loc: BLOG_INDEX_URL }] : []),
     { loc: SHINDAN_URL },
     { loc: TOOLS_URL },
+    { loc: SHOPPING_URL },
+    { loc: LEARNING_URL },
     ...TOOLS.map((t) => ({ loc: toolUrl(t.slug) })),
     { loc: PRIVACY_URL },
     { loc: ABOUT_URL },
@@ -3006,6 +3238,8 @@ function renderRobots() {
 Allow: /
 
 Sitemap: ${CONFIG.baseUrl}/sitemap.xml
+Sitemap: ${CONFIG.baseUrl}/shopping/sitemap.xml
+Sitemap: ${CONFIG.baseUrl}/learning/sitemap.xml
 `;
 }
 

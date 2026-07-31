@@ -1,6 +1,6 @@
 # AIツールの透視図 — 運営ルール
 
-日本語のAIツール紹介+学生向けAIリテラシーのブログ。GitHub Pagesで公開。
+日本語のAIツール紹介+学生向けAIリテラシーを中心に、買い物比較と実践学習を同一ドメインでつなぐPetrichorのメディア。GitHub Pagesで公開。
 公開URL: https://petrichot.com/
 
 ## 構成
@@ -9,7 +9,12 @@
 - `affiliate/links.json` — アフィリエイトリンク台帳(`{{aff:ID}}`で記事から参照)
 - `affiliate/build.mjs` — 依存ゼロのSSG。`node affiliate/build.mjs` で `dist/` に全ページ生成
 - `affiliate/static/` — OGP画像などの静的ファイル(dist/static/へコピーされる)
+- `shopping/` — 楽天市場向けの買い物比較セクション。`/shopping/`へ生成
+- `learning/` — ペトリコール・ラーニングの記事・講座。`/learning/`へ生成
+- `.codex/agents/` — 楽天リサーチ、商品確認、比較執筆、編集の4担当
 - `.github/workflows/deploy-pages.yml` — mainへのpushでビルド→gh-pagesブランチへデプロイ
+
+ビルド順は `affiliate` → `learning` → `shopping`。最初のビルドが`dist/`を初期化し、後ろ2つが各サブディレクトリへ追記する。
 
 ## オーケストレーション(必須)
 
