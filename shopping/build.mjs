@@ -1134,6 +1134,29 @@ await mkdir(articleOutput, { recursive: true });
 await writeFile(path.join(outputRoot, "index.html"), hubHtml, "utf8");
 await writeFile(path.join(articleOutput, "index.html"), articleHtml, "utf8");
 
+// robots.txt が /shopping/sitemap.xml を指しているので、必ずここで生成する。
+// 記事を追加したらこの配列に足すこと(足し忘れは check.mjs が検出する)。
+const sitemapEntries = [
+  { loc: hubCanonical, priority: "0.9" },
+  { loc: articleCanonical, priority: "0.8" }
+];
+const lastmod = new Date().toISOString().slice(0, 10);
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapEntries
+  .map(
+    (e) => `  <url>
+    <loc>${e.loc}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <priority>${e.priority}</priority>
+  </url>`
+  )
+  .join("\n")}
+</urlset>
+`;
+await writeFile(path.join(outputRoot, "sitemap.xml"), sitemapXml, "utf8");
+
 console.log("Petrichor Shopping built:");
 console.log(`- ${path.join(outputRoot, "index.html")}`);
 console.log(`- ${path.join(articleOutput, "index.html")}`);
+console.log(`- ${path.join(outputRoot, "sitemap.xml")} (${sitemapEntries.length} URLs)`);

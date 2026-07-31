@@ -57,4 +57,30 @@ for (const file of files) {
   checked += 1;
 }
 
-console.log(`Petrichor Shopping check passed: ${checked} pages`);
+// robots.txt が /shopping/sitemap.xml を指しているため、存在しないと404を晒すことになる。
+// 生成ページ数とサイトマップの件数が一致しないと、記事の登録漏れに気づけないので突き合わせる。
+const sitemapPath = path.join(outputRoot, "sitemap.xml");
+let sitemapXml;
+try {
+  sitemapXml = await readFile(sitemapPath, "utf8");
+} catch {
+  throw new Error(
+    `${sitemapPath}: sitemap.xml がありません。robots.txt が参照しているため404になります。`
+  );
+}
+const locs = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+if (locs.length !== checked) {
+  throw new Error(
+    `${sitemapPath}: 登録URLが${locs.length}件で、生成ページ${checked}件と一致しません。記事追加時はbuild.mjsのsitemapEntriesにも追加してください。`
+  );
+}
+for (const required of [
+  "https://petrichot.com/shopping/",
+  "https://petrichot.com/shopping/carry-on-suitcase-1-3-nights/"
+]) {
+  if (!locs.includes(required)) {
+    throw new Error(`${sitemapPath}: ${required} が登録されていません。`);
+  }
+}
+
+console.log(`Petrichor Shopping check passed: ${checked} pages, sitemap ${locs.length} URLs`);
