@@ -1,10 +1,12 @@
-import { readFile, mkdir, writeFile } from "node:fs/promises";
+import { cp, readFile, mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(here, "..");
 const outputRoot = path.join(projectRoot, "dist", "shopping");
+const staticSource = path.join(here, "static");
+const staticOutput = path.join(projectRoot, "dist", "static", "shopping");
 const siteUrl = "https://petrichot.com";
 const shoppingPath = "/shopping/";
 const articlePath = "/shopping/carry-on-suitcase-1-3-nights/";
@@ -380,6 +382,39 @@ h1 {
   overflow: hidden;
   box-shadow: var(--shadow);
 }
+.editorial-figure {
+  margin: 0;
+  background: #fff;
+}
+.editorial-figure picture,
+.editorial-figure img {
+  display: block;
+  width: 100%;
+}
+.editorial-figure img {
+  height: auto;
+  object-fit: cover;
+}
+.editorial-figure figcaption {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.65;
+}
+.feature-visual {
+  grid-column: 1 / -1;
+  border-bottom: 1px solid var(--line);
+}
+.feature-visual img { aspect-ratio: 16 / 10; }
+.article-visual {
+  margin: 2rem 0 2.5rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.article-visual img { aspect-ratio: 3 / 2; }
 .feature-copy { padding: clamp(1.5rem, 4vw, 3rem); }
 .feature-copy h3 { margin: 0; font-size: clamp(1.45rem, 3vw, 2.25rem); }
 .feature-copy p { color: var(--muted); }
@@ -757,6 +792,14 @@ const hubBody = `
           <a class="text-link" href="${articlePath}">記事を読む →</a>
         </div>
         <article class="feature">
+          <figure class="editorial-figure feature-visual">
+            <picture>
+              <source type="image/avif" srcset="/static/shopping/shopping-compare-hero-640.avif 640w, /static/shopping/shopping-compare-hero-960.avif 960w, /static/shopping/shopping-compare-hero-1600.avif 1600w" sizes="(max-width: 760px) calc(100vw - 2rem), 1200px">
+              <source type="image/webp" srcset="/static/shopping/shopping-compare-hero-640.webp 640w, /static/shopping/shopping-compare-hero-960.webp 960w, /static/shopping/shopping-compare-hero-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 2rem), 1200px">
+              <img class="editorial-image" src="/static/shopping/shopping-compare-hero-1600.webp" alt="チェックリストと無地のスーツケースで、確認・比較・判断の流れを表したイメージ図" width="1600" height="1000" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>比較のための一般的なイメージ図です。特定の商品・順位を示すものではありません。</figcaption>
+          </figure>
           <div class="feature-copy">
             <div class="meta-row">
               <span class="tag">1〜3泊</span>
@@ -930,6 +973,15 @@ const articleBody = `
           <strong>このガイドの役割</strong>
           <p>特定の航空会社に共通する上限値を断定するものではありません。搭乗前には、利用する航空会社の公式サイトで最新情報を確認してください。</p>
         </aside>
+
+        <figure class="editorial-figure article-visual">
+          <picture>
+            <source type="image/avif" srcset="/static/shopping/carry-on-measurement-guide-640.avif 640w, /static/shopping/carry-on-measurement-guide-960.avif 960w, /static/shopping/carry-on-measurement-guide-1200.avif 1200w" sizes="(max-width: 760px) calc(100vw - 2rem), 760px">
+            <source type="image/webp" srcset="/static/shopping/carry-on-measurement-guide-640.webp 640w, /static/shopping/carry-on-measurement-guide-960.webp 960w, /static/shopping/carry-on-measurement-guide-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 2rem), 760px">
+            <img class="editorial-image" src="/static/shopping/carry-on-measurement-guide-1200.webp" alt="一般的なスーツケースの外寸測定位置と、通常時・拡張時を分けて確認する方法のイメージ図" width="1200" height="800" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>イメージ図。外寸はキャスター・ハンドルを含むか、拡張前後で変わるかを確認し、利用便の公式条件と照合してください。</figcaption>
+        </figure>
 
         <h2 id="axes">迷いを減らす4つの比較軸</h2>
         <h3>1. 外寸は「移動時の状態」で見る</h3>
@@ -1129,6 +1181,9 @@ const articleHtml = shell({
 });
 
 const articleOutput = path.join(outputRoot, "carry-on-suitcase-1-3-nights");
+await rm(staticOutput, { recursive: true, force: true });
+await mkdir(path.dirname(staticOutput), { recursive: true });
+await cp(staticSource, staticOutput, { recursive: true });
 await mkdir(outputRoot, { recursive: true });
 await mkdir(articleOutput, { recursive: true });
 await writeFile(path.join(outputRoot, "index.html"), hubHtml, "utf8");
