@@ -3,7 +3,7 @@ title: AIはなぜもっともらしい嘘をつくのか
 description: AIが自信を持って誤った情報を答える理由と、その仕組み。ハルシネーション現象を中高生向けにやさしく解説し、信頼できる活用法を提案します。
 slug: ai-hallucination-naze
 date: 2026-07-25
-updated: 2026-07-27
+updated: 2026-08-01
 category: AIをはじめて学ぶ
 tags: [ハルシネーション, AIの仕組み, リテラシー, 注意点]
 ---
@@ -124,7 +124,7 @@ AIは非常に便利なツールですが、「便利 = 絶対正確」ではあ
 
 ## 参考リンク
 
-- [IPA(情報処理推進機構)](https://www.ipa.go.jp/)
+- [IPA（情報処理推進機構）](https://www.ipa.go.jp/)
 - [文部科学省](https://www.mext.go.jp/)
 - [Perplexity 公式サイト](https://www.perplexity.ai/)
 - [Anthropic 公式サイト](https://www.anthropic.com/)
