@@ -3,7 +3,7 @@ title: Google Geminiの活用術|Googleサービスとの連携で仕事効率�
 description: Google GeminiをGmail・ドキュメント・スプレッドシートと連携させる活用術を紹介。Googleサービスをすでに使っている方向けの効率化テクニックを実例付きで解説します。
 slug: gemini-katsuyou-jutsu
 date: 2026-07-17
-updated: 2026-07-27
+updated: 2026-08-01
 category: ツール比較
 tags: [Gemini, Google, AI, 業務効率化, 生産性向上]
 ---
@@ -48,7 +48,9 @@ Google DocsやGoogle Sheetsの中でGeminiを直接呼び出す機能は、文�
 - 会議の参加者をスプレッドシートに整理する際、Geminiに事前質問リストを作成させる
 - 会議終了後、議事録をドキュメントに貼り付けて、Geminiに要点のまとめと次回アクション項目を抽出させる
 
-会議そのものの時間は変わりませんが、**その前後にかかっていた作業**は減らせる部分があります。どれだけ減るかは会議の性質と人数によるため、自分の職場で1か月試して測るのが確実です。議事録作成を自動化したい場合は[AI議事録・メモ術](https://petrichot.com/ai-gijiroku-memo-jutsu/)も参考にしてください。
+会議そのものの時間は変わりませんが、**その前後にかかっていた作業**は減らせる部分があります。減り方は会議の性質と人数次第なので、実際に1か月試して測るのが確実です。音声を自動で文字起こし・要約するNotta Memoと組み合わせれば、貼り付ける手間も省けます。議事録自動化は[AI議事録・メモ術](https://petrichot.com/ai-gijiroku-memo-jutsu/)も参考にしてください。
+
+{{aff:notta-memo}}
 
 {{aff:gemini}}
 

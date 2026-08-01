@@ -33,7 +33,9 @@ Midjourneyを使うには、まずDiscordアカウントが必要です。
 - クレジットカード（有料プラン利用時）
 - インターネット接続環境
 
-Discordを持っていない人は、まずDiscordの公式サイトで無料登録をしましょう。
+Discordを持っていない人は、まずDiscordの公式サイトで無料登録をしましょう。Discordの設定が手間に感じる場合は、ブラウザだけで完結するConoHa AI Canvasのような画像生成サービスから試してみるのも一つの方法です。
+
+{{aff:conoha-ai-canvas}}
 
 {{aff:midjourney}}
 
