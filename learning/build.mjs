@@ -1824,10 +1824,30 @@ const COURSE_PATH = "/learning/course/";
 const lessonUrl = (slug) => `${COURSE_URL}${slug}/`;
 const lessonPath = (slug) => `${COURSE_PATH}${slug}/`;
 
-function loadCourse() {
-  const meta = readJson(path.join(LEARNING_DIR, "course.json"), null);
+// 複数講座に対応させるための定義一覧。1本目(既存)は dirName: "course" のまま
+// 固定し、URL・進捗保存キーが従来と1バイトも変わらないようにする。
+// 2本目以降は json または教材ディレクトリが無ければ loadCourse() が null を
+// 返し、build() 側で黙ってスキップする。
+const COURSE_DEFS = [
+  { jsonFile: "course.json", dirName: "course", storageKey: "pl-course-done" },
+  { jsonFile: "course-chukosei.json", dirName: "course-chukosei", storageKey: "pl-course-done-chukosei" },
+];
+
+function courseUrls(def) {
+  const courseUrl = `${CONFIG.baseUrl}${CONFIG.blogPath}/${def.dirName}/`;
+  const coursePath = `/learning/${def.dirName}/`;
+  return {
+    courseUrl,
+    coursePath,
+    lessonUrl: (slug) => `${courseUrl}${slug}/`,
+    lessonPath: (slug) => `${coursePath}${slug}/`,
+  };
+}
+
+function loadCourse(def) {
+  const meta = readJson(path.join(LEARNING_DIR, def.jsonFile), null);
   if (!meta) return null;
-  const dir = path.join(LEARNING_DIR, "course");
+  const dir = path.join(LEARNING_DIR, def.dirName);
   if (!fs.existsSync(dir)) return null;
 
   const lessons = new Map();
@@ -1843,16 +1863,16 @@ function loadCourse() {
     });
   }
 
-  // course.json の並び順を正とし、全体を1本の連番に展開する。
+  // json の並び順を正とし、全体を1本の連番に展開する。
   const ordered = [];
   for (const ch of meta.chapters) {
     for (const slug of ch.lessons) {
       const lesson = lessons.get(slug);
-      if (!lesson) throw new Error(`course.json が存在しない教材を参照しています: ${slug}`);
+      if (!lesson) throw new Error(`${def.jsonFile} が存在しない教材を参照しています: ${slug}`);
       ordered.push({ ...lesson, chapter: ch });
     }
   }
-  return { meta, ordered };
+  return { def, meta, ordered, storageKey: def.storageKey, ...courseUrls(def) };
 }
 
 // 完了数に応じた称号。全回数に対する割合で決めるので、
@@ -1866,9 +1886,12 @@ const COURSE_RANKS = [
 ];
 
 // 進捗はlocalStorageに保存する。アカウント不要で、静的サイトのまま完結する。
-const COURSE_PROGRESS_JS = `
+// 保存キーは講座ごとに独立させる(courseStorageKey)ので、1本目の進捗が
+// 2本目に混ざることはない。1本目のキーは従来どおり "pl-course-done" 固定。
+function courseProgressJs(storageKey) {
+  return `
 (function () {
-  var KEY = "pl-course-done";
+  var KEY = ${JSON.stringify(storageKey)};
   window.plCourse = {
     read: function () {
       try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
@@ -1879,6 +1902,7 @@ const COURSE_PROGRESS_JS = `
   };
 })();
 `;
+}
 
 function renderCourseIndex(course) {
   const { meta, ordered } = course;
@@ -1890,7 +1914,7 @@ function renderCourseIndex(course) {
           const n = ordered.indexOf(l) + 1;
           return `
         <li class="cs-item" data-slug="${escapeHtml(slug)}">
-          <a href="${lessonPath(slug)}">
+          <a href="${course.lessonPath(slug)}">
             <span class="cs-n">${n}</span>
             <span class="cs-body">
               <span class="cs-title">${escapeHtml(l.title)}</span>
@@ -1925,7 +1949,7 @@ function renderCourseIndex(course) {
     <div class="cs-bar"><div class="cs-bar-fill" id="cs-bar-fill"></div></div>
     <p class="cs-progress-text" id="cs-progress-text"></p>
     <p class="cs-next-rank" id="cs-next-rank"></p>
-    <a class="cs-start" id="cs-start" href="${lessonPath(ordered[0].slug)}">最初のレッスンを始める →</a>
+    <a class="cs-start" id="cs-start" href="${course.lessonPath(ordered[0].slug)}">最初のレッスンを始める →</a>
     <button type="button" class="cs-reset" id="cs-reset">進捗を消す</button>
   </div>
 
@@ -1935,7 +1959,7 @@ function renderCourseIndex(course) {
 </main>`;
 
   const extraJs = `
-${COURSE_PROGRESS_JS}
+${courseProgressJs(course.storageKey)}
 (function () {
   var done = window.plCourse.read();
   var items = document.querySelectorAll(".cs-item");
@@ -1962,10 +1986,10 @@ ${COURSE_PROGRESS_JS}
   var start = document.getElementById("cs-start");
   var firstTodo = Array.prototype.find.call(items, function (li) { return !done[li.dataset.slug]; });
   if (firstTodo && n > 0) {
-    start.href = ${JSON.stringify(COURSE_PATH)} + firstTodo.dataset.slug + "/";
+    start.href = ${JSON.stringify(course.coursePath)} + firstTodo.dataset.slug + "/";
     start.textContent = "続きから学ぶ →";
   } else if (!firstTodo && items.length) {
-    start.href = ${JSON.stringify(COURSE_PATH)} + items[0].dataset.slug + "/";
+    start.href = ${JSON.stringify(course.coursePath)} + items[0].dataset.slug + "/";
     start.textContent = "最初から見直す →";
   }
 
@@ -1980,7 +2004,7 @@ ${COURSE_PROGRESS_JS}
   return pageShell({
     title: meta.title,
     description: meta.lead.slice(0, 120),
-    canonical: COURSE_URL,
+    canonical: course.courseUrl,
     ogType: "website",
     bodyHtml: body + `\n<script>${extraJs}</script>`,
     jsonLd: { "@context": "https://schema.org", "@type": "Course", name: meta.title, description: meta.lead, provider: { "@type": "Organization", name: CONFIG.siteName } },
@@ -1988,20 +2012,20 @@ ${COURSE_PROGRESS_JS}
   });
 }
 
-function renderLessonPage(lesson, index, ordered) {
+function renderLessonPage(lesson, index, ordered, course) {
   const prev = index > 0 ? ordered[index - 1] : null;
   const next = index < ordered.length - 1 ? ordered[index + 1] : null;
 
   const nav = `
   <nav class="ls-nav">
-    ${prev ? `<a class="ls-prev" href="${lessonPath(prev.slug)}">← ${escapeHtml(prev.title)}</a>` : `<a class="ls-prev" href="${COURSE_PATH}">← コース目次</a>`}
-    ${next ? `<a class="ls-next" href="${lessonPath(next.slug)}">${escapeHtml(next.title)} →</a>` : `<a class="ls-next" href="${COURSE_PATH}">コース目次へ戻る →</a>`}
+    ${prev ? `<a class="ls-prev" href="${course.lessonPath(prev.slug)}">← ${escapeHtml(prev.title)}</a>` : `<a class="ls-prev" href="${course.coursePath}">← コース目次</a>`}
+    ${next ? `<a class="ls-next" href="${course.lessonPath(next.slug)}">${escapeHtml(next.title)} →</a>` : `<a class="ls-next" href="${course.coursePath}">コース目次へ戻る →</a>`}
   </nav>`;
 
   const body = `
 <main id="main">
   <article class="lesson">
-    <p class="ls-crumb"><a href="${COURSE_PATH}">${escapeHtml(lesson.chapter.title)}</a></p>
+    <p class="ls-crumb"><a href="${course.coursePath}">${escapeHtml(lesson.chapter.title)}</a></p>
     <h1>${escapeHtml(lesson.title)}</h1>
     <p class="ls-meta">第${index + 1}回 / 全${ordered.length}回　約${lesson.minutes}分</p>
     ${lesson.bodyHtml}
@@ -2015,7 +2039,7 @@ function renderLessonPage(lesson, index, ordered) {
 </main>`;
 
   const extraJs = `
-${COURSE_PROGRESS_JS}
+${courseProgressJs(course.storageKey)}
 (function () {
   var SLUG = ${JSON.stringify(lesson.slug)};
   var btn = document.getElementById("ls-done");
@@ -2069,10 +2093,10 @@ ${COURSE_PROGRESS_JS}
   return pageShell({
     title: lesson.title,
     description: `${lesson.chapter.title}の第${index + 1}回。${lesson.title}について、確認問題つきで解説します。`,
-    canonical: lessonUrl(lesson.slug),
+    canonical: course.lessonUrl(lesson.slug),
     ogType: "article",
     bodyHtml: body + `\n<script>${extraJs}</script>`,
-    jsonLd: { "@context": "https://schema.org", "@type": "LearningResource", name: lesson.title, url: lessonUrl(lesson.slug), isPartOf: { "@type": "Course", name: "生成AI 実践コース", url: COURSE_URL } },
+    jsonLd: { "@context": "https://schema.org", "@type": "LearningResource", name: lesson.title, url: course.lessonUrl(lesson.slug), isPartOf: { "@type": "Course", name: course.meta.title, url: course.courseUrl } },
     showDisclosure: lesson.bodyHtml.includes("aff-btn"),
   });
 }
@@ -2308,7 +2332,46 @@ function renderArticlePage(article) {
   });
 }
 
-function renderBlogIndex(articles) {
+function renderBlogIndex(articles, courses) {
+  // 講座が2本以上あるときだけ、両方へ辿れるカード一覧に切り替える。
+  // 1本しかない(または0本の)ときは既存の見た目を1バイトも変えない。
+  const heroSecondary =
+    courses.length > 1
+      ? `
+      <div class="learning-actions">
+        <a class="learning-button learning-button-primary" href="${COURSE_PATH}">無料講座を始める</a>
+        <a class="learning-button" href="#articles">${articles.length}本の記事から読む</a>
+      </div>
+    </div>
+    ${courses
+      .map(
+        (c, i) => `<aside class="learning-course-card" aria-label="講座${i + 1}: ${escapeHtml(c.meta.title)}">
+      <span>COURSE ${String(i + 1).padStart(2, "0")}</span>
+      <strong>${escapeHtml(c.meta.title)}</strong>
+      <p>${escapeHtml(c.meta.lead).slice(0, 60)}${c.meta.lead.length > 60 ? "…" : ""}</p>
+      <a href="${c.coursePath}">この講座を見る →</a>
+    </aside>`
+      )
+      .join("\n    ")}`
+      : `
+      <div class="learning-actions">
+        <a class="learning-button learning-button-primary" href="${COURSE_PATH}">無料講座を始める</a>
+        <a class="learning-button" href="#articles">${articles.length}本の記事から読む</a>
+      </div>
+      <ul class="learning-facts" aria-label="講座の特徴">
+        <li>全10回</li>
+        <li>約74分</li>
+        <li>無料・登録不要</li>
+        <li>進捗は端末内に保存</li>
+      </ul>
+    </div>
+    <aside class="learning-course-card" aria-label="おすすめの開始地点">
+      <span>COURSE 01</span>
+      <strong>生成AI 実践コース</strong>
+      <p>基礎から実践までを順番に進める、Petrichor Learningの中心講座です。</p>
+      <a href="${lessonPath("seiseiai-wa-nani-wo-shiteiruka")}">第1回から始める →</a>
+    </aside>`;
+
   const items = articles.length
     ? articles
         .map(
@@ -2335,24 +2398,7 @@ function renderBlogIndex(articles) {
     <div>
       <p class="learning-kicker">Petrichor Learning</p>
       <h1 id="learning-title">生成AIを、仕事と学びで使える力に。</h1>
-      <p class="learning-hero-lead">仕組みを知るだけで終わらず、指示・確認・仕事への組み込みまで手を動かして身につけます。</p>
-      <div class="learning-actions">
-        <a class="learning-button learning-button-primary" href="${COURSE_PATH}">無料講座を始める</a>
-        <a class="learning-button" href="#articles">${articles.length}本の記事から読む</a>
-      </div>
-      <ul class="learning-facts" aria-label="講座の特徴">
-        <li>全10回</li>
-        <li>約74分</li>
-        <li>無料・登録不要</li>
-        <li>進捗は端末内に保存</li>
-      </ul>
-    </div>
-    <aside class="learning-course-card" aria-label="おすすめの開始地点">
-      <span>COURSE 01</span>
-      <strong>生成AI 実践コース</strong>
-      <p>基礎から実践までを順番に進める、Petrichor Learningの中心講座です。</p>
-      <a href="${lessonPath("seiseiai-wa-nani-wo-shiteiruka")}">第1回から始める →</a>
-    </aside>
+      <p class="learning-hero-lead">仕組みを知るだけで終わらず、指示・確認・仕事への組み込みまで手を動かして身につけます。</p>${heroSecondary}
   </section>
 
   <section class="learning-articles" id="articles" aria-labelledby="articles-title">
@@ -2434,20 +2480,23 @@ ${items}
 `;
 }
 
-function courseUrlsForSitemap() {
-  const course = loadCourse();
-  if (!course) return [];
-  return [{ loc: COURSE_URL }, ...course.ordered.map((l) => ({ loc: lessonUrl(l.slug) }))];
+function courseUrlsForSitemap(courses) {
+  const urls = [];
+  for (const course of courses) {
+    urls.push({ loc: course.courseUrl });
+    for (const l of course.ordered) urls.push({ loc: course.lessonUrl(l.slug) });
+  }
+  return urls;
 }
 
-function renderSitemap(articles) {
+function renderSitemap(articles, courses) {
   const urls = [
     { loc: SITE_ROOT_URL },
     ...(BLOG_INDEX_URL !== SITE_ROOT_URL ? [{ loc: BLOG_INDEX_URL }] : []),
     { loc: PRIVACY_URL },
     { loc: ABOUT_URL },
     { loc: CONTACT_URL },
-    ...(courseUrlsForSitemap() || []),
+    ...courseUrlsForSitemap(courses),
     ...articles.map((a) => ({ loc: articleUrl(a.slug), lastmod: a.date })),
   ];
   const entries = urls
@@ -2495,18 +2544,21 @@ function build() {
     writeFile(outPath, renderArticlePage(article));
   }
 
-  writeFile(path.join(BLOG_OUT_DIR, "index.html"), renderBlogIndex(articles));
+  // 2本目以降は json またはディレクトリが無ければ loadCourse() が null を返す
+  // ので、そのまま黙ってスキップする(.filter(Boolean))。
+  const courses = COURSE_DEFS.map((def) => loadCourse(def)).filter(Boolean);
 
-  const course = loadCourse();
-  if (course) {
-    writeFile(path.join(BLOG_OUT_DIR, "course", "index.html"), renderCourseIndex(course));
+  writeFile(path.join(BLOG_OUT_DIR, "index.html"), renderBlogIndex(articles, courses));
+
+  for (const course of courses) {
+    writeFile(path.join(BLOG_OUT_DIR, course.def.dirName, "index.html"), renderCourseIndex(course));
     course.ordered.forEach((lesson, i) => {
       writeFile(
-        path.join(BLOG_OUT_DIR, "course", lesson.slug, "index.html"),
-        renderLessonPage(lesson, i, course.ordered),
+        path.join(BLOG_OUT_DIR, course.def.dirName, lesson.slug, "index.html"),
+        renderLessonPage(lesson, i, course.ordered, course),
       );
     });
-    console.log(`[build] course: ${course.ordered.length} lesson(s)`);
+    console.log(`[build] course (${course.def.dirName}): ${course.ordered.length} lesson(s)`);
   }
 
   const policy = renderPolicyPages();
@@ -2516,7 +2568,7 @@ function build() {
   writeFile(path.join(LEARNING_OUT_DIR, "404.html"), render404Page());
 
   writeFile(path.join(BLOG_OUT_DIR, "feed.xml"), renderFeed(articles));
-  writeFile(path.join(LEARNING_OUT_DIR, "sitemap.xml"), renderSitemap(articles));
+  writeFile(path.join(LEARNING_OUT_DIR, "sitemap.xml"), renderSitemap(articles, courses));
   writeFile(path.join(LEARNING_OUT_DIR, "robots.txt"), renderRobots());
   copyStaticFiles();
 
