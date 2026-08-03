@@ -21,6 +21,43 @@ AIツールを選ぶとき、「とりあえず有名だから」で選んでし
 - **画像を生成するAI**：言葉で説明した内容から、イラストや写真風の画像を作る
 - **音声を認識・生成するAI**：話し言葉を文字にしたり、逆に文章を音声にしたりする
 
+図にすると、それぞれの系統が「何を入力すると、何が出てくるか」の違いがわかりやすくなります。
+
+```svg 生成AIの3つの系統（何を入れると、何が出てくるか）
+<svg viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>生成AIの3つの系統</title>
+  <defs>
+    <marker id="dgB1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+  <rect x="8" y="10" width="200" height="200" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="108" y="38" text-anchor="middle" font-size="16" fill="var(--fg)" class="dg-label">文章生成AI</text>
+  <rect x="28" y="56" width="160" height="40" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="108" y="81" text-anchor="middle" font-size="13" fill="var(--fg)">質問・指示（文章）</text>
+  <line x1="108" y1="96" x2="108" y2="126" stroke="var(--muted)" stroke-width="2" marker-end="url(#dgB1)"/>
+  <rect x="28" y="132" width="160" height="40" rx="8" fill="var(--edu-soft)" stroke="var(--edu)" stroke-width="2"/>
+  <text x="108" y="157" text-anchor="middle" font-size="13" fill="var(--fg)">答え・要約（文章）</text>
+  <text x="108" y="196" text-anchor="middle" font-size="12" fill="var(--muted)">例：ChatGPT、Claude</text>
+  <rect x="220" y="10" width="200" height="200" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="320" y="38" text-anchor="middle" font-size="16" fill="var(--fg)" class="dg-label">画像生成AI</text>
+  <rect x="240" y="56" width="160" height="40" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="320" y="81" text-anchor="middle" font-size="13" fill="var(--fg)">ことばでの説明</text>
+  <line x1="320" y1="96" x2="320" y2="126" stroke="var(--muted)" stroke-width="2" marker-end="url(#dgB1)"/>
+  <rect x="240" y="132" width="160" height="40" rx="8" fill="var(--edu-soft)" stroke="var(--edu)" stroke-width="2"/>
+  <text x="320" y="157" text-anchor="middle" font-size="13" fill="var(--fg)">イラスト・画像</text>
+  <text x="320" y="196" text-anchor="middle" font-size="12" fill="var(--muted)">例：画像生成AIツール</text>
+  <rect x="432" y="10" width="200" height="200" rx="12" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="532" y="38" text-anchor="middle" font-size="16" fill="var(--fg)" class="dg-label">音声のAI</text>
+  <rect x="452" y="56" width="160" height="40" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="532" y="81" text-anchor="middle" font-size="13" fill="var(--fg)">話し声／文章</text>
+  <line x1="532" y1="96" x2="532" y2="126" stroke="var(--muted)" stroke-width="2" marker-end="url(#dgB1)"/>
+  <rect x="452" y="132" width="160" height="40" rx="8" fill="var(--edu-soft)" stroke="var(--edu)" stroke-width="2"/>
+  <text x="532" y="157" text-anchor="middle" font-size="13" fill="var(--fg)">文字／音声</text>
+  <text x="532" y="196" text-anchor="middle" font-size="12" fill="var(--muted)">例：文字起こしツール</text>
+</svg>
+```
+
 それぞれ得意なことが違うので、「今やりたいことは、どの系統のAIに頼めばいいのか」を意識できると、ツール選びで迷いにくくなります。ここから一つずつ見ていきましょう。
 
 ## 文章を生成するAI
