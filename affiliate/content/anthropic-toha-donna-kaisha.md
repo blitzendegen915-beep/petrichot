@@ -74,7 +74,7 @@ Claude は、ブラウザからそのまま使えるWeb版（claude.ai）に加�
 
 ## まとめ
 
-Anthropic は2021年、元OpenAI社員たちによってサンフランシスコで設立された会社で、Dario Amodei 氏・Daniela Amodei 氏兄妹を中心に、Jared Kaplan 氏をはじめとする複数の共同創業者によって立ち上げられました。public-benefit corporation という形態を選び、AIの安全性を研究の軸に据えている点が特徴です。解釈可能性の研究やConstitutional AIといった手法を掲げていますが、これらはあくまで会社が目標として掲げている方針です。実際にClaudeを使う際は、こうした背景を踏まえたうえで、出力内容を自分の目で確かめる姿勢を持つとよいでしょう。
+Anthropic は2021年、元OpenAI社員たちによってサンフランシスコで設立された会社で、Dario Amodei 氏・Daniela Amodei 氏兄妹を中心に、Jared Kaplan 氏をはじめとする複数の共同創業者によって立ち上げられました。public-benefit corporation という形態を選び、AIの安全性を研究の軸に据えている点が特徴です。解釈可能性の研究やConstitutional AIといった手法を掲げていますが、これらはあくまで会社が目標として掲げている方針です。主要製品のClaudeも、チャット単体にとどまらず、API・Claude Code・Artifacts・Projects・法人向けプランといった形で利用の幅を広げています。実際にClaudeを使う際は、こうした背景を踏まえたうえで、出力内容を自分の目で確かめる姿勢を持つとよいでしょう。
 
 {{aff:claude}}
 
