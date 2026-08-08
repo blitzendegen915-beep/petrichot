@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="base-uri 'none'; object-src 'none'; form-action 'self'">
+<title>AIツール診断 | AIツールの透視図</title>
+<meta name="description" content="用途を選ぶと、その用途に合わせた質問に進みます。文章作成・議事録・資料作り・画像生成・調べもの・プログラム・事務から、条件に合う候補と、そう判断した理由を示します。">
+<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
+<link rel="icon" href="https://petrichot.com/static/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://petrichot.com/static/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="https://petrichot.com/static/apple-touch-icon.png">
+<link rel="canonical" href="https://petrichot.com/shindan/">
+<meta property="og:title" content="AIツール診断">
+<meta property="og:description" content="用途を選ぶと、その用途に合わせた質問に進みます。文章作成・議事録・資料作り・画像生成・調べもの・プログラム・事務から、条件に合う候補と、そう判断した理由を示します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petrichot.com/shindan/">
+<meta property="og:site_name" content="AIツールの透視図">
+<meta property="og:image" content="https://petrichot.com/static/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AIツール診断">
+<meta name="twitter:description" content="用途を選ぶと、その用途に合わせた質問に進みます。文章作成・議事録・資料作り・画像生成・調べもの・プログラム・事務から、条件に合う候補と、そう判断した理由を示します。">
+<meta name="twitter:image" content="https://petrichot.com/static/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"AIツール診断","url":"https://petrichot.com/shindan/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f0f1f3;
+  --fg: #111318;
+  --muted: #5f646e;
+  --accent: #1a5ce5;
+  --accent-fg: #ffffff;
+  --accent-soft: #e9f0ff;
+  --deep: #10287d;
+  --deep-2: #1b3fbf;
+  --edu: #1a5ce5;
+  --edu-fg: #ffffff;
+  --edu-soft: #e9f0ff;
+  --border: #e1e3e8;
+  --code-bg: #f4f5f7;
+  --banner-bg: #f6f7f9;
+  --banner-fg: #4a4f58;
+  --banner-border: #e1e3e8;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --shadow: 0 12px 34px -18px rgba(17, 19, 24, 0.35);
+  --r: 4px;
+  --measure: 68ch;
+  --wide: 960px;
+  --eye-edu: var(--edu);
+  --eye-edu-soft: var(--edu-soft);
+  --eye-a: #1a5ce5;
+  --eye-a-soft: #e9f0ff;
+  --eye-b: #10287d;
+  --eye-b-soft: #e3eaff;
+  --eye-c: #3f77ff;
+  --eye-c-soft: #eef3ff;
+  --eye-d: #0d3fa8;
+  --eye-d-soft: #e6edff;
+  --eye-e: #5b8fff;
+  --eye-e-soft: #f1f5ff;
+  --font-display: "Space Grotesk", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0c0f;
+    --surface: #13151a;
+    --surface-2: #1a1d24;
+    --fg: #f1f2f5;
+    --muted: #99a0ac;
+    --accent: #5b8fff;
+    --accent-fg: #08132e;
+    --accent-soft: #16244a;
+    --deep: #0d1c4d;
+    --deep-2: #16307f;
+    --edu: #5b8fff;
+    --edu-fg: #08132e;
+    --edu-soft: #16244a;
+    --border: #262a33;
+    --code-bg: #171a20;
+    --banner-bg: #14171d;
+    --banner-fg: #99a0ac;
+    --banner-border: #262a33;
+    --header-bg: rgba(11, 12, 15, 0.88);
+    --shadow: 0 12px 34px -14px rgba(0, 0, 0, 0.7);
+    --eye-a: #5b8fff;
+    --eye-a-soft: #16244a;
+    --eye-b: #7aa5ff;
+    --eye-b-soft: #101c3a;
+    --eye-c: #4d86ff;
+    --eye-c-soft: #14224a;
+    --eye-d: #8fb4ff;
+    --eye-d-soft: #0f1a35;
+    --eye-e: #6d9bff;
+    --eye-e-soft: #131f42;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: #fff; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+img { max-width: 100%; height: auto; display: block; }
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--r);
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header-bg);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.25rem;
+}
+.site-header .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  min-width: 0;
+}
+.brand-mark {
+  flex-shrink: 0;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  object-fit: contain;
+}
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.site-header nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.42rem 0.95rem;
+  border-radius: var(--r);
+  border: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.cat-nav {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.cat-nav .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.55rem 1.25rem;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.cat-nav .inner::-webkit-scrollbar { display: none; }
+.nav-cat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--r);
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.nav-cat:hover { background: var(--surface-2); color: var(--fg); }
+.nav-cat.is-active { background: var(--fg); color: var(--bg); }
+.nav-cat-n {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.disclosure-bar {
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border-bottom: 1px solid var(--banner-border);
+}
+.disclosure-bar .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.45rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+/* 濃紺の全幅ヒーロー。参照サイトと同じく色面に白文字を置く */
+.hero-band {
+  background-image: linear-gradient(135deg, var(--deep) 0%, var(--deep-2) 100%);
+  color: #fff;
+  margin-bottom: 3rem;
+}
+.hero-band .hero {
+  border: none;
+  margin: 0 auto;
+  max-width: var(--wide);
+  padding: 3.4rem 1.25rem 3.6rem;
+}
+.hero-band .hero-lead { color: rgba(255, 255, 255, 0.82); }
+.hero-band .hero-en { color: rgba(255, 255, 255, 0.62); }
+.hero-band .hero-count { color: rgba(255, 255, 255, 0.7); }
+.hero-band .hero-btn { border-color: rgba(255, 255, 255, 0.5); color: #fff; }
+.hero-band .hero-btn:hover, .hero-band .hero-btn:focus-visible {
+  background: #fff;
+  color: var(--deep);
+}
+
+.hero {
+  padding: 2.6rem 0 1.8rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.4rem;
+}
+.hero h1 { margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+.hero-en {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.hero-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.9;
+  max-width: 62ch;
+}
+.hero-count {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.hero-sub { padding-top: 2rem; }
+.hero-actions { margin: 1.3rem 0 0; display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.hero-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.hero-btn:hover, .hero-btn:focus-visible {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.network-link.is-current {
+  color: var(--fg);
+  border-color: var(--border);
+  background: var(--surface);
+}
+.network-link-shopping:hover,
+.network-link-shopping:focus-visible { color: #c94f32 !important; }
+.network-link-learning:hover,
+.network-link-learning:focus-visible { color: var(--edu) !important; }
+
+.journey-band {
+  padding: 0 1.25rem 3.4rem;
+  background: var(--bg);
+}
+.journey-inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.65fr);
+  gap: 2rem;
+  align-items: end;
+}
+.journey-head h2 {
+  margin: 0.2rem 0 0.7rem;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.55rem, 1.3rem + 1vw, 2.15rem);
+}
+.journey-head > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  max-width: 36ch;
+}
+.journey-kicker,
+.path-cta-kicker {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.journey-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.journey-steps li { margin: 0; min-width: 0; }
+.journey-steps li + li { border-left: 1px solid var(--border); }
+.journey-steps a {
+  min-height: 11.5rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--fg);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.journey-steps a:hover,
+.journey-steps a:focus-visible { background: var(--surface-2); }
+.journey-steps .is-current a {
+  background: var(--deep);
+  color: #fff;
+}
+.journey-no {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.is-current .journey-no { color: rgba(255,255,255,0.58); }
+.journey-label {
+  margin-top: auto;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.is-current .journey-label { color: rgba(255,255,255,0.68); }
+.journey-steps strong {
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  line-height: 1.45;
+}
+.journey-steps small {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.is-current small { color: rgba(255,255,255,0.68); }
+
+.path-cta {
+  margin: 3rem 0 0;
+  padding: 1.35rem;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--edu);
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem 1.25rem;
+  align-items: center;
+}
+.path-cta-kicker {
+  writing-mode: vertical-rl;
+  color: var(--edu);
+}
+.path-cta h2 {
+  margin: 0 0 0.25rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.15rem;
+}
+.path-cta p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.path-cta > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--edu);
+  color: var(--edu);
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.path-cta > a:hover,
+.path-cta > a:focus-visible { background: var(--edu); color: #fff; }
+.footer-network span { color: var(--fg); font-weight: 700; }
+
+@media (max-width: 820px) {
+  .journey-inner { grid-template-columns: 1fr; align-items: start; }
+  .journey-head > p:last-child { max-width: 60ch; }
+  .path-cta { grid-template-columns: minmax(0, 1fr); }
+  .path-cta-kicker { writing-mode: initial; }
+  .path-cta > a { justify-self: start; }
+}
+@media (max-width: 620px) {
+  .journey-steps { grid-template-columns: 1fr; }
+  .journey-steps li + li { border-left: 0; border-top: 1px solid var(--border); }
+  .journey-steps a { min-height: 8.5rem; }
+}
+/* 日本語見出し + 小さい青の英字ラベル + 細い罫線(参照サイトの型) */
+.section-head {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0 0 0.3rem;
+  padding: 0;
+  border: none;
+}
+.section-head::before { content: none; }
+.section-en {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 0 0 1rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+.disclosure-badge {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--banner-fg);
+  color: var(--banner-bg);
+  margin-top: 0.1rem;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+main.wide { max-width: var(--wide); }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.15rem);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  margin: 0.6rem 0 1.1rem;
+}
+article { counter-reset: h2count; }
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 2.75rem 0 1.15rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+}
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+}
+p { margin: 0 0 1.15rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+ul > li::marker { color: var(--accent); }
+ol > li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 700; }
+blockquote {
+  position: relative;
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.4rem;
+  border-left: 4px solid var(--edu);
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: 0 var(--r) var(--r) 0;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: var(--r);
+  font-size: 0.9em;
+}
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.4rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.table-wrap th, .table-wrap td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table-wrap td { white-space: normal; min-width: 8em; }
+.table-wrap thead th {
+  background: var(--card-bg);
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+}
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+
+.site-header nav { display: flex; align-items: center; gap: 0.2rem; flex-shrink: 0; }
+.site-header nav a { margin-left: 0; }
+.nav-cta {
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  border-color: var(--accent) !important;
+  white-space: nowrap;
+}
+/* 狭い画面でも3サービス間を移動できるよう、共有リンクを2段目に残す。 */
+@media (max-width: 540px) {
+  .site-header { padding: 0.7rem 1rem; }
+  .site-header .inner { flex-wrap: wrap; gap: 0.5rem; }
+  .site-header .top-nav {
+    order: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.25rem;
+  }
+  .top-nav .nav-link,
+  .top-nav .nav-cta { display: none; }
+  .top-nav .network-link {
+    display: block;
+    padding: 0.38rem 0.3rem;
+    font-size: 0.76rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .brand-text { font-size: 1rem; }
+}
+.nav-cta:hover, .nav-cta:focus-visible {
+  filter: brightness(1.06);
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+}
+
+.sd, .sd-result { scroll-margin-top: 7rem; }
+.sd { max-width: var(--measure); margin: 0 auto; }
+.sd-bar {
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.sd-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+.sd-progress {
+  margin: 0.6rem 0 1.6rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.sd-step { border: none; margin: 0; padding: 0; }
+.sd-q {
+  display: block;
+  padding: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+.sd-num {
+  display: inline-block;
+  margin-right: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.sd-opts { display: grid; gap: 0.6rem; }
+.sd-opt {
+  appearance: none;
+  text-align: left;
+  font: inherit;
+  font-weight: 600;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+}
+.sd-opt:hover, .sd-opt:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.sd-nav { margin-top: 1.6rem; }
+.sd-back, .sd-again {
+  appearance: none;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+.sd-back:hover, .sd-again:hover { color: var(--accent); }
+
+.sd-result { max-width: var(--measure); margin: 0 auto; }
+.sd-result-head {
+  font-size: 1.3rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+  margin: 0 0 1.4rem;
+}
+.sd-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.3rem 1.4rem;
+  margin-bottom: 1.1rem;
+}
+.sd-card.is-top { border-color: var(--accent); box-shadow: var(--shadow); }
+.sd-card h3 { margin: 0.2rem 0 0.6rem; font-size: 1.25rem; }
+.sd-card p { margin: 0 0 0.7rem; }
+.sd-rank {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 !important;
+}
+.sd-card.is-top .sd-rank { color: var(--accent); }
+/* 候補が3つ並ぶので、強いボタンは1件目だけにする */
+.sd-card:not(.is-top) .aff-cta { margin: 1rem 0 0; text-align: left; }
+.sd-card:not(.is-top) .aff-btn {
+  background: none;
+  color: var(--accent) !important;
+  border: 1px solid var(--border);
+  box-shadow: none;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+}
+.sd-card:not(.is-top) .aff-btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+.sd-more { font-size: 0.9rem; }
+.sd-note {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 1.6rem 0;
+}
+.sd-again { margin-top: 0.4rem; }
+
+figure.diagram {
+  margin: 1.8rem 0;
+  padding: 1.1rem 1rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow-x: auto;
+}
+figure.diagram svg {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0 auto;
+}
+figure.diagram figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
+}
+figure.diagram .dg-label { font-weight: 700; }
+figure.diagram text { font-family: inherit; }
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: var(--r);
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+.related {
+  margin: 3.5rem auto 0;
+  max-width: var(--measure);
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+.related h2 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+  padding-left: 0;
+  border-left: none;
+}
+.related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.related a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.related a:hover { border-color: var(--accent); transform: translateY(-1px); }
+.related .related-title { font-weight: 700; line-height: 1.5; }
+.related .related-cat {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+a.chip { cursor: pointer; transition: filter 0.15s ease, transform 0.15s ease; }
+a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
+@media (prefers-color-scheme: dark) {
+  a.chip:hover { filter: brightness(1.2); }
+}
+.chip-tag { border: 1px solid var(--border); color: var(--muted); }
+.chip-cat {
+  font-weight: 700;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.chip-edu, .chip-a, .chip-b, .chip-c, .chip-d, .chip-e {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.article-meta time { font-family: var(--font-display); font-weight: 600; }
+.article-meta .meta-updated { color: var(--accent); }
+
+.eyecatch-hero {
+  width: 100%;
+  height: clamp(120px, 26vw, 220px);
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 0 2.2rem;
+}
+
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.sources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.sources ul { padding-left: 1.3rem; }
+.sources li { margin-bottom: 0.5rem; }
+.sources a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+.sources a:hover, .sources a:focus-visible { color: var(--accent); }
+.sources a[target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.65;
+}
+
+.aff-cta {
+  margin: 2rem 0;
+  text-align: center;
+}
+.aff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 1rem 2.25rem;
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.aff-btn::after { content: "\2192"; transition: transform 0.18s ease; }
+.aff-btn:hover, .aff-btn:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 18px 34px -14px var(--accent);
+}
+.aff-btn:hover::after { transform: translateX(3px); }
+.aff-btn:active { transform: translateY(-1px); }
+
+.article-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 700px) {
+  .article-grid { grid-template-columns: 1fr 1fr; }
+}
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+}
+.article-card:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+/* カード右下に青い丸の矢印(参照サイトのニュース一覧と同じ役割) */
+.card-body { position: relative; }
+.card-arrow {
+  position: absolute;
+  right: 1.15rem;
+  bottom: 1.15rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.article-card:hover .card-arrow,
+.card-link:focus-visible .card-arrow { opacity: 1; transform: none; }
+@media (hover: none) {
+  .card-arrow { opacity: 1; transform: none; }
+}
+.article-card .card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--fg);
+  height: 100%;
+}
+.card-eyecatch {
+  width: 100%;
+  height: 104px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.card-eyecatch .eyecatch-svg,
+.eyecatch-hero .eyecatch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article-card:hover .card-eyecatch .eyecatch-svg { transform: scale(1.03); }
+.card-eyecatch .eyecatch-svg { transition: transform 0.3s ease; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.95rem 1.15rem 1.15rem;
+  flex: 1;
+}
+.article-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.article-card .card-date {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.article-card h2 {
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+  margin: 0.2rem 0 0;
+  line-height: 1.55;
+}
+.article-card h2::before { content: none; }
+.article-card .desc {
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.72;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+/* 記事検索ボックス(一覧の直上)。JS無効時は何も起きず、通常の一覧がそのまま見える */
+.search-box {
+  margin: 0 0 1.5rem;
+}
+.search-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 0.45rem;
+}
+.search-input {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.search-input::placeholder { color: var(--muted); }
+.search-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+.search-status {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2.75rem 0 0;
+}
+.pager-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.pager-btn:hover, .pager-btn:focus-visible {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.pager-btn.is-disabled {
+  border-color: var(--border);
+  color: var(--muted);
+  opacity: 0.5;
+}
+.pager-nums {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.pager-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 0.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--r);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a.pager-num:hover, a.pager-num:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.pager-num.is-current {
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-weight: 700;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding: 2rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.site-footer .inner { max-width: var(--wide); margin: 0 auto; }
+.site-footer p { margin: 0.35rem 0; }
+.site-footer .footer-disclosure {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+}
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--accent); }
+
+.pb {
+  border: 2px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+.pb-head { display: flex; flex-direction: column; gap: 0.2rem; margin-bottom: 1rem; }
+.pb-head strong { font-family: var(--font-display); font-size: 1.02rem; }
+.pb-note { font-size: 0.76rem; color: var(--muted); }
+.pb-presets {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.pb-presets-label { font-size: 0.8rem; color: var(--muted); }
+.pb-preset {
+  font: inherit; font-size: 0.8rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+.pb-preset:hover { background: var(--accent-soft); }
+.pb-grid { display: grid; gap: 0.85rem; }
+@media (min-width: 640px) { .pb-grid { grid-template-columns: 1fr 1fr; } }
+.pb-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.pb-label { font-size: 0.82rem; font-weight: 700; }
+.pb-field textarea {
+  font: inherit; font-size: 0.9rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--bg);
+  color: var(--fg);
+  resize: vertical;
+}
+.pb-field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.pb-out-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 1.15rem 0 0.4rem;
+  font-size: 0.82rem; font-weight: 700;
+}
+.pb-copy {
+  font: inherit; font-size: 0.78rem; font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border: none; border-radius: var(--r);
+  background: var(--accent); color: var(--accent-fg);
+  cursor: pointer;
+}
+.pb-out {
+  white-space: pre-wrap; word-break: break-word;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.pb-out.is-empty { color: var(--muted); }
+
+.policy-page { max-width: 720px; margin: 0 auto; padding: 2rem 0 4rem; }
+.policy-page h1 { margin-bottom: 1.5rem; }
+.policy-page h2 { margin-top: 2.2rem; font-size: 1.15rem; }
+.policy-page p { color: var(--muted); line-height: 1.9; }
+/* 診断結果の理由・注意書き */
+.sd-why, .sd-advice {
+  border: 1px solid var(--border); border-radius: var(--r);
+  padding: 1.1rem 1.25rem; margin-bottom: 1.5rem; background: var(--code-bg);
+}
+.sd-why-head { font-weight: 700; margin: 0 0 0.7rem; font-size: 0.95rem; }
+.sd-why-line { margin: 0.35rem 0; font-size: 0.9rem; line-height: 1.85; color: var(--muted); }
+.sd-why-pick { color: var(--fg); font-weight: 600; }
+.sd-advice { background: var(--accent-soft); border-color: rgba(26, 92, 229, 0.25); }
+.sd-advice-item { margin: 0.9rem 0; font-size: 0.9rem; line-height: 1.9; }
+.sd-advice-item:first-of-type { margin-top: 0; }
+.sd-opt.is-picked { border-color: var(--accent); background: var(--accent-soft); }
+
+
+/* --- トップの実用ツール帯 -------------------------------------------------
+   濃紺に電光色を差し、斜めに切った面を重ねる。記事本文は白地のままにして、
+   ここだけ質感を変えることで「読むところ」と「使うところ」を見分けさせる。 */
+.tools-band {
+  --tb-ink: #eaf1ff;
+  --tb-line: rgba(120, 170, 255, 0.28);
+  position: relative;
+  background:
+    radial-gradient(120% 100% at 15% 0%, #14307e 0%, rgba(20, 48, 126, 0) 60%),
+    radial-gradient(90% 90% at 95% 100%, #1d47b8 0%, rgba(29, 71, 184, 0) 55%),
+    linear-gradient(160deg, #050f36 0%, #081a4d 55%, #06123c 100%);
+  color: var(--tb-ink);
+  padding: 4.5rem 0 5rem;
+  margin: 0 0 3.5rem;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5rem), 0 100%);
+}
+/* 斜めの走査線。主張しすぎない程度に */
+.tools-band::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(115deg, rgba(125, 175, 255, 0.07) 0 1px, transparent 1px 26px);
+  pointer-events: none;
+}
+.tools-band-inner { position: relative; max-width: var(--wide); margin: 0 auto; padding: 0 1.25rem; }
+
+.tools-band-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+.tools-band h2 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); letter-spacing: -0.02em; margin: 0; color: #fff; }
+.tools-band-en {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
+  font-size: 0.72rem; color: #7fb0ff;
+}
+.tools-band-lead { color: rgba(234, 241, 255, 0.72); line-height: 1.9; max-width: 46rem; margin: 0 0 2.5rem; }
+
+.tools-deck { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.tools-deck > li { display: flex; }
+@media (min-width: 640px) { .tools-deck { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .tools-deck { grid-template-columns: repeat(3, 1fr); } }
+
+.tool-card-link {
+  position: relative; display: flex; flex-direction: column; width: 100%;
+  padding: 1.5rem 1.35rem 1.65rem;
+  color: inherit; text-decoration: none;
+  background: linear-gradient(150deg, rgba(24, 56, 140, 0.62), rgba(9, 22, 64, 0.72));
+  border: 1px solid var(--tb-line);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.1rem), calc(100% - 1.1rem) 100%, 0 100%);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+/* 左端の光る縦棒。ホバーで伸びる */
+.tool-card-link::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 40%;
+  width: 3px; background: linear-gradient(180deg, #6fd3ff, #2f6bff);
+  transition: bottom 0.28s ease;
+}
+.tool-card-link:hover, .tool-card-link:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(140, 195, 255, 0.72);
+  background: linear-gradient(150deg, rgba(35, 78, 178, 0.75), rgba(12, 29, 82, 0.8));
+  box-shadow: 0 18px 40px -20px rgba(60, 130, 255, 0.85);
+  outline: none;
+}
+.tool-card-link:hover::before, .tool-card-link:focus-visible::before { bottom: 0; }
+.tool-card-link:focus-visible { outline: 2px solid #8cc3ff; outline-offset: 3px; }
+
+.tool-card-no {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em;
+  color: #6fa8ff; font-variant-numeric: tabular-nums; display: block; margin-bottom: 0.7rem;
+}
+.tool-card-link h3 { font-size: 1.08rem; line-height: 1.5; margin: 0 0 0.55rem; color: #fff; }
+.tool-card-link p { font-size: 0.87rem; line-height: 1.85; color: rgba(234, 241, 255, 0.7); margin: 0; }
+.tool-card-go {
+  display: inline-block; margin-top: auto; padding-top: 1rem;
+  font-size: 0.8rem; letter-spacing: 0.06em; color: #8cc3ff;
+}
+.tools-band-note { margin: 2.25rem 0 0; font-size: 0.82rem; color: rgba(234, 241, 255, 0.55); }
+.tools-band-actions { margin: 1.6rem 0 0; }
+.tools-band-list {
+  list-style: none; margin: 1.4rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
+  color: rgba(234, 241, 255, 0.8); font-size: 0.9rem;
+}
+.tools-band-list li::before { content: "・"; opacity: 0.6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card-link, .tool-card-link::before { transition: none; }
+  .tool-card-link:hover, .tool-card-link:focus-visible { transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/">
+      <img class="brand-mark" src="/static/favicon.svg" alt="" width="25" height="25">
+      <span class="brand-text">AIツールの透視図</span>
+    </a>
+    <nav class="top-nav" aria-label="PetrichorサービスとAI機能">
+      <a class="network-link network-link-shopping" href="/shopping/">Shopping</a>
+      <a class="network-link is-current" href="/" aria-current="page">AI解説</a>
+      <a class="network-link network-link-learning" href="/learning/">Learning</a>
+      <a class="nav-link" href="https://petrichot.com/tools/">ツール</a>
+      <a class="nav-cta" href="https://petrichot.com/shindan/">ツール診断</a>
+    </nav>
+  </div>
+</header>
+<nav class="cat-nav" aria-label="カテゴリ"><div class="inner"><a class="nav-cat" href="https://petrichot.com/category/AI%E3%82%92%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E5%AD%A6%E3%81%B6/">AIをはじめて学ぶ<span class="nav-cat-n">22</span></a><a class="nav-cat" href="https://petrichot.com/category/%E6%A5%AD%E5%8B%99%E5%8A%B9%E7%8E%87%E5%8C%96/">業務効率化<span class="nav-cat-n">20</span></a><a class="nav-cat" href="https://petrichot.com/category/%E3%83%84%E3%83%BC%E3%83%AB%E6%AF%94%E8%BC%83/">ツール比較<span class="nav-cat-n">13</span></a><a class="nav-cat" href="https://petrichot.com/category/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3/">デザイン<span class="nav-cat-n">7</span></a><a class="nav-cat" href="https://petrichot.com/category/AI%E4%BC%81%E6%A5%AD%E3%82%92%E7%9F%A5%E3%82%8B/">AI企業を知る<span class="nav-cat-n">3</span></a></div></nav>
+<div class="disclosure-bar"><div class="inner"><span class="disclosure-badge">PR</span><span>当サイトはアフィリエイト広告を利用しています。</span></div></div>
+
+<main id="main">
+  <section class="hero hero-sub">
+    <h1>AIツール診断</h1>
+    <p class="hero-en">Find Your Tool</p>
+    <p class="hero-lead">最初の質問で用途を選ぶと、その用途に合わせた質問に進みます。最後に候補と、そう判断した理由を示します。相性の目安なので、最終的には無料プランや試用期間で実際に触ってから決めてください。</p>
+  </section>
+
+  <div class="sd" id="sd">
+    <div class="sd-bar"><div class="sd-bar-fill" id="sd-bar"></div></div>
+    <p class="sd-progress" id="sd-progress"></p>
+    <fieldset class="sd-step" id="sd-step">
+      <legend class="sd-q"><span class="sd-num" id="sd-num"></span><span id="sd-qtext"></span></legend>
+      <div class="sd-opts" id="sd-opts"></div>
+    </fieldset>
+    <div class="sd-nav">
+      <button type="button" class="sd-back" id="sd-back" hidden>← 前の質問へ</button>
+    </div>
+  </div>
+
+  <div class="sd-result" id="sd-result" hidden>
+    <h2 class="section-head">診断結果</h2>
+    <p class="section-en">Result</p>
+    <div id="sd-why"></div>
+    <div id="sd-out"></div>
+    <div id="sd-advice"></div>
+    <p class="sd-note">この結果は、選んだ回答に近い用途のツールを並べたものです。実際の使い勝手、料金、機能は変更されることがあるため、契約前に必ず公式サイトで確認してください。ここでは使い心地までは判断できません。</p>
+    <button type="button" class="sd-again" id="sd-again">もう一度診断する</button>
+  </div>
+
+  <noscript><p class="sd-note">この診断はJavaScriptを有効にすると利用できます。<a href="https://petrichot.com/">記事一覧</a>からお探しください。</p></noscript>
+</main>
+
+<script>
+(function () {
+  var D = {"questions":[{"id":"use","q":"いま、いちばん解決したいことはどれですか。","options":[{"label":"文章を書く・整える","value":"text"},{"label":"会議や打ち合わせの記録","value":"meeting"},{"label":"資料・スライドを作る","value":"slide"},{"label":"画像やデザインを用意する","value":"image"},{"label":"調べもの・情報収集","value":"research"},{"label":"プログラムを書く","value":"code"},{"label":"見積書・請求書などの事務","value":"office"}]},{"id":"text-kind","showIf":{"use":["text"]},"q":"書く文章として、いちばん多いのはどれですか。","options":[{"label":"Web記事・ブログ（検索から読まれたい）","scores":{"value-ai-writer":4,"chatgpt":1},"why":"検索を意識した記事作成に向いた道具を優先しました"},{"label":"仕事のメール・報告書","scores":{"chatgpt":3,"claude":3,"gemini":1},"why":"下書きと推敲を任せる、汎用の対話型が中心になります"},{"label":"長い資料を読ませて、要約・整理させたい","scores":{"claude":4,"gemini":2},"why":"長い文章をまとめて渡す使い方を想定しました"},{"label":"SNSの短い投稿","scores":{"chatgpt":3,"canva":2},"why":"短文の案出しと、画像を添える工程まで含めて考えました"}]},{"id":"meeting-where","showIf":{"use":["meeting"]},"q":"記録したいのは、どんな場面ですか。","options":[{"label":"オンライン会議が中心","scores":{"notta-memo":4,"notta-brain":2},"why":"オンラインの音声をそのまま文字に起こす使い方を想定しました"},{"label":"対面の打ち合わせ・外出先が中心","scores":{"plaud":4,"notta-memo":1},"why":"手元の機器で録るところから必要になると判断しました"},{"label":"両方ある","scores":{"notta-memo":3,"plaud":3,"notta-brain":1},"why":"オンラインと対面のどちらも起こりうる前提で並べました"},{"label":"録音より、溜まった記録の要約や検索をしたい","scores":{"notta-brain":4,"notta-memo":2},"why":"録ることより、記録を扱うことが目的だと判断しました"}]},{"id":"slide-need","showIf":{"use":["slide"]},"q":"スライド作りで、いちばん手が止まるのはどこですか。","options":[{"label":"構成が思いつかない","scores":{"irusiru":4,"miricanvas":1},"why":"内容の骨組みから作らせる用途を優先しました"},{"label":"内容はある。見た目を整えたい","scores":{"canva":4,"miricanvas":3},"why":"デザインを整える工程が主だと判断しました"},{"label":"とにかく早く形にしたい","scores":{"miricanvas":4,"canva":2,"irusiru":1},"why":"テンプレートから短時間で仕上げる進め方を想定しました"}]},{"id":"image-need","showIf":{"use":["image"]},"q":"作りたい画像は、どれに近いですか。","options":[{"label":"日本語で指示して、手軽に生成したい","scores":{"conoha-ai-canvas":4,"canva":2},"why":"日本語で操作でき、準備の少ない環境を優先しました"},{"label":"作風にこだわりたい","scores":{"midjourney":4},"why":"絵作りの細かい指定が中心になると判断しました"},{"label":"資料やSNSに使う図・バナー","scores":{"canva":4,"miricanvas":2},"why":"素材とレイアウトを組み合わせる作業が主だと判断しました"}]},{"id":"research-depth","showIf":{"use":["research"]},"q":"調べたことを、そのあとどう使いますか。","options":[{"label":"資料や記事に書く。出典が要る","scores":{"perplexity":4},"why":"出典をたどれることを最優先にしました"},{"label":"まず全体像を掴みたい","scores":{"gemini":3,"chatgpt":2,"perplexity":1},"why":"当たりをつける段階だと判断しました"},{"label":"社内で共有する。誤りは困る","scores":{"perplexity":4,"claude":1},"why":"裏取りの手間を減らせることを優先しました"}]},{"id":"code-style","showIf":{"use":["code"]},"q":"プログラムで、いちばん助けがほしいのはどこですか。","options":[{"label":"書いている最中の補完","scores":{"github-copilot":4},"why":"エディタの中で動くものを優先しました"},{"label":"設計の相談・コードの読解","scores":{"claude":4,"chatgpt":2},"why":"対話しながら考える使い方を想定しました"},{"label":"エラーの原因調べ","scores":{"claude":3,"chatgpt":2,"perplexity":2},"why":"原因の切り分けと、事例を探す作業の両方を見込みました"}]},{"id":"office-need","showIf":{"use":["office"]},"q":"事務作業では、どれが近いですか。","options":[{"label":"見積書・請求書などの書類作成","scores":{"doraverse":4},"why":"帳票を作る業務に向いたものを選びました"},{"label":"社内の問い合わせ対応を減らしたい","scores":{"lolipop-ai":4,"doraverse":1},"why":"受け答えを任せる仕組みを作る方向で考えました"},{"label":"文章仕事全般を軽くしたい","scores":{"chatgpt":3,"claude":2,"doraverse":1},"why":"特定の帳票より、汎用の道具が合うと判断しました"}]},{"id":"freq","q":"どのくらいの頻度で使いそうですか。","options":[{"label":"ほぼ毎日","advice":"毎日使うなら、無料枠の上限に当たる場面が出てきます。ただし先回りして有料に移らず、まず2週間ほど無料で使い、実際に上限へ当たった回数を数えてから決めてください。当たらないなら払う必要はありません。"},{"label":"週に数回","advice":"この頻度なら、まず無料プランで足りることが多いはずです。どこで手が止まるかがはっきりしてから有料を検討するほうが、無駄がありません。"},{"label":"月に数回","advice":"月に数回であれば、定額の契約は割高になりやすい頻度です。無料プランか、使った分だけ払う形が向いています。"}]},{"id":"confidential","q":"扱う情報に、社外に出せないものは含まれますか。","options":[{"label":"含まれる","advice":"入力した内容が学習に使われるかどうかは、サービスと契約プランによって異なります。使い始める前に、そのサービスの規約と設定を必ず確認してください。判断がつかないものは入力しないのが安全です。"},{"label":"含まれない","advice":"公開情報が中心なら、入力の心配は小さくなります。ただし取引先から預かった情報が混じっていないかだけは、その都度たしかめてください。"},{"label":"分からない","advice":"分からないうちは入力しないでください。社外に出してよいかの判断は、入力する前に済ませておく必要があります。所属先に規程があれば、まずそちらを確認してください。"}]},{"id":"existing","q":"すでに契約しているAIサービスはありますか。","options":[{"label":"ある","advice":"新しく契約する前に、いま払っているものと機能が重なっていないかを確かめてください。同じことができる契約が2つあると、その分はそのまま無駄になります。","link":"subscription-check"},{"label":"ない","advice":"最初の1つは、無料で試せるものから始めてください。合わないと分かるのも収穫です。"}]}],"tools":{"chatgpt":{"name":"ChatGPT","blurb":"対話型の代表格。用途を選ばず、まず1つ触るならここからになります。","url":"https://petrichot.com/chatgpt-tsukaikata-nyumon/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://chatgpt.com/\" rel=\"sponsored nofollow noopener\" target=\"_blank\">ChatGPT 公式サイトはこちら\u003c/a>\u003c/div>"},"claude":{"name":"Claude","blurb":"長い文章を渡して、読ませたり整理させたりする使い方に向きます。","url":"https://petrichot.com/claude-toha-nani/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://claude.ai/\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Claude 公式サイトはこちら\u003c/a>\u003c/div>"},"gemini":{"name":"Gemini","blurb":"Googleのサービスと組み合わせて使う場面で選択肢に入ります。","url":"https://petrichot.com/gemini-katsuyou-jutsu/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://gemini.google.com/\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Gemini 公式サイトはこちら\u003c/a>\u003c/div>"},"perplexity":{"name":"Perplexity","blurb":"回答に出典が示されるため、裏取りの手間を減らせます。","url":"https://petrichot.com/perplexity-kensaku-katsuyo/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://www.perplexity.ai/\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Perplexity 公式サイトはこちら\u003c/a>\u003c/div>"},"notta-memo":{"name":"Notta Memo","blurb":"会議の音声を文字に起こすところを任せる道具です。","url":"https://petrichot.com/ai-gijiroku-memo-jutsu/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://px.a8.net/svt/ejp?a8mat=4B82L2+D2XWAA+5988+BYLJL\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Notta Memo 公式サイトはこちら\u003c/a>\u003c/div>"},"notta-brain":{"name":"Notta Brain","blurb":"溜まった記録を横断して扱いたいときの選択肢です。","url":"https://petrichot.com/notta-brain-shoukai/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://px.a8.net/svt/ejp?a8mat=4B82L2+D3JBW2+5988+HV7V6\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Notta Brain 公式サイトはこちら\u003c/a>\u003c/div>"},"plaud":{"name":"Plaud","blurb":"手元の機器で録るところから必要な場面に向きます。","url":"https://petrichot.com/ai-voice-recorder-hikaku/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://px.a8.net/svt/ejp?a8mat=4B82L2+7MGUNM+5J4W+5YRHE\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Plaud 公式サイトはこちら\u003c/a>\u003c/div>"},"irusiru":{"name":"イルシル","blurb":"スライドの構成から作らせたいときの選択肢です。","url":"https://petrichot.com/irusiru-ai-slide-tsukurikata/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://px.a8.net/svt/ejp?a8mat=4B82L2+D5BMPE+5UMS+5YZ75\" rel=\"sponsored nofollow noopener\" target=\"_blank\">イルシル 公式サイトはこちら\u003c/a>\u003c/div>"},"value-ai-writer":{"name":"Value AI Writer","blurb":"検索から読まれることを前提にした記事作成向けです。","url":"https://petrichot.com/value-ai-writer-seo-kiji/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://px.a8.net/svt/ejp?a8mat=4B82L2+D0K5V6+1JUK+1HL85U\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Value AI Writer 公式サイトはこちら\u003c/a>\u003c/div>"},"conoha-ai-canvas":{"name":"ConoHa AI Canvas","blurb":"ブラウザから画像生成を始められる環境です。","url":"https://petrichot.com/conoha-ai-canvas-gazou-seisei/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://px.a8.net/svt/ejp?a8mat=4B82L2+CZYQ9E+50+7RZINL\" rel=\"sponsored nofollow noopener\" target=\"_blank\">ConoHa AI Canvas 公式サイトはこちら\u003c/a>\u003c/div>"},"doraverse":{"name":"Doraverse","blurb":"見積書や請求書といった帳票まわりの事務向けです。","url":"https://petrichot.com/doraverse-office-koritsuka/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://px.a8.net/svt/ejp?a8mat=4B82L2+D2CGOI+5UU0+5YJRM\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Doraverse 公式サイトはこちら\u003c/a>\u003c/div>"},"canva":{"name":"Canva","blurb":"図・バナー・資料まで、見た目を整える作業の受け皿になります。","url":"https://petrichot.com/canva-ai-design-nyumon/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://www.canva.com/\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Canva 公式サイトはこちら\u003c/a>\u003c/div>"},"midjourney":{"name":"Midjourney","blurb":"絵作りを細かく指定したい人向けの画像生成です。","url":"https://petrichot.com/midjourney-hajimekata/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://www.midjourney.com/\" rel=\"sponsored nofollow noopener\" target=\"_blank\">Midjourney 公式サイトはこちら\u003c/a>\u003c/div>"},"github-copilot":{"name":"GitHub Copilot","blurb":"エディタの中で補完として動くタイプです。","url":"https://petrichot.com/github-copilot-hajimekata/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://github.com/features/copilot\" rel=\"sponsored nofollow noopener\" target=\"_blank\">GitHub Copilot 公式サイトはこちら\u003c/a>\u003c/div>"},"miricanvas":{"name":"MiriCanvas","blurb":"テンプレートから短時間で資料を仕上げたいときに。","url":"https://petrichot.com/irusiru-ai-slide-tsukurikata/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://px.a8.net/svt/ejp?a8mat=4B82L2+D15LGY+5EX8+BX3J6\" rel=\"sponsored nofollow noopener\" target=\"_blank\">MiriCanvas 公式サイトはこちら\u003c/a>\u003c/div>"},"lolipop-ai":{"name":"ロリポップ！AIエージェントクラウド","blurb":"受け答えを任せる仕組みを、自分で用意したいときの選択肢です。","url":"https://petrichot.com/ai-agent-toha-hajimekata/","cta":"\u003cdiv class=\"aff-cta\">\u003ca class=\"aff-btn\" href=\"https://px.a8.net/svt/ejp?a8mat=4B82L2+D44RHU+348+4MQVE9\" rel=\"sponsored nofollow noopener\" target=\"_blank\">ロリポップ！AIエージェントクラウド 公式サイトはこちら\u003c/a>\u003c/div>"}},"links":{"subscription-check":{"url":"https://petrichot.com/tools/subscription-check/","title":"AIサブスク棚卸し表"},"prompt-check":{"url":"https://petrichot.com/tools/prompt-check/","title":"プロンプト添削ツール"},"breakeven":{"url":"https://petrichot.com/tools/breakeven/","title":"定額プランと従量課金の損益分岐"},"policy-draft":{"url":"https://petrichot.com/tools/policy-draft/","title":"社内AI利用ルールのたたき台"}}};
+  var answers = {};   // questionId -> option
+  var path = [];      // 実際に出した質問の並び。戻るときに使う
+  var cur = 0;
+
+  var elStep = document.getElementById("sd-step");
+  var elNum = document.getElementById("sd-num");
+  var elQ = document.getElementById("sd-qtext");
+  var elOpts = document.getElementById("sd-opts");
+  var elBar = document.getElementById("sd-bar");
+  var elProg = document.getElementById("sd-progress");
+  var elBack = document.getElementById("sd-back");
+  var root = document.getElementById("sd");
+  var result = document.getElementById("sd-result");
+
+  // showIf は「この質問の回答が、この値のいずれかであること」。
+  // 条件のない質問は全員に出す。
+  function visible(q) {
+    if (!q.showIf) return true;
+    for (var key in q.showIf) {
+      var a = answers[key];
+      if (!a || q.showIf[key].indexOf(a.value) < 0) return false;
+    }
+    return true;
+  }
+
+  // いま時点の回答で、これから出る質問を並べる。
+  // 用途を選び直すと分岐先が変わるので、毎回組み直す。
+  function plan() {
+    var list = [];
+    for (var i = 0; i < D.questions.length; i++) {
+      if (visible(D.questions[i])) list.push(D.questions[i]);
+    }
+    return list;
+  }
+
+  function show(i) {
+    var list = plan();
+    if (i >= list.length) { finish(); return; }
+    cur = i;
+    var q = list[i];
+    path = list;
+
+    elNum.textContent = "Q" + (i + 1);
+    elQ.textContent = q.q;
+    elOpts.innerHTML = "";
+
+    q.options.forEach(function (o, j) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "sd-opt";
+      b.textContent = o.label;
+      if (answers[q.id] === o) b.classList.add("is-picked");
+      b.addEventListener("click", function () {
+        answers[q.id] = o;
+        // 用途を選び直したときは、その先の回答を捨てる。
+        // 別の分岐の答えが残っていると、出していない質問の点が入る。
+        var after = plan().slice(i + 1).map(function (x) { return x.id; });
+        for (var k in answers) {
+          if (k !== q.id && after.indexOf(k) < 0 && !isBefore(k, i)) delete answers[k];
+        }
+        show(i + 1);
+      });
+      elOpts.appendChild(b);
+    });
+
+    elBack.hidden = i === 0;
+    elProg.textContent = (i + 1) + " / " + list.length;
+    elBar.style.width = ((i / list.length) * 100) + "%";
+  }
+
+  function isBefore(id, i) {
+    for (var k = 0; k <= i; k++) if (path[k] && path[k].id === id) return true;
+    return false;
+  }
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  function finish() {
+    var score = {};
+    var reasons = [];
+    var advice = [];
+
+    plan().forEach(function (q) {
+      var a = answers[q.id];
+      if (!a) return;
+      if (a.scores) {
+        for (var id in a.scores) score[id] = (score[id] || 0) + a.scores[id];
+      }
+      if (a.why) reasons.push({ q: q.q, pick: a.label, why: a.why });
+      if (a.advice) advice.push({ text: a.advice, link: a.link });
+    });
+
+    var ranked = Object.keys(score).sort(function (a, b) { return score[b] - score[a]; });
+    var out = document.getElementById("sd-out");
+    var why = document.getElementById("sd-why");
+    var adv = document.getElementById("sd-advice");
+    out.innerHTML = ""; why.innerHTML = ""; adv.innerHTML = "";
+
+    // なぜこの結果になったかを先に出す。順位だけ出しても判断材料にならない。
+    if (reasons.length) {
+      var box = el("div", "sd-why");
+      box.appendChild(el("p", "sd-why-head", "この結果になった理由"));
+      reasons.forEach(function (r) {
+        var line = el("p", "sd-why-line");
+        line.appendChild(el("span", "sd-why-pick", "「" + r.pick + "」"));
+        line.appendChild(document.createTextNode(" — " + r.why));
+        box.appendChild(line);
+      });
+      why.appendChild(box);
+    }
+
+    if (!ranked.length) {
+      out.appendChild(el("p", "sd-note", "選んだ条件に当てはまるツールが、当サイトの掲載分にはありませんでした。記事一覧からお探しください。"));
+    }
+
+    var top = ranked.slice(0, 3);
+    var maxScore = score[top[0]] || 0;
+    top.forEach(function (id, r) {
+      var t = D.tools[id];
+      if (!t) return;
+      var card = el("div", "sd-card" + (r === 0 ? " is-top" : ""));
+      card.appendChild(el("p", "sd-rank", r === 0 ? "もっとも近い" : "こちらも候補"));
+      card.appendChild(el("h3", null, t.name));
+      card.appendChild(el("p", null, t.blurb));
+      var more = el("p", "sd-more");
+      var a = document.createElement("a");
+      a.href = t.url;
+      a.textContent = t.name + "の解説を読む";
+      more.appendChild(a);
+      card.appendChild(more);
+      if (t.cta) {
+        var holder = document.createElement("div");
+        holder.innerHTML = t.cta;   // ビルド時に組み立てた広告ボタン
+        card.appendChild(holder);
+      }
+      out.appendChild(card);
+    });
+
+    // 2位以下と点差がないときは、優劣がついていないことを言う。
+    if (top.length >= 2 && score[top[1]] === maxScore) {
+      out.appendChild(el("p", "sd-note", "上位が同点です。この条件では優劣がついていないので、無料で試せるほうから触ってみてください。"));
+    }
+
+    if (advice.length) {
+      var box2 = el("div", "sd-advice");
+      box2.appendChild(el("p", "sd-why-head", "選ぶ前に確かめること"));
+      advice.forEach(function (a2) {
+        var d = el("div", "sd-advice-item");
+        d.appendChild(el("p", null, a2.text));
+        var link = a2.link && D.links[a2.link];
+        if (link) {
+          var p = el("p", "sd-more");
+          var la = document.createElement("a");
+          la.href = link.url;
+          la.textContent = link.title + "で確かめる";
+          p.appendChild(la);
+          d.appendChild(p);
+        }
+        box2.appendChild(d);
+      });
+      adv.appendChild(box2);
+    }
+
+    root.hidden = true;
+    result.hidden = false;
+    result.scrollIntoView({ block: "start" });
+  }
+
+  elBack.addEventListener("click", function () { if (cur > 0) show(cur - 1); });
+  document.getElementById("sd-again").addEventListener("click", function () {
+    answers = {}; result.hidden = true; root.hidden = false; show(0);
+    root.scrollIntoView({ block: "start" });
+  });
+
+  show(0);
+})();
+</script>
+<footer class="site-footer">
+  <div class="inner">
+    <p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>当サイトはアフィリエイト広告を利用しています。</span></p>
+    <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
+    <p class="footer-network"><span>Petrichor：</span><a href="/shopping/">Shopping</a> ・ <a href="/">AI解説</a> ・ <a href="/learning/">Learning</a></p>
+    <p><a href="https://petrichot.com/about/">運営者情報</a> ・ <a href="https://petrichot.com/contact/">お問い合わせ</a> ・ <a href="https://petrichot.com/privacy/">プライバシーポリシー</a> ・ <a href="https://x.com/petrichot_ai" target="_blank" rel="noopener">X（@petrichot_ai）</a></p>
+    <p>&copy; 2026 AIツールの透視図</p>
+  </div>
+</footer>
+</body>
+</html>
