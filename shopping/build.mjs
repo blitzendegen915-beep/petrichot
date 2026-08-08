@@ -1,6 +1,12 @@
 import { cp, readFile, mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  createAiRecorderPage,
+  recorderPageCss,
+  recorderPageScript,
+  recorderPath
+} from "./ai-recorder.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(here, "..");
@@ -12,6 +18,7 @@ const shoppingPath = "/shopping/";
 const articlePath = "/shopping/carry-on-suitcase-1-3-nights/";
 const aiGuidePath = "/";
 const learningPath = "/learning/";
+const privacyPath = "/privacy/";
 const linksPath = path.join(here, "links.json");
 
 const links = JSON.parse(await readFile(linksPath, "utf8"));
@@ -31,44 +38,57 @@ function linkFor(key) {
     throw new Error(`shopping/links.json に "${key}" の設定がありません。`);
   }
 
-  const affiliateUrl = String(config.affiliateUrl || "").trim();
+  const affiliateHtml = String(config.affiliateHtml || "").trim();
   const fallbackUrl = String(config.fallbackUrl || "").trim();
+  const fallbackLabel = String(config.fallbackLabel || "").trim();
 
-  if (affiliateUrl && !affiliateUrl.startsWith("https://")) {
-    throw new Error(`${key}.affiliateUrl は HTTPS URL にしてください。`);
+  if (affiliateHtml) {
+    if (!/^<a\b[\s\S]*<\/a>$/i.test(affiliateHtml)) {
+      throw new Error(`${key}.affiliateHtml は楽天が生成したテキストリンクのHTMLソース全体にしてください。`);
+    }
+    if (/<(?:script|iframe)\b|javascript:/i.test(affiliateHtml)) {
+      throw new Error(`${key}.affiliateHtml に許可していないコードが含まれています。`);
+    }
   }
   if (!fallbackUrl.startsWith("https://search.rakuten.co.jp/")) {
     throw new Error(`${key}.fallbackUrl は楽天市場の公式検索URLにしてください。`);
   }
+  if (!fallbackLabel.includes("楽天市場") || fallbackLabel.length < 8) {
+    throw new Error(`${key}.fallbackLabel は楽天市場と検索対象が分かる文言にしてください。`);
+  }
 
-  const isAffiliate = Boolean(affiliateUrl);
+  const isAffiliate = Boolean(affiliateHtml);
   return {
-    url: affiliateUrl || fallbackUrl,
+    affiliateHtml,
+    fallbackUrl,
+    fallbackLabel,
     isAffiliate,
-    label: isAffiliate ? "楽天市場で候補を見る" : "楽天市場で候補を確認",
-    rel: isAffiliate ? "sponsored nofollow noopener" : "noopener"
   };
 }
 
-function cta(key, extraClass = "") {
+function cta(key, ctaPosition = "article_inline", extraClass = "") {
   const target = linkFor(key);
-  const context = {
-    featured: "フロントオープンとキャスターストッパー重視",
-    lightweight: "軽さと取り回し重視",
-    expandable: "拡張機能重視"
-  }[key] || "スーツケース候補";
+  const wrapperAttributes = `data-rakuten-wrapper data-is-affiliate="${target.isAffiliate}" data-link-id="${escapeHtml(key)}" data-cta-position="${escapeHtml(ctaPosition)}" data-destination-type="search"`;
+  if (target.isAffiliate) {
+    return `
+      <div class="rakuten-link-block ${escapeHtml(extraClass)}" ${wrapperAttributes}>
+        <span class="affiliate-nearby-disclosure">広告｜このリンクは楽天市場のアフィリエイトリンクです。価格・在庫・送料・返品条件は移動先でご確認ください。</span>
+        <span class="rakuten-affiliate-source">${target.affiliateHtml}</span>
+      </div>
+    `;
+  }
   return `
-    <a class="button button-warm ${escapeHtml(extraClass)}"
-       href="${escapeHtml(target.url)}"
-       rel="${target.rel}"
-       target="_blank"
-       aria-label="${escapeHtml(`${target.label}：${context}（新しいタブで開きます）`)}">
-       ${escapeHtml(target.label)}
-       <span aria-hidden="true">↗</span>
-    </a>
-    ${target.isAffiliate
-      ? ""
-      : '<span class="link-status">現在は広告リンクではなく、楽天市場の通常検索へ移動します。</span>'}
+    <div class="rakuten-link-block ${escapeHtml(extraClass)}" ${wrapperAttributes}>
+      <a class="button button-warm"
+         href="${escapeHtml(target.fallbackUrl)}"
+         rel="noopener"
+         target="_blank"
+         aria-label="${escapeHtml(`${target.fallbackLabel}（新しいタブで開きます）`)}">
+         ${escapeHtml(target.fallbackLabel)}
+         <span aria-hidden="true">↗</span>
+      </a>
+      <span class="link-status">現在は広告リンクではなく、楽天市場の通常検索へ移動します。</span>
+    </div>
   `;
 }
 
@@ -324,6 +344,24 @@ h1 {
   color: var(--muted);
   font-size: 0.75rem;
   line-height: 1.55;
+}
+.rakuten-link-block { margin-top: 0.8rem; }
+.rakuten-link-block:first-child { margin-top: 0; }
+.affiliate-nearby-disclosure {
+  display: block;
+  margin: 0 0 0.55rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+.rakuten-affiliate-source {
+  display: inline-block;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .route-map {
@@ -671,7 +709,7 @@ function nav() {
 function disclosure({ hasAffiliateLink = false, hasRakutenButtons = false } = {}) {
   const label = hasAffiliateLink ? "広告・PR" : "広告方針";
   const disclosureText = hasAffiliateLink
-    ? "このページには楽天アフィリエイトリンクが含まれます。リンク経由の購入で運営者に報酬が入る場合があります。"
+    ? "本ページには楽天アフィリエイトの広告リンクが含まれます。リンク経由で購入されると、運営者に報酬が入る場合があります。"
     : hasRakutenButtons
       ? "現在の楽天ボタンは広告リンクではなく、楽天市場の通常検索へ移動します。広告リンクを設定した場合は、この位置で明示します。"
       : "当サイトは楽天アフィリエイトを利用します。広告リンクを含むページでは、最初に「広告・PR」と明示します。";
@@ -699,6 +737,7 @@ function footer() {
             <a href="${shoppingPath}">Shopping</a>
             <a href="${aiGuidePath}">AI解説</a>
             <a href="${learningPath}">Learning</a>
+            <a href="${privacyPath}">プライバシー</a>
           </nav>
         </div>
         <p class="copyright">© ${new Date().getFullYear()} Petrichor. 商品条件は移動先の販売ページでご確認ください。</p>
@@ -707,7 +746,7 @@ function footer() {
   `;
 }
 
-function shell({ title, description, canonical, body, jsonLd }) {
+function shell({ title, description, canonical, body, jsonLd, pageCss = "", pageScript = "" }) {
   return `<!doctype html>
 <html lang="ja">
 <head>
@@ -728,13 +767,14 @@ function shell({ title, description, canonical, body, jsonLd }) {
   <meta property="og:url" content="${escapeHtml(canonical)}">
   <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#10287d">
-  <style>${css}</style>
+  <style>${css}${pageCss}</style>
   <script type="application/ld+json">${JSON.stringify(jsonLd).replaceAll("<", "\\u003c")}</script>
 </head>
 <body>
   ${nav()}
   ${body}
   ${footer()}
+  ${pageScript ? `<script>${pageScript}</script>` : ""}
 </body>
 </html>
 `;
@@ -744,6 +784,24 @@ const hubCanonical = `${siteUrl}/shopping/`;
 const articleCanonical = `${siteUrl}/shopping/carry-on-suitcase-1-3-nights/`;
 const articleHasAffiliateLink = ["featured", "lightweight", "expandable"]
   .some((key) => linkFor(key).isAffiliate);
+const recorderHasAffiliateLink = ["aiRecorder", "plaudNote", "plaudNotePin", "nottaMemo"]
+  .some((key) => linkFor(key).isAffiliate);
+const recorderPage = createAiRecorderPage({
+  siteUrl,
+  shoppingPath,
+  aiGuidePath,
+  learningPath,
+  disclosureHtml: disclosure({
+    hasAffiliateLink: recorderHasAffiliateLink,
+    hasRakutenButtons: true
+  }),
+  ctas: {
+    aiRecorder: cta("aiRecorder", "result_primary"),
+    plaudNote: cta("plaudNote", "result_primary"),
+    plaudNotePin: cta("plaudNotePin", "result_primary"),
+    nottaMemo: cta("nottaMemo", "result_secondary")
+  }
+});
 
 const hubBody = `
   <main id="main">
@@ -754,10 +812,10 @@ const hubBody = `
       <div class="container hero-grid">
         <div>
           <p class="eyebrow">Petrichor Shopping Guide</p>
-          <h1>買う前に、<br>判断の軸を持とう。</h1>
-          <p class="hero-lead">ランキングを眺める前に、「自分なら何を確かめるか」を整理する比較ガイド。旅の道具から、学びと仕事の選択までつなぎます。</p>
+          <h1>買う前に、<br>「必要か」を確かめる。</h1>
+          <p class="hero-lead">仕事と学びのデジタル道具を、ランキングではなく失敗回避から考えるガイド。費用、使う場面、データ条件を先に整理します。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="${articlePath}">最初の比較ガイドを読む <span aria-hidden="true">→</span></a>
+            <a class="button button-primary" href="${recorderPath}">AIレコーダーを1分診断 <span aria-hidden="true">→</span></a>
             <a class="button button-secondary" href="${aiGuidePath}">AI解説を読む <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -765,7 +823,7 @@ const hubBody = `
           <a class="route-card" href="${shoppingPath}">
             <span class="route-step">01 / CHOOSE</span>
             <strong>Shopping</strong>
-            <p>比較軸を知って、買い物の迷いをほどく。</p>
+            <p>必要性と総費用を確かめ、買わない選択も残す。</p>
           </a>
           <a class="route-card" href="${aiGuidePath}">
             <span class="route-step">02 / UNDERSTAND</span>
@@ -786,43 +844,50 @@ const hubBody = `
         <div class="section-head">
           <div>
             <p class="eyebrow">Featured guide</p>
-            <h2>まずは、1〜3泊のスーツケース選びから。</h2>
-            <p class="section-intro">「機内持ち込み対応」の文字だけで決めず、航空会社の条件、外寸、重さ、使う場面を順に確認するためのガイドです。</p>
+            <h2>AIレコーダー、本当に必要？</h2>
+            <p class="section-intro">5つの条件と3年間の費用から、「買う」「スマホで試す」「規定を先に確認」を分ける購入前診断です。</p>
           </div>
-          <a class="text-link" href="${articlePath}">記事を読む →</a>
+          <a class="text-link" href="${recorderPath}">1分診断へ →</a>
         </div>
         <article class="feature">
           <figure class="editorial-figure feature-visual">
             <picture>
-              <source type="image/avif" srcset="/static/shopping/shopping-compare-hero-640.avif 640w, /static/shopping/shopping-compare-hero-960.avif 960w, /static/shopping/shopping-compare-hero-1600.avif 1600w" sizes="(max-width: 760px) calc(100vw - 2rem), 1200px">
-              <source type="image/webp" srcset="/static/shopping/shopping-compare-hero-640.webp 640w, /static/shopping/shopping-compare-hero-960.webp 960w, /static/shopping/shopping-compare-hero-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 2rem), 1200px">
-              <img class="editorial-image" src="/static/shopping/shopping-compare-hero-1600.webp" alt="チェックリストと無地のスーツケースで、確認・比較・判断の流れを表したイメージ図" width="1600" height="1000" loading="lazy" decoding="async">
+              <source type="image/avif" srcset="/static/shopping/ai-recorder-decision-640.avif 640w, /static/shopping/ai-recorder-decision-960.avif 960w, /static/shopping/ai-recorder-decision-1536.avif 1536w" sizes="(max-width: 760px) calc(100vw - 2rem), 1200px">
+              <source type="image/webp" srcset="/static/shopping/ai-recorder-decision-640.webp 640w, /static/shopping/ai-recorder-decision-960.webp 960w, /static/shopping/ai-recorder-decision-1536.webp 1536w" sizes="(max-width: 760px) calc(100vw - 2rem), 1200px">
+              <img class="editorial-image" src="/static/shopping/ai-recorder-decision-1536.webp" alt="録音、文字起こし、情報管理、費用確認から購入判断へ進む流れのイメージ図" width="1536" height="983" loading="lazy" decoding="async">
             </picture>
-            <figcaption>比較のための一般的なイメージ図です。特定の商品・順位を示すものではありません。</figcaption>
+            <figcaption>特定の商品・順位を示さず、録音から費用・情報管理の確認までを表した編集用イメージです。</figcaption>
           </figure>
           <div class="feature-copy">
             <div class="meta-row">
-              <span class="tag">1〜3泊</span>
-              <span class="tag">機内持ち込み条件</span>
-              <span class="tag">フロントオープン</span>
+              <span class="tag">1分診断</span>
+              <span class="tag">3年総額</span>
+              <span class="tag">データ条件</span>
             </div>
-            <h3>機内持ち込み対応スーツケースの選び方</h3>
-            <p>フロントオープン、キャスターストッパー、軽量、拡張機能。それぞれの便利さと、購入前に見落としやすい確認点を整理しました。</p>
+            <h3>AIレコーダー必要度・3年総額診断</h3>
+            <p>月間利用量、通話・対面・装着、スマホでの代替、継続費用、AI学習条件を順に確認。実機未検証の精度ランキングはしません。</p>
             <div class="hero-actions">
-              <a class="button button-primary" href="${articlePath}">比較軸を確認する <span aria-hidden="true">→</span></a>
+              <a class="button button-primary" href="${recorderPath}">5つの条件で判定する <span aria-hidden="true">→</span></a>
             </div>
           </div>
           <aside class="decision-panel" aria-label="このガイドで確認する順序">
-            <span>5 STEP CHECK</span>
-            <strong>商品名より先に、条件を確認。</strong>
+            <span>BUY OR NOT</span>
+            <strong>買う理由がなければ、買わない。</strong>
             <ol>
-              <li>使う航空会社と路線</li>
-              <li>外寸と本体重量</li>
-              <li>移動中に取り出す物</li>
-              <li>価格・在庫・返品条件</li>
+              <li>月に何分使うか</li>
+              <li>スマホでは何が不足か</li>
+              <li>3年間でいくらかかるか</li>
+              <li>録音許可とデータ条件</li>
             </ol>
           </aside>
         </article>
+        <aside class="cross-link" style="margin-top:1.25rem">
+          <div>
+            <h3>旅行用品の既存ガイドも残しています</h3>
+            <p>1〜3泊向けスーツケースを、航空会社の条件・外寸・重さ・使う場面から確認します。</p>
+          </div>
+          <a class="button button-secondary" href="${articlePath}">スーツケース比較へ <span aria-hidden="true">→</span></a>
+        </aside>
       </div>
     </section>
 
@@ -830,12 +895,12 @@ const hubBody = `
       <div class="container">
         <p class="eyebrow">Editorial promise</p>
         <h2>数字を盛らず、確認できることから書く。</h2>
-        <p class="section-intro">価格や在庫は動き、航空会社の条件も一律ではありません。このガイドでは、変わりやすい事実を断定せず、読者が自分で確かめられる順序を大切にします。</p>
+        <p class="section-intro">価格やプランは動き、AI機能のデータ条件もサービスごとに違います。変わりやすい事実を断定せず、読者が公式情報で確かめられる順序を大切にします。</p>
         <div class="principles" style="margin-top:2rem">
           <article class="principle">
             <span class="principle-no">01 / SOURCE</span>
             <h3>最新条件は公式で確認</h3>
-            <p>航空会社と販売ページの最新情報を、購入直前の判断材料にします。</p>
+            <p>メーカー、料金ページ、販売ページの最新情報を、購入直前の判断材料にします。</p>
           </article>
           <article class="principle">
             <span class="principle-no">02 / AXIS</span>
@@ -858,9 +923,9 @@ const hubBody = `
         <div class="path-grid" style="margin-top:2rem">
           <article class="path-card">
             <span class="path-label">SHOPPING</span>
-            <h3>道具を選ぶ</h3>
-            <p>生活や学びに必要なものを、比較の軸から選びます。</p>
-            <p><a class="text-link" href="${articlePath}">比較ガイドへ →</a></p>
+            <h3>必要性を診断する</h3>
+            <p>仕事や学びの道具を、費用と使う条件から選びます。</p>
+            <p><a class="text-link" href="${recorderPath}">AIレコーダー診断へ →</a></p>
           </article>
           <article class="path-card">
             <span class="path-label">AI GUIDE</span>
@@ -886,7 +951,7 @@ const hubJsonLd = [
     "@type": "WebSite",
     name: "Petrichor Shopping",
     url: hubCanonical,
-    description: "比較軸と確認手順から選ぶ、Petrichorの買い物ガイド。"
+    description: "必要性、総費用、データ条件から失敗を避ける、Petrichorの買い物ガイド。"
   },
   {
     "@context": "https://schema.org",
@@ -1165,8 +1230,8 @@ const articleJsonLd = [
 ];
 
 const hubHtml = shell({
-  title: "Petrichor Shopping｜比較軸から選ぶ買い物ガイド",
-  description: "ランキングの前に、自分に必要な比較軸を。旅の道具から学びと仕事の選択までつなぐPetrichorの買い物ガイド。",
+  title: "Petrichor Shopping｜買う前に必要性と総費用を診断",
+  description: "仕事と学びのデジタル道具を、ランキングではなく失敗回避から考えるPetrichorの買い物ガイド。AIレコーダーの必要度と3年総額を診断できます。",
   canonical: hubCanonical,
   body: hubBody,
   jsonLd: hubJsonLd
@@ -1180,19 +1245,33 @@ const articleHtml = shell({
   jsonLd: articleJsonLd
 });
 
+const recorderHtml = shell({
+  title: recorderPage.title,
+  description: recorderPage.description,
+  canonical: recorderPage.canonical,
+  body: recorderPage.body,
+  jsonLd: recorderPage.jsonLd,
+  pageCss: recorderPageCss,
+  pageScript: recorderPageScript
+});
+
 const articleOutput = path.join(outputRoot, "carry-on-suitcase-1-3-nights");
+const recorderOutput = path.join(outputRoot, "ai-recorder-cost-check");
 await rm(staticOutput, { recursive: true, force: true });
 await mkdir(path.dirname(staticOutput), { recursive: true });
 await cp(staticSource, staticOutput, { recursive: true });
 await mkdir(outputRoot, { recursive: true });
 await mkdir(articleOutput, { recursive: true });
+await mkdir(recorderOutput, { recursive: true });
 await writeFile(path.join(outputRoot, "index.html"), hubHtml, "utf8");
 await writeFile(path.join(articleOutput, "index.html"), articleHtml, "utf8");
+await writeFile(path.join(recorderOutput, "index.html"), recorderHtml, "utf8");
 
 // robots.txt が /shopping/sitemap.xml を指しているので、必ずここで生成する。
 // 記事を追加したらこの配列に足すこと(足し忘れは check.mjs が検出する)。
 const sitemapEntries = [
   { loc: hubCanonical, priority: "0.9" },
+  { loc: recorderPage.canonical, priority: "0.9" },
   { loc: articleCanonical, priority: "0.8" }
 ];
 const lastmod = new Date().toISOString().slice(0, 10);
@@ -1213,5 +1292,6 @@ await writeFile(path.join(outputRoot, "sitemap.xml"), sitemapXml, "utf8");
 
 console.log("Petrichor Shopping built:");
 console.log(`- ${path.join(outputRoot, "index.html")}`);
+console.log(`- ${path.join(recorderOutput, "index.html")}`);
 console.log(`- ${path.join(articleOutput, "index.html")}`);
 console.log(`- ${path.join(outputRoot, "sitemap.xml")} (${sitemapEntries.length} URLs)`);

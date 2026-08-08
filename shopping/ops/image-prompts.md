@@ -1,5 +1,11 @@
 # Shopping image prompts
 
+## AI recorder decision flow — 2026-08-05
+
+```text
+Create a polished editorial hero illustration for a Japanese consumer decision-support website about whether someone needs an AI voice recorder. Wide 16:10 composition, designed to sit inside a white web page. Visual language: true white background, deep navy (#10287d), vivid cobalt blue (#1a5ce5), restrained warm orange (#e96b21), faint technical grid. Show a generic thin card-shaped voice recorder silhouette (not resembling a specific brand), a smartphone with a simple waveform, a small transcription document, and a transparent 3-year cost comparison motif with three rising columns/checkpoints. Emphasize a thoughtful decision path: record -> transcribe -> check cost/privacy -> decide. Clean geometric editorial illustration, subtle depth and soft shadows, professional Japanese technology magazine style, ample negative space. Absolutely no product logos, no brand names, no readable text, no people, no fake UI labels, no rankings, no stars, no prices, no claims.
+```
+
 Generated on 2026-08-01 with the OpenAI built-in image generation tool. No reference images were used.
 
 ## Shopping comparison hero

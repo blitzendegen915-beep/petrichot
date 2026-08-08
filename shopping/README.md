@@ -1,6 +1,6 @@
 # Petrichor Shopping
 
-`petrichot.com` の中に置く、買い物比較ガイドの静的ページです。既存の AI 解説と Petrichor Learning へ、同じ傘のナビゲーションから移動できます。
+`petrichot.com` 内で、買う前の失敗回避を支援する静的サイトです。ShoppingからAI解説、Petrichor Learningへ同じドメイン内で移動できます。
 
 ## ビルド
 
@@ -11,43 +11,73 @@ rtk proxy node shopping/build.mjs
 rtk proxy node shopping/check.mjs
 ```
 
-既存の `dist` は削除しません。次の2ページだけを作成・更新します。
+既存の `dist` は削除せず、次の3ページだけを作成・更新します。
 
 - `dist/shopping/index.html`
+- `dist/shopping/ai-recorder-cost-check/index.html`
 - `dist/shopping/carry-on-suitcase-1-3-nights/index.html`
 
-公開時は、同一ドメイン上で `/shopping/` 以下がこの出力を配信するように設定してください。
+`/shopping/sitemap.xml` も3URLで生成します。
+
+## AIレコーダー診断
+
+`/shopping/ai-recorder-cost-check/` は、次の5条件から購入前の次の行動を分けます。
+
+1. 月間文字起こし時間
+2. 対面・通話・ウェアラブルのどれが必要か
+3. スマホ録音を試したか
+4. 継続費用を許容できるか
+5. 録音データの規定とAI学習条件
+
+3年総額はブラウザ内で次の式により計算します。入力値は送信・保存しません。
+
+```text
+3年総額 = 本体価格 + 年額プラン × 3 + 3年間の追加費用
+```
+
+価格とプランの初期値は `shopping/ops/ai-recorder-source-ledger.md` の確認時点のものです。公開前と価格表示の更新時に、必ず公式ページで再確認します。
 
 ## 楽天リンクの設定
 
-`shopping/links.json` の各 `affiliateUrl` に、楽天アフィリエイトで発行した HTTPS URLを入れてから再ビルドします。
+楽天公式ルールにより、生成されたアフィリエイトリンクのURLだけを抜き出したり、`a` タグの属性を追加・変更したりしてはいけません。
+
+1. 楽天アフィリエイトで対象URLを開く
+2. 計測ID `shopping` を選ぶ
+3. リンクタイプを「テキストのみ」にする
+4. 生成されたHTMLソース全体をコピーする
+5. `shopping/links.json` の該当する `affiliateHtml` に、無改変で保存する
 
 ```json
 {
-  "featured": {
-    "affiliateUrl": "https://...",
-    "fallbackUrl": "https://search.rakuten.co.jp/..."
+  "plaudNote": {
+    "affiliateHtml": "<a href=\"...\" target=\"_blank\" style=\"...\">...</a>",
+    "fallbackUrl": "https://search.rakuten.co.jp/search/mall/PLAUD+Note/",
+    "fallbackLabel": "楽天市場でPLAUD Noteを探す"
   }
 }
 ```
 
-- `affiliateUrl` が空の場合は、安全な楽天市場内の検索結果へ移動し、ボタンに「楽天市場で候補を確認」と表示します。
-- `affiliateUrl` がある場合は、そのURLを優先し、リンクに `rel="sponsored nofollow noopener"` を付けます。
-- `fallbackUrl` は `https://search.rakuten.co.jp/` で始まるURLだけを許可しています。
-- 商品別リンクを入れる前に、商品ページ、販売状況、価格、送料、レビュー、仕様を必ず楽天市場上で確認してください。
+- `affiliateHtml` が空なら、楽天市場の通常検索へ移動し、広告リンクではないと表示します。
+- `affiliateHtml` がある場合、生成HTMLをそのまま出力します。`rel`、`target`、class、`aria-label`、内側要素を追加しません。
+- 計測用の属性は楽天の `a` タグではなく、外側の要素に付けます。
+- 商品画像は、楽天がアフィリエイト素材として生成したもの以外を無断転載しません。
+
+## 計測の準備
+
+診断ページは次のイベントを `window.dataLayer` と `petrichor:analytics` カスタムイベントへ出します。
+
+- `recorder_diagnosis_start`
+- `recorder_diagnosis_complete`
+- `recorder_diagnosis_result`
+- `rakuten_search_click`（通常検索時）
+- `affiliate_outbound_click`（アフィリエイトHTML設定後）
+
+現時点ではGA4タグを読み込まないため、外部送信・Cookie保存はしません。GA4を導入する前に、プライバシーポリシー更新、測定ID設定、カスタムディメンション登録、DebugView確認が必要です。
 
 ## 編集方針
 
-- 航空会社、運賃種別、路線、機材によって手荷物条件は変わるため、ページ内では一律の数値を断定していません。
-- 商品の価格、売上、検索数、在庫、レビュー件数は掲載していません。
-- 実体験を捏造しないため、記事中に運営者本人が記入する明示的な枠を設けています。
-- 商品名や掲載順を追加する場合は、確認日時と選定根拠も記録してください。
-- 広告・PR表示はページ上部と商品導線の近くに残してください。
-
-## 公開前チェック
-
-1. 実体験欄を本人の言葉で記入する。
-2. 楽天リンクをクリックし、意図した商品または検索結果へ移動するか確認する。
-3. 各航空会社の最新の公式手荷物条件への案内が誤解を招かないか確認する。
-4. スマートフォンとデスクトップで見出し、表、ナビゲーション、フォーカス表示を確認する。
-5. `https://petrichot.com/` と `https://petrichot.com/learning/` の導線を確認する。
+- 実機未検証の精度、音質、使用感、順位を断定しません。
+- 価格、在庫、送料、ポイント、プラン条件は変動情報として扱います。
+- 録音前の同意、学校・勤務先の規定、保存先、AI学習条件を購入より先に確認します。
+- 広告・PR表示はページ上部と楽天リンクの近くに残します。
+- スマートフォンとデスクトップの両方で、診断、計算、キーボード操作、横スクロールを確認します。

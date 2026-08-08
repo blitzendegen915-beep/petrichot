@@ -1,5 +1,20 @@
 # Shopping image ledger
 
+## 2026-08-05 — AI recorder decision flow
+
+- Purpose: AIレコーダー診断のトップ・記事ヒーロー用編集イラスト
+- Generator: OpenAI built-in image generation
+- Reference images: none
+- Rights boundary: オリジナル生成。楽天、PLAUD、Notta、Apple、Googleの商品写真・ロゴ・UI・価格・型番は不使用
+- Source prompt summary: ブランドなしのカード型録音機、スマートフォン、文字起こし文書、情報管理、3年費用の比較を「録音→文字起こし→確認→判断」の流れで表現。白、ネイビー、コバルト、オレンジ。読める文字・数字・価格・順位なし
+- Published derivatives:
+  - `/static/shopping/ai-recorder-decision-640.{avif,webp}`
+  - `/static/shopping/ai-recorder-decision-960.{avif,webp}`
+  - `/static/shopping/ai-recorder-decision-1536.{avif,webp}`
+- Alt: 録音、文字起こし、情報管理、費用確認から購入判断へ進む流れのイメージ図
+- Caption: 特定の商品・順位を示さず、録音から費用・情報管理の確認までを表した編集用イメージです。
+- Human QA: 2026-08-05に原寸確認。ロゴ、読める文字、価格、順位、特定商品の固有要素がないことを目視確認
+
 ## 2026-08-01 — Shopping comparison hero
 
 - Purpose: Shoppingトップの比較ガイド用編集イラスト
