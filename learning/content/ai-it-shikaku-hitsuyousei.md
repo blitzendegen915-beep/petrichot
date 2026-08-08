@@ -52,6 +52,40 @@ G検定のような民間資格は、特定の団体が認定する形式で、�
 
 ## 判断のためのチェックリスト
 
+```svg 資格を取るべきか判断する流れ
+<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>資格を取るべきか判断する流れ</title>
+  <defs>
+    <marker id="qz1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="220" y="10" width="200" height="50" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="320" y="40" text-anchor="middle" font-size="13" fill="var(--fg)">実務経験や成果物があるか</text>
+
+  <line x1="270" y1="60" x2="150" y2="96" stroke="var(--muted)" stroke-width="2" marker-end="url(#qz1)"/>
+  <text x="180" y="80" font-size="11" fill="var(--muted)">ある</text>
+  <line x1="370" y1="60" x2="490" y2="96" stroke="var(--muted)" stroke-width="2" marker-end="url(#qz1)"/>
+  <text x="440" y="80" font-size="11" fill="var(--muted)">まだない</text>
+
+  <rect x="30" y="100" width="240" height="56" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="150" y="124" text-anchor="middle" font-size="12" fill="var(--fg)">資格の優先度は低い</text>
+  <text x="150" y="144" text-anchor="middle" font-size="12" fill="var(--muted)">実績で示せている</text>
+
+  <rect x="370" y="100" width="240" height="56" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="490" y="124" text-anchor="middle" font-size="12" fill="var(--fg)">求人票に資格の言及は?</text>
+
+  <line x1="490" y1="156" x2="490" y2="182" stroke="var(--muted)" stroke-width="2" marker-end="url(#qz1)"/>
+
+  <rect x="370" y="186" width="240" height="56" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="490" y="210" text-anchor="middle" font-size="12" fill="var(--fg)">言及あり: 資格が効く</text>
+  <text x="490" y="230" text-anchor="middle" font-size="12" fill="var(--fg)">証明として機能する</text>
+
+  <text x="490" y="264" text-anchor="middle" font-size="11" fill="var(--muted)">言及なし: 先に求人情報を集め直す</text>
+</svg>
+```
+
 資格を検討するときは、以下を自分に問いかけてみてください。
 
 - 今の自分に足りないのは「知識の証明」か、それとも「実務経験」か

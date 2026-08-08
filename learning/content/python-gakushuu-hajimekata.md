@@ -13,6 +13,37 @@ Pythonはプログラミング初心者にとって最も学びやすい言語�
 
 ## 前半：環境構築と基本文法を固める
 
+```svg Python学習3ヶ月の進み方。前半・中盤・終盤の3段階
+<svg viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Python学習3ヶ月の進み方</title>
+  <defs>
+    <marker id="pt1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+  <rect x="10" y="40" width="190" height="70" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="105" y="66" text-anchor="middle" font-size="13" fill="var(--fg)">前半</text>
+  <text x="105" y="86" text-anchor="middle" font-size="12" fill="var(--muted)">環境構築と</text>
+  <text x="105" y="102" text-anchor="middle" font-size="12" fill="var(--muted)">基本文法</text>
+
+  <line x1="200" y1="75" x2="228" y2="75" stroke="var(--muted)" stroke-width="2" marker-end="url(#pt1)"/>
+
+  <rect x="232" y="40" width="190" height="70" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="327" y="66" text-anchor="middle" font-size="13" fill="var(--fg)">中盤</text>
+  <text x="327" y="86" text-anchor="middle" font-size="12" fill="var(--muted)">ライブラリと</text>
+  <text x="327" y="102" text-anchor="middle" font-size="12" fill="var(--muted)">小規模プロジェクト</text>
+
+  <line x1="422" y1="75" x2="450" y2="75" stroke="var(--muted)" stroke-width="2" marker-end="url(#pt1)"/>
+
+  <rect x="454" y="40" width="176" height="70" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="542" y="66" text-anchor="middle" font-size="13" fill="var(--fg)">終盤</text>
+  <text x="542" y="86" text-anchor="middle" font-size="12" fill="var(--muted)">ポートフォリオ</text>
+  <text x="542" y="102" text-anchor="middle" font-size="12" fill="var(--muted)">作成と発展学習</text>
+
+  <text x="320" y="140" text-anchor="middle" font-size="12" fill="var(--muted)">環境構築に時間をかけず、小さく作ることを優先する</text>
+</svg>
+```
+
 多くの初心者がつまずくのが環境構築です。しかし、適切なツールを選べば、この段階を最小限の時間で乗り切ることができます。
 
 最初からPythonをパソコンにインストールして設定するのは、初心者にとって難しく感じられることが多いです。その代わり、オンラインコーディング環境を活用することをお勧めします。GoogleのColaboratoryやRepl.itなど、ブラウザだけで始められるサービスがあります。これらのツールを使えば、セットアップの手間をほぼゼロにでき、すぐにコーディング練習に入れます。学習の流れとしては、まずオンライン環境を使って基本文法を学び、簡単なプログラムをいくつか書いてみて、ローカル環境が必要になったら、その時に構築するという順番がおすすめです。環境構築に余計な時間を費やさずに、プログラミング学習に集中できます。

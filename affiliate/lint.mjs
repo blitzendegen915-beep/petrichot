@@ -294,10 +294,15 @@ function lintFile(file, links) {
     const declared = Number(m[1]);
     const after = body.slice(m.index + m[0].length);
     const section = after.split(/^#{2,3}\s/m)[0];
-    const bullets = (section.match(/^\s*[-*]\s/gm) || []).length;
+    // 「習慣1:」「ポイント1:」のように太字で番号を振った小見出しがあるときは、
+    // 箇条書きはその中の細目なので数えない。数えると誤検出になる
+    // (例: 3つの習慣の下に各3個の箇条書き → 9個と誤判定していた)。
+    const labeled = (section.match(/^\s*\*\*[^*\n]*?\d+\s*[.:：]/gm) || []).length;
     const numbered = (section.match(/^\s*\*\*\d+\./gm) || []).length
       + (section.match(/^\s*\d+\.\s/gm) || []).length;
-    const count = Math.max(bullets, numbered);
+    const bullets = (section.match(/^\s*[-*]\s/gm) || []).length;
+    // 太字の番号ラベル → 番号付きリスト → 箇条書き の順に信頼する
+    const count = labeled > 0 ? labeled : numbered > 0 ? numbered : bullets;
     if (count > 0 && count !== declared) {
       warns.push([
         fmLines + body.slice(0, m.index).split("\n").length,

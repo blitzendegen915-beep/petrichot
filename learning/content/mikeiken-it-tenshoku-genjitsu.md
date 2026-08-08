@@ -40,6 +40,37 @@ IT業界の採用担当者は、何を見ているでしょうか。それは「
 
 ## 現実的なIT転職ロードマップ
 
+```svg 未経験からIT転職までの3段階の道筋
+<svg viewBox="0 0 640 180" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>未経験からIT転職までの3段階の道筋</title>
+  <defs>
+    <marker id="tj1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+  <rect x="10" y="40" width="190" height="80" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="105" y="68" text-anchor="middle" font-size="13" fill="var(--fg)">基礎学習</text>
+  <text x="105" y="88" text-anchor="middle" font-size="12" fill="var(--muted)">言語の基本と</text>
+  <text x="105" y="104" text-anchor="middle" font-size="12" fill="var(--muted)">環境構築</text>
+
+  <line x1="200" y1="80" x2="228" y2="80" stroke="var(--muted)" stroke-width="2" marker-end="url(#tj1)"/>
+
+  <rect x="232" y="40" width="190" height="80" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="327" y="68" text-anchor="middle" font-size="13" fill="var(--fg)">実践的開発</text>
+  <text x="327" y="88" text-anchor="middle" font-size="12" fill="var(--muted)">ポートフォリオを</text>
+  <text x="327" y="104" text-anchor="middle" font-size="12" fill="var(--muted)">複数完成させる</text>
+
+  <line x1="422" y1="80" x2="450" y2="80" stroke="var(--muted)" stroke-width="2" marker-end="url(#tj1)"/>
+
+  <rect x="454" y="40" width="176" height="80" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="542" y="68" text-anchor="middle" font-size="13" fill="var(--fg)">就職活動</text>
+  <text x="542" y="88" text-anchor="middle" font-size="12" fill="var(--muted)">面接対策と</text>
+  <text x="542" y="104" text-anchor="middle" font-size="12" fill="var(--muted)">複数企業への応募</text>
+
+  <text x="320" y="150" text-anchor="middle" font-size="12" fill="var(--muted)">段階を飛ばして就職活動に進むと、面接で答えられず遠回りになりやすい</text>
+</svg>
+```
+
 未経験から就職まで、どのくらいの期間を見込むべきでしょうか。個人差は大きいですが、段階を踏んで進めるという点では共通しています。
 
 **基礎学習と環境構築の段階**

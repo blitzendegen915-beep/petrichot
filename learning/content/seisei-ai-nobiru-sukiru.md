@@ -58,6 +58,44 @@ AIの普及によって、新しく重要度が増しているスキルもあり
 
 たとえば「毎月の経費精算」という業務であれば、入力は「レシートや領収書を集める」、処理は「勘定科目に振り分け、規定と照らして妥当性を判断する」、出力は「経理システムに入力し、承認申請の形にまとめる」に分かれます。このうち、レシートの文字を読み取って科目候補を出す部分はAIに任せやすく、「これは本当に経費として妥当か」を最終判断する部分は人に残ります。
 
+```svg 入力・処理・出力の各工程で、AIに任せやすい部分と人に残りやすい部分
+<svg viewBox="0 0 640 215" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>入力・処理・出力の各工程で、AIに任せやすい部分と人に残りやすい部分を示した図</title>
+  <text x="110" y="20" text-anchor="middle" font-size="13" fill="var(--fg)">入力</text>
+  <text x="320" y="20" text-anchor="middle" font-size="13" fill="var(--fg)">処理</text>
+  <text x="530" y="20" text-anchor="middle" font-size="13" fill="var(--fg)">出力</text>
+
+  <rect x="10" y="30" width="200" height="60" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="110" y="56" text-anchor="middle" font-size="12" fill="var(--fg)">資料の要約</text>
+  <text x="110" y="76" text-anchor="middle" font-size="12" fill="var(--fg)">文字起こし</text>
+
+  <rect x="10" y="98" width="200" height="60" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="110" y="124" text-anchor="middle" font-size="12" fill="var(--fg)">どの資料を集めるか</text>
+  <text x="110" y="144" text-anchor="middle" font-size="12" fill="var(--fg)">の選定</text>
+
+  <rect x="220" y="30" width="200" height="60" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="320" y="56" text-anchor="middle" font-size="12" fill="var(--fg)">定型フォーマットへの整理</text>
+  <text x="320" y="76" text-anchor="middle" font-size="12" fill="var(--fg)">下書き作成</text>
+
+  <rect x="220" y="98" width="200" height="60" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="320" y="124" text-anchor="middle" font-size="12" fill="var(--fg)">例外対応の判断</text>
+  <text x="320" y="144" text-anchor="middle" font-size="12" fill="var(--fg)">責任を伴う意思決定</text>
+
+  <rect x="430" y="30" width="200" height="60" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="530" y="56" text-anchor="middle" font-size="12" fill="var(--fg)">文章の体裁調整</text>
+  <text x="530" y="76" text-anchor="middle" font-size="12" fill="var(--fg)">翻訳</text>
+
+  <rect x="430" y="98" width="200" height="60" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="530" y="124" text-anchor="middle" font-size="12" fill="var(--fg)">相手に合わせた</text>
+  <text x="530" y="144" text-anchor="middle" font-size="12" fill="var(--fg)">伝え方の調整</text>
+
+  <rect x="150" y="188" width="16" height="16" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="174" y="201" font-size="12" fill="var(--muted)">AIに任せやすい</text>
+  <rect x="330" y="188" width="16" height="16" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="354" y="201" font-size="12" fill="var(--muted)">人に残りやすい</text>
+</svg>
+```
+
 | 工程 | AIに任せやすい例 | 人に残りやすい例 |
 |---|---|---|
 | 入力 | 資料の要約、文字起こし | どの資料を集めるべきかの選定 |

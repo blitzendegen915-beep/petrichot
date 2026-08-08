@@ -2,7 +2,7 @@
 title: Canva AIで初心者がプロ級デザインを作る具体的手順|Magic Studio徹底解説
 description: Canva AIの「Magic Studio」機能の使い方を、実際の指示文の書き方や向き不向きまで踏み込んで解説。テンプレート任せで終わらせないための判断基準も紹介します。
 slug: canva-ai-design-nyumon
-date: 2026-08-02
+date: 2026-08-03
 category: デザイン
 tags: [Canva, デザイン, AI, Magic Studio, 画像生成, スライド作成, イルシル]
 ---
@@ -96,6 +96,8 @@ Magic Designの提案をそのまま使っていると、意図せず有名な�
 ## まとめ
 
 Canva AIのMagic Studioは、決まった型のデザインを素早く量産する場面で力を発揮します。反対に、独自性が求められる領域や、構成から任せたい資料作りには不向きです。まずは1つの成果物を実際に作ってみて、自分たちの用途に合うかどうかを確かめるところから始めてみてください。
+
+Canva以外のツールとの向き不向きも含めて比較したい場合は、[AI画像生成ガイド](/ai-gazou-seisei-matome-guide/)に選び方を整理しています。
 
 ## 参考リンク
 

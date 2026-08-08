@@ -13,6 +13,43 @@ AIスキルは今や多くのエンジニアにとって必須能力になりつ
 
 ## 前半：AIの基礎に「触れて」土台を作る
 
+```svg AIスキル習得の4段階ロードマップ。前半で触れて土台を作り、後半で実践して形にする
+<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>AIスキル習得の4段階ロードマップ</title>
+  <defs>
+    <marker id="rm1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+  <text x="163" y="24" text-anchor="middle" font-size="12" fill="var(--muted)">前半:触れて土台を作る</text>
+  <text x="490" y="24" text-anchor="middle" font-size="12" fill="var(--muted)">後半:実践して形にする</text>
+
+  <rect x="10" y="34" width="140" height="70" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="80" y="64" text-anchor="middle" font-size="13" fill="var(--fg)">1. 基礎に</text>
+  <text x="80" y="82" text-anchor="middle" font-size="13" fill="var(--fg)">触れる</text>
+
+  <line x1="150" y1="69" x2="172" y2="69" stroke="var(--muted)" stroke-width="2" marker-end="url(#rm1)"/>
+
+  <rect x="176" y="34" width="140" height="70" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="246" y="64" text-anchor="middle" font-size="13" fill="var(--fg)">2. Pythonと</text>
+  <text x="246" y="82" text-anchor="middle" font-size="13" fill="var(--fg)">数学の基礎</text>
+
+  <line x1="316" y1="69" x2="338" y2="69" stroke="var(--muted)" stroke-width="2" marker-end="url(#rm1)"/>
+
+  <rect x="342" y="34" width="140" height="70" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="412" y="64" text-anchor="middle" font-size="13" fill="var(--fg)">3. 機械学習を</text>
+  <text x="412" y="82" text-anchor="middle" font-size="13" fill="var(--fg)">実践する</text>
+
+  <line x1="482" y1="69" x2="504" y2="69" stroke="var(--muted)" stroke-width="2" marker-end="url(#rm1)"/>
+
+  <rect x="508" y="34" width="122" height="70" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="569" y="64" text-anchor="middle" font-size="13" fill="var(--fg)">4. 成果物を</text>
+  <text x="569" y="82" text-anchor="middle" font-size="13" fill="var(--fg)">仕上げる</text>
+
+  <text x="320" y="140" text-anchor="middle" font-size="12" fill="var(--muted)">段階を飛ばさず、今どこにいるかを確認しながら進む</text>
+</svg>
+```
+
 ### 第1段階：AIの基礎を「触れて」理解する
 
 まずは、AIについての基本的な知識と、実際にどんなことができるのかを体験することが重要です。難しい理論から始めるのではなく、実例を通じて直感的に理解しましょう。

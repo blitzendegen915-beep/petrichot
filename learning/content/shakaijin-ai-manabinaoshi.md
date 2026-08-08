@@ -63,6 +63,37 @@ Udemyなどの動画プラットフォームでは、実践的なAI活用講座�
 
 学習計画は、大きく「基礎を知る」「実践してみる」「定着させて周囲に活かす」の3つの局面に分けて考えると整理しやすくなります。すべてを一気に進めようとせず、局面ごとに区切って取り組むのがコツです。
 
+```svg 基礎を知る、実践してみる、定着させるの3局面を回すサイクル
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>基礎を知る、実践してみる、定着させるの3つの局面を回すサイクル図</title>
+  <defs>
+    <marker id="cy1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="30" width="180" height="70" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="110" y="58" text-anchor="middle" font-size="13" fill="var(--fg)">基礎を知る</text>
+  <text x="110" y="78" text-anchor="middle" font-size="11" fill="var(--muted)">全体像を把握する</text>
+
+  <line x1="200" y1="65" x2="238" y2="65" stroke="var(--muted)" stroke-width="2" marker-end="url(#cy1)"/>
+
+  <rect x="242" y="30" width="180" height="70" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="332" y="58" text-anchor="middle" font-size="13" fill="var(--fg)">実践してみる</text>
+  <text x="332" y="78" text-anchor="middle" font-size="11" fill="var(--muted)">小さな課題に使う</text>
+
+  <line x1="422" y1="65" x2="460" y2="65" stroke="var(--muted)" stroke-width="2" marker-end="url(#cy1)"/>
+
+  <rect x="464" y="30" width="176" height="70" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="552" y="58" text-anchor="middle" font-size="13" fill="var(--fg)">定着させる</text>
+  <text x="552" y="78" text-anchor="middle" font-size="11" fill="var(--muted)">疑問を解決し共有する</text>
+
+  <path d="M552 100 C 552 160, 110 160, 110 102" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#cy1)"/>
+  <text x="330" y="185" text-anchor="middle" font-size="12" fill="var(--muted)">数ヶ月単位でこのサイクルを回す</text>
+  <text x="330" y="205" text-anchor="middle" font-size="12" fill="var(--muted)">忙しさに応じてどの局面を長めにするかを調整する</text>
+</svg>
+```
+
 - **基礎を知る局面**：AI・機械学習の全体像を把握し、業務での活用シーンを想像する段階
 - **実践してみる局面**：簡単なツールやサービスを実際に使い、職場での小さな課題に当てはめてみる段階
 - **定着させる局面**：実践で出た疑問を調べて解決し、得た知識をチーム内で共有する段階

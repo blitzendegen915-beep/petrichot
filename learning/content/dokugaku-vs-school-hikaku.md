@@ -48,6 +48,36 @@ tags: [独学, スクール, 学習方法比較]
 
 ## 適性で判断する
 
+```svg 独学向きの人とスクール向きの人、それぞれの特徴
+<svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>独学とスクール、それぞれに向いている人の特徴を比較した図</title>
+  <defs>
+    <marker id="ds1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+  <rect x="220" y="10" width="200" height="46" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="320" y="39" text-anchor="middle" font-size="14" fill="var(--fg)">どちらが向いている?</text>
+
+  <line x1="320" y1="56" x2="170" y2="92" stroke="var(--muted)" stroke-width="2" marker-end="url(#ds1)"/>
+  <line x1="320" y1="56" x2="470" y2="92" stroke="var(--muted)" stroke-width="2" marker-end="url(#ds1)"/>
+
+  <rect x="30" y="96" width="280" height="130" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="170" y="122" text-anchor="middle" font-size="15" fill="var(--fg)">独学向き</text>
+  <text x="170" y="148" text-anchor="middle" font-size="12" fill="var(--muted)">自己管理ができる</text>
+  <text x="170" y="170" text-anchor="middle" font-size="12" fill="var(--muted)">学習に時間の余裕がある</text>
+  <text x="170" y="192" text-anchor="middle" font-size="12" fill="var(--muted)">費用を抑えたい</text>
+  <text x="170" y="214" text-anchor="middle" font-size="12" fill="var(--muted)">興味が動機になっている</text>
+
+  <rect x="330" y="96" width="280" height="130" rx="8" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="470" y="122" text-anchor="middle" font-size="15" fill="var(--fg)">スクール向き</text>
+  <text x="470" y="148" text-anchor="middle" font-size="12" fill="var(--muted)">質問しながら進めたい</text>
+  <text x="470" y="170" text-anchor="middle" font-size="12" fill="var(--muted)">目標の期限が決まっている</text>
+  <text x="470" y="192" text-anchor="middle" font-size="12" fill="var(--muted)">前提知識がまだ少ない</text>
+  <text x="470" y="214" text-anchor="middle" font-size="12" fill="var(--muted)">転職など外発的な動機</text>
+</svg>
+```
+
 独学とスクール、どちらが向いているかは、以下の項目で判断してみてください。
 
 | 項目 | 独学向き | スクール向き |
