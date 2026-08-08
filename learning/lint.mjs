@@ -181,8 +181,33 @@ function lintFile(file, links) {
   // 図(```svg)やコードブロックの中身は読み物としての分量ではないので数えない
   const prose = body.replace(/^```[\s\S]*?^```/gm, "");
   const bodyChars = prose.replace(/\s/g, "").length;
-  if (bodyChars < 1200) warns.push([1, `本文が${bodyChars}字と短い(目安1500〜2500字)`]);
-  if (bodyChars > 3500) warns.push([1, `本文が${bodyChars}字と長い(目安1500〜2500字)`]);
+
+  // 分量の基準(2026-08-03改定・affiliate側と揃える)
+  // 旧基準は「目安1500〜2500字、3500字超で警告」だった。担当が警告を避けようとして
+  // 本文を圧縮する方向に働いていたため、上限を緩め下限を引き上げる。
+  if (bodyChars < 2500) warns.push([1, `本文が${bodyChars}字と薄い(目安3000〜6000字)`]);
+  if (bodyChars > 9000) warns.push([1, `本文が${bodyChars}字と長い。分割を検討(目安3000〜6000字)`]);
+
+  // --- 「広く浅い」の検出 ---
+  // 見出しだけ並べて各節が数行、という記事を機械的に見つける。
+  const h2Count = (body.match(/^##\s+/gm) || []).length;
+  const h2ExRef = (body.match(/^##\s*参考リンク\s*$/m) || []).length;
+  const sections = Math.max(1, h2Count - h2ExRef);
+  const perSection = Math.round(bodyChars / sections);
+  if (sections >= 5 && perSection < 400) {
+    warns.push([
+      1,
+      `見出し${sections}個に対し1節あたり${perSection}字。見出しを減らして各節を厚くする`,
+    ]);
+  }
+
+  // --- 読み手を助ける要素があるか ---
+  const hasTable = /^\|.*\|/m.test(body);
+  const hasFigure = /^```svg/m.test(body);
+  const hasList = /^\s*[-*]\s+/m.test(body);
+  if (!hasTable && !hasFigure && !hasList) {
+    warns.push([1, "表・図・箇条書きのいずれも無い。比較や手順は表か図にする"]);
+  }
 
   // --- 広告プレースホルダ ---
   const affIds = [...raw.matchAll(/\{\{aff:([\w-]+)\}\}/g)];
