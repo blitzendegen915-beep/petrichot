@@ -11,7 +11,43 @@ tags: [AI, 業務効率化, デジタル化, 導入ガイド, 生産性, 画像�
 
 多くの経営者・管理職が抱く疑問です。2026年時点では、もはやAIは「オプション」ではなく「必須」になりつつあります。
 
-この記事では、中小企業でも実装可能なAI導入の方法を、段階的に解説します。
+この記事では、中小企業でも実装可能なAI導入の方法を、段階的に解説します。全体の流れを先に図で示しておきます。
+
+```svg 課題整理→優先順位付け→ツール選択→試験導入→効果測定→拡大、という6段階の流れ
+<svg viewBox="0 0 640 160" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>AI業務効率化を進める6段階の全体の流れ</title>
+  <defs>
+    <marker id="fwArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="14" y="40" width="92" height="50" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="60" y="70" text-anchor="middle" font-size="11" fill="var(--fg)">課題整理</text>
+  <line x1="106" y1="65" x2="118" y2="65" stroke="var(--muted)" stroke-width="2" marker-end="url(#fwArrow)"/>
+
+  <rect x="118" y="40" width="92" height="50" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="164" y="70" text-anchor="middle" font-size="11" fill="var(--fg)">優先順位付け</text>
+  <line x1="210" y1="65" x2="222" y2="65" stroke="var(--muted)" stroke-width="2" marker-end="url(#fwArrow)"/>
+
+  <rect x="222" y="40" width="92" height="50" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="268" y="70" text-anchor="middle" font-size="11" fill="var(--fg)">ツール選択</text>
+  <line x1="314" y1="65" x2="326" y2="65" stroke="var(--muted)" stroke-width="2" marker-end="url(#fwArrow)"/>
+
+  <rect x="326" y="40" width="92" height="50" rx="6" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="372" y="70" text-anchor="middle" font-size="11" fill="var(--fg)">試験導入</text>
+  <line x1="418" y1="65" x2="430" y2="65" stroke="var(--muted)" stroke-width="2" marker-end="url(#fwArrow)"/>
+
+  <rect x="430" y="40" width="92" height="50" rx="6" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="476" y="70" text-anchor="middle" font-size="11" fill="var(--fg)">効果測定</text>
+  <line x1="522" y1="65" x2="534" y2="65" stroke="var(--muted)" stroke-width="2" marker-end="url(#fwArrow)"/>
+
+  <rect x="534" y="40" width="92" height="50" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="580" y="70" text-anchor="middle" font-size="11" fill="var(--fg)">段階的拡大</text>
+
+  <text x="320" y="125" text-anchor="middle" font-size="12" fill="var(--muted)">1チーム・1業務で小さく試し、効果を測ってから広げる</text>
+</svg>
+```
 
 ## AI導入の準備 効果が出やすい業務の見極めと課題整理
 

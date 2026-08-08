@@ -39,6 +39,27 @@ AIは、与えられた情報をもとに文章を組み立てるのは得意で
 | 経験していないエピソードを作ってもらう | 使わないほうがよい | 面接で深掘りされたときに答えられず、事実と異なる内容になりかねない |
 | 完成文をまるごと出してもらう | 使わないほうがよい | 自分の言葉として語れなくなり、面接での受け答えと書類がずれる |
 
+表の左右をひとつの軸にまとめると、境目は「整理する作業」と「作る作業」の間にあります。
+
+```svg AIに任せてよいのは「整理する作業」まで。「作る作業」は自分の手で行う
+<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>志望理由書でAIに任せてよい整理する作業と、任せてはいけない作る作業の境目を示す図</title>
+  <rect x="40" y="60" width="560" height="30" rx="15" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <rect x="40" y="60" width="280" height="30" rx="15" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="180" y="80" text-anchor="middle" font-size="12" fill="var(--fg)">整理する作業</text>
+  <text x="460" y="80" text-anchor="middle" font-size="12" fill="var(--fg)">作る作業</text>
+
+  <text x="180" y="115" text-anchor="middle" font-size="12" fill="var(--muted)">下書きの指摘・字数調整</text>
+  <text x="180" y="132" text-anchor="middle" font-size="12" fill="var(--muted)">表記のゆれの確認</text>
+
+  <text x="460" y="115" text-anchor="middle" font-size="12" fill="var(--muted)">志望動機そのもの・</text>
+  <text x="460" y="132" text-anchor="middle" font-size="12" fill="var(--muted)">経験していないエピソード</text>
+
+  <text x="320" y="168" text-anchor="middle" font-size="12" fill="var(--muted)">「面接で自分の言葉として説明できるか」で見分ける</text>
+  <text x="320" y="186" text-anchor="middle" font-size="12" fill="var(--muted)">説明できないと感じたら、それはやりすぎのサイン</text>
+</svg>
+```
+
 共通しているのは、AIに任せるのは「すでに自分の中にあるものを整理する作業」までで、「まだ自分の中にないものを作る作業」は任せない、という線引きです。この基準で迷ったときは、その作業をAIにやらせた結果を、面接で聞かれても自分の言葉で説明できるかどうかを考えてみてください。説明できないと感じるなら、それはやりすぎのサインです。
 
 ## そのまま使える指示文

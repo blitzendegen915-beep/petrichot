@@ -2,7 +2,7 @@
 title: AIエージェントに任せてはいけない仕事とは
 description: 自動で動くAIエージェントだからこそ、人が手放してはいけない仕事があります。判断・責任・お金・個人情報が絡む領域を具体例で整理します。
 slug: ai-agent-makasete-ikenai-shigoto
-date: 2026-08-02
+date: 2026-08-03
 category: 業務効率化
 tags: [AIエージェント, 業務効率化, リスク管理, 個人情報, 初心者向け]
 ---
@@ -83,6 +83,35 @@ AIエージェントは、目標を渡せば手順を組んで実行してくれ
 - 契約書の該当箇所を洗い出す(判断は人)
 - 問い合わせ内容を要約して人に渡す(返信は人)
 - 候補者の経歴を整理する(採否は人)
+
+図にすると、境目は「材料をそろえるところ」と「決めて実行するところ」の間にあります。
+
+```svg 「材料をそろえる」までは任せられるが、「決めて実行する」は人が握る
+<svg viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>下準備はAIエージェントに任せてよいが、決定と実行は人が行うという境界を示した図</title>
+  <defs>
+    <marker id="mkArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="30" width="360" height="60" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="200" y="54" text-anchor="middle" font-size="14" fill="var(--fg)">材料をそろえる(下準備)</text>
+  <text x="200" y="76" text-anchor="middle" font-size="11" fill="var(--muted)">計算・要約・整理・下書き作成</text>
+  <text x="200" y="18" text-anchor="middle" font-size="12" fill="var(--muted)">AIエージェントに任せてよい</text>
+
+  <line x1="400" y1="20" x2="400" y2="140" stroke="var(--border)" stroke-width="2" stroke-dasharray="5 5"/>
+
+  <rect x="420" y="30" width="200" height="60" rx="10" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="520" y="54" text-anchor="middle" font-size="14" fill="var(--fg)">決めて実行する</text>
+  <text x="520" y="76" text-anchor="middle" font-size="11" fill="var(--muted)">価格決定・送信・支払い</text>
+  <text x="520" y="18" text-anchor="middle" font-size="12" fill="var(--muted)">人が最後まで握る</text>
+
+  <line x1="382" y1="60" x2="410" y2="60" stroke="var(--muted)" stroke-width="2" marker-end="url(#mkArrow)"/>
+
+  <text x="400" y="158" text-anchor="middle" font-size="12" fill="var(--muted)">境界線を越える操作(送信・支払いなど)の手前で必ず人の確認を挟む</text>
+</svg>
+```
 
 領域ごとに整理すると、次のようになります。
 

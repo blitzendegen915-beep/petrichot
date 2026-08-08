@@ -107,6 +107,45 @@ tags: [学習ルール, AI活用, 学校ルール]
 
 ここが、AIの「健全な付き合い方」です。
 
+```svg 自分で書く→AIに相談する→自分で判断する、というループを回す
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>AIを下書きの相談相手として使う4ステップと、判断と相談を行き来するループ</title>
+  <defs>
+    <marker id="lpArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <path d="M310 90 C 310 40, 210 40, 210 88" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#lpArrow)"/>
+  <text x="260" y="30" text-anchor="middle" font-size="11" fill="var(--muted)">納得できなければ、もう一度聞く</text>
+
+  <rect x="30" y="90" width="130" height="60" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="95" y="114" text-anchor="middle" font-size="12" fill="var(--fg)">1. 自分で</text>
+  <text x="95" y="130" text-anchor="middle" font-size="12" fill="var(--fg)">下書きを書く</text>
+
+  <line x1="164" y1="120" x2="176" y2="120" stroke="var(--muted)" stroke-width="2" marker-end="url(#lpArrow)"/>
+
+  <rect x="180" y="90" width="130" height="60" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="245" y="114" text-anchor="middle" font-size="12" fill="var(--fg)">2. AIに</text>
+  <text x="245" y="130" text-anchor="middle" font-size="12" fill="var(--fg)">相談する</text>
+
+  <line x1="314" y1="120" x2="326" y2="120" stroke="var(--muted)" stroke-width="2" marker-end="url(#lpArrow)"/>
+
+  <rect x="330" y="90" width="130" height="60" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="395" y="106" text-anchor="middle" font-size="12" fill="var(--fg)">3. 自分で判断して</text>
+  <text x="395" y="122" text-anchor="middle" font-size="12" fill="var(--fg)">修正する</text>
+  <text x="395" y="138" text-anchor="middle" font-size="10" fill="var(--muted)">(最終判断は自分)</text>
+
+  <line x1="464" y1="120" x2="476" y2="120" stroke="var(--muted)" stroke-width="2" marker-end="url(#lpArrow)"/>
+
+  <rect x="480" y="90" width="130" height="60" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="545" y="114" text-anchor="middle" font-size="12" fill="var(--fg)">4. 提出する</text>
+  <text x="545" y="130" text-anchor="middle" font-size="10" fill="var(--muted)">自分が納得した文章</text>
+
+  <text x="320" y="190" text-anchor="middle" font-size="12" fill="var(--muted)">2と3を必要なだけ行き来してから、4に進む</text>
+</svg>
+```
+
 ### ステップバイステップ
 
 **ステップ1：自分で下書きを書く**

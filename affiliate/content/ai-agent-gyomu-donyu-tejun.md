@@ -2,7 +2,7 @@
 title: AIエージェントを業務に組み込む手順
 description: AIエージェントはいきなり全部を任せるのではなく、小さく試して広げるのが安全です。導入の進め方と、うまくいかないときの戻し方を整理します。
 slug: ai-agent-gyomu-donyu-tejun
-date: 2026-08-02
+date: 2026-08-03
 category: 業務効率化
 tags: [AIエージェント, 業務効率化, 導入手順, 自動化, 初心者向け]
 ---
@@ -20,6 +20,39 @@ AIエージェントを業務に取り入れるとき、いちばん危ういの
 3. **決まった範囲だけ自動で実行する段階**：失敗しても被害が小さい作業に限って、確認なしで動かす
 
 1と2を飛ばしていきなり3から始めると、どこで判断がずれたのかを追いにくくなります。焦らず順番に進めてください。それぞれの段階で「何を確認できたら次に進むか」を先に決めておくと、感覚だけで判断せずに済みます。
+
+```svg 「観察」→「承認して実行」→「自動実行」の順に、実行の主体が人からAIへ移っていく
+<svg viewBox="0 0 640 190" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>AIエージェント導入の3ステップ:観察、承認して実行、自動実行</title>
+  <defs>
+    <marker id="stArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="30" width="176" height="82" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="108" y="56" text-anchor="middle" font-size="14" fill="var(--fg)">1. 観察</text>
+  <text x="108" y="78" text-anchor="middle" font-size="11" fill="var(--muted)">実行はさせず</text>
+  <text x="108" y="94" text-anchor="middle" font-size="11" fill="var(--muted)">提案・下書きだけ出す</text>
+
+  <line x1="200" y1="71" x2="228" y2="71" stroke="var(--muted)" stroke-width="2" marker-end="url(#stArrow)"/>
+
+  <rect x="232" y="30" width="176" height="82" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="320" y="56" text-anchor="middle" font-size="14" fill="var(--fg)">2. 承認して実行</text>
+  <text x="320" y="78" text-anchor="middle" font-size="11" fill="var(--muted)">人が確認してから</text>
+  <text x="320" y="94" text-anchor="middle" font-size="11" fill="var(--muted)">実行に移す</text>
+
+  <line x1="412" y1="71" x2="440" y2="71" stroke="var(--muted)" stroke-width="2" marker-end="url(#stArrow)"/>
+
+  <rect x="444" y="30" width="176" height="82" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="532" y="56" text-anchor="middle" font-size="14" fill="var(--fg)">3. 自動実行</text>
+  <text x="532" y="78" text-anchor="middle" font-size="11" fill="var(--muted)">被害が小さい範囲だけ</text>
+  <text x="532" y="94" text-anchor="middle" font-size="11" fill="var(--muted)">確認なしで動かす</text>
+
+  <text x="320" y="140" text-anchor="middle" font-size="12" fill="var(--muted)">実行するのが「人」から「AI」へ少しずつ移っていく</text>
+  <text x="320" y="160" text-anchor="middle" font-size="12" fill="var(--muted)">1と2を飛ばして3から始めない</text>
+</svg>
+```
 
 | 段階 | この段階の目的 | 次に進む目安 |
 |---|---|---|

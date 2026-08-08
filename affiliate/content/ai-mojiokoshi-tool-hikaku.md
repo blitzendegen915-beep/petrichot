@@ -2,7 +2,7 @@
 title: AI文字起こしツール比較｜Notta Memo・Brain・Plaud
 description: 会議録音を要約するNotta Memo、情報整理まで踏み込むNotta Brain、外出先でも使えるPlaud。3つのAI文字起こしツールを用途別に比較し、選び方のヒントを紹介します。
 slug: ai-mojiokoshi-tool-hikaku
-date: 2026-08-01
+date: 2026-08-03
 category: ツール比較
 tags: [文字起こし, 議事録, AI, ツール比較]
 ---
@@ -49,7 +49,43 @@ PlaudはNotta系とは少し性格が異なり、携帯できる録音デバイ�
 
 ## 3つのツールをシーン別に比較
 
-同じ「AIで音声を扱う」ツールでも、向いている場面は異なります。あくまで一般的な傾向としての比較です。
+同じ「AIで音声を扱う」ツールでも、向いている場面は異なります。あくまで一般的な傾向としての比較です。「記録→文字起こし・要約→整理・資料化」という流れのどこを担うかで並べると、位置づけの違いが見えてきます。
+
+```svg 記録から資料化までの流れの中で、3つのツールが担う範囲は違う
+<svg viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>記録から文字起こし・要約、整理・資料化までの流れの中でNotta Memo、Notta Brain、Plaudが担う範囲を示す図</title>
+  <defs>
+    <marker id="mjArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="40" y="20" width="160" height="44" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="120" y="47" text-anchor="middle" font-size="12" fill="var(--fg)">記録</text>
+  <line x1="200" y1="42" x2="236" y2="42" stroke="var(--muted)" stroke-width="2" marker-end="url(#mjArrow)"/>
+
+  <rect x="240" y="20" width="160" height="44" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="320" y="47" text-anchor="middle" font-size="12" fill="var(--fg)">文字起こし・要約</text>
+  <line x1="400" y1="42" x2="436" y2="42" stroke="var(--muted)" stroke-width="2" marker-end="url(#mjArrow)"/>
+
+  <rect x="440" y="20" width="160" height="44" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="520" y="47" text-anchor="middle" font-size="12" fill="var(--fg)">整理・資料化</text>
+
+  <line x1="40" y1="92" x2="40" y2="104" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="400" y1="92" x2="400" y2="104" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="40" y1="98" x2="400" y2="98" stroke="var(--accent)" stroke-width="2"/>
+  <text x="220" y="118" text-anchor="middle" font-size="11" fill="var(--fg)">Notta Memo:記録から文字起こし・要約まで</text>
+
+  <line x1="240" y1="134" x2="240" y2="146" stroke="var(--muted)" stroke-width="2"/>
+  <line x1="600" y1="134" x2="600" y2="146" stroke="var(--muted)" stroke-width="2"/>
+  <line x1="240" y1="140" x2="600" y2="140" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="420" y="160" text-anchor="middle" font-size="11" fill="var(--fg)">Notta Brain:文字起こしを整理・資料化まで</text>
+
+  <rect x="40" y="184" width="160" height="34" rx="6" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="120" y="206" text-anchor="middle" font-size="11" fill="var(--fg)">Plaud(携帯録音)</text>
+  <text x="320" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">PCを開けない対面・外出先での「記録」を補う</text>
+</svg>
+```
 
 | 観点 | Notta Memo | Notta Brain | Plaud |
 |---|---|---|---|

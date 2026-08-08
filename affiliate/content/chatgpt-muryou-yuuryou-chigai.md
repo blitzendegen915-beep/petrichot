@@ -82,6 +82,32 @@ ChatGPT Plusという有料プランが用意されており、加入すると�
 
 迷ったときの判断基準はシンプルです。**「無料版の待ち時間や制限にストレスを感じる頻度」**を1週間ほど記録してみてください。週に何度も制限に引っかかる、あるいは応答の遅さで作業の手が止まる場面が続くなら、有料版に切り替えることで取り戻せる時間の方が料金より大きいと判断しやすくなります。逆に、制限に達する前に用事が終わっている場合は、無理に切り替える必要はありません。
 
+```svg 1週間記録して、制限にひっかかる頻度で無料版のままか有料版かを判断する
+<svg viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>ChatGPT無料版と有料版のどちらを選ぶか、1週間の記録をもとに判断する図</title>
+  <defs>
+    <marker id="pfArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="60" width="220" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="130" y="82" text-anchor="middle" font-size="12" fill="var(--fg)">1週間、制限にひっかかる</text>
+  <text x="130" y="100" text-anchor="middle" font-size="12" fill="var(--fg)">頻度を記録する</text>
+
+  <path d="M240 85 L280 85 L280 40 L310 40" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#pfArrow)"/>
+  <path d="M240 85 L280 85 L280 130 L310 130" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#pfArrow)"/>
+
+  <rect x="314" y="16" width="306" height="48" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="467" y="36" text-anchor="middle" font-size="12" fill="var(--fg)">週に何度もひっかかる・待たされる</text>
+  <text x="467" y="54" text-anchor="middle" font-size="12" fill="var(--fg)">→ 有料版(Plus)を検討</text>
+
+  <rect x="314" y="106" width="306" height="48" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="467" y="126" text-anchor="middle" font-size="12" fill="var(--fg)">制限に達する前に用事が終わる</text>
+  <text x="467" y="144" text-anchor="middle" font-size="12" fill="var(--fg)">→ 無料版のままでよい</text>
+</svg>
+```
+
 ## その他の選択肢
 
 ChatGPT以外にも、同等以上の性能を持つAIツールが登場しています。

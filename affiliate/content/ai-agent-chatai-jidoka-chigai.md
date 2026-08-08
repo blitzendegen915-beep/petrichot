@@ -2,7 +2,7 @@
 title: AIエージェントとチャットAI・自動化ツールの違い
 description: AIエージェント、チャットAI、RPAやマクロといった従来の自動化ツール。似ているようで役割が違う3つを比較し、何を選ぶべきかの判断基準を整理します。
 slug: ai-agent-chatai-jidoka-chigai
-date: 2026-08-02
+date: 2026-08-03
 category: ツール比較
 tags: [AIエージェント, チャットAI, RPA, 自動化, ツール比較]
 ---
@@ -22,7 +22,44 @@ tags: [AIエージェント, チャットAI, RPA, 自動化, ツール比較]
 | 向いている作業 | 毎回まったく同じ操作の繰り返し | 単発の質問、文章の作成・要約 | 手順は決まっているが、状況が毎回少し変わる作業 |
 | 準備の手間 | 手順を細かく設計する必要がある | ほとんど不要 | 目標と確認方法を決める必要がある |
 
-RPA・マクロは「決まった手順を、寸分違わず繰り返す」仕組みです。逆に言えば、画面の見た目やファイルの形式が少しでも変わると、途端に止まってしまいます。
+RPA・マクロは「決まった手順を、寸分違わず繰り返す」仕組みです。逆に言えば、画面の見た目やファイルの形式が少しでも変わると、途端に止まってしまいます。3つを「どれだけ自分で判断するか」という一本の軸に並べると、次のようになります。
+
+```svg RPA・チャットAI・AIエージェントは、自分で判断する範囲が違う
+<svg viewBox="0 0 640 180" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>RPA・マクロ、チャットAI、AIエージェントを自分で判断する範囲の広さで並べた図</title>
+  <defs>
+    <marker id="jdArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="55" y="20" width="150" height="64" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="130" y="44" text-anchor="middle" font-size="14" fill="var(--fg)">RPA・マクロ</text>
+  <text x="130" y="64" text-anchor="middle" font-size="11" fill="var(--muted)">決められた手順</text>
+  <text x="130" y="78" text-anchor="middle" font-size="11" fill="var(--muted)">どおりに動く</text>
+
+  <rect x="245" y="20" width="150" height="64" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="320" y="44" text-anchor="middle" font-size="14" fill="var(--fg)">チャットAI</text>
+  <text x="320" y="64" text-anchor="middle" font-size="11" fill="var(--muted)">聞かれたことに</text>
+  <text x="320" y="78" text-anchor="middle" font-size="11" fill="var(--muted)">その場で答える</text>
+
+  <rect x="435" y="20" width="150" height="64" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="510" y="44" text-anchor="middle" font-size="14" fill="var(--fg)">AIエージェント</text>
+  <text x="510" y="64" text-anchor="middle" font-size="11" fill="var(--muted)">目標に向けて</text>
+  <text x="510" y="78" text-anchor="middle" font-size="11" fill="var(--muted)">自分で手順を組む</text>
+
+  <line x1="130" y1="84" x2="130" y2="110" stroke="var(--muted)" stroke-width="2"/>
+  <line x1="320" y1="84" x2="320" y2="110" stroke="var(--muted)" stroke-width="2"/>
+  <line x1="510" y1="84" x2="510" y2="110" stroke="var(--muted)" stroke-width="2"/>
+
+  <line x1="50" y1="114" x2="600" y2="114" stroke="var(--border)" stroke-width="2" marker-end="url(#jdArrow)"/>
+  <circle cx="130" cy="114" r="4" fill="var(--muted)"/>
+  <circle cx="320" cy="114" r="4" fill="var(--muted)"/>
+  <circle cx="510" cy="114" r="4" fill="var(--muted)"/>
+
+  <text x="320" y="150" text-anchor="middle" font-size="12" fill="var(--muted)">右にいくほど、想定外への対応を自分で調整する範囲が広がる</text>
+</svg>
+```
 
 ## 3つの仕組みが向いている場面
 

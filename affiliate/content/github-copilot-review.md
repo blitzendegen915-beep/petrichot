@@ -2,8 +2,8 @@
 title: GitHub Copilotは買うべきか｜導入前に確かめる判断基準
 description: GitHub Copilotに課金するかどうかを、他人の感想ではなく自分の作業で判断するための記事です。効果が出る条件と出ない条件、無料期間中に測っておく項目、契約前に社内で確認すべきこと、解約の判断基準までを整理しました。
 slug: github-copilot-review
-date: 2026-07-16
-updated: 2026-07-27
+date: 2026-08-03
+updated: 2026-08-03
 category: ツール比較
 tags: [GitHub Copilot, コード補完, 開発効率, AIプログラミング, 選び方]
 ---
@@ -114,6 +114,34 @@ Copilotが速くするのは、**手を動かす部分だけ**です。仕様を
 - 提案を採用する割合は、試用のときより増えたか
 - 「これがないと困る」と感じた場面が、実際にあったか
 - 支払っている金額に見合う時間が、実際に空いたか
+
+```svg 3つの問いのうち、ひとつでも「はい」があれば続ける
+<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Copilotを続けるかやめるかを、3つの問いへの答えで判断する図</title>
+  <defs>
+    <marker id="cpArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="20" width="300" height="150" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="170" y="44" text-anchor="middle" font-size="12" fill="var(--fg)">1〜2か月使って、自分に聞く</text>
+  <text x="40" y="72" font-size="11" fill="var(--muted)">・採用する割合は増えたか</text>
+  <text x="40" y="96" font-size="11" fill="var(--muted)">・「ないと困る」場面はあったか</text>
+  <text x="40" y="120" font-size="11" fill="var(--muted)">・金額に見合う時間が空いたか</text>
+
+  <path d="M320 95 L400 95 L400 55 L420 55" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#cpArrow)"/>
+  <path d="M320 95 L400 95 L400 145 L420 145" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#cpArrow)"/>
+
+  <rect x="424" y="30" width="196" height="50" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="522" y="50" text-anchor="middle" font-size="12" fill="var(--fg)">続ける</text>
+  <text x="522" y="68" text-anchor="middle" font-size="10" fill="var(--muted)">ひとつでも「はい」があれば</text>
+
+  <rect x="424" y="120" width="196" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+  <text x="522" y="140" text-anchor="middle" font-size="12" fill="var(--fg)">いったんやめる</text>
+  <text x="522" y="158" text-anchor="middle" font-size="10" fill="var(--muted)">3つとも「いいえ」なら</text>
+</svg>
+```
 
 **3つとも「いいえ」なら、いったんやめる判断も合理的です。** 必要になれば契約し直せます。使っていないサブスクリプションを惰性で払い続けるのは、効率化とは逆の行動です。
 

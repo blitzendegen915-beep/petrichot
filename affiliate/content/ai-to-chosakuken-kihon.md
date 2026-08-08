@@ -2,7 +2,7 @@
 title: AIと著作権の基本|生成画像や文章は誰のもの?
 description: AIが生成した画像や文章の著作権はどう扱うのか、学校の課題・創作活動での注意点や使い方ごとの確認ポイントを、中高生向けにわかりやすく解説します。
 slug: ai-to-chosakuken-kihon
-date: 2026-08-01
+date: 2026-08-03
 category: AIをはじめて学ぶ
 tags: [AI, 著作権, 生成AI, 創作, 課題作成]
 ---
@@ -74,6 +74,30 @@ SNSで自分の創作物を公開したい、またはファンアートを作�
 ## 使い方によって、気をつける度合いが変わる
 
 AIで生成した画像や文章をどう使うかによって、気をつけるべき度合いは変わってきます。大きく分けると、次のような段階で考えると整理しやすくなります。
+
+```svg 「自分だけで使う」「人に見せる」「商用で使う」の順に、気をつける度合いが上がる
+<svg viewBox="0 0 640 190" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>使い方の範囲が広がるほど、AI生成物への注意の度合いが上がることを示す階段図</title>
+  <line x1="60" y1="150" x2="600" y2="150" stroke="var(--border)" stroke-width="2"/>
+
+  <rect x="80" y="120" width="140" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+  <text x="150" y="105" text-anchor="middle" font-size="13" fill="var(--fg)">自分だけで使う</text>
+  <text x="150" y="140" text-anchor="middle" font-size="11" fill="var(--muted)">気軽に使える</text>
+
+  <rect x="250" y="90" width="140" height="60" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="320" y="75" text-anchor="middle" font-size="13" fill="var(--fg)">人に見せる</text>
+  <text x="320" y="115" text-anchor="middle" font-size="11" fill="var(--fg)">AIで作ったと</text>
+  <text x="320" y="130" text-anchor="middle" font-size="11" fill="var(--fg)">明記する</text>
+
+  <rect x="420" y="50" width="140" height="100" fill="var(--accent)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="490" y="35" text-anchor="middle" font-size="13" fill="var(--fg)">商用で使う</text>
+  <text x="490" y="90" text-anchor="middle" font-size="11" fill="var(--accent-fg)">利用規約の</text>
+  <text x="490" y="105" text-anchor="middle" font-size="11" fill="var(--accent-fg)">商用利用条件を</text>
+  <text x="490" y="120" text-anchor="middle" font-size="11" fill="var(--accent-fg)">必ず確認</text>
+
+  <text x="490" y="175" text-anchor="middle" font-size="12" fill="var(--muted)">→ 右にいくほど、確認しておくべきことが増える</text>
+</svg>
+```
 
 ### 自分だけで見る・使う場合
 
