@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>AIツールの透視図</title>
+  <link>https://petrichot.com/</link>
+  <description>ChatGPTやClaudeをはじめとするAIツールの比較・使い方・活用術を解説するサイトです。はじめて触れる人向けの基礎から、仕事での使い分けまで扱います。</description>
+  <language>ja</language>
+  <item>
+    <title>うまくいったプロンプトをチームで共有する仕組み</title>
+    <link>https://petrichot.com/prompt-team-kyouyuu/</link>
+    <guid isPermaLink="true">https://petrichot.com/prompt-team-kyouyuu/</guid>
+    <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+    <description>個人の頭の中にある前提を書き出し、型と条件だけを残して共有する考え方と、共有すべきものを選ぶ判断基準、保管・見直しの仕組みをまとめます。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>自分の写真や声がAIに使われないために</title>
+    <link>https://petrichot.com/ai-narisumashi-mamorikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-narisumashi-mamorikata/</guid>
+    <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+    <description>SNSに写真や動画を投稿するのが当たり前の世代へ。AIが人の顔や声を素材にできる仕組みと、投稿前に見直したい公開範囲、友達を巻き込まない工夫、何かあったときの相談の仕方を解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIツールの無料トライアルで契約前に確かめるべきこと</title>
+    <link>https://petrichot.com/ai-tool-muryou-trial-kakunin/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-tool-muryou-trial-kakunin/</guid>
+    <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
+    <description>無料プランや試用期間をなんとなく触って契約を決めてしまう前に、何を基準に「合格」と判断するかを決めておく進め方を紹介します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AI文字起こしがうまくいかないときの直し方</title>
+    <link>https://petrichot.com/ai-mojiokoshi-seido-kaizen/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-mojiokoshi-seido-kaizen/</guid>
+    <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AI文字起こしの結果が思ったより悪いとき、原因はツールより録音の状態にあることが多いです。原因の見分け方と、手元でできる改善策を整理します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIエージェント完全ガイド｜全体像と読む順番がわかるハブ記事</title>
+    <link>https://petrichot.com/ai-agent-matome-guide/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-agent-matome-guide/</guid>
+    <pubDate>Sun, 09 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIエージェントというトピック全体を一枚の地図で整理し、まだ触ったことがない人・導入を検討している人・任せる範囲に迷っている人を、それぞれ読むべき記事へ案内するガイドです。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AI画像生成ガイド｜ツール選びから始め方まで全体像を整理</title>
+    <link>https://petrichot.com/ai-gazou-seisei-matome-guide/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-gazou-seisei-matome-guide/</guid>
+    <pubDate>Sun, 09 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AI画像生成というトピックを一枚の地図で整理し、初めて試す人・本格的に使いこなしたい人・資料全体をデザインしたい人を、それぞれ読むべき記事とツールへ案内するガイドです。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>学生・教育現場のAI活用ガイド｜学年・場面別の入口</title>
+    <link>https://petrichot.com/gakusei-ai-riyou-matome-guide/</link>
+    <guid isPermaLink="true">https://petrichot.com/gakusei-ai-riyou-matome-guide/</guid>
+    <pubDate>Sun, 09 Aug 2026 00:00:00 GMT</pubDate>
+    <description>小学生から大学生、保護者まで、学年や場面によって知っておきたいAIとの付き合い方は違います。全体像を一枚の地図で整理し、状況に合う記事へ案内するガイドです。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIを使うと考える力は落ちるのか、自分で確かめる方法</title>
+    <link>https://petrichot.com/ai-to-kangaeru-chikara/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-to-kangaeru-chikara/</guid>
+    <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+    <description>「AIで考える力が落ちる」も「使っても変わらない」も、確かめようのない主張です。この記事は結論を出す代わりに、考える工程と作業を切り分けて、自分の使い方を自分で判定できる基準を渡します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIで作った画像を仕事で使う前に確認しておきたいこと</title>
+    <link>https://petrichot.com/ai-gazou-shigoto-riyou-kakunin/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-gazou-shigoto-riyou-kakunin/</guid>
+    <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AI画像生成で作った画像を仕事の資料や納品物に使う前に、生成の可否と使用の可否は別という視点から、確認すべき順番とチェックリストを整理して解説します。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>AIツールの契約が増えすぎたときの整理のしかた</title>
+    <link>https://petrichot.com/ai-tool-keiyaku-seiri/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-tool-keiyaku-seiri/</guid>
+    <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+    <description>気づいたらAI系のサブスクが何本も並んでいる、という人向けに、機能の重なりと解約の可否を分けて考え、残す・切るをどう判断するかの手順を整理します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIで書いたかは見分けられるのか｜検出の限界と備え</title>
+    <link>https://petrichot.com/ai-de-kaitaka-mikiwame/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-de-kaitaka-mikiwame/</guid>
+    <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AI検出ツールで「使ったかどうか」を白黒つけられるという発想がなぜ危ういのかを整理し、自分で書いたのに疑われたときに備える具体的な方法を紹介します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIの答えはなぜ偏るのか｜気づくための見方</title>
+    <link>https://petrichot.com/ai-no-katayori-bias/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-no-katayori-bias/</guid>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIの答えは中立に見えても、学習した文章の中で多数派だった見方をそのまま映すことがあります。偏りが生まれる仕組みと、自分の手で確かめる具体的な方法をやさしく整理します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIエージェントとチャットAI・自動化ツールの違い</title>
+    <link>https://petrichot.com/ai-agent-chatai-jidoka-chigai/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-agent-chatai-jidoka-chigai/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIエージェント、チャットAI、RPAやマクロといった従来の自動化ツール。似ているようで役割が違う3つを比較し、何を選ぶべきかの判断基準を整理します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>AIエージェントに今できること・できないこと</title>
+    <link>https://petrichot.com/ai-agent-dekiru-koto-dekinai-koto/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-agent-dekiru-koto-dekinai-koto/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIエージェントは何を任せられて、何はまだ難しいのか。誇張を避け、2026年時点で現実的にできることとできないことを具体例で整理します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIエージェントを業務に組み込む手順</title>
+    <link>https://petrichot.com/ai-agent-gyomu-donyu-tejun/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-agent-gyomu-donyu-tejun/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIエージェントはいきなり全部を任せるのではなく、小さく試して広げるのが安全です。導入の進め方と、うまくいかないときの戻し方を整理します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIエージェントに任せてはいけない仕事とは</title>
+    <link>https://petrichot.com/ai-agent-makasete-ikenai-shigoto/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-agent-makasete-ikenai-shigoto/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>自動で動くAIエージェントだからこそ、人が手放してはいけない仕事があります。判断・責任・お金・個人情報が絡む領域を具体例で整理します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIエージェントとは？チャットAIとの違いと始め方を図で解説</title>
+    <link>https://petrichot.com/ai-agent-toha-hajimekata/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-agent-toha-hajimekata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>最近よく聞く「AIエージェント」とは何なのかを図で解説します。ChatGPTのようなチャットAIとの違い、任せられる仕事の範囲、始めるときにつまずきやすい環境の準備、そして任せる前に決めておくことをまとめました。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIで業務効率化を始める完全ガイド|2026年最新版</title>
+    <link>https://petrichot.com/ai-gyomu-kouritsuka/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-gyomu-kouritsuka/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIで業務効率化を進めるための実践ガイドです。業務課題の整理からツール選び、小規模での試験導入、効果の測定、よくある失敗パターンまで、経営者・管理職向けに段階を追って解説します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AI文字起こしツール比較｜Notta Memo・Brain・Plaud</title>
+    <link>https://petrichot.com/ai-mojiokoshi-tool-hikaku/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-mojiokoshi-tool-hikaku/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>会議録音を要約するNotta Memo、情報整理まで踏み込むNotta Brain、外出先でも使えるPlaud。3つのAI文字起こしツールを用途別に比較し、選び方のヒントを紹介します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>AIと著作権の基本|生成画像や文章は誰のもの?</title>
+    <link>https://petrichot.com/ai-to-chosakuken-kihon/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-to-chosakuken-kihon/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIが生成した画像や文章の著作権はどう扱うのか、学校の課題・創作活動での注意点や使い方ごとの確認ポイントを、中高生向けにわかりやすく解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIってなに？小学生にもわかる図で説明します</title>
+    <link>https://petrichot.com/ai-toha-nani-shougakusei/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-toha-nani-shougakusei/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIとはどんなものなのか、小学生にもわかるように図を使って説明します。AIがどうやっておぼえるのか、なぜまちがえることがあるのか、使うときに気をつけることまで、やさしい言葉でまとめました。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>勉強にAIをどう使う？正しい活用法</title>
+    <link>https://petrichot.com/benkyou-ni-ai-wo-tsukau-houhou/</link>
+    <guid isPermaLink="true">https://petrichot.com/benkyou-ni-ai-wo-tsukau-houhou/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIは「答え丸写し」の道具ではなく、理解を深める相談相手。具体例と活用法を紹介します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>文化祭・部活のポスターをAIで作ってみよう</title>
+    <link>https://petrichot.com/bunkasai-ai-poster-tsukurikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/bunkasai-ai-poster-tsukurikata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AI画像生成を使って文化祭や部活動のポスター・資料を作る方法を中高生向けに解説。著作権や学校ルールへの配慮も含めて紹介します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>Canva AIで初心者がプロ級デザインを作る具体的手順|Magic Studio徹底解説</title>
+    <link>https://petrichot.com/canva-ai-design-nyumon/</link>
+    <guid isPermaLink="true">https://petrichot.com/canva-ai-design-nyumon/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Canva AIの「Magic Studio」機能の使い方を、実際の指示文の書き方や向き不向きまで踏み込んで解説。テンプレート任せで終わらせないための判断基準も紹介します。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>ChatGPT無料版と有料版の違いを徹底解説</title>
+    <link>https://petrichot.com/chatgpt-muryou-yuuryou-chigai/</link>
+    <guid isPermaLink="true">https://petrichot.com/chatgpt-muryou-yuuryou-chigai/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPT無料版と有料版（Plus）の機能・速度・制限の違いをわかりやすく比較。2026年の最新情報を含め、どちらを選ぶべきかを解説します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>Claude Opus 5とは？特徴と使いどころを解説</title>
+    <link>https://petrichot.com/claude-opus-5-toha/</link>
+    <guid isPermaLink="true">https://petrichot.com/claude-opus-5-toha/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AnthropicのAIモデル「Claude Opus 5」とは何かを解説。100万トークンの文脈長、思考モード、API料金、得意な作業、Opus 4.8やFable 5との位置づけの違いをやさしく整理します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>Claudeの使い方入門|特徴と得意なこと</title>
+    <link>https://petrichot.com/claude-tsukaikata-nyumon/</link>
+    <guid isPermaLink="true">https://petrichot.com/claude-tsukaikata-nyumon/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Anthropicが開発したAI「Claude」の使い方と特徴を初心者向けに解説。長文読解・文章力・丁寧な応答が強みのClaudeを使いこなすコツを紹介します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>ConoHa AI Canvasでブラウザから画像生成</title>
+    <link>https://petrichot.com/conoha-ai-canvas-gazou-seisei/</link>
+    <guid isPermaLink="true">https://petrichot.com/conoha-ai-canvas-gazou-seisei/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>ConoHa AI Canvasはブラウザだけで使えるAI画像生成ツール。インストール不要で始められる手軽さ、プロンプトの基本、著作権面での注意点を解説します。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>大学生が知っておくべき生成AIの使い方</title>
+    <link>https://petrichot.com/daigakusei-seiseiai-tsukaikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/daigakusei-seiseiai-tsukaikata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>講義ノート整理、ゼミ発表資料、就活ES、レポート下調べなど、大学生活の場面別に生成AIを安全に活用する方法を解説。大学の規定確認と提出物ルールも必読</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>英語学習にAIを活用する方法</title>
+    <link>https://petrichot.com/eigo-gakushuu-ai-katsuyou/</link>
+    <guid isPermaLink="true">https://petrichot.com/eigo-gakushuu-ai-katsuyou/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>英語学習を加速させるAIの活用方法を、中高生向けに解説。英作文添削、発音練習、会話練習の相手など、無料でできる範囲を中心に、効果的な使い方と注意点を紹介します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>レポート・課題でAIを使うときのルールとマナー</title>
+    <link>https://petrichot.com/gakushuu-report-to-ai-no-tsukaikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/gakushuu-report-to-ai-no-tsukaikata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>学校によってAIのルールは違います。先生への確認の仕方から、下書きの相談相手としての使い方、AIを使ったことの報告例まで、中高生向けにレポート・課題での健全なAI活用マナーを解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>GitHub Copilotの始め方|導入から使いこなしまで</title>
+    <link>https://petrichot.com/github-copilot-hajimekata/</link>
+    <guid isPermaLink="true">https://petrichot.com/github-copilot-hajimekata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>GitHub Copilotの基本的な使い方から設定・実際の活用シーン・学習効果まで、プログラミング初心者向けに丁寧に解説します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>GitHub Copilotは買うべきか｜導入前に確かめる判断基準</title>
+    <link>https://petrichot.com/github-copilot-review/</link>
+    <guid isPermaLink="true">https://petrichot.com/github-copilot-review/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>GitHub Copilotに課金するかどうかを、他人の感想ではなく自分の作業で判断するための記事です。効果が出る条件と出ない条件、無料期間中に測っておく項目、契約前に社内で確認すべきこと、解約の判断基準までを整理しました。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>子どもがAIを使うとき保護者が知っておきたいこと</title>
+    <link>https://petrichot.com/kodomo-ai-riyou-hogosha/</link>
+    <guid isPermaLink="true">https://petrichot.com/kodomo-ai-riyou-hogosha/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>子どもがAIを使い始めた保護者に向けて、禁止か放任かで悩まず判断できるよう、家庭で確認したいポイントと会話の切り口をやさしく整理します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>Midjourneyの始め方・使い方入門|初心者向け完全ガイド</title>
+    <link>https://petrichot.com/midjourney-hajimekata/</link>
+    <guid isPermaLink="true">https://petrichot.com/midjourney-hajimekata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AI画像生成Midjourneyの登録方法や基本的な使い方、料金プランの選び方を初心者向けに解説。プロンプト例に加え、思った画像にならないときの直し方や注意しておきたい点もまとめました。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>Midjourneyプロンプトのコツ10選</title>
+    <link>https://petrichot.com/midjourney-prompt-no-kotsu/</link>
+    <guid isPermaLink="true">https://petrichot.com/midjourney-prompt-no-kotsu/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Midjourneyで高品質な画像を生成するプロンプト作成のコツを10個紹介。初心者でも使える実践的なテクニックを詳しく解説します。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>MiriCanvasで資料を作る手順｜テンプレート選びから仕上げまで</title>
+    <link>https://petrichot.com/miricanvas-tsukaikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/miricanvas-tsukaikata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>デザイン未経験でも資料やバナーを形にするための進め方を、MiriCanvasのようなテンプレート型ツールを前提に整理しました。初心者がつまずきやすい点と、その回避のしかたも紹介します。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>無料で試せるAI画像生成ツールと始め方</title>
+    <link>https://petrichot.com/muryou-ai-gazou-seisei/</link>
+    <guid isPermaLink="true">https://petrichot.com/muryou-ai-gazou-seisei/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AI画像生成を試したい初心者向けに、無料で試せるツール選びと始め方を解説。ConoHa AI CanvasやCanvaの使い方、プロンプトのコツ、注意点をカバー。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>OpenAIとはどんな会社？ChatGPTの開発元を解説</title>
+    <link>https://petrichot.com/openai-toha-donna-kaisha/</link>
+    <guid isPermaLink="true">https://petrichot.com/openai-toha-donna-kaisha/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPTを開発するOpenAIはどんな組織なのか。非営利団体としての設立から、営利部門の設置、2025年の再編までの経緯と、ChatGPT・DALL·E・Soraといった製品を、2026年時点の情報で整理します。</description>
+    <category>AI企業を知る</category>
+  </item>
+  <item>
+    <title>プログラミング学習にAIを活用しよう</title>
+    <link>https://petrichot.com/programming-gakushuu-to-ai/</link>
+    <guid isPermaLink="true">https://petrichot.com/programming-gakushuu-to-ai/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>エラー解説やコード読解などプログラミング学習をAIでサポートする方法、質問の作り方、注意点まで具体例つきで中高生向けに解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>生成AIにはどんな種類がある？文章・画像・音声で見る違い</title>
+    <link>https://petrichot.com/seiseiai-no-shurui/</link>
+    <guid isPermaLink="true">https://petrichot.com/seiseiai-no-shurui/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>「生成AI」とひとくくりに呼ばれるツールも、実は扱うデータによって系統が分かれます。文章生成・画像生成・音声認識のAIを、身近な例を交えて初心者向けに整理します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>志望理由書・自己PRでAIをどこまで使っていいかの線引き</title>
+    <link>https://petrichot.com/shibou-riyuusho-ai-tsukaikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/shibou-riyuusho-ai-tsukaikata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>志望理由書や自己PRでAIを使ってよい場面と使わないほうがよい場面を、判断基準の表とそのまま使える指示文で具体的に示します。書類と面接がずれないための考え方をまとめました。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AI議事録・メモ術で会議を効率化</title>
+    <link>https://petrichot.com/ai-gijiroku-memo-jutsu/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-gijiroku-memo-jutsu/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIを活用した議事録作成・メモ術を解説します。汎用AIと音声特化ツールの使い分け、要点抽出やアクション項目の整理まで、会議後の作業を軽くする方法をまとめました。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AI検索は従来の検索と何が違う?</title>
+    <link>https://petrichot.com/ai-kensaku-perplexity-hikaku/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-kensaku-perplexity-hikaku/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AI検索エンジンと従来の検索エンジンの違いを解説。Perplexity、ChatGPT、Geminiなど、2026年最新のAI検索ツールを比較します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>AIボイスレコーダー比較|議事録・メモを自動化</title>
+    <link>https://petrichot.com/ai-voice-recorder-hikaku/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-voice-recorder-hikaku/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>会議やインタビューの音声を自動文字起こし・要約するAIボイスレコーダーの紹介。Notta MemoとPlaudの特徴を比較し、あなたに合ったツールの選び方をご説明します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>AIライティングツールおすすめ6選|2026年最新ランキング</title>
+    <link>https://petrichot.com/ai-writing-tools-osusume/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-writing-tools-osusume/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>文章作成を効率化するAIライティングツールを徹底比較。ChatGPT・Notion AI・Grammarlyなど7つの特徴と、どんな人にどのツールが向くかの判断基準を整理して紹介します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>Anthropicとはどんな会社？Claudeの開発元を解説</title>
+    <link>https://petrichot.com/anthropic-toha-donna-kaisha/</link>
+    <guid isPermaLink="true">https://petrichot.com/anthropic-toha-donna-kaisha/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>対話型AI「Claude」を開発するAnthropicはどんな会社なのか。設立の経緯、元OpenAI社員による創業、公益を定款に定めた法人形態、AIの安全性を軸にした研究方針を、2026年時点の情報で整理します。</description>
+    <category>AI企業を知る</category>
+  </item>
+  <item>
+    <title>ChatGPTとClaudeを徹底比較|AI選びの完全ガイド</title>
+    <link>https://petrichot.com/chatgpt-vs-claude-hikaku/</link>
+    <guid isPermaLink="true">https://petrichot.com/chatgpt-vs-claude-hikaku/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPTとClaudeの機能・料金体系・向いている場面を徹底比較。2026年時点の情報をもとに、あなたの使い方に合ったAIツールの選び方を解説します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>長文やPDFをAIで要約させるコツ｜質と効率を高める実践法</title>
+    <link>https://petrichot.com/chobun-pdf-youyaku-ai/</link>
+    <guid isPermaLink="true">https://petrichot.com/chobun-pdf-youyaku-ai/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>報告書、契約書、議事録など長い資料をAIに効率よく要約させる方法を紹介。目的の伝え方から出力形式の指定まで、要約の質を高めるコツを解説します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>Claudeとは？開発元・モデルの種類・得意分野を解説</title>
+    <link>https://petrichot.com/claude-toha-nani/</link>
+    <guid isPermaLink="true">https://petrichot.com/claude-toha-nani/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Anthropicが開発する対話型AI「Claude」の正体を解説。開発元はどんな会社か、Opus・Sonnet・Haikuの違い、長文に強い理由、Constitutional AIという仕組みまで、2026年時点の情報でまとめます。</description>
+    <category>AI企業を知る</category>
+  </item>
+  <item>
+    <title>Notion AIの使い方入門|メモ・議事録・タスク整理を効率化</title>
+    <link>https://petrichot.com/notion-ai-tsukaikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/notion-ai-tsukaikata/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Notion AIの使い方を実例つきで解説。会議メモの議事録化やタスク整理にそのまま使える具体的な指示文の作り方と、できること・できないことの見極め方をあわせて紹介します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>Notta Brainとは?情報整理から資料作成まで</title>
+    <link>https://petrichot.com/notta-brain-shoukai/</link>
+    <guid isPermaLink="true">https://petrichot.com/notta-brain-shoukai/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Notta Brain AIエージェントの機能と活用方法を紹介。情報整理・分析から資料作成まで、ビジネスパーソンの業務効率化を実現するツールの詳細解説。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>Perplexityで検索が変わる活用術|次世代AI検索エンジン</title>
+    <link>https://petrichot.com/perplexity-kensaku-katsuyo/</link>
+    <guid isPermaLink="true">https://petrichot.com/perplexity-kensaku-katsuyo/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Perplexityの使い方や料金、Google検索との違いを解説。調査・意思決定などの場面別に、どんな人にPerplexityが向くかの判断基準を紹介します。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>AIへの指示文(プロンプト)の書き方基本ガイド</title>
+    <link>https://petrichot.com/prompt-no-kakikata-kihon/</link>
+    <guid isPermaLink="true">https://petrichot.com/prompt-no-kakikata-kihon/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPTやClaudeへの指示文(プロンプト)の書き方しだいで、回答の質は大きく変わります。目的・条件・形式を伝える基本の型と、すぐ使える改善テクニックを紹介します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AI時代のフェイク情報の見分け方</title>
+    <link>https://petrichot.com/ai-fake-joho-mimawake/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-fake-joho-mimawake/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>ディープフェイクや生成画像、もっともらしい嘘テキストなど、AI時代だからこそ気をつけたいフェイク情報。見分け方と確認する習慣、SNSでの対応について、中高生向けにわかりやすく解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AI時代の進路と仕事はどうなる？</title>
+    <link>https://petrichot.com/ai-jidai-no-shinro/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-jidai-no-shinro/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIが発展した社会で、自分たちの進路や仕事はどう変わるのか。不安よりも、AIを使いこなす視点を持つことの大切さ。中高生が今、身につけるべき力について、わかりやすく解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>メール対応をAIで短くする方法と、任せてはいけない部分</title>
+    <link>https://petrichot.com/ai-mail-taiou-jitan/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-mail-taiou-jitan/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>「メール対応に追われている」社会人向け。AIに任せられる部分と、人が必ず書くべき部分を整理し、効率と信頼のバランスを取る方法を解説。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>知っておきたいAIリテラシーの基本</title>
+    <link>https://petrichot.com/ai-riteracy-nyuumon/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-riteracy-nyuumon/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIはもっともらしく間違えます。なぜそうなるのかという仕組みから、個人情報の扱い、著作権、答えの確かめ方まで、AIと付き合ううえで先に知っておきたい基本をやさしく解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>SNS投稿の文章と画像をAIで用意する手順</title>
+    <link>https://petrichot.com/ai-sns-toukou-sakusei/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-sns-toukou-sakusei/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>店舗や個人のSNS運用で投稿作成に時間がかかる課題を解決。AI文章生成と画像生成を活用した投稿1本の制作フローを、実務的なコツとともに紹介します。</description>
+    <category>デザイン</category>
+  </item>
+  <item>
+    <title>SNSのおすすめもAI?アルゴリズムとの付き合い方</title>
+    <link>https://petrichot.com/ai-to-sns-algorithm/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-to-sns-algorithm/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>InstagramやTikTokのおすすめ機能を支えるAIの仕組みと、フィルターバブルを避けるための具体的な行動を中高生向けに解説します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIってそもそも何？中高生向け入門</title>
+    <link>https://petrichot.com/ai-toha-nani/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-toha-nani/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>スマートフォンの予測変換からChatGPTまで、身近な例を使ってAIと生成AIの違いを解説します。何をしている道具なのかが分かると、ニュースの読み方や使うときの注意点も見えてきます。中高生向けの入門記事です。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>Doraverseでオフィス業務を効率化する</title>
+    <link>https://petrichot.com/doraverse-office-koritsuka/</link>
+    <guid isPermaLink="true">https://petrichot.com/doraverse-office-koritsuka/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Doraverseは中小企業やチーム向けのBtoB SaaS。定型業務と情報共有を自動化し、オフィス業務を効率化する方法を具体例とともに解説します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>Geminiとは？できることと使いどころを実例で解説</title>
+    <link>https://petrichot.com/gemini-toha-nani/</link>
+    <guid isPermaLink="true">https://petrichot.com/gemini-toha-nani/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>GoogleのAIアシスタント「Gemini」とは何かを初心者向けに解説。具体的な指示の出し方、他のAIとの違い、向く場面・向かない場面まで実例つきでまとめました。</description>
+    <category>ツール比較</category>
+  </item>
+  <item>
+    <title>イルシルでAIスライド資料を作る方法</title>
+    <link>https://petrichot.com/irusiru-ai-slide-tsukurikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/irusiru-ai-slide-tsukurikata/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AIスライド資料作成ツール「イルシル」の使い方と活用ポイント。AIに任せるべき部分と自分で仕上げるべき部分を解説。プレゼン資料作成を効率化しましょう。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>一人社長・フリーランスのためのAI業務効率化ツール3選</title>
+    <link>https://petrichot.com/sohos-freelance-ai-tool-3sen/</link>
+    <guid isPermaLink="true">https://petrichot.com/sohos-freelance-ai-tool-3sen/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>個人事業主・SOHO向けのAI業務効率化ツール。バックオフィス自動化・AI画像生成・SEO記事作成の3ツールと、導入する価値があるかを自分で見極める手順を紹介します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>Value AI WriterでSEO記事を効率化する方法</title>
+    <link>https://petrichot.com/value-ai-writer-seo-kiji/</link>
+    <guid isPermaLink="true">https://petrichot.com/value-ai-writer-seo-kiji/</guid>
+    <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Value AI Writerを使ったSEO記事作成の効率化方法を解説。AIの下書き作成と人による編集・ファクトチェックの役割分担について、実践的なアプローチをご紹介します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>ExcelやスプレッドシートをAIで効率化する|関数作成・データ整理・集計を自動化</title>
+    <link>https://petrichot.com/excel-spreadsheet-ai-efficiency/</link>
+    <guid isPermaLink="true">https://petrichot.com/excel-spreadsheet-ai-efficiency/</guid>
+    <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Excel/Googleスプレッドシートの業務をAIで時短。関数・数式の作成、データクレンジング、集計・分析準備、グラフ作成の具体的なプロンプト例と注意点を解説。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AI翻訳の使い方と、そのまま出すと危ない場面</title>
+    <link>https://petrichot.com/ai-honyaku-katsuyou/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-honyaku-katsuyou/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AI翻訳は大意把握と下訳作成に便利ですが、固有名詞や敬意・責任が伴う文書では注意が必要。効果的な使い方と落とし穴、確認手順を紹介します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIでプレゼン資料を作る方法｜テンプレート活用と進め方</title>
+    <link>https://petrichot.com/ai-presentation-shiryou-tsukurikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-presentation-shiryou-tsukurikata/</guid>
+    <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
+    <description>プレゼン資料の作成をAIツールで短くする方法を解説します。テンプレート型ツールの使いどころ、手作業との違い、アカウントの二次認証設定、そしてAIに任せないほうがいい部分まで、実務の順番に沿ってまとめました。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIはなぜもっともらしい嘘をつくのか</title>
+    <link>https://petrichot.com/ai-hallucination-naze/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-hallucination-naze/</guid>
+    <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AIが自信を持って誤った情報を答える理由と、その仕組み。ハルシネーション現象を中高生向けにやさしく解説し、信頼できる活用法を提案します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>AIに入力した内容は学習に使われる?確認方法を知ろう</title>
+    <link>https://petrichot.com/ai-nyuryoku-gakushuu-riyou/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-nyuryoku-gakushuu-riyou/</guid>
+    <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <description>AIサービスに入力した内容が学習に使われるという不安は多いもの。実際にはサービスやプランで異なります。読者が自分で確認する方法と、知っておくべき基礎知識をまとめました。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>ChatGPTの使い方入門|初心者向けの基本ガイド</title>
+    <link>https://petrichot.com/chatgpt-tsukaikata-nyumon/</link>
+    <guid isPermaLink="true">https://petrichot.com/chatgpt-tsukaikata-nyumon/</guid>
+    <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <description>OpenAIのChatGPTの使い方を初心者向けに解説。アカウント作成から実際の使用方法まで、ChatGPTの基本的な活用法と上手に使うコツを紹介します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>営業資料・提案書をAIで時短する方法</title>
+    <link>https://petrichot.com/eigyou-shiryou-ai-jitan/</link>
+    <guid isPermaLink="true">https://petrichot.com/eigyou-shiryou-ai-jitan/</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>営業資料や提案書の作成にかかる時間をAIで短縮する方法を紹介。スライド生成AI「イルシル」と画像生成AIの組み合わせ方、実践フローを解説します。</description>
+    <category>業務効率化</category>
+  </item>
+  <item>
+    <title>AIと個人情報|入力していいこと・ダメなこと</title>
+    <link>https://petrichot.com/ai-to-privacy-kojinjouhou/</link>
+    <guid isPermaLink="true">https://petrichot.com/ai-to-privacy-kojinjouhou/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPTやClaudeなどのAIツールに個人情報を入力するリスク、学校や家庭での情報管理について、中高生向けにわかりやすく説明します。</description>
+    <category>AIをはじめて学ぶ</category>
+  </item>
+  <item>
+    <title>Google Geminiの活用術|Googleサービスとの連携で仕事効率化</title>
+    <link>https://petrichot.com/gemini-katsuyou-jutsu/</link>
+    <guid isPermaLink="true">https://petrichot.com/gemini-katsuyou-jutsu/</guid>
+    <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Google GeminiをGmail・ドキュメント・スプレッドシートと連携させる活用術を紹介。Googleサービスをすでに使っている方向けの効率化テクニックを実例付きで解説します。</description>
+    <category>ツール比較</category>
+  </item>
+</channel>
+</rss>
