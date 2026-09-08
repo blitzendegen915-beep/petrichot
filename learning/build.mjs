@@ -1281,6 +1281,104 @@ main.wide { max-width: var(--wide); }
 }
 .course-bridge h2::before { content: none; }
 .course-bridge p { margin: 0.6rem 0 1rem; color: var(--muted); }
+
+/* Petrichor共通ヘッダー: セクションをまたいでも同じメニュー操作にする。 */
+.site-header .inner { position: relative; min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.menu-toggle {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.7rem 0.45rem 0.85rem;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: inherit;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.menu-toggle:hover, .menu-toggle:focus-visible,
+.menu-toggle[aria-expanded="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.menu-toggle-icon { display: grid; gap: 4px; width: 1.1rem; }
+.menu-toggle-icon span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.site-menu {
+  position: absolute;
+  top: calc(100% - 0.1rem);
+  right: 0;
+  z-index: 30;
+  display: block !important;
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-0.35rem);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+}
+.site-menu.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+.site-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0.55rem 0.6rem;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.site-menu-nav { display: grid !important; gap: 0.25rem !important; }
+.site-menu-link {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 !important;
+  padding: 0.7rem 0.75rem !important;
+  color: var(--fg) !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  text-decoration: none;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+}
+.site-menu-link small { color: var(--muted); font-size: 0.72rem; font-weight: 500; }
+.site-menu-link:hover, .site-menu-link:focus-visible,
+.site-menu-link.is-current { color: var(--accent) !important; border-color: var(--border) !important; background: var(--accent-soft) !important; }
+.site-menu-link.is-current small { color: inherit; opacity: 0.8; }
+.site-menu-divider { height: 1px; margin: 0.55rem 0; background: var(--border); }
+@media (max-width: 640px) {
+  .site-header .inner { min-height: 4rem; }
+  .site-menu { right: 0; width: min(22rem, calc(100vw - 1.25rem)); }
+  .menu-toggle-label { display: none; }
+  .menu-toggle { width: 2.75rem; justify-content: center; padding-inline: 0.7rem; }
+}
 @media (max-width: 700px) {
   .learning-hero { grid-template-columns: 1fr; }
   .learning-actions .learning-button { width: 100%; }
@@ -2234,24 +2332,27 @@ ${OGP_IMAGE_URL ? `<meta name="twitter:image" content="${OGP_IMAGE_URL}">\n` : "
 <body>
 <a class="skip-link" href="#main">本文へ移動</a>
 <header class="site-header">
-  <div class="ecosystem-row">
-    <div class="ecosystem-inner">
-      <span class="ecosystem-label">Petrichor</span>
-      <nav class="ecosystem-nav" aria-label="ペトリコール内のサービス">
-        <a href="${SHOPPING_PATH}">Shopping</a>
-        <a href="${AI_GUIDE_PATH}">AI解説</a>
-        <a href="${LEARNING_PATH}" aria-current="page">Learning</a>
-      </nav>
-    </div>
-  </div>
   <div class="inner">
     <a class="brand" href="${LEARNING_PATH}">
       <img class="brand-mark" src="/learning/static/favicon.svg" alt="" width="25" height="25">
       <span class="brand-text">${escapeHtml(CONFIG.siteName)}</span>
     </a>
-    <nav class="section-nav" aria-label="Learning内のナビゲーション">
-      <a href="${LEARNING_PATH}#articles">記事一覧</a>
-      <a class="nav-cta" href="${COURSE_PATH}">講座で学ぶ</a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="メニュー" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-toggle-label">メニュー</span>
+      <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <nav class="site-menu" id="site-menu" aria-label="サイトメニュー">
+      <div class="site-menu-header"><span>サイトメニュー</span><span>Petrichor</span></div>
+      <div class="site-menu-nav">
+        <a class="site-menu-link" href="${SHOPPING_PATH}"><span>Shopping</span><small>選ぶ</small></a>
+        <a class="site-menu-link" href="${AI_GUIDE_PATH}"><span>AI解説</span><small>理解する</small></a>
+        <a class="site-menu-link is-current" href="${LEARNING_PATH}" aria-current="page"><span>Learning</span><small>学ぶ</small></a>
+      </div>
+      <div class="site-menu-divider"></div>
+      <div class="site-menu-nav">
+        <a class="site-menu-link" href="${LEARNING_PATH}#articles"><span>記事一覧</span><small>読む</small></a>
+        <a class="site-menu-link" href="${COURSE_PATH}"><span>講座で学ぶ</span><small>実践する</small></a>
+      </div>
     </nav>
   </div>
 </header>
@@ -2271,6 +2372,30 @@ ${bodyHtml}
     <p>&copy; ${new Date().getFullYear()} ${escapeHtml(CONFIG.siteName)}</p>
   </div>
 </footer>
+<script>
+(() => {
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const menu = document.getElementById("site-menu");
+  if (!toggle || !menu) return;
+  const setOpen = (open) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    menu.classList.toggle("is-open", open);
+  };
+  toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
+  });
+  menu.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+})();
+</script>
 </body>
 </html>
 `;

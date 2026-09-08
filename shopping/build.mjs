@@ -678,6 +678,67 @@ h1 {
   .disclosure { display: block; padding: 0.7rem 0.8rem; font-size: 0.8rem; line-height: 1.55; }
   .disclosure strong { display: block; margin-bottom: 0.25rem; }
 }
+
+/* Petrichor共通ヘッダー: セクションをまたいでも同じメニュー操作にする。 */
+.site-header .inner { position: relative; }
+.menu-toggle {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.7rem 0.45rem 0.85rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font: inherit;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.menu-toggle:hover, .menu-toggle:focus-visible,
+.menu-toggle[aria-expanded="true"] { color: var(--warm-dark); border-color: var(--warm-dark); background: var(--warm-soft); }
+.menu-toggle-icon { display: grid; gap: 4px; width: 1.1rem; }
+.menu-toggle-icon span { display: block; height: 2px; border-radius: 2px; background: currentColor; transition: transform 0.18s ease, opacity 0.18s ease; }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.site-menu {
+  position: absolute;
+  top: calc(100% - 0.1rem);
+  right: 0;
+  z-index: 30;
+  display: block;
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-0.35rem);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+}
+.site-menu.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+.site-menu-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.35rem 0.55rem 0.6rem; color: var(--muted); font-family: var(--font-display); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.site-menu-nav { display: grid; gap: 0.25rem; }
+.site-menu-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.7rem 0.75rem; color: var(--ink); border: 1px solid transparent; border-radius: 4px; background: transparent; text-decoration: none; font-size: 0.88rem; font-weight: 700; }
+.site-menu-link small { color: var(--muted); font-size: 0.72rem; font-weight: 500; }
+.site-menu-link:hover, .site-menu-link:focus-visible, .site-menu-link.is-current { color: var(--warm-dark); border-color: var(--line); background: var(--warm-soft); }
+.site-menu-link.is-current small { color: inherit; opacity: 0.8; }
+.site-menu-divider { height: 1px; margin: 0.55rem 0; background: var(--line); }
+@media (max-width: 620px) {
+  .header-inner { align-items: center; flex-direction: row; padding: 0.7rem 0; }
+  .site-menu { right: 0; width: min(22rem, calc(100vw - 1.25rem)); }
+  .menu-toggle-label { display: none; }
+  .menu-toggle { width: 2.75rem; justify-content: center; padding-inline: 0.7rem; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
@@ -688,7 +749,7 @@ function nav() {
   return `
     <a class="skip-link" href="#main">本文へ移動</a>
     <header class="site-header">
-      <div class="header-inner">
+      <div class="header-inner inner">
         <a class="brand" href="${shoppingPath}" aria-label="Petrichor Shopping ホーム">
           <img class="brand-mark" src="/static/favicon.svg" alt="" width="28" height="28">
           <span class="brand-copy">
@@ -696,10 +757,21 @@ function nav() {
             <span class="brand-section">Shopping Guide</span>
           </span>
         </a>
-        <nav class="umbrella-nav" aria-label="Petrichor サービス">
-          <a href="${shoppingPath}" aria-current="page">Shopping</a>
-          <a href="${aiGuidePath}">AI解説</a>
-          <a href="${learningPath}">Learning</a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="メニュー" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-toggle-label">メニュー</span>
+          <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav class="site-menu" id="site-menu" aria-label="サイトメニュー">
+          <div class="site-menu-header"><span>サイトメニュー</span><span>Petrichor</span></div>
+          <div class="site-menu-nav">
+            <a class="site-menu-link is-current" href="${shoppingPath}" aria-current="page"><span>Shopping</span><small>選ぶ</small></a>
+            <a class="site-menu-link" href="${aiGuidePath}"><span>AI解説</span><small>理解する</small></a>
+            <a class="site-menu-link" href="${learningPath}"><span>Learning</span><small>学ぶ</small></a>
+          </div>
+          <div class="site-menu-divider"></div>
+          <div class="site-menu-nav">
+            <a class="site-menu-link" href="${recorderPath}"><span>AIレコーダー診断</span><small>1分で整理</small></a>
+          </div>
         </nav>
       </div>
     </header>
@@ -774,6 +846,30 @@ function shell({ title, description, canonical, body, jsonLd, pageCss = "", page
   ${nav()}
   ${body}
   ${footer()}
+  <script>
+  (() => {
+    const toggle = document.querySelector("[data-menu-toggle]");
+    const menu = document.getElementById("site-menu");
+    if (!toggle || !menu) return;
+    const setOpen = (open) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      menu.classList.toggle("is-open", open);
+    };
+    toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+    document.addEventListener("click", (event) => {
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
+    });
+    menu.addEventListener("click", (event) => {
+      if (event.target.closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  })();
+  </script>
   ${pageScript ? `<script>${pageScript}</script>` : ""}
 </body>
 </html>

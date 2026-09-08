@@ -26,6 +26,8 @@ const SITE_HOST = "petrichot.com";
 // 追加するときは、実在を確認してから足すこと。
 const ALLOWED_URL_PREFIXES = [
   "https://openai.com/",
+  "https://help.openai.com/",
+  "https://developers.openai.com/",
   "https://claude.ai/",
   "https://gemini.google.com/",
   "https://www.notion.com/product/ai",
