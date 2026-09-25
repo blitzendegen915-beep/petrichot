@@ -3,8 +3,10 @@ name: Post to X
 on:
   # 09:10 UTC = 日本時間 18:10 を起点に、ジョブ側でランダムに遅らせる。
   # 毎日きっかり同じ時刻に投稿するとbot判定されやすいため。
-  schedule:
-    - cron: "10 9 * * *"
+  # 2026-09-25 オーナー判断で停止: 投稿は1日1件、AIニュース(x-news.yml)に一本化。
+  # 再開するときは下2行のコメントを外す。
+  # schedule:
+  #   - cron: "10 9 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
