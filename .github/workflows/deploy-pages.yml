@@ -19,6 +19,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # IndexNowで「今回のpushで変わった記事」を割り出すため、push前のコミットまで取得する。
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -43,6 +46,13 @@ jobs:
           test -f dist/learning/index.html
           test -f dist/shopping/index.html
 
+      # IndexNow(Bing等の検索エンジンへの更新通知)の所有確認用ファイル。
+      # キーは仕様上サイトで公開するものなので秘密ではない。
+      - name: Add IndexNow key file
+        run: echo "${INDEXNOW_KEY}" > "dist/${INDEXNOW_KEY}.txt"
+        env:
+          INDEXNOW_KEY: 235ec86cef0fd449f5c0c911a38022aa
+
       - name: Deploy to gh-pages branch
         run: |
           cd dist
@@ -58,3 +68,32 @@ jobs:
           git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 新規・更新された記事のURLだけをIndexNowに通知する。
+      # BingのインデックスはChatGPTの検索などにも使われるため、Google以外の入口になる。
+      # 通知に失敗しても公開そのものは済んでいるので、ジョブは落とさない。
+      # 手動実行(workflow_dispatch)のときは、サイトマップの全URLをまとめて通知する(初回登録用)。
+      - name: Notify IndexNow
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            urls=$(grep -o '<loc>[^<]*</loc>' dist/sitemap.xml | sed -E 's#</?loc>##g')
+          else
+            case "$BEFORE" in ""|0000000000000000000000000000000000000000) echo "no previous commit; skip"; exit 0;; esac
+            urls=$(git diff --name-only --diff-filter=AM "$BEFORE" "$GITHUB_SHA" -- 'affiliate/content/*.md' \
+              | sed -E 's#^affiliate/content/(.+)\.md$#https://petrichot.com/\1/#')
+            if [ -z "$urls" ]; then echo "no article changes; skip"; exit 0; fi
+            urls=$(printf '%s\nhttps://petrichot.com/\n' "$urls")
+          fi
+          echo "$urls"
+          # GitHub Pagesへの反映を待ってから通知する(検索エンジン側がすぐ取りに来ることがあるため)。
+          sleep 90
+          body=$(printf '%s\n' "$urls" | node -e '
+            const urls = require("fs").readFileSync(0, "utf8").split("\n").filter(Boolean);
+            const key = process.env.INDEXNOW_KEY;
+            process.stdout.write(JSON.stringify({ host: "petrichot.com", key, keyLocation: `https://petrichot.com/${key}.txt`, urlList: urls }));')
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' --data "$body" || true)
+          echo "IndexNow response: $code"
+        env:
+          BEFORE: ${{ github.event.before }}
+          INDEXNOW_KEY: 235ec86cef0fd449f5c0c911a38022aa
