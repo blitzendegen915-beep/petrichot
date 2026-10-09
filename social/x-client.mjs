@@ -107,15 +107,17 @@ function credentials() {
   return c;
 }
 
-export async function postToX(text) {
+// replyTo を渡すと、そのツイートへのリプライとして投稿する。
+export async function postToX(text, { replyTo } = {}) {
   const c = credentials();
+  const payload = replyTo ? { text, reply: { in_reply_to_tweet_id: String(replyTo) } } : { text };
   const res = await fetch(ENDPOINT, {
     method: "POST",
     headers: {
       Authorization: buildAuthHeader({ method: "POST", url: ENDPOINT, ...c }),
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ text }),
+    body: JSON.stringify(payload),
   });
 
   const bodyText = await res.text();

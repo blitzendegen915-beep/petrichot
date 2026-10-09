@@ -1,0 +1,21 @@
+{
+  "_comment": "AIニュース投稿(post-news.mjs)に、関連する自サイトの記事をリプライで添えるための対応表。replyDaysJst は投稿する曜日(日本時間、0=日曜)。rules は上から順に照合し、最初に一致したものを使う。pattern はニュースの見出しと概要文に対する正規表現(大文字小文字は区別しない)。具体的な話題を上に、会社名のような広い語を下に置くこと。",
+  "replyDaysJst": [2, 5],
+  "rules": [
+    { "pattern": "著作権|copyright", "slug": "ai-to-chosakuken-kihon" },
+    { "pattern": "個人情報|プライバシー|\\bprivacy\\b", "slug": "ai-to-privacy-kojinjouhou" },
+    { "pattern": "ディープフェイク|deepfake|偽情報|フェイク", "slug": "ai-fake-joho-mimawake" },
+    { "pattern": "ハルシネーション|hallucinat|誤情報", "slug": "ai-hallucination-naze" },
+    { "pattern": "文字起こし|議事録|transcri", "slug": "ai-gijiroku-memo-jutsu" },
+    { "pattern": "画像生成|画像を生成|画像AI|image generation", "slug": "ai-gazou-seisei-matome-guide" },
+    { "pattern": "エージェント|\\bagents?\\b|agentic", "slug": "ai-agent-matome-guide" },
+    { "pattern": "コーディング|プログラミング|\\bcoding\\b|\\bCodex\\b|GitHub Copilot", "slug": "ai-code-kakunin" },
+    { "pattern": "教育|学校|学生|生徒|\\bstudents?\\b|\\beducation", "slug": "gakusei-ai-riyou-matome-guide" },
+    { "pattern": "AI検索|検索エンジン|\\bsearch\\b", "slug": "ai-kensaku-perplexity-hikaku" },
+    { "pattern": "Claude|Anthropic", "slug": "claude-toha-nani" },
+    { "pattern": "Gemini", "slug": "gemini-toha-nani" },
+    { "pattern": "ChatGPT", "slug": "chatgpt-tsukaikata-nyumon" },
+    { "pattern": "OpenAI", "slug": "openai-toha-donna-kaisha" },
+    { "pattern": "Google", "slug": "google-toha-donna-kaisha" }
+  ]
+}

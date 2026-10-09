@@ -18,6 +18,12 @@
 //   allowHosts で照合する。外部から取ってきた文字列をそのまま自分の
 //   アカウントで発信する処理なので、どこを指してよいかは自分で決める。
 
+// - 週に数回(related-articles.json の replyDaysJst の曜日)だけ、ニュースに関連する
+//   自サイトの記事をリプライで添える。ニュース投稿の本文には手を加えない。
+//   どの話題にどの記事を添えるかは対応表で人が決めておき、自動では選ばない。
+//   添える文面は固定で、記事タイトルは記事ファイルから読む(こちらで文を作らない)。
+//   リプライに失敗しても、ニュース投稿は済んでいるのでジョブは成功のまま終える。
+
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -25,6 +31,9 @@ import { weightedLength, MAX_WEIGHTED, notify, postToX } from "./x-client.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const FEEDS_PATH = path.join(HERE, "news-feeds.json");
+const RELATED_PATH = path.join(HERE, "related-articles.json");
+const CONTENT_DIR = path.join(HERE, "..", "affiliate", "content");
+const SITE_URL = "https://petrichot.com";
 
 const TAG = "x-news";
 const FETCH_TIMEOUT_MS = 15000;
@@ -208,6 +217,50 @@ export function buildText(item, sourceName, now = new Date()) {
 
 // ---------------------------------------------------------------- 本体
 
+// 日本時間の曜日(0=日曜)。
+export function jstWeekday(now = new Date()) {
+  return new Date(now.getTime() + 9 * 3600 * 1000).getUTCDay();
+}
+
+function articleTitle(slug, contentDir = CONTENT_DIR) {
+  const file = path.join(contentDir, `${slug}.md`);
+  if (!fs.existsSync(file)) return null;
+  const m = fs.readFileSync(file, "utf8").match(/^title:\s*(.+)$/m);
+  return m ? m[1].trim() : null;
+}
+
+// ニュースに関連する自サイトの記事を対応表から探す。見つからなければ null。
+export function findRelated(item, rules, contentDir = CONTENT_DIR) {
+  const haystack = `${item.title || ""}\n${item.summary || ""}`;
+  for (const rule of rules) {
+    let re;
+    try {
+      re = new RegExp(rule.pattern, "i");
+    } catch {
+      console.warn(`[${TAG}] related-articles.json の pattern が不正です: ${rule.pattern}`);
+      continue;
+    }
+    if (!re.test(haystack)) continue;
+    const title = articleTitle(rule.slug, contentDir);
+    if (!title) {
+      console.warn(`[${TAG}] 対応表の記事が見つかりません: ${rule.slug}`);
+      continue;
+    }
+    return { slug: rule.slug, title, url: `${SITE_URL}/${rule.slug}/` };
+  }
+  return null;
+}
+
+export function buildReplyText(related) {
+  return `関連する基本をまとめた記事です。\n\n${related.title}\n${related.url}`;
+}
+
+function loadRelatedConfig() {
+  if (!fs.existsSync(RELATED_PATH)) return { replyDaysJst: [], rules: [] };
+  const cfg = JSON.parse(fs.readFileSync(RELATED_PATH, "utf8"));
+  return { replyDaysJst: cfg.replyDaysJst || [], rules: cfg.rules || [] };
+}
+
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
   const cfg = JSON.parse(fs.readFileSync(FEEDS_PATH, "utf8"));
@@ -253,6 +306,14 @@ async function main() {
   console.log(`[${TAG}] ${item.source} / ${item.published.toISOString()} (${weightedLength(text)}/${MAX_WEIGHTED})`);
   console.log(text);
 
+  const relatedCfg = loadRelatedConfig();
+  const related = relatedCfg.replyDaysJst.includes(jstWeekday()) ? findRelated(item, relatedCfg.rules) : null;
+  const replyText = related ? buildReplyText(related) : null;
+  if (replyText) {
+    console.log(`[${TAG}] 関連記事のリプライ (${weightedLength(replyText)}/${MAX_WEIGHTED}):`);
+    console.log(replyText);
+  }
+
   if (dryRun) {
     console.log(`[${TAG}] --dry-run のため送信しません。`);
     return;
@@ -260,6 +321,16 @@ async function main() {
 
   const body = await postToX(text);
   console.log(`[${TAG}] 投稿しました: ${body}`);
+
+  if (!replyText) return;
+  try {
+    const newsId = JSON.parse(body)?.data?.id;
+    if (!newsId) throw new Error("投稿IDが応答に含まれていません");
+    const replyBody = await postToX(replyText, { replyTo: newsId });
+    console.log(`[${TAG}] 関連記事をリプライしました: ${replyBody}`);
+  } catch (err) {
+    console.warn(`[${TAG}] 関連記事のリプライに失敗しました(ニュース投稿は完了済み): ${err.message}`);
+  }
 }
 
 // 直接実行されたときだけ動かす(テストから読み込めるようにするため)。
