@@ -8,6 +8,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { ANALYTICS_ENABLED, ANALYTICS_TAG } from "../analytics.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -2224,7 +2225,10 @@ function renderPolicyPages() {
     <h2>Cookieの利用について</h2>
     <p>Cookieとは、ウェブサイトが利用者のブラウザに送信し、端末に保存される情報です。当サイトでは、上記アフィリエイトプログラムの成果計測のためにCookieが利用される場合があります。また、将来的にアクセス解析ツールや第三者配信の広告サービスを導入する場合、これらのサービス提供者によってもCookieが利用されることがあります。その場合、収集される情報に個人を特定できる情報は含まれません。</p>
     <p>Cookieの利用を望まない場合は、ブラウザの設定で無効化することができます。無効化した場合、当サイトの一部機能が正しく動作しない可能性があります。</p>
-
+${ANALYTICS_ENABLED ? `
+    <h2>アクセス解析について</h2>
+    <p>当サイトは、アクセス状況を把握するためにCloudflare Web Analytics(Cloudflare社が提供するサービス)を利用しています。このサービスは、Cookieなど利用者の端末に情報を保存する仕組みを使わずに、ページの閲覧数などを集計します。集計のため、利用者の端末からCloudflare社のサーバーへ通信が行われます。取り扱いの詳細は、同社が公開している情報をご確認ください。</p>
+` : ""}
     <h2>免責事項</h2>
     <p>当サイトの記事内容については正確性の確保に努めていますが、内容の正確性・完全性を保証するものではありません。掲載しているサービスの料金・カリキュラム等は変更される場合があるため、利用の際は必ず公式サイトで最新の情報をご確認ください。学習方法や進路の選択は最終的にご自身の判断で行っていただくものとし、当サイトの情報を利用したことによって生じた損害について、当サイトは一切の責任を負いません。</p>
 
@@ -2396,7 +2400,7 @@ ${bodyHtml}
   });
 })();
 </script>
-</body>
+${ANALYTICS_TAG}</body>
 </html>
 `;
 }

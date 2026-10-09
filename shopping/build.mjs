@@ -1,6 +1,7 @@
 import { cp, readFile, mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { ANALYTICS_TAG } from "../analytics.mjs";
 import {
   createAiRecorderPage,
   recorderPageCss,
@@ -871,7 +872,7 @@ function shell({ title, description, canonical, body, jsonLd, pageCss = "", page
   })();
   </script>
   ${pageScript ? `<script>${pageScript}</script>` : ""}
-</body>
+  ${ANALYTICS_TAG}</body>
 </html>
 `;
 }

@@ -7,6 +7,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { ANALYTICS_ENABLED, ANALYTICS_TAG } from "../analytics.mjs";
 import { TOOLS } from "./tools.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -2339,7 +2340,7 @@ ${bodyHtml}
   });
 })();
 </script>
-</body>
+${ANALYTICS_TAG}</body>
 </html>
 `;
 }
@@ -2770,7 +2771,10 @@ function renderPrivacyPage() {
 
     <h2>外部サービスの利用について</h2>
     <p>当サイトは、フォント表示のためにGoogle Fonts(Google社が提供するサービス)を利用しています。このサービスの利用にともない、利用者の端末からGoogle社のサーバーへ通信が行われます。</p>
-
+${ANALYTICS_ENABLED ? `
+    <h2>アクセス解析について</h2>
+    <p>当サイトは、アクセス状況を把握するためにCloudflare Web Analytics(Cloudflare社が提供するサービス)を利用しています。このサービスは、Cookieなど利用者の端末に情報を保存する仕組みを使わずに、ページの閲覧数などを集計します。集計のため、利用者の端末からCloudflare社のサーバーへ通信が行われます。取り扱いの詳細は、同社が公開している情報をご確認ください。</p>
+` : ""}
     <h2>アクセス解析・広告配信サービスについて</h2>
     <p>当サイトは、将来的にGoogle Analyticsによるアクセス解析や、Google AdSense等の第三者配信広告サービスを導入する場合があります。これらのサービスは、利用者の興味に応じた広告を表示するためにCookieを使用し、当サイトや他サイトへのアクセス情報に基づいて広告を配信することがあります。Cookieを無効にする方法や、これらのサービスにおけるCookieの取り扱いについては、各サービス提供者が公開している情報をご確認ください。</p>
 
