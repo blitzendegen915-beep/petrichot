@@ -84,6 +84,13 @@ const HAS_OGP_IMAGE = fs.existsSync(path.join(STATIC_DIR, "ogp.png"));
 const OGP_IMAGE_URL = HAS_OGP_IMAGE ? `${CONFIG.baseUrl}/static/ogp.png` : null;
 const HAS_FAVICON = fs.existsSync(path.join(STATIC_DIR, "favicon.svg"));
 
+// 記事ごとのOGP画像(affiliate/ogp.mjs が作る)。無い記事は共通の ogp.png を使う。
+function articleOgImage(slug) {
+  return fs.existsSync(path.join(STATIC_DIR, "ogp", `${slug}.jpg`))
+    ? `${CONFIG.baseUrl}/static/ogp/${slug}.jpg`
+    : OGP_IMAGE_URL;
+}
+
 // 万一ページにHTMLが紛れ込んだ場合の被害を、実害の大きい3つに絞って抑える。
 //   base-uri   … <base>を差し込んで相対URLの行き先を丸ごと乗っ取る手口を防ぐ
 //   object-src … <object>/<embed>による埋め込み実行を止める
@@ -2247,6 +2254,7 @@ function pageShell({
   disclosureScope = "article",
   currentCategory = null,
   noindex = false,
+  ogImage = OGP_IMAGE_URL,
 }) {
   const fullTitle = `${title} | ${CONFIG.siteName}`;
   const disclosureText = disclosureScope === "site" ? DISCLOSURE_SITE_TEXT : DISCLOSURE_TEXT;
@@ -2268,10 +2276,10 @@ ${HAS_FAVICON ? `<link rel="icon" href="${CONFIG.baseUrl}/static/favicon.svg" ty
 <meta property="og:type" content="${ogType}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="${escapeHtml(CONFIG.siteName)}">
-${OGP_IMAGE_URL ? `<meta property="og:image" content="${OGP_IMAGE_URL}">\n` : ""}<meta name="twitter:card" content="${OGP_IMAGE_URL ? "summary_large_image" : "summary"}">
+${ogImage ? `<meta property="og:image" content="${ogImage}">\n` : ""}<meta name="twitter:card" content="${ogImage ? "summary_large_image" : "summary"}">
 <meta name="twitter:title" content="${escapeHtml(title)}">
 <meta name="twitter:description" content="${escapeHtml(description)}">
-${OGP_IMAGE_URL ? `<meta name="twitter:image" content="${OGP_IMAGE_URL}">\n` : ""}${renderJsonLd(jsonLd)}
+${ogImage ? `<meta name="twitter:image" content="${ogImage}">\n` : ""}${renderJsonLd(jsonLd)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -2414,6 +2422,7 @@ function renderLearningBridge() {
 
 function renderArticlePage(article, allArticles = []) {
   const url = articleUrl(article.slug);
+  const ogImage = articleOgImage(article.slug);
   const tagsHtml = article.tags.length
     ? article.tags
         .map((t) => `<a class="chip chip-tag" href="${tagUrl(t)}">${escapeHtml(t)}</a>`)
@@ -2446,6 +2455,7 @@ ${renderRelatedHtml(article, allArticles)}
     author: { "@type": "Organization", name: CONFIG.author },
     publisher: PUBLISHER_JSONLD,
     mainEntityOfPage: url,
+    ...(ogImage ? { image: ogImage } : {}),
   };
 
   const breadcrumbJsonLd = {
@@ -2466,6 +2476,7 @@ ${renderRelatedHtml(article, allArticles)}
     bodyHtml: body,
     jsonLd: [articleJsonLd, breadcrumbJsonLd],
     showDisclosure: article.bodyHtml.includes("aff-btn"),
+    ogImage,
   });
 }
 

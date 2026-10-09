@@ -62,9 +62,10 @@ lintが弾くのは「判断が要らない違反」だけなので、**残り�
 1. **事前調査は最小限に**: 既存記事の重複確認は `grep -m1 '^title:' affiliate/content/*.md` 等の1コマンドで済ませる。ファイル通読はしない
 2. **lintを実行**: `node affiliate/lint.mjs <新記事>` でERROR 0を確認
 3. **成果物のレビュー**: 記事を必ず読む。lintが拾えない**捏造された数値・実績・出典**を探す
-4. **ビルド検証**: `node affiliate/build.mjs`
-5. **commit/push**: `git add` は対象ファイルを個別指定。commitは慣例のtrailer付き
-6. **デプロイ確認**: Actions の結論を確認
+4. **OGP画像の生成**: `node affiliate/ogp.mjs`(画像が無い記事だけ作る。新記事なら1枚)。Playwrightが無い環境では作れず共通画像のまま公開されるので、その場合は報告に書く
+5. **ビルド検証**: `node affiliate/build.mjs`
+6. **commit/push**: `git add` は対象ファイルを個別指定(新記事の `.md` と `affiliate/static/ogp/<slug>.jpg`)。commitは慣例のtrailer付き
+7. **デプロイ確認**: Actions の結論を確認
 
 ## 節約のコツ
 

@@ -13,8 +13,9 @@ description: 既存記事をリライト・更新する(情報の陳腐化対応
    - 記事の基本構成、`{{aff:ID}}`(位置の調整はOK、削除はユーザー指示がある時のみ)
    - `## 参考リンク`(承認済みURLリストのみ。new-articleスキル参照)
 3. **frontmatterのdateを更新日に変える**(sitemapのlastmodに反映され、再クロールを促す)
-4. `node affiliate/build.mjs` で警告ゼロを確認
-5. 該当ファイルのみ `git add` → commit(`update: 「<タイトル>」を更新(<理由>)`)→ push
+4. titleを変えた場合は `node affiliate/ogp.mjs <slug>` でOGP画像を作り直す(画像にタイトルが入っているため)
+5. `node affiliate/build.mjs` で警告ゼロを確認
+6. 該当ファイルのみ `git add` → commit(`update: 「<タイトル>」を更新(<理由>)`)→ push
 
 ## 厚みの基準は new-article スキルに従う
 

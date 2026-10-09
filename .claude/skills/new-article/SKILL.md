@@ -91,10 +91,11 @@ tags: [タグ1, タグ2, タグ3]
 ## ビルド・公開
 
 1. **`node affiliate/lint.mjs affiliate/content/<新記事>.md` — ERRORが0件になるまで直す。** 警告は内容を目視で確認。
-2. `node affiliate/build.mjs` — エラー・警告ゼロ、記事数+1を確認。
-3. **`git reset --hard` は使わない**(未pushの作業を破壊しうる)。`git add` は新規記事ファイルのみ個別指定(`-A`/`.`禁止)。
-4. **`affiliate/build.mjs` は触らない**(レビュー待ちの未pushの変更がある)。
-5. commit(`auto: 新規記事「<タイトル>」を追加`)→ `git push origin main`。
-6. push後1〜2分で `git ls-remote origin gh-pages` のハッシュが変わればデプロイ成功。
+2. `node affiliate/ogp.mjs` — 新記事のOGP画像(`affiliate/static/ogp/<slug>.jpg`)を作る。Playwrightが無い環境では作れないが、共通画像で公開されるので止めなくてよい。
+3. `node affiliate/build.mjs` — エラー・警告ゼロ、記事数+1を確認。
+4. **`git reset --hard` は使わない**(未pushの作業を破壊しうる)。`git add` は新規記事ファイルとそのOGP画像のみ個別指定(`-A`/`.`禁止)。
+5. **`affiliate/build.mjs` は触らない**(レビュー待ちの未pushの変更がある)。
+6. commit(`auto: 新規記事「<タイトル>」を追加`)→ `git push origin main`。
+7. push後1〜2分で `git ls-remote origin gh-pages` のハッシュが変わればデプロイ成功。
 
-**サブエージェントとして呼ばれた場合**: 上記2〜5は行わない。記事ファイル作成と`node affiliate/build.mjs`での検証までを行い、パスと結果を報告して終了する(commit/pushは指示役が行う)。
+**サブエージェントとして呼ばれた場合**: 上記2と4〜6は行わない。記事ファイル作成と`node affiliate/build.mjs`での検証までを行い、パスと結果を報告して終了する(commit/pushは指示役が行う)。
