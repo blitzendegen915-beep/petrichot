@@ -94,7 +94,8 @@ jobs:
             process.stdout.write(JSON.stringify({ host: "petrichot.com", key, keyLocation: `https://petrichot.com/${key}.txt`, urlList: urls }));')
           code=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://api.indexnow.org/indexnow \
             -H 'Content-Type: application/json; charset=utf-8' --data "$body" || true)
-          echo "IndexNow response: $code"
+          # 結果は注記として残す(ログを開かなくても実行結果の画面とAPIで確認できる)。
+          echo "::notice title=IndexNow::HTTP $code ($(printf '%s\n' "$urls" | grep -c .) URLs)"
         env:
           BEFORE: ${{ github.event.before }}
           # コミットメッセージはシェルに直接埋め込まず、環境変数で渡す(コマンド注入を防ぐ)。
