@@ -72,10 +72,11 @@ jobs:
       # 新規・更新された記事のURLだけをIndexNowに通知する。
       # BingのインデックスはChatGPTの検索などにも使われるため、Google以外の入口になる。
       # 通知に失敗しても公開そのものは済んでいるので、ジョブは落とさない。
-      # 手動実行(workflow_dispatch)のときは、サイトマップの全URLをまとめて通知する(初回登録用)。
+      # 手動実行(workflow_dispatch)のとき、またはコミットメッセージに [indexnow-all] を
+      # 含むpushのときは、サイトマップの全URLをまとめて通知する(初回登録・再通知用)。
       - name: Notify IndexNow
         run: |
-          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] || printf '%s' "$HEAD_MSG" | grep -qF '[indexnow-all]'; then
             urls=$(grep -o '<loc>[^<]*</loc>' dist/sitemap.xml | sed -E 's#</?loc>##g')
           else
             case "$BEFORE" in ""|0000000000000000000000000000000000000000) echo "no previous commit; skip"; exit 0;; esac
@@ -96,4 +97,6 @@ jobs:
           echo "IndexNow response: $code"
         env:
           BEFORE: ${{ github.event.before }}
+          # コミットメッセージはシェルに直接埋め込まず、環境変数で渡す(コマンド注入を防ぐ)。
+          HEAD_MSG: ${{ github.event.head_commit.message }}
           INDEXNOW_KEY: 235ec86cef0fd449f5c0c911a38022aa
