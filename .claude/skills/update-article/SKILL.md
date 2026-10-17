@@ -12,7 +12,7 @@ description: 既存記事をリライト・更新する(情報の陳腐化対応
    - frontmatterスキーマ(titleを変える場合はslugは変えない — URL維持のため)
    - 記事の基本構成、`{{aff:ID}}`(位置の調整はOK、削除はユーザー指示がある時のみ)
    - `## 参考リンク`(承認済みURLリストのみ。new-articleスキル参照)
-3. **frontmatterのdateを更新日に変える**(sitemapのlastmodに反映され、再クロールを促す)
+3. **frontmatterに `updated: YYYY-MM-DD`(更新日)を足す。`date` は公開日のまま変えない**。記事ページに「〜更新」と出て、構造化データの dateModified とsitemapのlastmodに反映され、再クロールを促す。dateを書き換えるとトップの新着順が崩れ、本当の新着記事が埋もれるので避ける
 4. titleを変えた場合は `node affiliate/ogp.mjs <slug>` でOGP画像を作り直す(画像にタイトルが入っているため)
 5. `node affiliate/build.mjs` で警告ゼロを確認
 6. 該当ファイルのみ `git add` → commit(`update: 「<タイトル>」を更新(<理由>)`)→ push
