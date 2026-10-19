@@ -9,6 +9,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ANALYTICS_ENABLED, ANALYTICS_TAG } from "../analytics.mjs";
+import { ADS_ANY_ENABLED, adsHeadTag } from "../ads.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -2225,7 +2226,11 @@ function renderPolicyPages() {
     <h2>Cookieの利用について</h2>
     <p>Cookieとは、ウェブサイトが利用者のブラウザに送信し、端末に保存される情報です。当サイトでは、上記アフィリエイトプログラムの成果計測のためにCookieが利用される場合があります。また、将来的にアクセス解析ツールや第三者配信の広告サービスを導入する場合、これらのサービス提供者によってもCookieが利用されることがあります。その場合、収集される情報に個人を特定できる情報は含まれません。</p>
     <p>Cookieの利用を望まない場合は、ブラウザの設定で無効化することができます。無効化した場合、当サイトの一部機能が正しく動作しない可能性があります。</p>
-${ANALYTICS_ENABLED ? `
+${ADS_ANY_ENABLED ? `
+    <h2>広告の配信について</h2>
+    <p>当サイトは、Google社が提供する広告配信サービス「Google AdSense」を利用しています。Googleなどの第三者配信事業者は、Cookieを使用して、利用者が当サイトや他のウェブサイトに過去にアクセスした際の情報に基づいて広告を配信します。Googleが広告Cookieを使用することにより、Googleやそのパートナーは、当サイトや他のサイトへのアクセス情報に基づいて利用者に広告を表示できます。</p>
+    <p>利用者は、<a href="https://adssettings.google.com/" rel="noopener" target="_blank">Googleの広告設定</a>でパーソナライズ広告を無効にできます。Googleによる情報の取り扱いについては、<a href="https://policies.google.com/technologies/ads?hl=ja" rel="noopener" target="_blank">Googleのポリシーと規約(広告)</a>をご確認ください。</p>
+` : ""}${ANALYTICS_ENABLED ? `
     <h2>アクセス解析について</h2>
     <p>当サイトは、アクセス状況を把握するためにCloudflare Web Analytics(Cloudflare社が提供するサービス)を利用しています。このサービスは、Cookieなど利用者の端末に情報を保存する仕組みを使わずに、ページの閲覧数などを集計します。集計のため、利用者の端末からCloudflare社のサーバーへ通信が行われます。取り扱いの詳細は、同社が公開している情報をご確認ください。</p>
 ` : ""}
@@ -2313,7 +2318,7 @@ function pageShell({ title, description, canonical, ogType = "article", bodyHtml
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ${CSP_META}
-<title>${escapeHtml(fullTitle)}</title>
+${adsHeadTag("learning")}<title>${escapeHtml(fullTitle)}</title>
 <meta name="description" content="${escapeHtml(description)}">
 ${HAS_FAVICON ? `<link rel="icon" href="${CONFIG.baseUrl}/static/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="${CONFIG.baseUrl}/static/favicon-32.png" sizes="32x32" type="image/png">

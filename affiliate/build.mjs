@@ -8,6 +8,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ANALYTICS_ENABLED, ANALYTICS_TAG } from "../analytics.mjs";
+import { ADS_ANY_ENABLED, ADS_TXT, adsHeadTag } from "../ads.mjs";
 import { TOOLS } from "./tools.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -2264,7 +2265,7 @@ function pageShell({
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ${CSP_META}
-<title>${escapeHtml(fullTitle)}</title>
+${adsHeadTag("ai")}<title>${escapeHtml(fullTitle)}</title>
 <meta name="description" content="${escapeHtml(description)}">
 ${noindex ? `<meta name="robots" content="noindex,follow">\n` : ""}<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
 ${HAS_FAVICON ? `<link rel="icon" href="${CONFIG.baseUrl}/static/favicon.svg" type="image/svg+xml">
@@ -2777,7 +2778,7 @@ function renderPrivacyPage() {
     <p>当サイトは、A8.net等のアフィリエイトサービスプロバイダ(ASP)が提供する成果報酬型広告プログラムに参加しています。当サイトに掲載しているリンクの一部には、ASPを経由した広告リンクが含まれます。これらのリンクを利用者がクリックした場合、ASPおよび提携先企業によってCookie等を用いた計測が行われることがあります。</p>
 
     <h2>Cookieの利用について</h2>
-    <p>Cookieとは、ウェブサイトが利用者のブラウザに送信し、端末に保存される情報です。当サイトでは、上記アフィリエイトプログラムの成果計測のためにCookieが利用される場合があります。また、将来的にアクセス解析ツール(Google Analytics等)や第三者配信の広告サービス(Google AdSense等)を導入する場合、これらのサービス提供者によってもCookieが利用されることがあります。その場合、収集される情報に個人を特定できる情報は含まれません。</p>
+    <p>Cookieとは、ウェブサイトが利用者のブラウザに送信し、端末に保存される情報です。当サイトでは、上記アフィリエイトプログラムの成果計測のためにCookieが利用される場合があります。${ADS_ANY_ENABLED ? "また、第三者配信の広告サービス(Google AdSense)の配信のために、Google等の第三者配信事業者によってCookieが利用されます。詳しくは「広告の配信について」をご覧ください。" : "また、将来的にアクセス解析ツール(Google Analytics等)や第三者配信の広告サービス(Google AdSense等)を導入する場合、これらのサービス提供者によってもCookieが利用されることがあります。その場合、収集される情報に個人を特定できる情報は含まれません。"}</p>
     <p>Cookieの利用を望まない場合は、ブラウザの設定で無効化することができます。無効化した場合、当サイトの一部機能が正しく動作しない可能性があります。</p>
 
     <h2>外部サービスの利用について</h2>
@@ -2786,9 +2787,13 @@ ${ANALYTICS_ENABLED ? `
     <h2>アクセス解析について</h2>
     <p>当サイトは、アクセス状況を把握するためにCloudflare Web Analytics(Cloudflare社が提供するサービス)を利用しています。このサービスは、Cookieなど利用者の端末に情報を保存する仕組みを使わずに、ページの閲覧数などを集計します。集計のため、利用者の端末からCloudflare社のサーバーへ通信が行われます。取り扱いの詳細は、同社が公開している情報をご確認ください。</p>
 ` : ""}
-    <h2>アクセス解析・広告配信サービスについて</h2>
+${ADS_ANY_ENABLED ? `
+    <h2>広告の配信について</h2>
+    <p>当サイトは、Google社が提供する広告配信サービス「Google AdSense」を利用しています。Googleなどの第三者配信事業者は、Cookieを使用して、利用者が当サイトや他のウェブサイトに過去にアクセスした際の情報に基づいて広告を配信します。Googleが広告Cookieを使用することにより、Googleやそのパートナーは、当サイトや他のサイトへのアクセス情報に基づいて利用者に広告を表示できます。</p>
+    <p>利用者は、<a href="https://adssettings.google.com/" rel="noopener" target="_blank">Googleの広告設定</a>でパーソナライズ広告を無効にできます。Googleによる情報の取り扱いについては、<a href="https://policies.google.com/technologies/ads?hl=ja" rel="noopener" target="_blank">Googleのポリシーと規約(広告)</a>をご確認ください。</p>
+` : `    <h2>アクセス解析・広告配信サービスについて</h2>
     <p>当サイトは、将来的にGoogle Analyticsによるアクセス解析や、Google AdSense等の第三者配信広告サービスを導入する場合があります。これらのサービスは、利用者の興味に応じた広告を表示するためにCookieを使用し、当サイトや他サイトへのアクセス情報に基づいて広告を配信することがあります。Cookieを無効にする方法や、これらのサービスにおけるCookieの取り扱いについては、各サービス提供者が公開している情報をご確認ください。</p>
-
+`}
     <h2>免責事項</h2>
     <p>当サイトの記事内容については正確性の確保に努めていますが、内容の正確性・完全性を保証するものではありません。掲載している商品・サービスの料金・仕様等は変更される場合があるため、利用の際は必ず公式サイトで最新の情報をご確認ください。当サイトの情報を利用したことによって生じた損害について、当サイトは一切の責任を負いません。</p>
 
@@ -3560,6 +3565,7 @@ function build() {
     )
   );
   writeFile(path.join(DIST_DIR, "robots.txt"), renderRobots());
+  if (ADS_TXT) writeFile(path.join(DIST_DIR, "ads.txt"), ADS_TXT);
   writeFile(path.join(DIST_DIR, "search-index.json"), renderSearchIndex(articles));
   copyStaticFiles();
 

@@ -2,6 +2,7 @@ import { cp, readFile, mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ANALYTICS_TAG } from "../analytics.mjs";
+import { adsHeadTag } from "../ads.mjs";
 import {
   createAiRecorderPage,
   recorderPageCss,
@@ -825,7 +826,7 @@ function shell({ title, description, canonical, body, jsonLd, pageCss = "", page
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(title)}</title>
+  ${adsHeadTag("shopping")}<title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="${escapeHtml(canonical)}">
