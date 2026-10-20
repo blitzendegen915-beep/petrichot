@@ -49,6 +49,8 @@ const ALLOWED_URL_PREFIXES = [
   "https://www.notta.ai/",
   "https://notta.ai/",
   "https://www.value-domain.com/value-aiwriter/",
+  // 2026-10-20 比較ランキングの公式ページ(検索とArena公式アカウントで実在を確認)
+  "https://arena.ai/leaderboard",
 ];
 
 // 断定的・誇大な表現。文脈を問わず不適切なものだけを入れる。
