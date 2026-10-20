@@ -3,6 +3,7 @@ title: AI議事録・メモ術で会議を効率化
 description: AIを活用した議事録作成・メモ術を解説します。汎用AIと音声特化ツールの使い分け、要点抽出やアクション項目の整理まで、会議後の作業を軽くする方法をまとめました。
 slug: ai-gijiroku-memo-jutsu
 date: 2026-08-02
+updated: 2026-10-20
 category: 業務効率化
 tags: [AI, 議事録, メモ, 効率化, 文字起こし, Notta]
 ---
@@ -109,7 +110,7 @@ Notion AIやClaudeのような汎用AIをメモに転用する方法とは別に
 | Claude | 高精度、複雑な分析に強い | 公式サイトで確認 | 複雑な会議、専門的な分析 |
 | Google Gemini | Google Workspace統合 | Google Workspace内 | Google環境のチーム |
 | Zoom(自動字幕) | 会議中リアルタイム | Zoom Pro以上 | オンライン会議 |
-| Notta Memo / Notta Brain / Plaud | 録音から書き起こし・要約まで一括 | 公式サイトで確認 | 対面会議、外出先での打ち合わせ |
+| Notta Memo / Notta Brain / Plaud | 録音・書き起こし・要約、記録をもとにした資料の下書き(製品ごとに役割が違う) | 公式サイトで確認 | 対面会議、外出先での打ち合わせ |
 
 プラン名や料金は2026年時点のものであり、変更されることがあります。最新の内容は各公式サイトでご確認ください。
 
