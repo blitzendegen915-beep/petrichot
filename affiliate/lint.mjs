@@ -44,6 +44,11 @@ const ALLOWED_URL_PREFIXES = [
   "https://www.miricanvas.com/",
   "https://help.miricanvas.com/",
   "https://lolipop.jp/",
+  // 2026-10-20 提携サービスの公式サイト(検索で実在と提供元を確認)
+  "https://irusiru.jp/",
+  "https://www.notta.ai/",
+  "https://notta.ai/",
+  "https://www.value-domain.com/value-aiwriter/",
 ];
 
 // 断定的・誇大な表現。文脈を問わず不適切なものだけを入れる。

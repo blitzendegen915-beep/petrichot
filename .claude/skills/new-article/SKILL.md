@@ -36,7 +36,7 @@ tags: [タグ1, タグ2, タグ3]
 - 比較にはGFM表(`| a | b |` + 区切り行)が使える(ビルドが変換)。
 - 誇大表現・断定的な収益/効果保証は禁止。料金・モデル名などは断定を避け「2026年時点」等でぼかす。
 - 記事末尾に必ず `## 参考リンク`(2〜4個)。**URLは承認済みリストのみ(捏造厳禁)**:
-  openai.com/chatgpt/, claude.ai, gemini.google.com, www.notion.com/product/ai, www.canva.com, www.midjourney.com, github.com/features/copilot, www.perplexity.ai, openai.com, www.anthropic.com, blog.google/technology/ai/, www.soumu.go.jp/johotsusintokei/whitepaper/, www.mext.go.jp, www.ipa.go.jp
+  openai.com/chatgpt/, claude.ai, gemini.google.com, www.notion.com/product/ai, www.canva.com, www.midjourney.com, github.com/features/copilot, www.perplexity.ai, openai.com, www.anthropic.com, blog.google/technology/ai/, www.soumu.go.jp/johotsusintokei/whitepaper/, www.mext.go.jp, www.ipa.go.jp。提携サービスの公式: www.miricanvas.com, lolipop.jp, irusiru.jp, www.notta.ai, www.value-domain.com/value-aiwriter/(該当サービスを扱う記事のみ)
 
 ## 記事の厚みの基準(2026-08-02新設・lintが機械で検査する)
 
