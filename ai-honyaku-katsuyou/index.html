@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="base-uri 'none'; object-src 'none'; form-action 'self'">
+<title>AI翻訳の使い方と、そのまま出すと危ない場面 | AIツールの透視図</title>
+<meta name="description" content="AI翻訳は大意把握と下訳作成に便利ですが、固有名詞や敬意・責任が伴う文書では注意が必要。効果的な使い方と落とし穴、確認手順を紹介します。">
+<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
+<link rel="icon" href="https://petrichot.com/static/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://petrichot.com/static/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="https://petrichot.com/static/apple-touch-icon.png">
+<link rel="canonical" href="https://petrichot.com/ai-honyaku-katsuyou/">
+<meta property="og:title" content="AI翻訳の使い方と、そのまま出すと危ない場面">
+<meta property="og:description" content="AI翻訳は大意把握と下訳作成に便利ですが、固有名詞や敬意・責任が伴う文書では注意が必要。効果的な使い方と落とし穴、確認手順を紹介します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://petrichot.com/ai-honyaku-katsuyou/">
+<meta property="og:site_name" content="AIツールの透視図">
+<meta property="og:image" content="https://petrichot.com/static/ogp/ai-honyaku-katsuyou.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI翻訳の使い方と、そのまま出すと危ない場面">
+<meta name="twitter:description" content="AI翻訳は大意把握と下訳作成に便利ですが、固有名詞や敬意・責任が伴う文書では注意が必要。効果的な使い方と落とし穴、確認手順を紹介します。">
+<meta name="twitter:image" content="https://petrichot.com/static/ogp/ai-honyaku-katsuyou.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI翻訳の使い方と、そのまま出すと危ない場面","description":"AI翻訳は大意把握と下訳作成に便利ですが、固有名詞や敬意・責任が伴う文書では注意が必要。効果的な使い方と落とし穴、確認手順を紹介します。","datePublished":"2026-07-28","dateModified":"2026-10-20","author":{"@type":"Organization","name":"AIツールの透視図編集部"},"publisher":{"@type":"Organization","name":"AIツールの透視図","url":"https://petrichot.com","logo":{"@type":"ImageObject","url":"https://petrichot.com/static/favicon-512.png"}},"mainEntityOfPage":"https://petrichot.com/ai-honyaku-katsuyou/","image":"https://petrichot.com/static/ogp/ai-honyaku-katsuyou.jpg"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AIツールの透視図","item":"https://petrichot.com/"},{"@type":"ListItem","position":2,"name":"業務効率化","item":"https://petrichot.com/category/%E6%A5%AD%E5%8B%99%E5%8A%B9%E7%8E%87%E5%8C%96/"},{"@type":"ListItem","position":3,"name":"AI翻訳の使い方と、そのまま出すと危ない場面","item":"https://petrichot.com/ai-honyaku-katsuyou/"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f0f1f3;
+  --fg: #111318;
+  --muted: #5f646e;
+  --accent: #1a5ce5;
+  --accent-fg: #ffffff;
+  --accent-soft: #e9f0ff;
+  --deep: #10287d;
+  --deep-2: #1b3fbf;
+  --edu: #1a5ce5;
+  --edu-fg: #ffffff;
+  --edu-soft: #e9f0ff;
+  --border: #e1e3e8;
+  --code-bg: #f4f5f7;
+  --banner-bg: #f6f7f9;
+  --banner-fg: #4a4f58;
+  --banner-border: #e1e3e8;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --shadow: 0 12px 34px -18px rgba(17, 19, 24, 0.35);
+  --r: 4px;
+  --measure: 68ch;
+  --wide: 960px;
+  --eye-edu: var(--edu);
+  --eye-edu-soft: var(--edu-soft);
+  --eye-a: #1a5ce5;
+  --eye-a-soft: #e9f0ff;
+  --eye-b: #10287d;
+  --eye-b-soft: #e3eaff;
+  --eye-c: #3f77ff;
+  --eye-c-soft: #eef3ff;
+  --eye-d: #0d3fa8;
+  --eye-d-soft: #e6edff;
+  --eye-e: #5b8fff;
+  --eye-e-soft: #f1f5ff;
+  --font-display: "Space Grotesk", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0c0f;
+    --surface: #13151a;
+    --surface-2: #1a1d24;
+    --fg: #f1f2f5;
+    --muted: #99a0ac;
+    --accent: #5b8fff;
+    --accent-fg: #08132e;
+    --accent-soft: #16244a;
+    --deep: #0d1c4d;
+    --deep-2: #16307f;
+    --edu: #5b8fff;
+    --edu-fg: #08132e;
+    --edu-soft: #16244a;
+    --border: #262a33;
+    --code-bg: #171a20;
+    --banner-bg: #14171d;
+    --banner-fg: #99a0ac;
+    --banner-border: #262a33;
+    --header-bg: rgba(11, 12, 15, 0.88);
+    --shadow: 0 12px 34px -14px rgba(0, 0, 0, 0.7);
+    --eye-a: #5b8fff;
+    --eye-a-soft: #16244a;
+    --eye-b: #7aa5ff;
+    --eye-b-soft: #101c3a;
+    --eye-c: #4d86ff;
+    --eye-c-soft: #14224a;
+    --eye-d: #8fb4ff;
+    --eye-d-soft: #0f1a35;
+    --eye-e: #6d9bff;
+    --eye-e-soft: #131f42;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: #fff; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+img { max-width: 100%; height: auto; display: block; }
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--r);
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header-bg);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.25rem;
+}
+.site-header .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  min-width: 0;
+}
+.brand-mark {
+  flex-shrink: 0;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  object-fit: contain;
+}
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.site-header nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.42rem 0.95rem;
+  border-radius: var(--r);
+  border: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.cat-nav {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.cat-nav .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.55rem 1.25rem;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.cat-nav .inner::-webkit-scrollbar { display: none; }
+.nav-cat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--r);
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.nav-cat:hover { background: var(--surface-2); color: var(--fg); }
+.nav-cat.is-active { background: var(--fg); color: var(--bg); }
+.nav-cat-n {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.disclosure-bar {
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border-bottom: 1px solid var(--banner-border);
+}
+.disclosure-bar .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.45rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+/* 濃紺の全幅ヒーロー。参照サイトと同じく色面に白文字を置く */
+.hero-band {
+  background-image: linear-gradient(135deg, var(--deep) 0%, var(--deep-2) 100%);
+  color: #fff;
+  margin-bottom: 3rem;
+}
+.hero-band .hero {
+  border: none;
+  margin: 0 auto;
+  max-width: var(--wide);
+  padding: 3.4rem 1.25rem 3.6rem;
+}
+.hero-band .hero-lead { color: rgba(255, 255, 255, 0.82); }
+.hero-band .hero-en { color: rgba(255, 255, 255, 0.62); }
+.hero-band .hero-count { color: rgba(255, 255, 255, 0.7); }
+.hero-band .hero-btn { border-color: rgba(255, 255, 255, 0.5); color: #fff; }
+.hero-band .hero-btn:hover, .hero-band .hero-btn:focus-visible {
+  background: #fff;
+  color: var(--deep);
+}
+
+.hero {
+  padding: 2.6rem 0 1.8rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.4rem;
+}
+.hero h1 { margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+.hero-en {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.hero-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.9;
+  max-width: 62ch;
+}
+.hero-count {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.hero-sub { padding-top: 2rem; }
+.hero-actions { margin: 1.3rem 0 0; display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.hero-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.hero-btn:hover, .hero-btn:focus-visible {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.network-link.is-current {
+  color: var(--fg);
+  border-color: var(--border);
+  background: var(--surface);
+}
+.network-link-shopping:hover,
+.network-link-shopping:focus-visible { color: #c94f32 !important; }
+.network-link-learning:hover,
+.network-link-learning:focus-visible { color: var(--edu) !important; }
+
+.journey-band {
+  padding: 0 1.25rem 3.4rem;
+  background: var(--bg);
+}
+.journey-inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.65fr);
+  gap: 2rem;
+  align-items: end;
+}
+.journey-head h2 {
+  margin: 0.2rem 0 0.7rem;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.55rem, 1.3rem + 1vw, 2.15rem);
+}
+.journey-head > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  max-width: 36ch;
+}
+.journey-kicker,
+.path-cta-kicker {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.journey-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.journey-steps li { margin: 0; min-width: 0; }
+.journey-steps li + li { border-left: 1px solid var(--border); }
+.journey-steps a {
+  min-height: 11.5rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--fg);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.journey-steps a:hover,
+.journey-steps a:focus-visible { background: var(--surface-2); }
+.journey-steps .is-current a {
+  background: var(--deep);
+  color: #fff;
+}
+.journey-no {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.is-current .journey-no { color: rgba(255,255,255,0.58); }
+.journey-label {
+  margin-top: auto;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.is-current .journey-label { color: rgba(255,255,255,0.68); }
+.journey-steps strong {
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  line-height: 1.45;
+}
+.journey-steps small {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.is-current small { color: rgba(255,255,255,0.68); }
+
+.path-cta {
+  margin: 3rem 0 0;
+  padding: 1.35rem;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--edu);
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem 1.25rem;
+  align-items: center;
+}
+.path-cta-kicker {
+  writing-mode: vertical-rl;
+  color: var(--edu);
+}
+.path-cta h2 {
+  margin: 0 0 0.25rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.15rem;
+}
+.path-cta p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.path-cta > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--edu);
+  color: var(--edu);
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.path-cta > a:hover,
+.path-cta > a:focus-visible { background: var(--edu); color: #fff; }
+.footer-network span { color: var(--fg); font-weight: 700; }
+
+@media (max-width: 820px) {
+  .journey-inner { grid-template-columns: 1fr; align-items: start; }
+  .journey-head > p:last-child { max-width: 60ch; }
+  .path-cta { grid-template-columns: minmax(0, 1fr); }
+  .path-cta-kicker { writing-mode: initial; }
+  .path-cta > a { justify-self: start; }
+}
+@media (max-width: 620px) {
+  .journey-steps { grid-template-columns: 1fr; }
+  .journey-steps li + li { border-left: 0; border-top: 1px solid var(--border); }
+  .journey-steps a { min-height: 8.5rem; }
+}
+/* 日本語見出し + 小さい青の英字ラベル + 細い罫線(参照サイトの型) */
+.section-head {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0 0 0.3rem;
+  padding: 0;
+  border: none;
+}
+.section-head::before { content: none; }
+.section-en {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 0 0 1rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+.disclosure-badge {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--banner-fg);
+  color: var(--banner-bg);
+  margin-top: 0.1rem;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+main.wide { max-width: var(--wide); }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.15rem);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  margin: 0.6rem 0 1.1rem;
+}
+article { counter-reset: h2count; }
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 2.75rem 0 1.15rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+}
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+}
+p { margin: 0 0 1.15rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+ul > li::marker { color: var(--accent); }
+ol > li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 700; }
+blockquote {
+  position: relative;
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.4rem;
+  border-left: 4px solid var(--edu);
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: 0 var(--r) var(--r) 0;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: var(--r);
+  font-size: 0.9em;
+}
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.4rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.table-wrap th, .table-wrap td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table-wrap td { white-space: normal; min-width: 8em; }
+.table-wrap thead th {
+  background: var(--card-bg);
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+}
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+
+.site-header nav { display: flex; align-items: center; gap: 0.2rem; flex-shrink: 0; }
+.site-header nav a { margin-left: 0; }
+.nav-cta {
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  border-color: var(--accent) !important;
+  white-space: nowrap;
+}
+/* 狭い画面でも3サービス間を移動できるよう、共有リンクを2段目に残す。 */
+@media (max-width: 540px) {
+  .site-header { padding: 0.7rem 1rem; }
+  .site-header .inner { flex-wrap: wrap; gap: 0.5rem; }
+  .site-header .top-nav {
+    order: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.25rem;
+  }
+  .top-nav .nav-link,
+  .top-nav .nav-cta { display: none; }
+  .top-nav .network-link {
+    display: block;
+    padding: 0.38rem 0.3rem;
+    font-size: 0.76rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .brand-text { font-size: 1rem; }
+}
+.nav-cta:hover, .nav-cta:focus-visible {
+  filter: brightness(1.06);
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+}
+
+/* Petrichor共通ヘッダー: セクションをまたいでも同じメニュー操作にする。 */
+.site-header .inner { position: relative; min-height: 4.5rem; }
+.menu-toggle {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.7rem 0.45rem 0.85rem;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  font: inherit;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.menu-toggle:hover, .menu-toggle:focus-visible,
+.menu-toggle[aria-expanded="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.menu-toggle-icon { display: grid; gap: 4px; width: 1.1rem; }
+.menu-toggle-icon span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.site-menu {
+  position: absolute;
+  top: calc(100% - 0.1rem);
+  right: 0;
+  z-index: 30;
+  display: block !important;
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--r) + 2px);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-0.35rem);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+}
+.site-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.site-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0.55rem 0.6rem;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.site-menu-nav {
+  display: grid !important;
+  gap: 0.25rem !important;
+}
+.site-menu-link {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 !important;
+  padding: 0.7rem 0.75rem !important;
+  color: var(--fg) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--r) !important;
+  background: transparent !important;
+  text-decoration: none;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+}
+.site-menu-link small { color: var(--muted); font-size: 0.72rem; font-weight: 500; }
+.site-menu-link:hover, .site-menu-link:focus-visible,
+.site-menu-link.is-current {
+  color: var(--accent) !important;
+  border-color: var(--border) !important;
+  background: var(--accent-soft) !important;
+}
+.site-menu-link.is-current small { color: inherit; opacity: 0.8; }
+.site-menu-divider { height: 1px; margin: 0.55rem 0; background: var(--border); }
+@media (max-width: 540px) {
+  .site-header .inner { min-height: 4rem; }
+  .site-menu { right: 0; width: min(22rem, calc(100vw - 1.25rem)); }
+  .menu-toggle-label { display: none; }
+  .menu-toggle { width: 2.75rem; justify-content: center; padding-inline: 0.7rem; }
+}
+
+.sd, .sd-result { scroll-margin-top: 7rem; }
+.sd { max-width: var(--measure); margin: 0 auto; }
+.sd-bar {
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.sd-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+.sd-progress {
+  margin: 0.6rem 0 1.6rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.sd-step { border: none; margin: 0; padding: 0; }
+.sd-q {
+  display: block;
+  padding: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+.sd-num {
+  display: inline-block;
+  margin-right: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.sd-opts { display: grid; gap: 0.6rem; }
+.sd-opt {
+  appearance: none;
+  text-align: left;
+  font: inherit;
+  font-weight: 600;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+}
+.sd-opt:hover, .sd-opt:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.sd-nav { margin-top: 1.6rem; }
+.sd-back, .sd-again {
+  appearance: none;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+.sd-back:hover, .sd-again:hover { color: var(--accent); }
+
+.sd-result { max-width: var(--measure); margin: 0 auto; }
+.sd-result-head {
+  font-size: 1.3rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+  margin: 0 0 1.4rem;
+}
+.sd-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.3rem 1.4rem;
+  margin-bottom: 1.1rem;
+}
+.sd-card.is-top { border-color: var(--accent); box-shadow: var(--shadow); }
+.sd-card h3 { margin: 0.2rem 0 0.6rem; font-size: 1.25rem; }
+.sd-card p { margin: 0 0 0.7rem; }
+.sd-rank {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 !important;
+}
+.sd-card.is-top .sd-rank { color: var(--accent); }
+/* 候補が3つ並ぶので、強いボタンは1件目だけにする */
+.sd-card:not(.is-top) .aff-cta { margin: 1rem 0 0; text-align: left; }
+.sd-card:not(.is-top) .aff-btn {
+  background: none;
+  color: var(--accent) !important;
+  border: 1px solid var(--border);
+  box-shadow: none;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+}
+.sd-card:not(.is-top) .aff-btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+.sd-more { font-size: 0.9rem; }
+.sd-note {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 1.6rem 0;
+}
+.sd-again { margin-top: 0.4rem; }
+
+figure.diagram {
+  margin: 1.8rem 0;
+  padding: 1.1rem 1rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow-x: auto;
+}
+figure.diagram svg {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0 auto;
+}
+figure.diagram figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
+}
+figure.diagram .dg-label { font-weight: 700; }
+figure.diagram text { font-family: inherit; }
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: var(--r);
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+.related {
+  margin: 3.5rem auto 0;
+  max-width: var(--measure);
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+.related h2 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+  padding-left: 0;
+  border-left: none;
+}
+.related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.related a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.related a:hover { border-color: var(--accent); transform: translateY(-1px); }
+.related .related-title { font-weight: 700; line-height: 1.5; }
+.related .related-cat {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+a.chip { cursor: pointer; transition: filter 0.15s ease, transform 0.15s ease; }
+a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
+@media (prefers-color-scheme: dark) {
+  a.chip:hover { filter: brightness(1.2); }
+}
+.chip-tag { border: 1px solid var(--border); color: var(--muted); }
+.chip-cat {
+  font-weight: 700;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.chip-edu, .chip-a, .chip-b, .chip-c, .chip-d, .chip-e {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.article-meta time { font-family: var(--font-display); font-weight: 600; }
+.article-meta .meta-updated { color: var(--accent); }
+
+.eyecatch-hero {
+  width: 100%;
+  height: clamp(120px, 26vw, 220px);
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 0 2.2rem;
+}
+
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.sources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.sources ul { padding-left: 1.3rem; }
+.sources li { margin-bottom: 0.5rem; }
+.sources a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+.sources a:hover, .sources a:focus-visible { color: var(--accent); }
+.sources a[target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.65;
+}
+
+.aff-cta {
+  margin: 2rem 0;
+  text-align: center;
+}
+.aff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 1rem 2.25rem;
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.aff-btn::after { content: "\2192"; transition: transform 0.18s ease; }
+.aff-btn:hover, .aff-btn:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 18px 34px -14px var(--accent);
+}
+.aff-btn:hover::after { transform: translateX(3px); }
+.aff-btn:active { transform: translateY(-1px); }
+
+.article-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 700px) {
+  .article-grid { grid-template-columns: 1fr 1fr; }
+}
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+}
+.article-card:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+/* カード右下に青い丸の矢印(参照サイトのニュース一覧と同じ役割) */
+.card-body { position: relative; }
+.card-arrow {
+  position: absolute;
+  right: 1.15rem;
+  bottom: 1.15rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.article-card:hover .card-arrow,
+.card-link:focus-visible .card-arrow { opacity: 1; transform: none; }
+@media (hover: none) {
+  .card-arrow { opacity: 1; transform: none; }
+}
+.article-card .card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--fg);
+  height: 100%;
+}
+.card-eyecatch {
+  width: 100%;
+  height: 104px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.card-eyecatch .eyecatch-svg,
+.eyecatch-hero .eyecatch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article-card:hover .card-eyecatch .eyecatch-svg { transform: scale(1.03); }
+.card-eyecatch .eyecatch-svg { transition: transform 0.3s ease; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.95rem 1.15rem 1.15rem;
+  flex: 1;
+}
+.article-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.article-card .card-date {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.article-card h2 {
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+  margin: 0.2rem 0 0;
+  line-height: 1.55;
+}
+.article-card h2::before { content: none; }
+.article-card .desc {
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.72;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+/* 記事検索ボックス(一覧の直上)。JS無効時は何も起きず、通常の一覧がそのまま見える */
+.search-box {
+  margin: 0 0 1.5rem;
+}
+.search-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 0.45rem;
+}
+.search-input {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.search-input::placeholder { color: var(--muted); }
+.search-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+.search-status {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2.75rem 0 0;
+}
+.pager-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.pager-btn:hover, .pager-btn:focus-visible {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.pager-btn.is-disabled {
+  border-color: var(--border);
+  color: var(--muted);
+  opacity: 0.5;
+}
+.pager-nums {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.pager-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 0.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--r);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a.pager-num:hover, a.pager-num:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.pager-num.is-current {
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-weight: 700;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding: 2rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.site-footer .inner { max-width: var(--wide); margin: 0 auto; }
+.site-footer p { margin: 0.35rem 0; }
+.site-footer .footer-disclosure {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+}
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--accent); }
+
+.pb {
+  border: 2px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+.pb-head { display: flex; flex-direction: column; gap: 0.2rem; margin-bottom: 1rem; }
+.pb-head strong { font-family: var(--font-display); font-size: 1.02rem; }
+.pb-note { font-size: 0.76rem; color: var(--muted); }
+.pb-presets {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.pb-presets-label { font-size: 0.8rem; color: var(--muted); }
+.pb-preset {
+  font: inherit; font-size: 0.8rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+.pb-preset:hover { background: var(--accent-soft); }
+.pb-grid { display: grid; gap: 0.85rem; }
+@media (min-width: 640px) { .pb-grid { grid-template-columns: 1fr 1fr; } }
+.pb-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.pb-label { font-size: 0.82rem; font-weight: 700; }
+.pb-field textarea {
+  font: inherit; font-size: 0.9rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--bg);
+  color: var(--fg);
+  resize: vertical;
+}
+.pb-field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.pb-out-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 1.15rem 0 0.4rem;
+  font-size: 0.82rem; font-weight: 700;
+}
+.pb-copy {
+  font: inherit; font-size: 0.78rem; font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border: none; border-radius: var(--r);
+  background: var(--accent); color: var(--accent-fg);
+  cursor: pointer;
+}
+.pb-out {
+  white-space: pre-wrap; word-break: break-word;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.pb-out.is-empty { color: var(--muted); }
+
+.policy-page { max-width: 720px; margin: 0 auto; padding: 2rem 0 4rem; }
+.policy-page h1 { margin-bottom: 1.5rem; }
+.policy-page h2 { margin-top: 2.2rem; font-size: 1.15rem; }
+.policy-page p { color: var(--muted); line-height: 1.9; }
+/* 診断結果の理由・注意書き */
+.sd-why, .sd-advice {
+  border: 1px solid var(--border); border-radius: var(--r);
+  padding: 1.1rem 1.25rem; margin-bottom: 1.5rem; background: var(--code-bg);
+}
+.sd-why-head { font-weight: 700; margin: 0 0 0.7rem; font-size: 0.95rem; }
+.sd-why-line { margin: 0.35rem 0; font-size: 0.9rem; line-height: 1.85; color: var(--muted); }
+.sd-why-pick { color: var(--fg); font-weight: 600; }
+.sd-advice { background: var(--accent-soft); border-color: rgba(26, 92, 229, 0.25); }
+.sd-advice-item { margin: 0.9rem 0; font-size: 0.9rem; line-height: 1.9; }
+.sd-advice-item:first-of-type { margin-top: 0; }
+.sd-opt.is-picked { border-color: var(--accent); background: var(--accent-soft); }
+
+
+/* --- トップの実用ツール帯 -------------------------------------------------
+   濃紺に電光色を差し、斜めに切った面を重ねる。記事本文は白地のままにして、
+   ここだけ質感を変えることで「読むところ」と「使うところ」を見分けさせる。 */
+.tools-band {
+  --tb-ink: #eaf1ff;
+  --tb-line: rgba(120, 170, 255, 0.28);
+  position: relative;
+  background:
+    radial-gradient(120% 100% at 15% 0%, #14307e 0%, rgba(20, 48, 126, 0) 60%),
+    radial-gradient(90% 90% at 95% 100%, #1d47b8 0%, rgba(29, 71, 184, 0) 55%),
+    linear-gradient(160deg, #050f36 0%, #081a4d 55%, #06123c 100%);
+  color: var(--tb-ink);
+  padding: 4.5rem 0 5rem;
+  margin: 0 0 3.5rem;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5rem), 0 100%);
+}
+/* 斜めの走査線。主張しすぎない程度に */
+.tools-band::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(115deg, rgba(125, 175, 255, 0.07) 0 1px, transparent 1px 26px);
+  pointer-events: none;
+}
+.tools-band-inner { position: relative; max-width: var(--wide); margin: 0 auto; padding: 0 1.25rem; }
+
+.tools-band-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+.tools-band h2 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); letter-spacing: -0.02em; margin: 0; color: #fff; }
+.tools-band-en {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
+  font-size: 0.72rem; color: #7fb0ff;
+}
+.tools-band-lead { color: rgba(234, 241, 255, 0.72); line-height: 1.9; max-width: 46rem; margin: 0 0 2.5rem; }
+
+.tools-deck { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.tools-deck > li { display: flex; }
+@media (min-width: 640px) { .tools-deck { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .tools-deck { grid-template-columns: repeat(3, 1fr); } }
+
+.tool-card-link {
+  position: relative; display: flex; flex-direction: column; width: 100%;
+  padding: 1.5rem 1.35rem 1.65rem;
+  color: inherit; text-decoration: none;
+  background: linear-gradient(150deg, rgba(24, 56, 140, 0.62), rgba(9, 22, 64, 0.72));
+  border: 1px solid var(--tb-line);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.1rem), calc(100% - 1.1rem) 100%, 0 100%);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+/* 左端の光る縦棒。ホバーで伸びる */
+.tool-card-link::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 40%;
+  width: 3px; background: linear-gradient(180deg, #6fd3ff, #2f6bff);
+  transition: bottom 0.28s ease;
+}
+.tool-card-link:hover, .tool-card-link:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(140, 195, 255, 0.72);
+  background: linear-gradient(150deg, rgba(35, 78, 178, 0.75), rgba(12, 29, 82, 0.8));
+  box-shadow: 0 18px 40px -20px rgba(60, 130, 255, 0.85);
+  outline: none;
+}
+.tool-card-link:hover::before, .tool-card-link:focus-visible::before { bottom: 0; }
+.tool-card-link:focus-visible { outline: 2px solid #8cc3ff; outline-offset: 3px; }
+
+.tool-card-no {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em;
+  color: #6fa8ff; font-variant-numeric: tabular-nums; display: block; margin-bottom: 0.7rem;
+}
+.tool-card-link h3 { font-size: 1.08rem; line-height: 1.5; margin: 0 0 0.55rem; color: #fff; }
+.tool-card-link p { font-size: 0.87rem; line-height: 1.85; color: rgba(234, 241, 255, 0.7); margin: 0; }
+.tool-card-go {
+  display: inline-block; margin-top: auto; padding-top: 1rem;
+  font-size: 0.8rem; letter-spacing: 0.06em; color: #8cc3ff;
+}
+.tools-band-note { margin: 2.25rem 0 0; font-size: 0.82rem; color: rgba(234, 241, 255, 0.55); }
+.tools-band-actions { margin: 1.6rem 0 0; }
+.tools-band-list {
+  list-style: none; margin: 1.4rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
+  color: rgba(234, 241, 255, 0.8); font-size: 0.9rem;
+}
+.tools-band-list li::before { content: "・"; opacity: 0.6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card-link, .tool-card-link::before { transition: none; }
+  .tool-card-link:hover, .tool-card-link:focus-visible { transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/">
+      <img class="brand-mark" src="/static/favicon.svg" alt="" width="25" height="25">
+      <span class="brand-text">AIツールの透視図</span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="メニュー" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-toggle-label">メニュー</span>
+      <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <nav class="site-menu" id="site-menu" aria-label="サイトメニュー">
+      <div class="site-menu-header"><span>サイトメニュー</span><span>Petrichor</span></div>
+      <div class="site-menu-nav">
+        <a class="site-menu-link" href="/shopping/"><span>Shopping</span><small>選ぶ</small></a>
+        <a class="site-menu-link is-current" href="/" aria-current="page"><span>AI解説</span><small>理解する</small></a>
+        <a class="site-menu-link" href="/learning/"><span>Learning</span><small>学ぶ</small></a>
+      </div>
+      <div class="site-menu-divider"></div>
+      <div class="site-menu-nav">
+        <a class="site-menu-link" href="https://petrichot.com/tools/"><span>ツール</span><small>一覧を見る</small></a>
+        <a class="site-menu-link" href="https://petrichot.com/shindan/"><span>ツール診断</span><small>選び方を整理</small></a>
+      </div>
+    </nav>
+  </div>
+</header>
+<nav class="cat-nav" aria-label="カテゴリ"><div class="inner"><a class="nav-cat" href="https://petrichot.com/category/AI%E3%82%92%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E5%AD%A6%E3%81%B6/">AIをはじめて学ぶ<span class="nav-cat-n">35</span></a><a class="nav-cat" href="https://petrichot.com/category/%E6%A5%AD%E5%8B%99%E5%8A%B9%E7%8E%87%E5%8C%96/">業務効率化<span class="nav-cat-n">33</span></a><a class="nav-cat" href="https://petrichot.com/category/%E3%83%84%E3%83%BC%E3%83%AB%E6%AF%94%E8%BC%83/">ツール比較<span class="nav-cat-n">20</span></a><a class="nav-cat" href="https://petrichot.com/category/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3/">デザイン<span class="nav-cat-n">14</span></a><a class="nav-cat" href="https://petrichot.com/category/AI%E4%BC%81%E6%A5%AD%E3%82%92%E7%9F%A5%E3%82%8B/">AI企業を知る<span class="nav-cat-n">4</span></a></div></nav>
+<div class="disclosure-bar"><div class="inner"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></div></div>
+
+<main id="main">
+  <article>
+    <h1>AI翻訳の使い方と、そのまま出すと危ない場面</h1>
+    <div class="article-meta">
+      <time datetime="2026-07-28">2026-07-28</time>
+      <time class="meta-updated" datetime="2026-10-20">2026-10-20更新</time>
+      <a class="chip chip-cat chip-a" href="https://petrichot.com/category/%E6%A5%AD%E5%8B%99%E5%8A%B9%E7%8E%87%E5%8C%96/">業務効率化</a>
+      <a class="chip chip-tag" href="https://petrichot.com/tag/AI/">AI</a><a class="chip chip-tag" href="https://petrichot.com/tag/%E7%BF%BB%E8%A8%B3/">翻訳</a><a class="chip chip-tag" href="https://petrichot.com/tag/%E8%8B%B1%E8%AA%9E/">英語</a><a class="chip chip-tag" href="https://petrichot.com/tag/%E6%A5%AD%E5%8B%99%E5%8A%B9%E7%8E%87%E5%8C%96/">業務効率化</a><a class="chip chip-tag" href="https://petrichot.com/tag/%E6%B3%A8%E6%84%8F%E7%82%B9/">注意点</a>
+    </div>
+    <div class="eyecatch-hero"><svg class="eyecatch-svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="200" fill="var(--eye-a-soft)"/><circle cx="36.6" cy="21.5" r="3.5" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="111.2" cy="28.4" r="6.2" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="111.6" cy="76.2" r="7.7" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="109.3" cy="129.0" r="7.2" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="188.4" cy="27.4" r="6.7" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="339.3" cy="27.5" r="5.7" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="338.8" cy="71.2" r="6.7" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="335.6" cy="178.7" r="5.7" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="416.8" cy="77.2" r="6.6" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="415.2" cy="179.1" r="3.9" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="482.9" cy="74.9" r="7.5" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="483.2" cy="125.8" r="3.5" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="487.3" cy="177.1" r="4.9" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="566.4" cy="26.3" r="3.2" fill="var(--eye-a)" fill-opacity="0.4"/><circle cx="468.0" cy="100.0" r="76.9" fill="none" stroke="var(--eye-a)" stroke-width="10" stroke-opacity="0.18"/><text x="566" y="174" text-anchor="end" font-family="'Space Grotesk','Zen Kaku Gothic New',sans-serif" font-weight="700" font-size="86" fill="var(--eye-a)" fill-opacity="0.10">AI</text></svg></div>
+    <p>海外の取引先から英語のメールが届く、英語の資料を読んで要点を共有する、英文の提案書を出さなければならない。仕事で外国語を扱う場面は、珍しいものではなくなりました。こうした場面でAI翻訳を使う人が増えていますが、AI翻訳はどんな文脈でも正確、というわけではありません。</p>
+<p>大切なのは、「そのまま使える場面」と「人の確認が要る場面」を見分けることです。この記事では、メールや資料を扱う会社員の方を想定して、AI翻訳が役に立つ場面、そのまま出すと危ない場面、翻訳の依頼文の実物、訳文の確かめ方を順に説明します。</p>
+<h2>AI翻訳が役に立つ場面｜大意の把握と下訳づくり</h2>
+<p>AI翻訳の強みは、長いテキストの「大意」をすぐにつかめることです。海外ニュースのページ、英語で届いた報告書、取引先のお知らせなど、「何が書いてあるのか」を知りたいだけなら、細かいニュアンスが多少ずれても判断に支障はありません。</p>
+<p>たとえば、長い英語の資料が届いたとします。最初から丁寧に読む前に、AI翻訳で日本語にして全体をざっと眺めます。自分に関係する章がどこか、期限や依頼事項が含まれていそうか、が分かれば、原文を読み込むべき箇所を絞れます。「読む順番を決めるために訳す」という使い方は、失敗したときの損害が小さく、とても相性が良い使い方です。</p>
+<p>もう一つは、下訳づくりです。英文の提案書やメールを書く場合、日本語で下書きを書き、AI翻訳で英語にして、人が手を入れるという進め方があります。白紙から訳すのではなく「直す作業」から始められるので、取りかかりが軽くなります。</p>
+<p>ただし、下訳と最終版は別物です。下訳は「自分で直す前提の素材」であって、そのまま送る文章ではありません。この区別を忘れて、訳文をそのまま送信ボタンに運んでしまうことが、トラブルのいちばんの入り口です。</p>
+<h2>そのまま出すと危ない場面｜固有名詞・敬意・責任</h2>
+<p>AI翻訳が崩れやすいのは、次の3つです。</p>
+<p><strong>固有名詞と専門用語</strong></p>
+<p>人名、会社名、製品名、部署名などは、訳し方が文脈で変わります。英語の「Apple」を企業ではなく果物として訳す、同じ会社名を文中で別の表記にしてしまう、といった揺れが起こりえます。業界ごとの専門用語も同じで、一般的には正しい訳語が、その業界では別の意味になることがあります。社内で決まっている訳語（自社製品名や部署名の英語表記など）は、AI翻訳には分かりません。</p>
+<p><strong>敬意とニュアンス</strong></p>
+<p>英語の「I would appreciate it if you could...」は丁寧な依頼ですが、日本語に直すときは相手との関係に合わせて、「〜していただけますと幸いです」にも「〜をお願いできますか」にもなります。AI翻訳が機械的に「〜してください」とすると、意図した丁寧さが消え、取引先や上司宛てのメールでは失礼に読まれかねません。逆に、同僚への軽い連絡を過剰に堅い文面にしてしまう失敗もあります。</p>
+<p><strong>責任が伴う文書</strong></p>
+<p>契約書、利用規約、法的な通知は、一語の違いが権利や責任の範囲を変えます。たとえば「liability」と「limitation of liability」では、意味する範囲が違います。AI翻訳が修飾語や例外条件を落とすと、意味が逆になることもありえます。こうした文書はAI翻訳を「内容をつかむための参考」にとどめ、確定した内容は翻訳者や法務担当など専門家の確認を前提にしてください。</p>
+<p>メールの返信文そのものをAIで作る場合の線引きは、<a href="/ai-mail-taiou-jitan/">メール対応をAIで短くする方法と、任せてはいけない部分</a>でも整理しています。翻訳でも同じで、「送る前に人が責任を持って読む」ことが前提になります。</p>
+<h2>そのまま使える場面と、人の確認が必要な場面</h2>
+<p>実務で迷いやすいのは、「この文書はAI翻訳に任せて良いのか」という判断です。基準は、間違えたときに誰がどれだけ困るかです。次の表を目安にしてください。</p>
+<div class="table-wrap"><table><thead><tr><th>場面</th><th>判断</th><th>理由と進め方</th></tr></thead><tbody><tr><td>海外ニュースや資料の大意の把握</td><td>そのまま使いやすい</td><td>判断の材料にするだけで、外には出さない</td></tr><tr><td>社内の連絡や、自分用のメモ</td><td>そのまま使いやすい</td><td>誤訳があっても自分で気づいて直せる</td></tr><tr><td>取引先への日常的な連絡（日程調整など）</td><td>自分で確認して送る</td><td>日付、数字、敬語の度合いを見直す</td></tr><tr><td>提案書や企画書の外部向け文章</td><td>自分で確認し、できれば同僚も確認</td><td>用語の統一と、表現の強さの調整が要る</td></tr><tr><td>お詫びや苦情への返信</td><td>人が確認する</td><td>謝罪の度合いや責任の認め方が変わる</td></tr><tr><td>公式発表、プレスリリース、公開される文章</td><td>人やプロが確認する</td><td>文言がそのまま会社の立場として扱われる</td></tr><tr><td>契約書、規約、法務文書</td><td>専門家が確認する</td><td>一語の違いが責任の範囲を変える</td></tr><tr><td>医療・健康に関わる説明や同意書</td><td>専門家が確認する</td><td>誤訳が人の安全に直結しうる</td></tr></tbody></table></div>
+<p>「そのまま使いやすい」は、あくまで内部で読む用途に限った話です。同じ文章でも、外に出す瞬間に行が一つ下がると考えてください。また、この表は目安であり、会社ごとに決められたルールがある場合はそちらを優先します。迷ったときは、一段上の欄に寄せて判断すると安全です。</p>
+<h2>翻訳の依頼文の実物｜関係・敬語・用語・訳せない部分を指定する</h2>
+<p>AI翻訳に原文だけを渡すと、「相手との関係」も「どの程度の丁寧さか」も分からないまま訳されます。条件を先に伝えるだけで、訳文の調子と一貫性はかなり変わります。次の依頼文は、そのまま貼り付けて使える形にしたものです。（［　］の中を自分の状況に書き換えてください。）</p>
+<pre><code>次の英文を日本語に翻訳してください。
+
+【背景】
+・取引先の担当者から、当社の営業担当に届いたメールです。
+・相手との関係：［初めてやり取りする取引先］
+・訳文の用途：［社内に共有するため。外には出しません］
+
+【文体】
+・敬語の度合い：［丁寧語を基本とし、過度に堅い表現は避ける］
+
+【用語の指定】
+・&quot;Statement of Work&quot; は「作業範囲書」と訳す
+・&quot;Net 30&quot; は訳さず、そのまま「Net 30」と残す
+・会社名と製品名は訳さず、原文の表記のままにする
+
+【訳せない部分の扱い】
+・意味があいまいな箇所、複数の解釈ができる箇所は、推測で訳さず、
+  訳文の該当箇所を【要確認】と書いたうえで、理由を最後に一覧にしてください。
+・原文に書かれていない情報は、補わないでください。
+・数字、日付、金額、固有名詞は、一字も変えないでください。
+
+【原文】
+［ここに英文を貼る］</code></pre>
+<p>この依頼文のポイントは3つあります。</p>
+<ol><li><strong>関係と用途を書く</strong>：同じ英文でも、社内共有用なのか、相手に返す返信の下訳なのかで、望ましい日本語は変わります。</li><li><strong>用語は個別に指定する</strong>：自社の訳語ルールがある場合は、リストにして渡します。長くなる場合は、用語集を別に用意して毎回貼る方法もあります。</li><li><strong>訳せない部分を逃がす道を用意する</strong>：「あいまいな箇所は【要確認】にする」「原文のまま残す」と指示しておくと、AIが推測で埋めた訳文が混ざるのを避けやすくなります。完全に防げるわけではありませんが、人が確認すべき場所が目に見える形で残ります。</li></ol>
+<p>なお、取引先のメールや社内資料をAIサービスに貼る前に、会社の情報取り扱いルールを確認してください。顧客名や未公開の情報が含まれる場合は、伏せ字にするなどの対応が必要になることがあります。</p>
+<p>ChatGPTやClaudeのような対話型のAIでは、このように条件を文章で細かく指定できます。ここで紹介した依頼文は、特定のサービスに限らず使える考え方です。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://chatgpt.com/" rel="sponsored nofollow noopener" target="_blank">ChatGPT 公式サイトはこちら</a></div>
+<h2>訳文を確かめる方法｜逆翻訳と、原文との突き合わせ</h2>
+<p>訳文が返ってきたら、読んだ印象で「良さそう」と判断せず、次の2つで確かめます。</p>
+<p><strong>方法1：逆翻訳で意味のずれを見る</strong></p>
+<p>AIが作った日本語訳を、別の新しい会話で英語に訳し戻します。このとき、元の英文は見せません。そのうえで、元の英文と戻ってきた英文を並べて読み比べます。意味が大きく違っていれば、訳の途中でずれが生じている可能性があります。</p>
+<p>見るポイントは、細かい言い回しの違いではなく、「誰が」「何を」「いつまでに」「するのか／しないのか」が同じかどうかです。言い換えによる表現の違いは、問題ではありません。逆翻訳で違和感が出た文だけを、原文と照らして人が読み直します。</p>
+<p><strong>方法2：固有名詞・数字・否定文を原文と突き合わせる</strong></p>
+<p>逆翻訳で見つけにくいのが、一見自然なのに間違っている箇所です。そこで、次の3種類は機械的に原文と一つずつ照合します。</p>
+<ul><li><strong>固有名詞</strong>：人名、会社名、製品名、地名が、原文の表記と一致しているか。同じ名前が文中で別の表記になっていないか</li><li><strong>数字</strong>：金額、日付、数量、期限、バージョン番号に誤りがないか。桁、単位、日付の書式（月と日の並び）に注意する</li><li><strong>否定文</strong>：「not」「unless」「cannot」「no later than」などを含む文が、日本語でも同じ意味になっているか。否定が一つ落ちると、意味が反対になります</li></ul>
+<p>照合のコツは、訳文を読まずに、原文の該当箇所に印を付けて、その部分の訳文だけを探すことです。「全体を読み直す」より、確認すべき場所が決まっているので、短い時間で済みます。</p>
+<p><strong>失敗に気づいたときの戻し方</strong></p>
+<p>照合で誤りが見つかったら、訳文を手で直すだけで終わらせず、AIに誤りの箇所を具体的に指摘して訳し直させます。「3段落目の『not later than Friday』が『金曜日以降』と訳されています。『金曜日までに』の意味に直して、同じ種類の誤りが他にないか確認してください」のように、箇所と理由を伝えます。それでも不安が残る文書は、先ほどの表に従って、人やプロの確認に回してください。</p>
+<h2>会議の音声を文字起こしから翻訳へ</h2>
+<p>もう一つ、実務で使われる場面が、オンライン会議の議事録づくりです。音声をそのまま翻訳しようとすると、雑音、話者の重なり、聞き取りにくい発音などの影響を受けます。そこで、まず音声を文字起こしでテキストにし、そのテキストを翻訳にかける二段階に分けます。</p>
+<ol><li>会議の音声を、文字起こしツール（Notta Memoなど）でテキストにする</li><li>誤変換や聞き違いの箇所を、目で見て直す</li><li>直したテキストを、前の節の依頼文を使って翻訳する</li><li>数字、固有名詞、決定事項を、原文のテキストと突き合わせる</li></ol>
+<p>段階を分ける利点は、「どこで間違えたか」を切り分けられることです。文字起こしの段階で誤りがあれば、翻訳の前に直せます。テキストになっていれば、前の節の逆翻訳や突き合わせも使えます。会議で決まった内容や担当者名は、議事録の中でもっとも間違えたくない部分なので、重要な会議ほど二段階にする価値があります。</p>
+<p>録音から文字起こしまでの段階には、Notta Memoのような文字起こしの道具を使う方法があります。対応している言語や機能は、公式サイトで確認してください。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://px.a8.net/svt/ejp?a8mat=4B82L2+D2XWAA+5988+BYLJL" rel="sponsored nofollow noopener" target="_blank">Notta Memo 公式サイトはこちら</a></div>
+<h2>まとめ</h2>
+<ul><li>AI翻訳が向くのは、<strong>大意の把握</strong>と<strong>下訳づくり</strong>です</li><li>固有名詞・専門用語・敬意の度合いは崩れやすいので、そのまま外に出しません</li><li>契約書、医療、法務、お詫び、公式発表などは、人やプロの確認を挟みます</li><li>依頼文には、相手との関係、敬語の度合い、用語の訳し方、訳せない部分の扱いを書きます</li><li>確認は、逆翻訳で意味のずれを見る方法と、固有名詞・数字・否定文を原文と突き合わせる方法を組み合わせます</li><li>人が見るのは全体ではなく、金額・期限・責任・否定文・固有名詞に絞ります</li></ul>
+<p>AI翻訳をうまく使うコツは、任せる場面と確認する場面を先に決めておくことです。</p>
+<p>関連記事として、<a href="/eigo-gakushuu-ai-katsuyou/">英語学習にAIを活用する方法</a>では、学習寄りの視点からAIツールの使い方を紹介しています。また、<a href="/ai-hallucination-naze/">AIはなぜもっともらしい嘘をつくのか</a>では、AIの出力が誤る背景にある仕組みも解説しています。あわせて参考にしてください。</p>
+<section class="sources">
+<h2>参考リンク</h2>
+<ul><li><a href="https://openai.com/chatgpt/" target="_blank" rel="noopener noreferrer">ChatGPT</a></li><li><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a></li></ul>
+</section>
+  </article>
+
+  <aside class="path-cta" aria-label="次の学び">
+    <span class="path-cta-kicker">Next step</span>
+    <div>
+      <h2>知ったことを、使える力に変える</h2>
+      <p>AIの仕組みや使い分けを理解したら、Petrichor Learningの「生成AI 実践コース」で手を動かして学べます。</p>
+    </div>
+    <a href="/learning/course/">生成AI 実践コースへ <span aria-hidden="true">→</span></a>
+  </aside>
+
+  <nav class="related" aria-label="関連記事">
+    <h2 class="section-head">関連記事</h2>
+    <p class="section-en">Related</p>
+    <ul>
+      <li>
+        <a href="https://petrichot.com/ai-gyomu-kouritsuka/">
+          <span class="related-title">AIで業務効率化を始める完全ガイド|2026年最新版</span>
+          <span class="related-cat">業務効率化</span>
+        </a>
+      </li>
+<li>
+        <a href="https://petrichot.com/ai-agent-toha-hajimekata/">
+          <span class="related-title">AIエージェントとは？チャットAIとの違いと始め方を図で解説</span>
+          <span class="related-cat">業務効率化</span>
+        </a>
+      </li>
+<li>
+        <a href="https://petrichot.com/notta-brain-shoukai/">
+          <span class="related-title">Notta Brainとは?情報整理から資料作成まで</span>
+          <span class="related-cat">業務効率化</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    <p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></p>
+    <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
+    <p class="footer-network"><span>Petrichor：</span><a href="/shopping/">Shopping</a> ・ <a href="/">AI解説</a> ・ <a href="/learning/">Learning</a></p>
+    <p><a href="https://petrichot.com/about/">運営者情報</a> ・ <a href="https://petrichot.com/contact/">お問い合わせ</a> ・ <a href="https://petrichot.com/privacy/">プライバシーポリシー</a> ・ <a href="https://x.com/petrichot_ai" target="_blank" rel="noopener">X（@petrichot_ai）</a></p>
+    <p>&copy; 2026 AIツールの透視図</p>
+  </div>
+</footer>
+<script>
+(() => {
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const menu = document.getElementById("site-menu");
+  if (!toggle || !menu) return;
+  const setOpen = (open) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    menu.classList.toggle("is-open", open);
+  };
+  toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
+  });
+  menu.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>
