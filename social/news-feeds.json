@@ -12,18 +12,45 @@
     "省略するとフィード内の全記事が対象になる。",
     "",
     "追加したら `node social/post-news.mjs --dry-run` を実行して、",
-    "そのフィードが実際に読めるか(件数が0でないか)を必ず確認すること。"
+    "そのフィードが実際に読めるか(件数が0でないか)を必ず確認すること。",
+    "",
+    "exclude(任意) は、見出しと概要文に対する除外用の正規表現。広告記事や週間まとめを外す。",
+    "priority(任意) は、前日に記事があれば優先して選ぶフィード(各社の公式発表など)。",
+    "priority の無いフィード同士は、日付で配信元を回して選ぶ(更新の多い媒体に偏らないように)。"
   ],
   "feeds": [
     {
       "name": "ITmedia AI＋",
       "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
-      "allowHosts": ["itmedia.co.jp", "www.itmedia.co.jp"]
+      "allowHosts": [
+        "itmedia.co.jp",
+        "www.itmedia.co.jp"
+      ],
+      "exclude": "今週の注目|週間まとめ|ランキング|Sponsored|\\[PR\\]|【PR】|提供：|タイアップ"
+    },
+    {
+      "name": "INTERNET Watch",
+      "url": "https://internet.watch.impress.co.jp/data/rss/1.0/iw/feed.rdf",
+      "allowHosts": [
+        "internet.watch.impress.co.jp"
+      ],
+      "match": "生成AI|AIエージェント|ChatGPT|OpenAI|Claude|Anthropic|Gemini|LLM|大規模言語モデル|画像生成|Copilot(?!\\+)",
+      "exclude": "今週の注目|週間まとめ|ランキング|Sponsored|\\[PR\\]|【PR】|提供：|タイアップ"
     },
     {
       "name": "OpenAI",
       "url": "https://openai.com/news/rss.xml",
-      "allowHosts": ["openai.com", "www.openai.com"]
+      "allowHosts": [
+        "openai.com",
+        "www.openai.com"
+      ]
+    },
+    {
+      "name": "Google",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/rss/",
+      "allowHosts": [
+        "blog.google"
+      ]
     }
   ]
 }

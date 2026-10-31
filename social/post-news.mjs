@@ -153,12 +153,25 @@ export function dayWindow(now = new Date()) {
   return { start: end - 86400000, end };
 }
 
-export function selectItem(collected, window) {
+// 前日の記事から1件選ぶ。
+// - priority の高いフィード(各社の公式発表など)に前日の記事があれば、そちらを優先する。
+//   公式の発表は頻度が低いぶん、出た日は話題の中心になりやすいため。
+// - それ以外は、日付で配信元を回す。単純に「いちばん新しい1件」だと、
+//   更新の多い媒体が毎日選ばれて、話題が偏るため。
+export function selectItem(collected, window, now = new Date()) {
   const inWindow = collected.filter(
     (it) => it.published.getTime() >= window.start && it.published.getTime() < window.end,
   );
+  if (!inWindow.length) return null;
   inWindow.sort((a, b) => b.published - a.published);
-  return inWindow[0] || null;
+
+  const top = Math.max(...inWindow.map((it) => it.priority || 0));
+  if (top > 0) return inWindow.find((it) => (it.priority || 0) === top);
+
+  const sources = [...new Set(inWindow.map((it) => it.source))].sort();
+  const dayIndex = Math.floor(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) / 86400000);
+  const source = sources[dayIndex % sources.length];
+  return inWindow.find((it) => it.source === source);
 }
 
 // ---------------------------------------------------------------- 文面
@@ -276,10 +289,12 @@ async function main() {
       const usable = items.filter((it) => {
         if (!hostAllowed(it.link, feed.allowHosts || [])) return false;
         if (feed.match && !new RegExp(feed.match, "i").test(it.title)) return false;
+        // 広告記事や週間まとめのように、AIのニュースとして紹介すべきでないものを外す。
+        if (feed.exclude && new RegExp(feed.exclude, "i").test(`${it.title} ${it.summary || ""}`)) return false;
         return true;
       });
       console.log(`[${TAG}] ${feed.name}: ${items.length}件取得 / ${usable.length}件が対象`);
-      for (const it of usable) collected.push({ ...it, source: feed.name });
+      for (const it of usable) collected.push({ ...it, source: feed.name, priority: feed.priority || 0 });
     } catch (err) {
       // 1つのフィードが落ちても他で続行する。ニュースが出せないより軽い問題。
       console.warn(`[${TAG}] ${feed.name}: 取得に失敗しました (${err.message})`);
