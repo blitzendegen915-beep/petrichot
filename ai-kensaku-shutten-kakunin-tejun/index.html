@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="base-uri 'none'; object-src 'none'; form-action 'self'">
+<title>AI検索の出典を確かめる手順｜Perplexityなど引用つき回答の読み方 | AIツールの透視図</title>
+<meta name="description" content="出典リンクが付くAI検索の回答を、そのまま信じてよいとは限りません。出典を開く・照らす・裏を取る五つの手順と、出典の種類別の見方、依頼文例をまとめました。">
+<meta name="google-site-verification" content="dYzGQSnnAOvz22dxCHsSp4tyrnp8HakA7AbveSFE2-M" />
+<link rel="icon" href="https://petrichot.com/static/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://petrichot.com/static/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="https://petrichot.com/static/apple-touch-icon.png">
+<link rel="canonical" href="https://petrichot.com/ai-kensaku-shutten-kakunin-tejun/">
+<meta property="og:title" content="AI検索の出典を確かめる手順｜Perplexityなど引用つき回答の読み方">
+<meta property="og:description" content="出典リンクが付くAI検索の回答を、そのまま信じてよいとは限りません。出典を開く・照らす・裏を取る五つの手順と、出典の種類別の見方、依頼文例をまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://petrichot.com/ai-kensaku-shutten-kakunin-tejun/">
+<meta property="og:site_name" content="AIツールの透視図">
+<meta property="og:image" content="https://petrichot.com/static/ogp/ai-kensaku-shutten-kakunin-tejun.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI検索の出典を確かめる手順｜Perplexityなど引用つき回答の読み方">
+<meta name="twitter:description" content="出典リンクが付くAI検索の回答を、そのまま信じてよいとは限りません。出典を開く・照らす・裏を取る五つの手順と、出典の種類別の見方、依頼文例をまとめました。">
+<meta name="twitter:image" content="https://petrichot.com/static/ogp/ai-kensaku-shutten-kakunin-tejun.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI検索の出典を確かめる手順｜Perplexityなど引用つき回答の読み方","description":"出典リンクが付くAI検索の回答を、そのまま信じてよいとは限りません。出典を開く・照らす・裏を取る五つの手順と、出典の種類別の見方、依頼文例をまとめました。","datePublished":"2026-10-28","dateModified":"2026-10-28","author":{"@type":"Organization","name":"AIツールの透視図編集部"},"publisher":{"@type":"Organization","name":"AIツールの透視図","url":"https://petrichot.com","logo":{"@type":"ImageObject","url":"https://petrichot.com/static/favicon-512.png"}},"mainEntityOfPage":"https://petrichot.com/ai-kensaku-shutten-kakunin-tejun/","image":"https://petrichot.com/static/ogp/ai-kensaku-shutten-kakunin-tejun.jpg"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AIツールの透視図","item":"https://petrichot.com/"},{"@type":"ListItem","position":2,"name":"ツール比較","item":"https://petrichot.com/category/%E3%83%84%E3%83%BC%E3%83%AB%E6%AF%94%E8%BC%83/"},{"@type":"ListItem","position":3,"name":"AI検索の出典を確かめる手順｜Perplexityなど引用つき回答の読み方","item":"https://petrichot.com/ai-kensaku-shutten-kakunin-tejun/"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f0f1f3;
+  --fg: #111318;
+  --muted: #5f646e;
+  --accent: #1a5ce5;
+  --accent-fg: #ffffff;
+  --accent-soft: #e9f0ff;
+  --deep: #10287d;
+  --deep-2: #1b3fbf;
+  --edu: #1a5ce5;
+  --edu-fg: #ffffff;
+  --edu-soft: #e9f0ff;
+  --border: #e1e3e8;
+  --code-bg: #f4f5f7;
+  --banner-bg: #f6f7f9;
+  --banner-fg: #4a4f58;
+  --banner-border: #e1e3e8;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --shadow: 0 12px 34px -18px rgba(17, 19, 24, 0.35);
+  --r: 4px;
+  --measure: 68ch;
+  --wide: 960px;
+  --eye-edu: var(--edu);
+  --eye-edu-soft: var(--edu-soft);
+  --eye-a: #1a5ce5;
+  --eye-a-soft: #e9f0ff;
+  --eye-b: #10287d;
+  --eye-b-soft: #e3eaff;
+  --eye-c: #3f77ff;
+  --eye-c-soft: #eef3ff;
+  --eye-d: #0d3fa8;
+  --eye-d-soft: #e6edff;
+  --eye-e: #5b8fff;
+  --eye-e-soft: #f1f5ff;
+  --font-display: "Space Grotesk", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0c0f;
+    --surface: #13151a;
+    --surface-2: #1a1d24;
+    --fg: #f1f2f5;
+    --muted: #99a0ac;
+    --accent: #5b8fff;
+    --accent-fg: #08132e;
+    --accent-soft: #16244a;
+    --deep: #0d1c4d;
+    --deep-2: #16307f;
+    --edu: #5b8fff;
+    --edu-fg: #08132e;
+    --edu-soft: #16244a;
+    --border: #262a33;
+    --code-bg: #171a20;
+    --banner-bg: #14171d;
+    --banner-fg: #99a0ac;
+    --banner-border: #262a33;
+    --header-bg: rgba(11, 12, 15, 0.88);
+    --shadow: 0 12px 34px -14px rgba(0, 0, 0, 0.7);
+    --eye-a: #5b8fff;
+    --eye-a-soft: #16244a;
+    --eye-b: #7aa5ff;
+    --eye-b-soft: #101c3a;
+    --eye-c: #4d86ff;
+    --eye-c-soft: #14224a;
+    --eye-d: #8fb4ff;
+    --eye-d-soft: #0f1a35;
+    --eye-e: #6d9bff;
+    --eye-e-soft: #131f42;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: #fff; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+img { max-width: 100%; height: auto; display: block; }
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--r);
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header-bg);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.25rem;
+}
+.site-header .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  min-width: 0;
+}
+.brand-mark {
+  flex-shrink: 0;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  object-fit: contain;
+}
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.site-header nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.42rem 0.95rem;
+  border-radius: var(--r);
+  border: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.cat-nav {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.cat-nav .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.55rem 1.25rem;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.cat-nav .inner::-webkit-scrollbar { display: none; }
+.nav-cat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--r);
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.nav-cat:hover { background: var(--surface-2); color: var(--fg); }
+.nav-cat.is-active { background: var(--fg); color: var(--bg); }
+.nav-cat-n {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.disclosure-bar {
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border-bottom: 1px solid var(--banner-border);
+}
+.disclosure-bar .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.45rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+/* 濃紺の全幅ヒーロー。参照サイトと同じく色面に白文字を置く */
+.hero-band {
+  background-image: linear-gradient(135deg, var(--deep) 0%, var(--deep-2) 100%);
+  color: #fff;
+  margin-bottom: 3rem;
+}
+.hero-band .hero {
+  border: none;
+  margin: 0 auto;
+  max-width: var(--wide);
+  padding: 3.4rem 1.25rem 3.6rem;
+}
+.hero-band .hero-lead { color: rgba(255, 255, 255, 0.82); }
+.hero-band .hero-en { color: rgba(255, 255, 255, 0.62); }
+.hero-band .hero-count { color: rgba(255, 255, 255, 0.7); }
+.hero-band .hero-btn { border-color: rgba(255, 255, 255, 0.5); color: #fff; }
+.hero-band .hero-btn:hover, .hero-band .hero-btn:focus-visible {
+  background: #fff;
+  color: var(--deep);
+}
+
+.hero {
+  padding: 2.6rem 0 1.8rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.4rem;
+}
+.hero h1 { margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+.hero-en {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.hero-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.9;
+  max-width: 62ch;
+}
+.hero-count {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.hero-sub { padding-top: 2rem; }
+.hero-actions { margin: 1.3rem 0 0; display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.hero-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.hero-btn:hover, .hero-btn:focus-visible {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.network-link.is-current {
+  color: var(--fg);
+  border-color: var(--border);
+  background: var(--surface);
+}
+.network-link-shopping:hover,
+.network-link-shopping:focus-visible { color: #c94f32 !important; }
+.network-link-learning:hover,
+.network-link-learning:focus-visible { color: var(--edu) !important; }
+
+.journey-band {
+  padding: 0 1.25rem 3.4rem;
+  background: var(--bg);
+}
+.journey-inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.65fr);
+  gap: 2rem;
+  align-items: end;
+}
+.journey-head h2 {
+  margin: 0.2rem 0 0.7rem;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.55rem, 1.3rem + 1vw, 2.15rem);
+}
+.journey-head > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  max-width: 36ch;
+}
+.journey-kicker,
+.path-cta-kicker {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.journey-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.journey-steps li { margin: 0; min-width: 0; }
+.journey-steps li + li { border-left: 1px solid var(--border); }
+.journey-steps a {
+  min-height: 11.5rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--fg);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.journey-steps a:hover,
+.journey-steps a:focus-visible { background: var(--surface-2); }
+.journey-steps .is-current a {
+  background: var(--deep);
+  color: #fff;
+}
+.journey-no {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.is-current .journey-no { color: rgba(255,255,255,0.58); }
+.journey-label {
+  margin-top: auto;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.is-current .journey-label { color: rgba(255,255,255,0.68); }
+.journey-steps strong {
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  line-height: 1.45;
+}
+.journey-steps small {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.is-current small { color: rgba(255,255,255,0.68); }
+
+.path-cta {
+  margin: 3rem 0 0;
+  padding: 1.35rem;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--edu);
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem 1.25rem;
+  align-items: center;
+}
+.path-cta-kicker {
+  writing-mode: vertical-rl;
+  color: var(--edu);
+}
+.path-cta h2 {
+  margin: 0 0 0.25rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.15rem;
+}
+.path-cta p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.path-cta > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--edu);
+  color: var(--edu);
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.path-cta > a:hover,
+.path-cta > a:focus-visible { background: var(--edu); color: #fff; }
+.footer-network span { color: var(--fg); font-weight: 700; }
+
+@media (max-width: 820px) {
+  .journey-inner { grid-template-columns: 1fr; align-items: start; }
+  .journey-head > p:last-child { max-width: 60ch; }
+  .path-cta { grid-template-columns: minmax(0, 1fr); }
+  .path-cta-kicker { writing-mode: initial; }
+  .path-cta > a { justify-self: start; }
+}
+@media (max-width: 620px) {
+  .journey-steps { grid-template-columns: 1fr; }
+  .journey-steps li + li { border-left: 0; border-top: 1px solid var(--border); }
+  .journey-steps a { min-height: 8.5rem; }
+}
+/* 日本語見出し + 小さい青の英字ラベル + 細い罫線(参照サイトの型) */
+.section-head {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0 0 0.3rem;
+  padding: 0;
+  border: none;
+}
+.section-head::before { content: none; }
+.section-en {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 0 0 1rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+.disclosure-badge {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--banner-fg);
+  color: var(--banner-bg);
+  margin-top: 0.1rem;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+main.wide { max-width: var(--wide); }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.15rem);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  margin: 0.6rem 0 1.1rem;
+}
+article { counter-reset: h2count; }
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 2.75rem 0 1.15rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+}
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+}
+p { margin: 0 0 1.15rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+ul > li::marker { color: var(--accent); }
+ol > li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 700; }
+blockquote {
+  position: relative;
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.4rem;
+  border-left: 4px solid var(--edu);
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: 0 var(--r) var(--r) 0;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: var(--r);
+  font-size: 0.9em;
+}
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.4rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.table-wrap th, .table-wrap td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table-wrap td { white-space: normal; min-width: 8em; }
+.table-wrap thead th {
+  background: var(--card-bg);
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+}
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+
+.site-header nav { display: flex; align-items: center; gap: 0.2rem; flex-shrink: 0; }
+.site-header nav a { margin-left: 0; }
+.nav-cta {
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  border-color: var(--accent) !important;
+  white-space: nowrap;
+}
+/* 狭い画面でも3サービス間を移動できるよう、共有リンクを2段目に残す。 */
+@media (max-width: 540px) {
+  .site-header { padding: 0.7rem 1rem; }
+  .site-header .inner { flex-wrap: wrap; gap: 0.5rem; }
+  .site-header .top-nav {
+    order: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.25rem;
+  }
+  .top-nav .nav-link,
+  .top-nav .nav-cta { display: none; }
+  .top-nav .network-link {
+    display: block;
+    padding: 0.38rem 0.3rem;
+    font-size: 0.76rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .brand-text { font-size: 1rem; }
+}
+.nav-cta:hover, .nav-cta:focus-visible {
+  filter: brightness(1.06);
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+}
+
+/* Petrichor共通ヘッダー: セクションをまたいでも同じメニュー操作にする。 */
+.site-header .inner { position: relative; min-height: 4.5rem; }
+.menu-toggle {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.7rem 0.45rem 0.85rem;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  font: inherit;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.menu-toggle:hover, .menu-toggle:focus-visible,
+.menu-toggle[aria-expanded="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.menu-toggle-icon { display: grid; gap: 4px; width: 1.1rem; }
+.menu-toggle-icon span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.site-menu {
+  position: absolute;
+  top: calc(100% - 0.1rem);
+  right: 0;
+  z-index: 30;
+  display: block !important;
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--r) + 2px);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-0.35rem);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+}
+.site-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.site-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0.55rem 0.6rem;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.site-menu-nav {
+  display: grid !important;
+  gap: 0.25rem !important;
+}
+.site-menu-link {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 !important;
+  padding: 0.7rem 0.75rem !important;
+  color: var(--fg) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--r) !important;
+  background: transparent !important;
+  text-decoration: none;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+}
+.site-menu-link small { color: var(--muted); font-size: 0.72rem; font-weight: 500; }
+.site-menu-link:hover, .site-menu-link:focus-visible,
+.site-menu-link.is-current {
+  color: var(--accent) !important;
+  border-color: var(--border) !important;
+  background: var(--accent-soft) !important;
+}
+.site-menu-link.is-current small { color: inherit; opacity: 0.8; }
+.site-menu-divider { height: 1px; margin: 0.55rem 0; background: var(--border); }
+@media (max-width: 540px) {
+  .site-header .inner { min-height: 4rem; }
+  .site-menu { right: 0; width: min(22rem, calc(100vw - 1.25rem)); }
+  .menu-toggle-label { display: none; }
+  .menu-toggle { width: 2.75rem; justify-content: center; padding-inline: 0.7rem; }
+}
+
+.sd, .sd-result { scroll-margin-top: 7rem; }
+.sd { max-width: var(--measure); margin: 0 auto; }
+.sd-bar {
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.sd-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+.sd-progress {
+  margin: 0.6rem 0 1.6rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.sd-step { border: none; margin: 0; padding: 0; }
+.sd-q {
+  display: block;
+  padding: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+.sd-num {
+  display: inline-block;
+  margin-right: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.sd-opts { display: grid; gap: 0.6rem; }
+.sd-opt {
+  appearance: none;
+  text-align: left;
+  font: inherit;
+  font-weight: 600;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+}
+.sd-opt:hover, .sd-opt:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.sd-nav { margin-top: 1.6rem; }
+.sd-back, .sd-again {
+  appearance: none;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+.sd-back:hover, .sd-again:hover { color: var(--accent); }
+
+.sd-result { max-width: var(--measure); margin: 0 auto; }
+.sd-result-head {
+  font-size: 1.3rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+  margin: 0 0 1.4rem;
+}
+.sd-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.3rem 1.4rem;
+  margin-bottom: 1.1rem;
+}
+.sd-card.is-top { border-color: var(--accent); box-shadow: var(--shadow); }
+.sd-card h3 { margin: 0.2rem 0 0.6rem; font-size: 1.25rem; }
+.sd-card p { margin: 0 0 0.7rem; }
+.sd-rank {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 !important;
+}
+.sd-card.is-top .sd-rank { color: var(--accent); }
+/* 候補が3つ並ぶので、強いボタンは1件目だけにする */
+.sd-card:not(.is-top) .aff-cta { margin: 1rem 0 0; text-align: left; }
+.sd-card:not(.is-top) .aff-btn {
+  background: none;
+  color: var(--accent) !important;
+  border: 1px solid var(--border);
+  box-shadow: none;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+}
+.sd-card:not(.is-top) .aff-btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+.sd-more { font-size: 0.9rem; }
+.sd-note {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 1.6rem 0;
+}
+.sd-again { margin-top: 0.4rem; }
+
+figure.diagram {
+  margin: 1.8rem 0;
+  padding: 1.1rem 1rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow-x: auto;
+}
+figure.diagram svg {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0 auto;
+}
+figure.diagram figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
+}
+figure.diagram .dg-label { font-weight: 700; }
+figure.diagram text { font-family: inherit; }
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: var(--r);
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+.related {
+  margin: 3.5rem auto 0;
+  max-width: var(--measure);
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+.related h2 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+  padding-left: 0;
+  border-left: none;
+}
+.related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.related a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.related a:hover { border-color: var(--accent); transform: translateY(-1px); }
+.related .related-title { font-weight: 700; line-height: 1.5; }
+.related .related-cat {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+a.chip { cursor: pointer; transition: filter 0.15s ease, transform 0.15s ease; }
+a.chip:hover { filter: brightness(0.94); transform: translateY(-1px); }
+@media (prefers-color-scheme: dark) {
+  a.chip:hover { filter: brightness(1.2); }
+}
+.chip-tag { border: 1px solid var(--border); color: var(--muted); }
+.chip-cat {
+  font-weight: 700;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.chip-edu, .chip-a, .chip-b, .chip-c, .chip-d, .chip-e {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.article-meta time { font-family: var(--font-display); font-weight: 600; }
+.article-meta .meta-updated { color: var(--accent); }
+
+.eyecatch-hero {
+  width: 100%;
+  height: clamp(120px, 26vw, 220px);
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 0 2.2rem;
+}
+
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.sources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.sources ul { padding-left: 1.3rem; }
+.sources li { margin-bottom: 0.5rem; }
+.sources a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+.sources a:hover, .sources a:focus-visible { color: var(--accent); }
+.sources a[target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.65;
+}
+
+.aff-cta {
+  margin: 2rem 0;
+  text-align: center;
+}
+.aff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 1rem 2.25rem;
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.aff-btn::after { content: "\2192"; transition: transform 0.18s ease; }
+.aff-btn:hover, .aff-btn:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 18px 34px -14px var(--accent);
+}
+.aff-btn:hover::after { transform: translateX(3px); }
+.aff-btn:active { transform: translateY(-1px); }
+
+.article-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 700px) {
+  .article-grid { grid-template-columns: 1fr 1fr; }
+}
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+}
+.article-card:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+/* カード右下に青い丸の矢印(参照サイトのニュース一覧と同じ役割) */
+.card-body { position: relative; }
+.card-arrow {
+  position: absolute;
+  right: 1.15rem;
+  bottom: 1.15rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.article-card:hover .card-arrow,
+.card-link:focus-visible .card-arrow { opacity: 1; transform: none; }
+@media (hover: none) {
+  .card-arrow { opacity: 1; transform: none; }
+}
+.article-card .card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--fg);
+  height: 100%;
+}
+.card-eyecatch {
+  width: 100%;
+  height: 104px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.card-eyecatch .eyecatch-svg,
+.eyecatch-hero .eyecatch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article-card:hover .card-eyecatch .eyecatch-svg { transform: scale(1.03); }
+.card-eyecatch .eyecatch-svg { transition: transform 0.3s ease; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.95rem 1.15rem 1.15rem;
+  flex: 1;
+}
+.article-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.article-card .card-date {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.article-card h2 {
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+  margin: 0.2rem 0 0;
+  line-height: 1.55;
+}
+.article-card h2::before { content: none; }
+.article-card .desc {
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.72;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+/* 記事検索ボックス(一覧の直上)。JS無効時は何も起きず、通常の一覧がそのまま見える */
+.search-box {
+  margin: 0 0 1.5rem;
+}
+.search-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 0.45rem;
+}
+.search-input {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.search-input::placeholder { color: var(--muted); }
+.search-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+.search-status {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2.75rem 0 0;
+}
+.pager-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.pager-btn:hover, .pager-btn:focus-visible {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.pager-btn.is-disabled {
+  border-color: var(--border);
+  color: var(--muted);
+  opacity: 0.5;
+}
+.pager-nums {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.pager-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 0.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--r);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a.pager-num:hover, a.pager-num:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.pager-num.is-current {
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-weight: 700;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding: 2rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.site-footer .inner { max-width: var(--wide); margin: 0 auto; }
+.site-footer p { margin: 0.35rem 0; }
+.site-footer .footer-disclosure {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+}
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--accent); }
+
+.pb {
+  border: 2px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+.pb-head { display: flex; flex-direction: column; gap: 0.2rem; margin-bottom: 1rem; }
+.pb-head strong { font-family: var(--font-display); font-size: 1.02rem; }
+.pb-note { font-size: 0.76rem; color: var(--muted); }
+.pb-presets {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.pb-presets-label { font-size: 0.8rem; color: var(--muted); }
+.pb-preset {
+  font: inherit; font-size: 0.8rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+.pb-preset:hover { background: var(--accent-soft); }
+.pb-grid { display: grid; gap: 0.85rem; }
+@media (min-width: 640px) { .pb-grid { grid-template-columns: 1fr 1fr; } }
+.pb-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.pb-label { font-size: 0.82rem; font-weight: 700; }
+.pb-field textarea {
+  font: inherit; font-size: 0.9rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--bg);
+  color: var(--fg);
+  resize: vertical;
+}
+.pb-field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.pb-out-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 1.15rem 0 0.4rem;
+  font-size: 0.82rem; font-weight: 700;
+}
+.pb-copy {
+  font: inherit; font-size: 0.78rem; font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border: none; border-radius: var(--r);
+  background: var(--accent); color: var(--accent-fg);
+  cursor: pointer;
+}
+.pb-out {
+  white-space: pre-wrap; word-break: break-word;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.pb-out.is-empty { color: var(--muted); }
+
+.policy-page { max-width: 720px; margin: 0 auto; padding: 2rem 0 4rem; }
+.policy-page h1 { margin-bottom: 1.5rem; }
+.policy-page h2 { margin-top: 2.2rem; font-size: 1.15rem; }
+.policy-page p { color: var(--muted); line-height: 1.9; }
+/* 診断結果の理由・注意書き */
+.sd-why, .sd-advice {
+  border: 1px solid var(--border); border-radius: var(--r);
+  padding: 1.1rem 1.25rem; margin-bottom: 1.5rem; background: var(--code-bg);
+}
+.sd-why-head { font-weight: 700; margin: 0 0 0.7rem; font-size: 0.95rem; }
+.sd-why-line { margin: 0.35rem 0; font-size: 0.9rem; line-height: 1.85; color: var(--muted); }
+.sd-why-pick { color: var(--fg); font-weight: 600; }
+.sd-advice { background: var(--accent-soft); border-color: rgba(26, 92, 229, 0.25); }
+.sd-advice-item { margin: 0.9rem 0; font-size: 0.9rem; line-height: 1.9; }
+.sd-advice-item:first-of-type { margin-top: 0; }
+.sd-opt.is-picked { border-color: var(--accent); background: var(--accent-soft); }
+
+
+/* --- トップの実用ツール帯 -------------------------------------------------
+   濃紺に電光色を差し、斜めに切った面を重ねる。記事本文は白地のままにして、
+   ここだけ質感を変えることで「読むところ」と「使うところ」を見分けさせる。 */
+.tools-band {
+  --tb-ink: #eaf1ff;
+  --tb-line: rgba(120, 170, 255, 0.28);
+  position: relative;
+  background:
+    radial-gradient(120% 100% at 15% 0%, #14307e 0%, rgba(20, 48, 126, 0) 60%),
+    radial-gradient(90% 90% at 95% 100%, #1d47b8 0%, rgba(29, 71, 184, 0) 55%),
+    linear-gradient(160deg, #050f36 0%, #081a4d 55%, #06123c 100%);
+  color: var(--tb-ink);
+  padding: 4.5rem 0 5rem;
+  margin: 0 0 3.5rem;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.5rem), 0 100%);
+}
+/* 斜めの走査線。主張しすぎない程度に */
+.tools-band::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(115deg, rgba(125, 175, 255, 0.07) 0 1px, transparent 1px 26px);
+  pointer-events: none;
+}
+.tools-band-inner { position: relative; max-width: var(--wide); margin: 0 auto; padding: 0 1.25rem; }
+
+.tools-band-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+.tools-band h2 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); letter-spacing: -0.02em; margin: 0; color: #fff; }
+.tools-band-en {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
+  font-size: 0.72rem; color: #7fb0ff;
+}
+.tools-band-lead { color: rgba(234, 241, 255, 0.72); line-height: 1.9; max-width: 46rem; margin: 0 0 2.5rem; }
+
+.tools-deck { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.tools-deck > li { display: flex; }
+@media (min-width: 640px) { .tools-deck { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .tools-deck { grid-template-columns: repeat(3, 1fr); } }
+
+.tool-card-link {
+  position: relative; display: flex; flex-direction: column; width: 100%;
+  padding: 1.5rem 1.35rem 1.65rem;
+  color: inherit; text-decoration: none;
+  background: linear-gradient(150deg, rgba(24, 56, 140, 0.62), rgba(9, 22, 64, 0.72));
+  border: 1px solid var(--tb-line);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.1rem), calc(100% - 1.1rem) 100%, 0 100%);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+/* 左端の光る縦棒。ホバーで伸びる */
+.tool-card-link::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 40%;
+  width: 3px; background: linear-gradient(180deg, #6fd3ff, #2f6bff);
+  transition: bottom 0.28s ease;
+}
+.tool-card-link:hover, .tool-card-link:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(140, 195, 255, 0.72);
+  background: linear-gradient(150deg, rgba(35, 78, 178, 0.75), rgba(12, 29, 82, 0.8));
+  box-shadow: 0 18px 40px -20px rgba(60, 130, 255, 0.85);
+  outline: none;
+}
+.tool-card-link:hover::before, .tool-card-link:focus-visible::before { bottom: 0; }
+.tool-card-link:focus-visible { outline: 2px solid #8cc3ff; outline-offset: 3px; }
+
+.tool-card-no {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em;
+  color: #6fa8ff; font-variant-numeric: tabular-nums; display: block; margin-bottom: 0.7rem;
+}
+.tool-card-link h3 { font-size: 1.08rem; line-height: 1.5; margin: 0 0 0.55rem; color: #fff; }
+.tool-card-link p { font-size: 0.87rem; line-height: 1.85; color: rgba(234, 241, 255, 0.7); margin: 0; }
+.tool-card-go {
+  display: inline-block; margin-top: auto; padding-top: 1rem;
+  font-size: 0.8rem; letter-spacing: 0.06em; color: #8cc3ff;
+}
+.tools-band-note { margin: 2.25rem 0 0; font-size: 0.82rem; color: rgba(234, 241, 255, 0.55); }
+.tools-band-actions { margin: 1.6rem 0 0; }
+.tools-band-list {
+  list-style: none; margin: 1.4rem 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
+  color: rgba(234, 241, 255, 0.8); font-size: 0.9rem;
+}
+.tools-band-list li::before { content: "・"; opacity: 0.6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card-link, .tool-card-link::before { transition: none; }
+  .tool-card-link:hover, .tool-card-link:focus-visible { transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/">
+      <img class="brand-mark" src="/static/favicon.svg" alt="" width="25" height="25">
+      <span class="brand-text">AIツールの透視図</span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="メニュー" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-toggle-label">メニュー</span>
+      <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <nav class="site-menu" id="site-menu" aria-label="サイトメニュー">
+      <div class="site-menu-header"><span>サイトメニュー</span><span>Petrichor</span></div>
+      <div class="site-menu-nav">
+        <a class="site-menu-link" href="/shopping/"><span>Shopping</span><small>選ぶ</small></a>
+        <a class="site-menu-link is-current" href="/" aria-current="page"><span>AI解説</span><small>理解する</small></a>
+        <a class="site-menu-link" href="/learning/"><span>Learning</span><small>学ぶ</small></a>
+      </div>
+      <div class="site-menu-divider"></div>
+      <div class="site-menu-nav">
+        <a class="site-menu-link" href="https://petrichot.com/tools/"><span>ツール</span><small>一覧を見る</small></a>
+        <a class="site-menu-link" href="https://petrichot.com/shindan/"><span>ツール診断</span><small>選び方を整理</small></a>
+      </div>
+    </nav>
+  </div>
+</header>
+<nav class="cat-nav" aria-label="カテゴリ"><div class="inner"><a class="nav-cat" href="https://petrichot.com/category/AI%E3%82%92%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E5%AD%A6%E3%81%B6/">AIをはじめて学ぶ<span class="nav-cat-n">37</span></a><a class="nav-cat" href="https://petrichot.com/category/%E6%A5%AD%E5%8B%99%E5%8A%B9%E7%8E%87%E5%8C%96/">業務効率化<span class="nav-cat-n">33</span></a><a class="nav-cat" href="https://petrichot.com/category/%E3%83%84%E3%83%BC%E3%83%AB%E6%AF%94%E8%BC%83/">ツール比較<span class="nav-cat-n">21</span></a><a class="nav-cat" href="https://petrichot.com/category/%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3/">デザイン<span class="nav-cat-n">14</span></a><a class="nav-cat" href="https://petrichot.com/category/AI%E4%BC%81%E6%A5%AD%E3%82%92%E7%9F%A5%E3%82%8B/">AI企業を知る<span class="nav-cat-n">4</span></a></div></nav>
+<div class="disclosure-bar"><div class="inner"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></div></div>
+
+<main id="main">
+  <article>
+    <h1>AI検索の出典を確かめる手順｜Perplexityなど引用つき回答の読み方</h1>
+    <div class="article-meta">
+      <time datetime="2026-10-28">2026-10-28</time>
+      
+      <a class="chip chip-cat chip-a" href="https://petrichot.com/category/%E3%83%84%E3%83%BC%E3%83%AB%E6%AF%94%E8%BC%83/">ツール比較</a>
+      <a class="chip chip-tag" href="https://petrichot.com/tag/AI%E6%A4%9C%E7%B4%A2/">AI検索</a><a class="chip chip-tag" href="https://petrichot.com/tag/Perplexity/">Perplexity</a><a class="chip chip-tag" href="https://petrichot.com/tag/%E5%87%BA%E5%85%B8/">出典</a><a class="chip chip-tag" href="https://petrichot.com/tag/%E6%83%85%E5%A0%B1%E3%81%AE%E7%A2%BA%E8%AA%8D/">情報の確認</a>
+    </div>
+    <div class="eyecatch-hero"><svg class="eyecatch-svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="200" fill="var(--eye-a-soft)"/><line x1="-85.1" y1="-20" x2="74.9" y2="220" stroke="var(--eye-a)" stroke-width="9.9" stroke-opacity="0.23"/><line x1="12.2" y1="-20" x2="172.2" y2="220" stroke="var(--eye-a)" stroke-width="13.0" stroke-opacity="0.13"/><line x1="119.3" y1="-20" x2="279.3" y2="220" stroke="var(--eye-a)" stroke-width="11.5" stroke-opacity="0.25"/><line x1="212.2" y1="-20" x2="372.2" y2="220" stroke="var(--eye-a)" stroke-width="8.8" stroke-opacity="0.14"/><line x1="311.3" y1="-20" x2="471.3" y2="220" stroke="var(--eye-a)" stroke-width="19.9" stroke-opacity="0.11"/><line x1="427.9" y1="-20" x2="587.9" y2="220" stroke="var(--eye-a)" stroke-width="15.4" stroke-opacity="0.26"/><line x1="506.1" y1="-20" x2="666.1" y2="220" stroke="var(--eye-a)" stroke-width="10.7" stroke-opacity="0.10"/><line x1="626.0" y1="-20" x2="786.0" y2="220" stroke="var(--eye-a)" stroke-width="18.3" stroke-opacity="0.19"/><circle cx="124.0" cy="4.1" r="93.5" fill="none" stroke="var(--eye-a)" stroke-width="3" stroke-opacity="0.35"/><text x="566" y="174" text-anchor="end" font-family="'Space Grotesk','Zen Kaku Gothic New',sans-serif" font-weight="700" font-size="86" fill="var(--eye-a)" fill-opacity="0.10">AI</text></svg></div>
+    <p>回答の横に「出典」としてリンクが並ぶタイプのAI検索は、調べものの入口としてとても便利です。どこから持ってきた情報なのかが見えるので、何も示さずに答えだけを返すAIよりも、安心して読める気がします。</p>
+<p>ただ、その安心感には落とし穴があります。出典のリンクが付いていることと、回答の内容が出典のとおりであることは、別の話だからです。この記事では、出典つきのAI検索を使うときに、リンクを見て終わりにせず、自分で確かめるための手順を整理します。特別な道具は要りません。リンクを開いて、書いてあることを見比べる。それだけの作業を、順番に進めるやり方です。</p>
+<h2>出典つき回答が便利な点と、残る限界</h2>
+<p>まず、便利な点から確認しておきます。回答に出典のリンクが付くAI検索には、次のような良さがあります。</p>
+<ul><li>回答の根拠になったページへ、すぐに移動できる</li><li>何本ものページを自分で開いて読む前に、全体像をつかめる</li><li>検索キーワードが思いつかないときでも、文章で質問を投げられる</li></ul>
+<p>調べものの入口としては、従来の検索よりも早く足がかりを得られる場面が多いでしょう。従来の検索との違いは、<a href="/ai-kensaku-perplexity-hikaku/">AI検索は従来の検索と何が違う?</a>でも整理しています。</p>
+<p>一方で、限界もはっきりしています。大きく二つあります。</p>
+<h3>限界その一：回答と出典が一致しているとは限らない</h3>
+<p>AIは、集めたページの内容を自分の言葉でまとめて回答します。このとき、出典のページには書かれていないことが混ざったり、ページの内容を少し違う意味に言い換えてしまったりすることがあります。リンクは「この回答の材料になったページ」を示しているだけで、「回答の一文一文がそのページに書いてある」ことまでは保証していません。</p>
+<h3>限界その二：出典のページ自体が当てにならない場合がある</h3>
+<p>仮に回答が出典のとおりだったとしても、出典のページ自体が古かったり、不正確だったり、商品を売るための広告記事だったりすることがあります。AIは、ページの書き手が誰で、何のために書いたのかまでは、こちらが望むほど丁寧に区別してくれるとは限りません。出典に挙がったという事実だけでは、そのページが信頼できる証拠にはならないのです。</p>
+<p>この二つの限界があるので、出典つきの回答は「確定した答え」ではなく「確かめる手がかりが付いた下書き」として扱うのが安全です。AIの回答そのものを出典として扱えるのか、という点は<a href="/ai-no-kaitou-shutten/">AIの回答は出典にできるのか</a>で詳しく扱っています。</p>
+<h2>出典を確かめる五つの手順</h2>
+<p>ここからが本題です。出典つきの回答を読んだら、次の五つを順に行います。全部を毎回やる必要はなく、回答の重要度に応じて、後ろの手順まで進めるかどうかを決めます。</p>
+<figure class="diagram"><svg viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg" role="img">
+<g font-size="13" text-anchor="middle" fill="var(--fg)">
+<rect x="8" y="40" width="112" height="64" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+<text x="64" y="68">1 リンクを</text><text x="64" y="88">開く</text>
+<rect x="136" y="40" width="112" height="64" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+<text x="192" y="68">2 該当部分を</text><text x="192" y="88">照らす</text>
+<rect x="264" y="40" width="112" height="64" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+<text x="320" y="68">3 発行元と</text><text x="320" y="88">日付を見る</text>
+<rect x="392" y="40" width="112" height="64" rx="8" fill="var(--surface-2)" stroke="var(--accent)"/>
+<text x="448" y="68">4 一次情報で</text><text x="448" y="88">裏を取る</text>
+<rect x="520" y="40" width="112" height="64" rx="8" fill="var(--surface-2)" stroke="var(--border)"/>
+<text x="576" y="68">5 複数の出典</text><text x="576" y="88">を比べる</text>
+</g>
+<g stroke="var(--muted)" stroke-width="2" fill="none">
+<path d="M122 72 H134"/><path d="M250 72 H262"/><path d="M378 72 H390"/><path d="M506 72 H518"/>
+</g>
+<text x="320" y="130" font-size="12" text-anchor="middle" fill="var(--muted)">重要な内容ほど、右の手順まで進める</text>
+</svg><figcaption>出典を確かめる五つの手順の流れ</figcaption></figure>
+<h3>手順一：出典リンクを実際に開く</h3>
+<p>最初の一歩は単純で、出典のリンクを開くことです。回答を読んで「出典が付いているから大丈夫」と感じたとき、多くの人はここを飛ばしています。</p>
+<p>開いてみると、いくつかのことが分かります。ページが実際に存在するか、回答のテーマと関係のあるページか、広告だらけで中身が薄くないか。リンクを開くだけで、回答の信頼度の見当がだいぶ付きます。ページが開けない、あるいは全く関係のない話題のページだった場合は、その回答は使わずに、質問を変えてやり直したほうが早いでしょう。</p>
+<h3>手順二：回答の該当部分が、出典に書かれているかを見る</h3>
+<p>ページを開いたら、回答のうち自分が使いたい部分に絞って、出典の側に同じ内容が書かれているかを探します。ページ内検索で、回答に出てきた言葉を探すのが手軽です。</p>
+<p>見るべき点は、次のとおりです。</p>
+<ul><li>回答の文と同じ意味のことが、ページに書かれているか</li><li>「一部の場合」とページに書いてあるのに、回答では「いつでも」になっていないか</li><li>ページに書かれていない結論を、回答が付け足していないか</li></ul>
+<p>たとえば、手続きの条件を調べて「申請できる」という回答が返ってきたとします。出典のページを開くと、「ただし、一定の条件を満たす場合に限る」と書かれていた。回答だけを読んでいたら、条件を見落としたまま動いていたかもしれません。この種のずれは、ページの該当箇所を自分の目で読んだときにだけ見つかります。</p>
+<h3>手順三：出典の発行元と日付を見る</h3>
+<p>回答と出典が一致していても、そのページが誰のもので、いつ書かれたものかによって、価値は変わります。ページの上部や下部には、発行元(運営している組織や書き手)と、公開日や更新日が載っていることが多いので、そこを確認します。</p>
+<p>日付が見当たらないページは、情報が古くなっていても気づけません。制度、サービスの仕様、価格など、時間とともに変わる話題では、日付の分からないページに頼らないほうが安全です。発行元についても、運営者の情報がどこにも載っていないページは、慎重に扱います。種類ごとの見方は、後ろの表でまとめます。</p>
+<h3>手順四：重要な内容は、公的機関や公式サイトの一次情報で裏を取る</h3>
+<p>一次情報とは、その情報を最初に出した人や組織が、自分で公開している情報のことです。法律や制度なら所管する省庁や自治体のページ、サービスの仕様なら提供元の公式サイトがそれにあたります。</p>
+<p>AI検索が示した出典が、解説記事やまとめ記事だった場合、そこには書き手の解釈が入っています。レポートの根拠にする、申請や契約の判断に使う、といった重要な用途では、解説記事を読んだあとで、その元になった一次情報まで自分でたどります。出典の記事の中に、公的機関や公式サイトへのリンクがあれば、それが手がかりになります。</p>
+<h3>手順五：複数の出典を比べる</h3>
+<p>一つの出典だけで判断せず、別の発行元の出典と見比べます。複数の出典が同じことを言っていれば、確からしさは増します。逆に、出典同士で言っていることが食い違うなら、そこが確認すべき箇所です。</p>
+<p>注意したいのは、出典が複数あっても、実は一つの元ネタを写しただけの記事が並んでいる場合があることです。見た目の数だけで安心せず、元をたどると一つのページに行き着かないかを意識して見ます。食い違いが出たときの進め方は、<a href="/ai-kaitou-kuichigai/">AIの回答が食い違うときの確かめ方</a>にまとめています。</p>
+<h2>出典の種類別に見る、信頼度の見方</h2>
+<p>出典のリンク先がどんな種類のページかによって、確かめ方の強さを変えます。次の表は、種類ごとの見方の目安です。あくまで考え方の整理であり、種類だけで正しさが決まるわけではありません。</p>
+<div class="table-wrap"><table><thead><tr><th>出典の種類</th><th>向いている使い方</th><th>見るときの注意点</th></tr></thead><tbody><tr><td>公的機関のページ</td><td>制度・法令・統計など、決まりごとの確認</td><td>更新日を見る。古い版が残っていないか確かめる</td></tr><tr><td>企業の公式発表</td><td>その企業の製品・サービスの仕様や方針</td><td>自社に有利な書き方になりうる。最新の内容かを確かめる</td></tr><tr><td>報道(新聞・通信社・放送局)</td><td>出来事の経緯や、複数の立場の説明</td><td>速報と続報で内容が変わる。公開日と訂正の有無を見る</td></tr><tr><td>個人ブログ</td><td>実際に使った感想、つまずきの体験談</td><td>書き手の経験は一例にすぎない。仕様や制度の根拠には使わない</td></tr><tr><td>まとめサイト・広告記事</td><td>話題を知るきっかけ、候補を探す入口</td><td>販売や集客が目的の場合がある。必ず元の情報に当たる</td></tr></tbody></table></div>
+<p>表の読み方のコツは、「何に使うか」を先に決めることです。体験談がほしいなら個人ブログは役に立ちますし、制度の条件を確かめたいなら公的機関のページが基本になります。同じ出典でも、目的が違えば価値が変わります。</p>
+<h2>AI検索に頼むときの依頼文例</h2>
+<p>出典の確認は、AIに頼む文面を工夫することで、少し楽になります。出典の発行元と日付を回答の中に書いてもらえば、手順三の下調べが済んだ状態で読み始められます。</p>
+<p>次の文は、調べものを頼むときにそのまま使える例です。</p>
+<pre><code>〇〇について調べています。次の条件で答えてください。
+・出典ごとに、発行元の名前と、ページの公開日または更新日も書いてください。
+・日付が見つからない出典は「日付不明」と書いてください。
+・公的機関や提供元の公式サイトがあれば、それを優先してください。</code></pre>
+<p>もう一つは、AIが無理に答えをひねり出すのを防ぐための文です。</p>
+<pre><code>次の質問に、出典のページに書かれている内容だけをもとに答えてください。
+出典から確認できない部分は推測で埋めず、「分からない」または「出典からは確認できない」と書いてください。
+回答の各文について、どの出典に基づくかも分かるようにしてください。</code></pre>
+<p>こうした依頼をしても、書かれた発行元や日付が正しいとは限りません。依頼文は確認の手間を減らす補助であって、確認そのものの代わりにはなりません。AIが書いた発行元や日付も、出典ページを開いて見比べる習慣は変えないでください。</p>
+<h2>使い分け：速い調べものの入口に使い、決定や提出物は一次情報で</h2>
+<p>ここまでの内容を、使い方の方針にまとめます。出典つきのAI検索は、次のように使い分けると失敗が減ります。</p>
+<ul><li><strong>入口として使う場面</strong>：何を調べればよいか分からない、全体像を早くつかみたい、検索のキーワードを見つけたい</li><li><strong>一次情報で確認する場面</strong>：レポートや資料など提出物の根拠にする、お金や手続きの判断をする、他の人に伝えて動いてもらう</li></ul>
+<p>回答に出典のリンクが付く検索型のAIサービスとして、<strong>Perplexity</strong>があります。質問に対して文章で答えが返り、根拠となったページへのリンクが添えられる、という形のサービスです。入口として便利な反面、ここまで述べた確認は同じように必要です。機能や対応範囲といった詳細・最新の仕様は、公式サイトで確認してください。使い方の具体例は、<a href="/perplexity-kensaku-katsuyo/">Perplexityで検索が変わる活用術|次世代AI検索エンジン</a>も参考になります。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://www.perplexity.ai/" rel="sponsored nofollow noopener" target="_blank">Perplexity 公式サイトはこちら</a></div>
+<h2>検索連携のAIでも、確かめ方は同じ</h2>
+<p>また、Geminiなど、検索と連携して回答を作る仕組みを持つAIサービスにも、同様の仕組みがある場合があります。出典がどのように示されるか、示されないのかはサービスや使い方によって異なるため、ここでも公式の説明を読んだうえで、示された出典は自分で開いて確かめる、という流れは変わりません。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://gemini.google.com/" rel="sponsored nofollow noopener" target="_blank">Gemini 公式サイトはこちら</a></div>
+<p>選ぶ基準は「出典が付くかどうか」より、「出典を開いて確かめやすいか」です。リンクが見やすい位置にあるか、回答のどの部分がどの出典に対応しているか分かるか。自分が確認しやすい形のものを選ぶと、手順を続けやすくなります。</p>
+<p>どのサービスでも、最初に試すときは、自分が答えを知っている質問を1つ投げてみるのがおすすめです。答えが分かっていれば、回答と出典がどれくらい一致するのか、出典がどんな形で示されるのかを、落ち着いて見比べられます。何度か試すうちに、そのサービスの出典の見せ方の癖や、どこを重点的に確かめればよいかが分かってきます。</p>
+<h2>確認用チェックリスト</h2>
+<p>AI検索の回答を使う前に、次の項目を見直してください。すべてにチェックが付かなくても、重要な用途ほど多くを満たしてから使います。</p>
+<ul><li>出典のリンクを、実際に開いた</li><li>回答のうち使う部分が、出典のページに書かれていることを確かめた</li><li>「一部の場合」「条件つき」といった但し書きが、回答で抜け落ちていない</li><li>出典の発行元(誰のページか)を確認した</li><li>出典の公開日・更新日を確認し、古すぎないと判断した</li><li>広告記事やまとめサイトではないか、見分けた</li><li>重要な内容は、公的機関や公式サイトの一次情報で裏を取った</li><li>複数の出典を比べ、食い違いがないか見た</li><li>提出物や判断に使う内容は、一次情報を根拠に書いた</li></ul>
+<h2>まとめ</h2>
+<p>出典のリンクが付くAI検索は、調べものを早く始めるための、とても良い道具です。ただし、リンクが付いていることは、回答が正しいことの証拠ではありません。回答が出典と一致していないことも、出典のページが古かったり不正確だったりすることもあります。</p>
+<p>そこで、リンクを開く、該当部分を照らす、発行元と日付を見る、一次情報で裏を取る、複数の出典を比べる、という五つの手順を、内容の重要度に応じて進めます。入口として使うときは軽く、提出物や決定に使うときは一次情報まで。この線引きを意識しておけば、AI検索の速さを活かしながら、誤った情報に引きずられる場面を減らせます。</p>
+<section class="sources">
+<h2>参考リンク</h2>
+<ul><li><a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">Perplexity</a></li><li><a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Gemini</a></li></ul>
+</section>
+  </article>
+
+  <aside class="path-cta" aria-label="次の学び">
+    <span class="path-cta-kicker">Next step</span>
+    <div>
+      <h2>知ったことを、使える力に変える</h2>
+      <p>AIの仕組みや使い分けを理解したら、Petrichor Learningの「生成AI 実践コース」で手を動かして学べます。</p>
+    </div>
+    <a href="/learning/course/">生成AI 実践コースへ <span aria-hidden="true">→</span></a>
+  </aside>
+
+  <nav class="related" aria-label="関連記事">
+    <h2 class="section-head">関連記事</h2>
+    <p class="section-en">Related</p>
+    <ul>
+      <li>
+        <a href="https://petrichot.com/perplexity-kensaku-katsuyo/">
+          <span class="related-title">Perplexityで検索が変わる活用術|次世代AI検索エンジン</span>
+          <span class="related-cat">ツール比較</span>
+        </a>
+      </li>
+<li>
+        <a href="https://petrichot.com/ai-kensaku-perplexity-hikaku/">
+          <span class="related-title">AI検索は従来の検索と何が違う?</span>
+          <span class="related-cat">ツール比較</span>
+        </a>
+      </li>
+<li>
+        <a href="https://petrichot.com/ai-tsuyosa-ranking-2026-10/">
+          <span class="related-title">AIの強さランキング【2026年10月暫定】｜トップ集団の顔ぶれと見方</span>
+          <span class="related-cat">ツール比較</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    <p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></p>
+    <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
+    <p class="footer-network"><span>Petrichor：</span><a href="/shopping/">Shopping</a> ・ <a href="/">AI解説</a> ・ <a href="/learning/">Learning</a></p>
+    <p><a href="https://petrichot.com/about/">運営者情報</a> ・ <a href="https://petrichot.com/contact/">お問い合わせ</a> ・ <a href="https://petrichot.com/privacy/">プライバシーポリシー</a> ・ <a href="https://x.com/petrichot_ai" target="_blank" rel="noopener">X（@petrichot_ai）</a></p>
+    <p>&copy; 2026 AIツールの透視図</p>
+  </div>
+</footer>
+<script>
+(() => {
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const menu = document.getElementById("site-menu");
+  if (!toggle || !menu) return;
+  const setOpen = (open) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    menu.classList.toggle("is-open", open);
+  };
+  toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
+  });
+  menu.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>
