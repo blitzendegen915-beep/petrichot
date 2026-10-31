@@ -128,7 +128,7 @@ ChatGPTは、質問や依頼をテキストで入力するだけで、様々な�
 
 ## あわせて読みたい
 
-- [ChatGPTとClaudeを徹底比較|AI選びの完全ガイド](https://petrichot.com/chatgpt-vs-claude-hikaku/)
+- [ChatGPTとClaudeの選び方｜特徴の違いと試して決める手順](https://petrichot.com/chatgpt-vs-claude-hikaku/)
 - [AIへの指示文(プロンプト)の書き方基本ガイド](https://petrichot.com/prompt-no-kakikata-kihon/)
 
 ## 参考リンク
