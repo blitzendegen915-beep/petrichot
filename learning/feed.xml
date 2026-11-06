@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>ペトリコール・ラーニング</title>
+  <link>https://petrichot.com/learning/</link>
+  <description>AI時代のスキル学習を遠回りせずに。プログラミング・AI学習のロードマップとスクール比較</description>
+  <language>ja</language>
+  <item>
+    <title>生成AIにプログラミングの質問をするコツ</title>
+    <link>https://petrichot.com/learning/ai-de-manabu-shitsumon/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/ai-de-manabu-shitsumon/</guid>
+    <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <description>生成AIにプログラミングの質問をするときの伝え方を、状況の書き方、依頼文の型、答えの確かめ方、頼りすぎないための使い分けまで具体例つきで整理します。</description>
+    <category>学習ロードマップ</category>
+  </item>
+  <item>
+    <title>データ分析を学ぶ道筋｜表計算・SQL・Python</title>
+    <link>https://petrichot.com/learning/data-bunseki-roadmap/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/data-bunseki-roadmap/</guid>
+    <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <description>データ分析を表計算、SQL、Pythonの順に学ぶ道筋を解説。各道具で何ができるか、どの時点で次へ進むか、課題の立て方と確認のコツまで、初心者向けに整理します。</description>
+    <category>学習ロードマップ</category>
+  </item>
+  <item>
+    <title>プログラミング独学の最初の2週間でやること</title>
+    <link>https://petrichot.com/learning/dokugaku-mazu-nishuukan/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/dokugaku-mazu-nishuukan/</guid>
+    <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <description>プログラミングを独学で始める人向けに、最初の2週間の進め方を日ごとの目安ではなく段階で整理。道具の準備、教材の絞り込み、記録の付け方、迷ったときの判断までまとめます。</description>
+    <category>学習ロードマップ</category>
+  </item>
+  <item>
+    <title>英語のドキュメントを読むコツ｜IT学習者向け</title>
+    <link>https://petrichot.com/learning/eigo-document-yomu/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/eigo-document-yomu/</guid>
+    <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <description>IT学習で避けて通れない英語のドキュメントを、読む前の準備、構成の見方、頻出表現の拾い方、翻訳ツールやAIの使い分け、習慣づけまで、手順とともに解説します。</description>
+    <category>学習ロードマップ</category>
+  </item>
+  <item>
+    <title>教材を選ぶ観点｜書籍・動画・ブラウザ型の違い</title>
+    <link>https://petrichot.com/learning/kyouzai-erabi-kanten/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/kyouzai-erabi-kanten/</guid>
+    <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <description>書籍・動画講座・ブラウザ上で手を動かす学習サービスの特徴を、学び方の観点から比べます。自分の学習スタイルに合う教材の選び方と、試し方の手順を紹介します。</description>
+    <category>スクール比較</category>
+  </item>
+  <item>
+    <title>スクールの無料体験・相談で聞くこと</title>
+    <link>https://petrichot.com/learning/school-taiken-soudan-kiku-koto/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/school-taiken-soudan-kiku-koto/</guid>
+    <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <description>プログラミングスクールの体験や相談の場で、何を確かめれば後悔しにくいかを整理します。事前準備、質問リスト、当日の見方、断り方まで手順で紹介します。</description>
+    <category>スクール比較</category>
+  </item>
+  <item>
+    <title>Webのしくみを学ぶ順番｜HTML・CSS・JavaScript</title>
+    <link>https://petrichot.com/learning/web-no-shikumi-manabu-jun/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/web-no-shikumi-manabu-jun/</guid>
+    <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Webサイトが表示される仕組みを土台に、HTML、CSS、JavaScriptをどの順で学ぶかを解説。各言語の役割の違い、学習中のつまずき、小さな制作での確認方法をまとめます。</description>
+    <category>学習ロードマップ</category>
+  </item>
+  <item>
+    <title>AI・IT系の資格は取る意味があるか｜判断基準を整理する</title>
+    <link>https://petrichot.com/learning/ai-it-shikaku-hitsuyousei/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/ai-it-shikaku-hitsuyousei/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>G検定や基本情報技術者試験などのAI・IT資格について、取る価値がある場合とない場合を整理します。資格そのものではなく、自分に今それが必要かを見極める視点を解説します。</description>
+    <category>キャリア</category>
+  </item>
+  <item>
+    <title>未経験からAIスキルを身につけるロードマップ</title>
+    <link>https://petrichot.com/learning/ai-skill-roadmap-2026/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/ai-skill-roadmap-2026/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>AI初心者向けの体系的な学習ロードマップ。基礎から実践まで4段階で解説。必要なスキル、学習の進め方、実装経験まで網羅的にガイドします。</description>
+    <category>学習ロードマップ</category>
+  </item>
+  <item>
+    <title>独学とスクールどっちが向いてる?正直な比較</title>
+    <link>https://petrichot.com/learning/dokugaku-vs-school-hikaku/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/dokugaku-vs-school-hikaku/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>プログラミング学習は独学とスクールどちらが向いているのか。適性の見分け方、費用の考え方、挫折が起きる理由と、自分で判断するための手順を正直に整理しました。</description>
+    <category>スクール比較</category>
+  </item>
+  <item>
+    <title>学習が続かないのは意志が弱いからじゃない｜続く仕組みの作り方</title>
+    <link>https://petrichot.com/learning/gakushuu-tsuzuku-shikumi/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/gakushuu-tsuzuku-shikumi/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>学習が続かない原因を意志力の問題にせず、時間の確保・目標設定・環境づくりという仕組みの側面から見直します。今日から変えられる具体策を紹介します。</description>
+    <category>学習ロードマップ</category>
+  </item>
+  <item>
+    <title>生成AIを仕事で実際に活用できるスキルにする方法</title>
+    <link>https://petrichot.com/learning/generative-ai-shigoto-skill/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/generative-ai-shigoto-skill/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>ChatGPTやClaudeの基本的な使い方を超えて、仕事の生産性を高める生成AI活用スキルを身につけるための考え方と、段階的な学習の進め方を紹介します。</description>
+    <category>学習ロードマップ</category>
+  </item>
+  <item>
+    <title>未経験からのIT転職|現実的な道筋と必要な準備を徹底解説</title>
+    <link>https://petrichot.com/learning/mikeiken-it-tenshoku-genjitsu/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/mikeiken-it-tenshoku-genjitsu/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>IT業界への転職は短期間で簡単に実現するものではありません。現実的なロードマップと段階的な準備計画、スクール活用法を丁寧に解説します。</description>
+    <category>キャリア</category>
+  </item>
+  <item>
+    <title>プログラミングスクールの選び方｜失敗しない5つの基準</title>
+    <link>https://petrichot.com/learning/programming-school-erabikata/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/programming-school-erabikata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>プログラミングスクール選びで後悔しないために必須の5つの判断基準を解説。目的設定から卒業後サポートまで、失敗しない選び方のコツを紹介します。</description>
+    <category>スクール比較</category>
+  </item>
+  <item>
+    <title>Python学習の始め方｜最初の3ヶ月でやること</title>
+    <link>https://petrichot.com/learning/python-gakushuu-hajimekata/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/python-gakushuu-hajimekata/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Python初心者向けの実践的な学習ガイド。環境構築からライブラリまで、最初の3ヶ月で取り組むべき内容を段階的に、つまずきやすい点とあわせて解説します。</description>
+    <category>学習ロードマップ</category>
+  </item>
+  <item>
+    <title>生成AI時代に伸びるスキルと下がるスキル｜根拠から考える</title>
+    <link>https://petrichot.com/learning/seisei-ai-nobiru-sukiru/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/seisei-ai-nobiru-sukiru/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>生成AIの普及で価値が変わりつつあるスキルについて、不安を煽らず根拠を示しながら整理します。何が代替されやすく、何が残りやすいのかを冷静に見ていきます。</description>
+    <category>キャリア</category>
+  </item>
+  <item>
+    <title>忙しい社会人向けAI学び直し|無理なく続ける学習法</title>
+    <link>https://petrichot.com/learning/shakaijin-ai-manabinaoshi/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/shakaijin-ai-manabinaoshi/</guid>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+    <description>仕事と育児で忙しい社会人が、スキマ時間を活用してAIを学ぶ現実的な方法。動画学習や完璧主義を手放すコツ、続けやすいペース配分を解説します。</description>
+    <category>キャリア</category>
+  </item>
+  <item>
+    <title>無料で始めるプログラミング学習教材|有料への切り替えタイミングも解説</title>
+    <link>https://petrichot.com/learning/muryou-programming-kyouzai/</link>
+    <guid isPermaLink="true">https://petrichot.com/learning/muryou-programming-kyouzai/</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 GMT</pubDate>
+    <description>プログラミング学習を無料で始めるときの教材の種類と選び方、無料教材だけでは難しくなる場面、有料に切り替える目安を解説します。料金や無料範囲は公式サイトの確認が前提です。</description>
+    <category>学習ロードマップ</category>
+  </item>
+</channel>
+</rss>

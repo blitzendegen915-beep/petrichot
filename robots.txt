@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://petrichot.com/sitemap.xml
+Sitemap: https://petrichot.com/shopping/sitemap.xml
+Sitemap: https://petrichot.com/learning/sitemap.xml
