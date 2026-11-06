@@ -791,6 +791,8 @@ function loadArticles() {
       category,
       tags: data.tags || [],
       bodyHtml: wrapSourcesSection(renderMarkdown(body)),
+      // ASPのリンク(links.json の url)が入った広告を含むか。関連記事の並びに使う。
+      monetized: [...body.matchAll(AFF_RE)].some((m) => Boolean(LINKS[m[1]]?.url)),
       eyecatchSvg: generateEyecatch(data.slug, category),
       sourceFile: file,
     });
@@ -2366,6 +2368,9 @@ function findRelatedArticles(article, allArticles, limit = 3) {
     .map((a) => {
       let score = a.category === article.category ? 3 : 0;
       score += a.tags.filter((t) => article.tags.includes(t)).length;
+      // 関連があるもの(score > 0)の中でだけ、ASPの広告を含む記事を少し上に寄せる。
+      // 無関係な記事を収益のために差し込むことはしない。
+      if (score > 0 && a.monetized) score += 1;
       return { article: a, score };
     })
     .filter((x) => x.score > 0)
@@ -2421,6 +2426,20 @@ function renderLearningBridge() {
   </aside>`;
 }
 
+// ツール・業務系の記事の読者は、使う道具を探していることが多い。
+// 診断ページへ案内し、用途に合う候補と理由を見てもらう。
+function renderShindanBridge() {
+  return `
+  <aside class="path-cta" aria-label="ツール選び">
+    <span class="path-cta-kicker">Next step</span>
+    <div>
+      <h2>どのAIツールを使うか迷ったら</h2>
+      <p>用途についての質問にいくつか答えると、合いそうな候補と、そう判断した理由を表示します。入力した内容はどこにも送信しません。</p>
+    </div>
+    <a href="${SHINDAN_URL}">AIツール診断へ <span aria-hidden="true">→</span></a>
+  </aside>`;
+}
+
 function renderArticlePage(article, allArticles = []) {
   const url = articleUrl(article.slug);
   const ogImage = articleOgImage(article.slug);
@@ -2442,7 +2461,7 @@ function renderArticlePage(article, allArticles = []) {
     <div class="eyecatch-hero">${article.eyecatchSvg}</div>
     ${article.bodyHtml}
   </article>
-${renderLearningBridge()}
+${article.category === "AIをはじめて学ぶ" ? renderLearningBridge() : renderShindanBridge()}
 ${renderRelatedHtml(article, allArticles)}
 </main>`;
 
