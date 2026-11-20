@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="base-uri 'none'; object-src 'none'; form-action 'self'">
+<title>プログラミング独学の最初の2週間でやること | ペトリコール・ラーニング</title>
+<meta name="description" content="プログラミングを独学で始める人向けに、最初の2週間の進め方を日ごとの目安ではなく段階で整理。道具の準備、教材の絞り込み、記録の付け方、迷ったときの判断までまとめます。">
+<link rel="icon" href="https://petrichot.com/learning/static/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://petrichot.com/learning/static/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="https://petrichot.com/learning/static/apple-touch-icon.png">
+<link rel="canonical" href="https://petrichot.com/learning/dokugaku-mazu-nishuukan/">
+<meta property="og:title" content="プログラミング独学の最初の2週間でやること">
+<meta property="og:description" content="プログラミングを独学で始める人向けに、最初の2週間の進め方を日ごとの目安ではなく段階で整理。道具の準備、教材の絞り込み、記録の付け方、迷ったときの判断までまとめます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://petrichot.com/learning/dokugaku-mazu-nishuukan/">
+<meta property="og:site_name" content="ペトリコール・ラーニング">
+<meta property="og:image" content="https://petrichot.com/learning/static/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="プログラミング独学の最初の2週間でやること">
+<meta name="twitter:description" content="プログラミングを独学で始める人向けに、最初の2週間の進め方を日ごとの目安ではなく段階で整理。道具の準備、教材の絞り込み、記録の付け方、迷ったときの判断までまとめます。">
+<meta name="twitter:image" content="https://petrichot.com/learning/static/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"プログラミング独学の最初の2週間でやること","description":"プログラミングを独学で始める人向けに、最初の2週間の進め方を日ごとの目安ではなく段階で整理。道具の準備、教材の絞り込み、記録の付け方、迷ったときの判断までまとめます。","datePublished":"2026-10-31","author":{"@type":"Organization","name":"ペトリコール・ラーニング編集部"},"publisher":{"@type":"Organization","name":"ペトリコール・ラーニング"},"mainEntityOfPage":"https://petrichot.com/learning/dokugaku-mazu-nishuukan/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f3ea;
+  --surface: #ffffff;
+  --surface-2: #efe8d8;
+  --fg: #18140f;
+  --muted: #6b6357;
+  --accent: #ff4d23;
+  --accent-fg: #17130d;
+  --accent-soft: #ffe1d2;
+  --edu: #0f8f72;
+  --edu-fg: #ffffff;
+  --edu-soft: #d7f2e9;
+  --border: #e6dfcf;
+  --code-bg: #efe7d6;
+  --banner-bg: #fff1cf;
+  --banner-fg: #6b4a00;
+  --banner-border: #ecd79a;
+  --header-bg: rgba(247, 243, 234, 0.86);
+  --shadow: 0 10px 30px -12px rgba(24, 20, 15, 0.28);
+  --measure: 68ch;
+  --wide: 960px;
+  --eye-edu: var(--edu);
+  --eye-edu-soft: var(--edu-soft);
+  --eye-a: #0b5e8c;
+  --eye-a-soft: #dff0ff;
+  --eye-b: #7a5400;
+  --eye-b-soft: #fff0cf;
+  --eye-c: #a3213f;
+  --eye-c-soft: #ffe1e6;
+  --eye-d: #4c6a1f;
+  --eye-d-soft: #e6efd2;
+  --eye-e: #7a4420;
+  --eye-e-soft: #f0ded0;
+  --font-display: "Space Grotesk", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0d0b;
+    --surface: #17191a;
+    --surface-2: #1f2221;
+    --fg: #f2ede2;
+    --muted: #a29a8b;
+    --accent: #ff7a4a;
+    --accent-fg: #0c0d0b;
+    --accent-soft: #3a2015;
+    --edu: #2fe3ac;
+    --edu-fg: #06231a;
+    --edu-soft: #123328;
+    --border: #2a2c2a;
+    --code-bg: #1c1e1d;
+    --banner-bg: #2c2308;
+    --banner-fg: #f2d886;
+    --banner-border: #4c3d10;
+    --header-bg: rgba(12, 13, 11, 0.82);
+    --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    --eye-a: #7ecbff;
+    --eye-a-soft: #10314a;
+    --eye-b: #ffd873;
+    --eye-b-soft: #3a2c05;
+    --eye-c: #ff9db3;
+    --eye-c-soft: #3a1420;
+    --eye-d: #b7d67f;
+    --eye-d-soft: #26310f;
+    --eye-e: #e3b98a;
+    --eye-e-soft: #3a2818;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: #fff; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+img { max-width: 100%; height: auto; display: block; }
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  padding: 0.65rem 0.85rem;
+  border-radius: 4px;
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 700;
+}
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--header-bg);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.ecosystem-row {
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+.ecosystem-row .ecosystem-inner {
+  max-width: var(--wide);
+  min-height: 2.15rem;
+  margin: 0 auto;
+  padding: 0.25rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.ecosystem-label {
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.ecosystem-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.ecosystem-nav a {
+  color: var(--muted);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.ecosystem-nav a:hover,
+.ecosystem-nav a:focus-visible {
+  color: var(--accent);
+  background: var(--surface);
+}
+.ecosystem-nav a[aria-current="page"] {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.site-header .inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  min-width: 0;
+}
+.brand-mark {
+  flex-shrink: 0;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 7px;
+}
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.site-header .section-nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--muted);
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.site-header .section-nav a:hover,
+.site-header .section-nav a:focus-visible {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+@media (max-width: 640px) {
+  .ecosystem-row .ecosystem-inner {
+    justify-content: center;
+    padding-inline: 0.75rem;
+  }
+  .ecosystem-label { display: none; }
+  .ecosystem-nav {
+    width: 100%;
+    justify-content: center;
+  }
+  .ecosystem-nav a {
+    flex: 1 1 0;
+    text-align: center;
+    padding-inline: 0.4rem;
+  }
+  .site-header .inner {
+    padding: 0.72rem 1rem 0.8rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0.55rem;
+  }
+  .brand { width: 100%; }
+  .brand-text { font-size: 1rem; }
+  .site-header .section-nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .site-header .section-nav a {
+    margin-left: 0;
+    padding: 0.45rem 0.55rem;
+    font-size: 0.76rem;
+    text-align: center;
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--surface) 84%, transparent);
+  }
+}
+
+.disclosure-banner {
+  max-width: var(--wide);
+  margin: 1rem auto 0;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border: 1px solid var(--banner-border);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.disclosure-badge {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--banner-fg);
+  color: var(--banner-bg);
+  margin-top: 0.1rem;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+main.wide { max-width: var(--wide); }
+.learning-home { padding-top: 2.25rem; }
+.learning-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: clamp(1.5rem, 4vw, 3.25rem);
+  align-items: center;
+  padding: clamp(1.6rem, 4vw, 3rem);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.learning-kicker {
+  margin: 0 0 0.55rem;
+  color: var(--edu);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.learning-hero h1 {
+  max-width: 14em;
+  margin: 0;
+  font-size: clamp(2rem, 4.4vw, 3.6rem);
+  line-height: 1.25;
+}
+.learning-hero-lead {
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+.learning-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.35rem;
+}
+.learning-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--fg);
+  background: var(--surface);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.learning-button-primary {
+  border-color: var(--edu);
+  color: var(--edu-fg);
+  background: var(--edu);
+}
+.learning-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.learning-facts li {
+  margin: 0;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--bg);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.learning-course-card {
+  padding: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--edu) 35%, var(--border));
+  border-left: 5px solid var(--edu);
+  border-radius: 10px;
+  background: var(--edu-soft);
+}
+.learning-course-card span {
+  display: block;
+  color: var(--edu);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.learning-course-card strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+.learning-course-card p { margin: 0.65rem 0; color: var(--muted); font-size: 0.87rem; }
+.learning-course-card a { color: var(--edu); font-weight: 700; }
+.learning-articles { margin-top: clamp(3.5rem, 7vw, 5.5rem); scroll-margin-top: 8rem; }
+.learning-articles-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.learning-articles-head h2 {
+  margin: 0;
+  padding-left: 0;
+  border-left: 0;
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+}
+.learning-articles-head p { margin: 0; color: var(--muted); font-size: 0.85rem; }
+.course-bridge {
+  margin: 3rem 0 0;
+  padding: 1.35rem;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--edu);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.course-bridge .learning-kicker { margin-bottom: 0.4rem; }
+.course-bridge h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1.35rem;
+}
+.course-bridge h2::before { content: none; }
+.course-bridge p { margin: 0.6rem 0 1rem; color: var(--muted); }
+
+/* Petrichor共通ヘッダー: セクションをまたいでも同じメニュー操作にする。 */
+.site-header .inner { position: relative; min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.menu-toggle {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.7rem 0.45rem 0.85rem;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: inherit;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.menu-toggle:hover, .menu-toggle:focus-visible,
+.menu-toggle[aria-expanded="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.menu-toggle-icon { display: grid; gap: 4px; width: 1.1rem; }
+.menu-toggle-icon span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.site-menu {
+  position: absolute;
+  top: calc(100% - 0.1rem);
+  right: 0;
+  z-index: 30;
+  display: block !important;
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-0.35rem);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+}
+.site-menu.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+.site-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0.55rem 0.6rem;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.site-menu-nav { display: grid !important; gap: 0.25rem !important; }
+.site-menu-link {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 !important;
+  padding: 0.7rem 0.75rem !important;
+  color: var(--fg) !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  text-decoration: none;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+}
+.site-menu-link small { color: var(--muted); font-size: 0.72rem; font-weight: 500; }
+.site-menu-link:hover, .site-menu-link:focus-visible,
+.site-menu-link.is-current { color: var(--accent) !important; border-color: var(--border) !important; background: var(--accent-soft) !important; }
+.site-menu-link.is-current small { color: inherit; opacity: 0.8; }
+.site-menu-divider { height: 1px; margin: 0.55rem 0; background: var(--border); }
+@media (max-width: 640px) {
+  .site-header .inner { min-height: 4rem; }
+  .site-menu { right: 0; width: min(22rem, calc(100vw - 1.25rem)); }
+  .menu-toggle-label { display: none; }
+  .menu-toggle { width: 2.75rem; justify-content: center; padding-inline: 0.7rem; }
+}
+@media (max-width: 700px) {
+  .learning-hero { grid-template-columns: 1fr; }
+  .learning-actions .learning-button { width: 100%; }
+  .learning-articles-head { align-items: flex-start; flex-direction: column; }
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.15rem);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  margin: 0.6rem 0 1.1rem;
+}
+article { counter-reset: h2count; }
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 2.75rem 0 1.15rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--accent);
+}
+article h2::before {
+  counter-increment: h2count;
+  content: counter(h2count, decimal-leading-zero) " / ";
+  color: var(--accent);
+  opacity: 0.6;
+  font-size: 0.75em;
+  letter-spacing: 0.03em;
+}
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+}
+p { margin: 0 0 1.15rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.5rem; }
+ul > li::marker { color: var(--accent); }
+ol > li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 700; }
+blockquote {
+  position: relative;
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.4rem;
+  border-left: 4px solid var(--edu);
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.4rem 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.table-wrap th, .table-wrap td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table-wrap td { white-space: normal; min-width: 8em; }
+.table-wrap thead th {
+  background: var(--card-bg);
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+}
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.chip-tag { background: var(--surface-2); color: var(--muted); }
+.chip-cat { font-weight: 700; }
+.chip-edu { background: var(--edu-soft); color: var(--edu); }
+.chip-a { background: #dff0ff; color: #0b5e8c; }
+.chip-b { background: #fff0cf; color: #7a5400; }
+.chip-c { background: #ffe1e6; color: #a3213f; }
+.chip-d { background: #e6efd2; color: #4c6a1f; }
+.chip-e { background: #f0ded0; color: #7a4420; }
+@media (prefers-color-scheme: dark) {
+  .chip-a { background: #10314a; color: #7ecbff; }
+  .chip-b { background: #3a2c05; color: #ffd873; }
+  .chip-c { background: #3a1420; color: #ff9db3; }
+  .chip-d { background: #26310f; color: #b7d67f; }
+  .chip-e { background: #3a2818; color: #e3b98a; }
+}
+
+.article-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.article-meta time { font-family: var(--font-display); font-weight: 600; }
+
+.eyecatch-hero {
+  width: 100%;
+  height: clamp(120px, 26vw, 220px);
+  max-height: 220px;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 0 2.2rem;
+}
+
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.sources h2 {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.sources ul { padding-left: 1.3rem; }
+.sources li { margin-bottom: 0.5rem; }
+.sources a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+}
+.sources a:hover, .sources a:focus-visible { color: var(--accent); }
+.sources a[target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  opacity: 0.65;
+}
+
+.aff-cta {
+  margin: 2rem 0;
+  text-align: center;
+}
+.aff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 1rem 2.25rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.aff-btn::after { content: "\2192"; transition: transform 0.18s ease; }
+.aff-btn:hover, .aff-btn:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 18px 34px -14px var(--accent);
+}
+.aff-btn:hover::after { transform: translateX(3px); }
+.aff-btn:active { transform: translateY(-1px); }
+
+.article-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 700px) {
+  .article-grid { grid-template-columns: 1fr 1fr; }
+}
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+}
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+.article-card .card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--fg);
+  height: 100%;
+}
+.card-eyecatch {
+  width: 100%;
+  height: 132px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.card-eyecatch .eyecatch-svg,
+.eyecatch-hero .eyecatch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.article-card:hover .card-eyecatch .eyecatch-svg { transform: scale(1.03); }
+.card-eyecatch .eyecatch-svg { transition: transform 0.3s ease; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.1rem 1.4rem 1.5rem;
+  flex: 1;
+}
+.article-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.article-card .card-date {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.article-card h2 {
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+  margin: 0.2rem 0 0;
+  line-height: 1.55;
+}
+.article-card h2::before { content: none; }
+.article-card .desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding: 2rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.site-footer .inner { max-width: var(--wide); margin: 0 auto; }
+.site-footer p { margin: 0.35rem 0; }
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--accent); }
+.footer-ecosystem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.footer-ecosystem strong {
+  color: var(--fg);
+  font-family: var(--font-display);
+}
+.footer-ecosystem a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pb {
+  border: 2px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+.pb-head { display: flex; flex-direction: column; gap: 0.2rem; margin-bottom: 1rem; }
+.pb-head strong { font-family: var(--font-display); font-size: 1.02rem; }
+.pb-note { font-size: 0.76rem; color: var(--muted); }
+.pb-presets {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.pb-presets-label { font-size: 0.8rem; color: var(--muted); }
+.pb-preset {
+  font: inherit; font-size: 0.8rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+.pb-preset:hover { background: var(--accent-soft); }
+.pb-grid { display: grid; gap: 0.85rem; }
+@media (min-width: 640px) { .pb-grid { grid-template-columns: 1fr 1fr; } }
+.pb-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.pb-label { font-size: 0.82rem; font-weight: 700; }
+.pb-field textarea {
+  font: inherit; font-size: 0.9rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--bg);
+  color: var(--fg);
+  resize: vertical;
+}
+.pb-field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.pb-out-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 1.15rem 0 0.4rem;
+  font-size: 0.82rem; font-weight: 700;
+}
+.pb-copy {
+  font: inherit; font-size: 0.78rem; font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border: none; border-radius: var(--r);
+  background: var(--accent); color: var(--accent-fg);
+  cursor: pointer;
+}
+.pb-out {
+  white-space: pre-wrap; word-break: break-word;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.pb-out.is-empty { color: var(--muted); }
+
+/* --- コース --- */
+.cs-progress {
+  max-width: 760px; margin: 0 auto 2.5rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface);
+}
+.cs-rank { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+.cs-rank-badge {
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+  padding: 0.28rem 0.95rem; border-radius: 999px;
+  background: var(--accent); color: #fff;
+}
+.cs-rank-note { font-size: 0.82rem; color: var(--muted); }
+.cs-next-rank { margin: 0.3rem 0 0; font-size: 0.78rem; color: var(--accent); font-weight: 700; }
+.cs-bar { height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.cs-bar-fill { height: 100%; background: var(--accent); transition: width 0.3s ease; }
+.cs-progress-text { margin: 0.6rem 0 0; font-size: 0.85rem; font-weight: 700; }
+.cs-start {
+  display: inline-flex;
+  margin-top: 0.8rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  background: var(--edu);
+  color: var(--edu-fg);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.cs-reset {
+  margin-top: 0.4rem; font: inherit; font-size: 0.76rem;
+  background: none; border: none; padding: 0;
+  color: var(--muted); text-decoration: underline; cursor: pointer;
+}
+.cs-chapter { max-width: 760px; margin: 0 auto 3rem; }
+.cs-summary { color: var(--muted); margin-bottom: 1.2rem; }
+.cs-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.cs-item a {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface);
+  text-decoration: none; color: inherit;
+}
+.cs-item a:hover { border-color: var(--accent); }
+.cs-n {
+  flex-shrink: 0; width: 1.9rem; height: 1.9rem;
+  display: grid; place-items: center; border-radius: 50%;
+  background: var(--surface-2); color: var(--muted);
+  font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+}
+.cs-body { flex: 1; display: flex; flex-direction: column; gap: 0.15rem; }
+.cs-title { font-weight: 700; }
+.cs-meta { font-size: 0.76rem; color: var(--muted); }
+.cs-check { flex-shrink: 0; width: 1.2rem; color: var(--accent); font-weight: 700; }
+.cs-item.is-done .cs-n { background: var(--accent); color: #fff; }
+.cs-item.is-done .cs-check::after { content: "✓"; }
+.cs-note {
+  max-width: 760px; margin: 0 auto; padding-bottom: 3rem;
+  font-size: 0.8rem; color: var(--muted);
+}
+
+/* --- 各回 --- */
+.lesson { max-width: 720px; margin: 0 auto; padding-top: 1.5rem; }
+.ls-crumb { font-size: 0.82rem; margin-bottom: 0.5rem; }
+.ls-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+.ls-done { margin: 3rem 0 1rem; text-align: center; }
+.ls-done-btn {
+  font: inherit; font-weight: 700;
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--accent); border-radius: 999px;
+  background: transparent; color: var(--accent); cursor: pointer;
+}
+.ls-done-btn.is-done { background: var(--accent); color: #fff; }
+.ls-done-btn:disabled { border-color: var(--border); color: var(--muted); cursor: not-allowed; }
+.ls-done-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; }
+.ls-nav {
+  max-width: 720px; margin: 0 auto 4rem;
+  display: flex; justify-content: space-between; gap: 1rem;
+  font-size: 0.85rem;
+}
+.ls-nav a { max-width: 48%; }
+
+/* --- 確認問題 --- */
+.qz {
+  border: 2px solid var(--border); border-radius: 10px;
+  background: var(--surface); padding: 1.25rem; margin: 2rem 0;
+}
+.qz-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.8rem; }
+.qz-text { font-weight: 700; margin: 0 0 0.7rem; }
+.qz-num {
+  display: inline-block; margin-right: 0.5rem;
+  font-family: var(--font-display); color: var(--accent);
+}
+.qz-opts { display: grid; gap: 0.45rem; }
+.qz-opt {
+  font: inherit; text-align: left;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: var(--bg); color: var(--fg); cursor: pointer;
+}
+.qz-opt:hover:not(:disabled) { border-color: var(--accent); }
+.qz-opt:disabled { cursor: default; }
+.qz-opt.is-correct { border-color: var(--accent); background: var(--accent-soft); font-weight: 700; }
+.qz-opt.is-wrong { opacity: 0.55; text-decoration: line-through; }
+.qz-explain {
+  margin: 0.6rem 0 0; padding: 0.6rem 0.85rem;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-2);
+  font-size: 0.88rem; line-height: 1.8;
+}
+.qz-score {
+  margin: 1.5rem 0 0; padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  text-align: center; font-family: var(--font-display); font-weight: 700;
+}
+.qz-actions { margin: 0.7rem 0 0; text-align: center; }
+.qz-retry {
+  font: inherit; font-size: 0.8rem;
+  background: none; border: none; padding: 0;
+  color: var(--muted); text-decoration: underline; cursor: pointer;
+}
+.qz-retry:hover { color: var(--accent); }
+
+figure.diagram { margin: 2rem 0; }
+figure.diagram svg { width: 100%; height: auto; display: block; }
+figure.diagram figcaption {
+  margin-top: 0.6rem; font-size: 0.8rem; color: var(--muted); text-align: center;
+}
+
+.policy-page { max-width: 720px; margin: 0 auto; padding: 2rem 0 4rem; }
+.policy-page h1 { margin-bottom: 1.5rem; }
+.policy-page h2 { margin-top: 2.2rem; font-size: 1.15rem; }
+.policy-page p, .policy-page li { color: var(--muted); line-height: 1.9; }
+
+.site-footer .footer-disclosure {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/learning/">
+      <img class="brand-mark" src="/learning/static/favicon.svg" alt="" width="25" height="25">
+      <span class="brand-text">ペトリコール・ラーニング</span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="メニュー" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-toggle-label">メニュー</span>
+      <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <nav class="site-menu" id="site-menu" aria-label="サイトメニュー">
+      <div class="site-menu-header"><span>サイトメニュー</span><span>Petrichor</span></div>
+      <div class="site-menu-nav">
+        <a class="site-menu-link" href="/shopping/"><span>Shopping</span><small>選ぶ</small></a>
+        <a class="site-menu-link" href="/"><span>AI解説</span><small>理解する</small></a>
+        <a class="site-menu-link is-current" href="/learning/" aria-current="page"><span>Learning</span><small>学ぶ</small></a>
+      </div>
+      <div class="site-menu-divider"></div>
+      <div class="site-menu-nav">
+        <a class="site-menu-link" href="/learning/#articles"><span>記事一覧</span><small>読む</small></a>
+        <a class="site-menu-link" href="/learning/course/"><span>講座で学ぶ</span><small>実践する</small></a>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="disclosure-banner"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></div>
+
+<main id="main">
+  <article>
+    <h1>プログラミング独学の最初の2週間でやること</h1>
+    <div class="article-meta">
+      <time datetime="2026-10-31">2026-10-31</time>
+      <span class="chip chip-cat chip-a">学習ロードマップ</span>
+      <span class="chip chip-tag">独学</span><span class="chip chip-tag">初心者</span><span class="chip chip-tag">学習計画</span>
+    </div>
+    <div class="eyecatch-hero"><svg class="eyecatch-svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="200" fill="var(--eye-a-soft)"/><circle cx="251.6" cy="102.5" r="20.0" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.35"/><circle cx="251.6" cy="102.5" r="41.2" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.30"/><circle cx="251.6" cy="102.5" r="63.9" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.25"/><circle cx="251.6" cy="102.5" r="88.7" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.20"/><circle cx="251.6" cy="102.5" r="99.3" fill="none" stroke="var(--eye-a)" stroke-width="2.5" stroke-opacity="0.15"/></svg></div>
+    <p>プログラミングの独学は、最初の2週間で「続けられる形」ができるかどうかが大きな分かれ目になります。この時期に何を学ぶかより、どう進めるかを決めておくほうが、後の学習が安定しやすいからです。</p>
+<p>この記事では、言語や分野を問わず使える「最初の2週間の進め方」を整理します。特定の言語の学習順序は<a href="/learning/python-gakushuu-hajimekata/">Python学習の始め方｜最初の3ヶ月でやること</a>で扱っているので、ここでは言語選びの手前にある、準備と習慣づくりに絞ります。</p>
+<h2>最初の2週間のゴールと、学ぶ目的を決める</h2>
+<p>最初の2週間で目指すのは、スキルの習得ではありません。「毎回、迷わず学習を始められる状態」を作ることです。文法を一通り覚えたり、作品を完成させたりといった成果は、この時期のゴールにしないほうが無理がありません。</p>
+<p>ゴールを成果ではなく状態で置くのには理由があります。独学の初期は、教材の選び方や環境の整え方でつまずきやすく、成果を求めると焦りが生まれます。焦りは、教材を次々に乗り換える行動につながり、結局どれも中途半端になります。</p>
+<p>2週間の終わりに確認したい状態を、次のように言葉にしておきましょう。</p>
+<ul><li>学習する時間帯と場所が決まっている</li><li>使う教材が一つか二つに絞られている</li><li>画面の前で最初に開くものが決まっている</li><li>分からないことを調べる手順がある</li><li>学んだことを残す場所がある</li></ul>
+<p>この五つがそろっていれば、2週間は成功と考えて問題ありません。逆に、内容が進んでいても、この五つがぐらついているなら、まだ土台づくりの途中です。進み具合を他の人と比べず、自分の状態だけを見るようにします。</p>
+<p>学習が続く仕組みそのものについては、<a href="/learning/gakushuu-tsuzuku-shikumi/">学習が続かないのは意志が弱いからじゃない｜続く仕組みの作り方</a>が詳しいので、あわせて読むと全体像がつかめます。</p>
+<p>学ぶ目的の書き出しも、この時期にやっておきたい作業です。</p>
+<p>2週間の最初の作業は、手を動かす前に「何のために学ぶのか」を一文で書くことです。目的が曖昧なまま始めると、教材を選ぶ基準がなく、途中で何を優先すべきか判断できません。</p>
+<p>目的は立派である必要はありません。次のような、小さな言い方で十分です。</p>
+<ul><li>仕事で使う表計算を自動化できるようになりたい</li><li>自分の趣味のサイトを作ってみたい</li><li>将来、開発の仕事に就く選択肢を持っておきたい</li><li>AIを使った作業の中身を理解したい</li></ul>
+<p>書いた一文は、紙でも端末のメモでも構いません。見える場所に置き、迷ったときに読み返します。目的が「仕事にしたい」なのか「理解したい」なのかで、必要な学習の深さも変わるからです。</p>
+<p>また、目的は後で変わっても問題ありません。書き直すたびに日付を添えておくと、自分が何に興味を持ち始めたのかを後から振り返れます。最初に決めたことに縛られる必要はない、という前提で書くと気が楽になります。</p>
+<p>目的と教材の相性を考えるときは、次の表が役に立ちます。</p>
+<div class="table-wrap"><table><thead><tr><th>目的の方向</th><th>最初に触れるとよいもの</th><th>注意点</th></tr></thead><tbody><tr><td>作業の自動化</td><td>表計算の関数、簡単なスクリプト</td><td>自分の仕事の流れを先に書き出す</td></tr><tr><td>Webサイトを作る</td><td>HTMLとCSSの基礎</td><td>見た目の完成度にこだわりすぎない</td></tr><tr><td>仕事にしたい</td><td>基礎文法と小さな制作</td><td>職種の違いを早めに知っておく</td></tr><tr><td>仕組みを理解したい</td><td>入門書や動画での概観</td><td>手を動かす時間も確保する</td></tr></tbody></table></div>
+<p>この表は一例です。自分の目的に近い行を見つけて、最初の教材選びの手がかりにしてください。</p>
+<h2>道具と学習環境を整える</h2>
+<p>目的が決まったら、次は道具です。ここで凝りすぎると、肝心の学習が始まる前に疲れてしまいます。最小限の準備で始めて、必要になった時点で足していく方針が現実的です。</p>
+<p>最低限そろえたいものは、ブラウザが使えるパソコン、文字を書き込めるメモの場所、そして集中できる時間帯です。専用の高性能な機材は、最初の2週間には必要ありません。ブラウザ上で動く学習サービスなら、手元に複雑な設定をしなくても学習を始められます。</p>
+<p>たとえばProgateは、ブラウザで学べる形式の学習サービスです。スライドで解説を読み、画面上で書いて試す形で進むため、環境構築を後回しにしたい人に向いている場合があります。コースの内容や料金、無料で使える範囲は変わることがあるため、公式サイトでご確認ください。</p>
+<div class="aff-cta"><a class="aff-btn" href="https://prog-8.com/" rel="sponsored nofollow noopener" target="_blank">Progate 公式サイトはこちら</a></div>
+<p>教材を選ぶときに気をつけたいのは、一度に複数を並行しないことです。書籍、動画、学習サービスを少しずつ試したくなりますが、最初の2週間は一つに絞り、それを一周する経験を優先します。合わないと感じた場合でも、数日は続けてから判断すると、教材の問題なのか自分の慣れの問題なのかが見分けやすくなります。</p>
+<p>なお、パソコンの安全な使い方、たとえばパスワードの管理やソフトウェアの更新といった基本は、IPAなどの公的機関が公開している情報で確認できます。学習用の端末を整えるときに、一度目を通しておくと安心です。</p>
+<h2>一日の流れを固定して、記録を残す</h2>
+<p>道具がそろったら、学習の流れを固定します。毎日同じ順番で進めると、始めるときの心理的な負担が小さくなります。内容を考えずに済むからです。</p>
+<p>おすすめの流れは、次の三段階です。</p>
+<ol><li>前回の記録を読み返す</li><li>新しい内容を学び、手を動かして試す</li><li>分かったことと分からなかったことを書き残す</li></ol>
+<p>この流れを、短い時間でも毎日繰り返します。長い時間を週末にまとめて取るより、短い時間を毎日重ねるほうが、前回の内容を忘れにくく、再開の負担も小さくなります。</p>
+<p>記録は、きれいにまとめる必要はありません。次の書き方で十分です。</p>
+<pre><code>日付:
+やったこと:
+できたこと:
+分からなかったこと:
+次にやること:</code></pre>
+<p>「分からなかったこと」の欄は特に大切です。ここに書いた疑問は、後で調べるときの出発点になります。調べて解決したら、答えもその欄の下に書き足しておきましょう。2週間たつと、自分専用の小さな参考書ができあがります。</p>
+<p>記録を続けると、停滞した時期にも役立ちます。何日か空いてしまったとき、最後に書いたメモが再開の入口になるからです。記録は、学習を続ける仕組みであると同時に、自分を励ます材料にもなります。</p>
+<h2>分からないときの調べ方と質問の仕方</h2>
+<p>独学では、分からないことに自分で向き合う場面が出てきます。ここで止まってしまうと、学習全体が止まります。調べ方の手順をあらかじめ決めておくと、迷う時間を減らせます。</p>
+<p>基本の手順は、次のとおりです。</p>
+<div class="table-wrap"><table><thead><tr><th>順番</th><th>やること</th><th>ねらい</th></tr></thead><tbody><tr><td>1</td><td>エラー文や疑問をそのまま読む</td><td>問題の場所を特定する</td></tr><tr><td>2</td><td>教材の該当箇所を読み返す</td><td>見落としを減らす</td></tr><tr><td>3</td><td>検索や公式の説明で調べる</td><td>別の説明を得る</td></tr><tr><td>4</td><td>生成AIに質問する</td><td>言い換えを得る</td></tr><tr><td>5</td><td>記録に残して、先へ進む</td><td>立ち止まりすぎない</td></tr></tbody></table></div>
+<p>最後の行が大切です。調べても解決しないことも出てきます。そのときは、いったんメモを残して先へ進み、後で戻ってくる判断も必要です。後から理解が追いつくこともあります。</p>
+<p>生成AIに質問するときは、状況をできるだけ具体的に伝えると、答えの質が上がります。依頼文の一例を挙げます。</p>
+<pre><code>プログラミング初心者です。次のコードを実行すると、下のエラーが出ます。
+原因を、初心者にも分かる言葉で説明してください。
+直し方は、すぐに答えを書かず、ヒントから順に出してください。
+
+(コード)
+(エラーメッセージ)</code></pre>
+<p>答えを最初から求めず、ヒントを段階的に出してもらうと、自分で考える力が育ちます。AIの回答は誤りを含む場合があるため、動作を自分で確かめる習慣も合わせて持っておきましょう。</p>
+<h2>2週間後の振り返りと次の一歩</h2>
+<p>2週間が過ぎたら、一度立ち止まって振り返ります。ここで見直すのは、内容の進み具合ではなく、最初に決めた五つの状態がそろっているかどうかです。</p>
+<p>振り返りのチェック項目を挙げます。</p>
+<ul><li>学習する時間帯は、実際に守れたか</li><li>教材は絞れているか、乗り換えたくなっていないか</li><li>記録は続いているか</li><li>疑問を放置せず、調べる手順を使えたか</li><li>最初に書いた目的は、今も変わらないか</li></ul>
+<p>守れなかった項目があっても、落ち込む必要はありません。原因を探して、翌週の設計を直すだけで十分です。たとえば時間帯が守れなかったなら、時間を動かすのではなく、学習を始めるきっかけ（椅子に座る、端末を開くなど）を決め直します。</p>
+<p>振り返りで状態が整っていると感じたら、次の段階に進めます。具体的には、扱う言語や分野を一つ選び、小さな成果物を作ることです。有料の講座やスクールを検討するタイミングについては、<a href="/learning/dokugaku-vs-school-hikaku/">独学とスクールどっちが向いてる?正直な比較</a>で判断の軸を整理しています。</p>
+<h2>まとめ</h2>
+<p>プログラミング独学の最初の2週間は、内容より土台づくりを優先する期間です。ここまでの流れを、振り返りやすい形に整理します。</p>
+<ul><li>ゴールは成果ではなく、毎回迷わず始められる状態に置く</li><li>学ぶ目的を一文で書き、迷ったときの基準にする</li><li>道具は最小限にして、教材は一つか二つに絞る</li><li>一日の流れと記録の形を固定し、分からないことも書き残す</li><li>調べる手順を決め、AIに聞くときは状況を具体的に伝える</li><li>2週間後は、進度ではなく土台がそろったかを見直す</li></ul>
+<p>この進め方は、進度の速さを競うものではありません。自分が続けられる形を見つけることが、独学の長い道のりでいちばん大切です。うまくいかない項目があれば、自分を責めずに設計を直せば十分です。焦らずに、まずは今日の学習を始めましょう。</p>
+<p>最初の2週間でつまずいたとしても、それは能力の問題ではなく、準備や設計の問題であることがほとんどです。記録を読み返し、どこで止まったのかを確かめれば、次の週の直し方が見えてきます。完璧な計画よりも、小さく始めて少しずつ直していく姿勢のほうが、独学には合っています。</p>
+<section class="sources">
+<h2>参考リンク</h2>
+<ul><li>https://prog-8.com/</li><li>https://www.ipa.go.jp/</li></ul>
+</section>
+    
+    <aside class="course-bridge" aria-labelledby="course-bridge-title">
+      <p class="learning-kicker">Practice next</p>
+      <h2 id="course-bridge-title">読んだ内容を、無料講座で試してみる</h2>
+      <p>全10回・約74分。登録不要で、進捗はこの端末のブラウザだけに保存されます。</p>
+      <a class="learning-button learning-button-primary" href="/learning/course/">生成AI 実践コースを始める</a>
+    </aside>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    <nav class="footer-ecosystem" aria-label="ペトリコール内のサービス">
+      <strong>Petrichor</strong>
+      <a href="/shopping/">Shopping</a>
+      <a href="/">AI解説</a>
+      <a href="/learning/" aria-current="page">Learning</a>
+    </nav>
+    <p class="footer-disclosure"><span class="disclosure-badge">PR</span><span>※本記事にはプロモーション(アフィリエイト広告)が含まれています。</span></p>
+    <p>本サイトの情報は正確性に努めていますが、内容を保証するものではありません。掲載の商品・サービスの詳細は必ず公式サイトでご確認ください。</p>
+    <p><a href="https://petrichot.com/learning/about/">運営者情報</a> ・ <a href="https://petrichot.com/learning/contact/">お問い合わせ</a> ・ <a href="https://petrichot.com/learning/privacy/">プライバシーポリシー</a></p>
+    <p>&copy; 2026 ペトリコール・ラーニング</p>
+  </div>
+</footer>
+<script>
+(() => {
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const menu = document.getElementById("site-menu");
+  if (!toggle || !menu) return;
+  const setOpen = (open) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    menu.classList.toggle("is-open", open);
+  };
+  toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
+  });
+  menu.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>
